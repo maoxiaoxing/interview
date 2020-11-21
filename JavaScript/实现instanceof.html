@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const my_instanceof = function(left, right) {
+      let left_proto = left.__proto__
+      const right_prototype = right.prototype
+
+      while(true) {
+        if (left_proto === null) return false
+        if (left_proto === right_prototype) return true
+
+        left_proto = left_proto.__proto__
+      }
+    }
+
+    function Person(name) {
+      this.name = name
+    }
+
+    const p1 = new Person('毛小星')
+
+    console.log([] instanceof Object)
+    console.log(my_instanceof([], Object))
+
+    console.log(new String(1) instanceof Object)
+    console.log(p1 instanceof Person)
+    console.log(my_instanceof(p1, Person))
+  </script>
+</body>
+</html>
