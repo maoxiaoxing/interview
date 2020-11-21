@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const tree = {
+            key: '第一层-1',
+            children: [
+                {
+                    key: '第二层-1-1',
+                    children: [
+                        {
+                            key: '第三层-1-1',
+                            children: [],
+                        },
+                        {
+                            key: '第三层-1-2',
+                            children: [],
+                        }
+                    ]
+                },
+                {
+                    key: '第二层-2-1',
+                    children: [
+                        {
+                            key: '第三层-2-1',
+                            children: [],
+                        }
+                    ]
+                },
+                {
+                    key: '第二层-3-1',
+                    children: [
+                        {
+                            key: '第三层-3-1',
+                            children: [],
+                        }
+                    ]
+                },
+            ]
+        }
+
+        let widthTraversal2 = (node) => {
+            let nodes = []
+            let queue = []
+            if (node) {
+                queue.push(node)
+                while (queue.length) {
+                let item = queue.shift()
+                let children = item.children
+                nodes.push(item)
+                    // 队列，先进先出
+                    // nodes = [] queue = [parent]
+                    // nodes = [parent] queue = [child1,child2,child3]
+                    // nodes = [parent, child1] queue = [child2,child3,child1-1,child1-2]
+                    // nodes = [parent,child1,child2]
+                for (let i = 0; i < children.length; i++) {
+                    queue.push(children[i])
+                }
+                }
+            }
+            return nodes
+        }
+
+        console.log(widthTraversal2(tree), '广度优先搜索非递归实现')
+
+        let widthTraversal3 = (node, nodes = []) => {
+            let queue = []
+            let i = 0
+            nodes.push(node)
+            const children = node.children
+            while(i < children.length) {
+                queue.push(children[i])
+                nodes.push(children[i])
+                i++
+            }
+            for(let j = 0; j < queue.length; j++) {
+                widthTraversal3(queue[j], nodes)
+            }
+
+            return nodes
+        }
+
+        console.log(widthTraversal3(tree))
+    </script>
+</body>
+</html>

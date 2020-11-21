@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // // 第一种，利用let的块级作用域的特性
+        // for (let i = 0; i< 10; i++){
+        //     setTimeout(() => {
+        //         console.log(i);
+        //     }, 1000)
+        // }
+
+        // // 第二种，利用一个立即执行函数构建出块级作用域
+        // for (var i = 0; i< 10; i++){
+        //     ((j) => {
+        //         setTimeout(() => {
+        //         console.log(j);
+        //         }, 1000)
+        //     })(i)
+        // }
+
+        // // 第三种，利用setTimeout的第三个参数，实际上setTimeout可以传无数个参数，有兴趣的可以单独看看
+        // for (var i = 0; i< 10; i++){
+        //     setTimeout((i) => {
+        //         console.log(i);
+        //     }, 1000,i)
+        // }
+
+        // 第四种，利用bind特性
+        for (var i = 0; i < 10; i++) {
+            setTimeout(console.log.bind(Object.create(null), i), 1000)
+        }
+
+    </script>
+</body>
+</html>

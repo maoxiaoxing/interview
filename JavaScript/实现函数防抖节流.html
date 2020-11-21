@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html,body {
+            height: 500%;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">点击我</button>
+    
+    <script>
+        function debounce(fn, delay) {
+            let timer = null
+
+            return function() {
+                clearTimeout(timer)
+                timer = setTimeout(function() {
+                    fn.call(this)
+                }, delay)
+            }
+        }
+
+        const btn = document.getElementsByClassName('btn')[0]
+        btn.onclick = debounce(function() {
+            console.log('我是毛小星')
+        }, 2000)
+
+        function throttle(fn, delay) {
+            let pre = 0
+            return function() {
+                const now = Date.now()
+                if (now - pre > delay) {
+                    fn.call(this)
+                    pre = now
+                }
+            }
+        }
+
+        document.onscroll = throttle(function() {
+            console.log('事件执行了')
+        },2000)
+    </script>
+</body>
+</html>

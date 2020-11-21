@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        Array.prototype.my_map = function(fn, context) {
+
+            let resArr = []
+            const me = this
+
+            const ctx = context ? context : this
+
+            if (typeof fn !== 'function') {
+                throw new Error(`${fn} is not a function`)
+            }
+
+            me.forEach((item, index) => {
+                resArr.push(fn.call(ctx, item, index, me))
+            })
+
+            return resArr
+        }
+
+        const arr = [1,2,3]
+        const arr1 = [4,5,6]
+
+        const newArr = arr.my_map(function(item, index, _arr) {
+            console.log(this, item, index, _arr)
+            return item * 2
+        }, arr1)
+
+        console.log(newArr)
+    </script>
+</body>
+</html>

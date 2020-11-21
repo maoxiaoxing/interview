@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const arr1 = [1,4,5,8,12,16,18]
+
+        function binarySearch(arr, num) {
+            let len = arr.length
+            let leftIndex = 0
+            let rightIndex = len - 1
+
+            while(leftIndex <= rightIndex) {
+                let mid = Math.floor((leftIndex + rightIndex)/2)
+                if(num === arr[mid]) {
+                    return mid
+                } else if (num > arr[mid]) {
+                    leftIndex = mid + 1
+                } else {
+                    rightIndex = mid - 1
+                }
+            }
+            return -1
+        }
+
+        console.log(binarySearch(arr1, 12))
+    </script>
+</body>
+</html>

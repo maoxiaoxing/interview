@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组去重</title>
+</head>
+<body>
+    
+<script>
+    
+    const arr = [1,2,3,6,8,2,9,5,6,4,9]
+
+    // 1.第一种方法 利用es6中的Set()去重特性
+    // function uniq(arr) {
+    //     return [...new Set(arr)]
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+    // 2.第二种方法 利用includes或者indexOf
+    // function uniq(arr) {
+    //     const temp = []
+    //     arr.forEach(item => {
+    //         return temp.includes(item) ? '' : temp.push(item)
+    //     })
+    //     return temp
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+    // 3.第三种方法 暴力双循环
+    // function uniq(arr) {
+    //     const temp = []
+    //     for(let i  = 0; i < arr.length; i++) {
+    //         let repeat = false
+    //         for (let j  = 0; j < temp.length; j++) {
+    //             if (arr[i] === temp[j]) {
+    //                 repeat = true
+    //                 break
+    //             }
+    //         }
+
+    //         if(!repeat) {
+    //             temp.push(arr[i])
+    //         }
+    //     }
+    //     return temp
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+    // 4.第四种方法 排序后处理
+    // function uniq(arr) {
+    //     const temp = []
+    //     const sortArr = arr.sort()
+    //     for(let i  = 0; i < sortArr.length; i++) {
+    //         if (sortArr[i] !== sortArr[i+1]) {
+    //             temp.push(sortArr[i])
+    //         }
+    //     }
+    //     return temp
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+    // 5.第五种方法 splice改变原数组
+    // function uniq(arr) {
+    //     for(let i = 0; i < arr.length; i++) {
+    //         for(let j = i+1; j < arr.length; j++) {
+    //             if (arr[i] === arr[j]) {
+    //                 arr.splice(j, 1)
+    //                 j--
+    //             }
+    //         }
+    //     }
+    //     return arr
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+    // 5.第五种方法 利用对象 速度快但是耗费内存
+    // function uniq(arr) {
+    //     const temp = []
+    //     const obj = {}
+    //     for(let i = 0; i < arr.length; i++) {
+    //         if (!obj[arr[i]]) {
+    //             obj[arr[i]] = true
+    //             temp.push(arr[i])
+    //         }
+    //     }
+    //     return temp
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+    // 6.第六种方法 利用reduce
+    // function uniq(arr) {
+    //     return arr.reduce((pre, cur, arr1) => pre.includes(cur) ? pre : [...pre,cur],[])
+    // }
+    // const resultArr1 = uniq(arr)
+    // console.log(resultArr1)
+
+
+</script>
+</body>
+</html>

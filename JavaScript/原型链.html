@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    console.log(Array.prototype.isPrototypeOf(new Array))
+
+    function Person(name, age, hobby) {
+      this.hobby = hobby
+      this.name = name
+      this.age = age
+      // return {
+      //   name,
+      //   age,
+      // }
+    }
+
+    const p1 = new Person('毛小星', 25)
+
+    console.log(p1)
+    // console.log(Person.prototype.constructor)
+    // console.log(p1.__proto__ === Person.prototype)
+    // console.log(p1.__proto__ === Object.prototype)
+    // console.log(Person.prototype.__proto__ === Object.prototype)
+    // console.log(Object.prototype.constructor.prototype.constructor)
+    console.log(Object.prototype.__proto__)
+  </script>
+</body>
+</html>
