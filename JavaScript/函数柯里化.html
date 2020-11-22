@@ -13,13 +13,22 @@
             (...arguments) => currying(fn, ...args, ...arguments) :
             fn(...args)
         }
+
+
+        const curry = (fn) => curryFn = (...args) => args.length < fn.length ? (...rest) => curryFn(...[...args, ...rest]) : fn(...args)
             
 
-const addAll = (a,b,c) => a+b+c
+        const addAll = (a,b,c) => a+b+c
 
-const add = currying(addAll)
+        // const add = currying(addAll)
 
-console.log(add(1)(2)(3))
+        // console.log(add(1)(2)(3))
+
+        const add1 = curry(addAll)
+        console.log(add1(1, 2, 3))
+        console.log(add1(1)(2)(3))
+        console.log(add1(1, 2)(3))
+        console.log(add1(1)(2, 3))
     </script>
 </body>
 </html>

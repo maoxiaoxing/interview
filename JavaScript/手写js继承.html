@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+
+    function Father(name, age) {
+      this.name = name
+      this.age = age
+      this.hobby = ['抽烟', '喝酒', '烫头']
+      this.eat = function(food) {
+        console.log(`${this.name}吃了${food}`)
+      }
+    }
+    Father.prototype.setAge = function(age) {
+      this.age = age
+    }
+
+    // 1. 原型链继承
+    // function Son(name, age) {
+    //   this.name = name
+    //   this.age = age
+    // }
+    // Son.prototype = new Father()
+
+    // const s1 = new Son('jack', 10)
+    // const s2 = new Son('benjamin', 12)
+    // s1.hobby.push('听相声')
+
+    // s1.setAge(18)
+    // console.log(s1)
+    // console.log(s2)
+
+
+    //-------------------------------------------------------------
+    // 2. 构造函数继承
+    // function Son(name, age) {
+    //   Father.call(this)
+    //   this.name = name
+    //   this.age = age
+    // }
+    // const s1 = new Son('jack', 10)
+    // const s2 = new Son('benjamin', 12)
+    // s1.hobby.push('听相声')
+
+    // s1.setAge(18)
+    // console.log(s1)
+    // console.log(s2)
+
+    //--------------------------------------------------------------
+    // 3. 组合式继承
+    // function Son(name, age) {
+    //   Father.call(this)
+    //   this.name = name
+    //   this.age = age
+    // }
+    // Son.prototype = new Father()
+    // const s1 = new Son('jack', 10)
+    // const s2 = new Son('benjamin', 12)
+    // s1.hobby.push('听相声')
+
+    // s1.setAge(18)
+    // console.log(s1)
+    // console.log(s2)
+
+    //-----------------------------------------------------------
+    // 4. 组合式继承2
+    // function Son(name, age) {
+    //   Father.call(this)
+    //   this.name = name
+    //   this.age = age
+    // }
+    // Son.prototype = Father.prototype
+    // const s1 = new Son('jack', 10)
+    // const s2 = new Son('benjamin', 12)
+    // s1.hobby.push('听相声')
+
+    // s1.setAge(18)
+    // console.log(s1)
+    // console.log(s2)
+
+    // 5. 寄生组合式继承
+    function Son(name, age) {
+      Father.call(this)
+      this.name = name
+      this.age = age
+    }
+    Son.prototype = Object.create(Father.prototype)
+    Son.prototype.constructor = Son
+    const s1 = new Son('jack', 10)
+    const s2 = new Son('benjamin', 12)
+    s1.hobby.push('听相声')
+
+    s1.setAge(18)
+    console.log(s1)
+    console.log(s2)
+console.log(Object.create(Father.prototype))
+  </script>
+</body>
+</html> -->
