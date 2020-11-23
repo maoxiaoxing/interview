@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const test = function(age, sex, hobby) {
+      console.log(this.name, age, sex, hobby)
+    }
+
+    const person = {
+      name: '毛小星'
+    }
+
+    var name = '杨小A'
+
+    // test(23, '女', '听相声')
+    // const testFn = test.bind(person)
+    // testFn(25, '男', '打篮球')
+
+    // t1 = new testFn(20, '男', 'maoxiaoxing')
+    // console.log(t1)
+
+
+    Function.prototype.my_bind = function(otherThis) {
+      if (typeof this !== "function") {
+          throw new Error(`${this} is not a function`)
+      }
+
+      const args = Array.from(arguments).slice(1)
+
+      const FToBind = this
+      const FNOP = function() {}
+
+      const FBind = function() {
+        const allArgs = args.concat(Array.from(arguments))
+        const context = this instanceof FNOP ? this : otherThis
+        return FToBind.apply(context, allArgs)
+      }
+
+      FNOP.prototype = this.prototype
+      FBind.prototype = new FNOP() // 原型链继承
+
+      return FBind
+    }
+
+    const testFn = test.my_bind(person)
+    testFn(25, '男', '打篮球')
+
+    t1 = new testFn(20, '男', 'maoxiaoxing')
+    console.log(t1)
+  </script>
+</body>
+</html>
