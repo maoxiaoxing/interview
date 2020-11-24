@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul class="event-ul">
+    <li>
+      <span>1111111111111111</span>
+    </li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+  <script>
+    const eventUl = document.querySelector('.event-ul')
+    eventUl.addEventListener('click', function(e) {
+      target = e.target
+      console.log(target, '外面的')
+      while(target !== eventUl) {
+        if (target.tagName.toLowerCase() === 'li') {
+          console.log(e.target)
+          break
+        }
+        target = target.parentNode
+      }
+      
+    })
+  </script>
+</body>
+</html>
