@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    Promise.myAllSettled = function(promises) {
+      return new Promise((resolve, reject) => {
+        if (!Array.isArray(promises)) {
+          reject(new Error(`${promises} is not Array`))
+        }
+
+        const result = []
+        promises.forEach((promise, index) => {
+          Promise.resolve(promise).then((value) => {
+            const obj = {
+              value: value,
+              status: 'fullfilled',
+            }
+            result[index] = obj
+            if (result.length === promises.length) {
+              return resolve(result)
+            }
+          }, (reason) => {
+            const obj = {
+              value: reason,
+              status: 'rejected',
+            }
+            result[index] = obj
+            if (result.length === promises.length) {
+              return reject(obj)
+            }
+          })
+        })
+      })
+    }
+
+    const promise1 = new Promise((resolve, reject) => {
+      reject('err')
+    })
+    const promises = [1, 2, 'aa', promise1, 'cc']
+    const obj = {}
+
+    Promise.myAllSettled(promises).then((res) => {
+      console.log(res)
+    })
+
+  </script>
+</body>
+</html>
