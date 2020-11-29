@@ -1,0 +1,18 @@
+<script>
+  // 1
+  // var transpose = function(A) {
+  //   const res = Array.from({length: A[0].length}, () => [])
+  //   A.forEach((item) => {
+  //     item.forEach((sub, inx) => {
+  //       res[inx].push(sub)
+  //     }) 
+  //   })
+  //   return res
+  // };
+
+  // 2
+  var transpose = function(A) {
+    const res = Array.from({length: A[0].length}, (item, inx) => A.map((a) => a[inx]))
+    return res
+  };
+</script>
