@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const root = [1,null,2,3]
+
+    console.log(root.left)
+    const inorderTraversal = (root) => {
+      const res = [];
+      const inorder = (root) => {
+        if (root == null) {
+          return;
+        }
+        inorder(root.left);
+        res.push(root.val);
+        inorder(root.right);
+      };
+      inorder(root);
+      return res;
+    };
+
+    console.log(inorderTraversal(root))
+
+  </script>
+</body>
+</html>
