@@ -11,7 +11,7 @@
     let k = 0
     while(k < len) {
       const item = cb.call(ctx, arr[k], k, arr)
-      res.push(item)
+      res[k] = item
       k++
     }
     return res
