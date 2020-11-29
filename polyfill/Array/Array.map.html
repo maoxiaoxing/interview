@@ -1,0 +1,23 @@
+<script>
+  Array.prototype.my_map = function(cb, context) {
+    if (typeof cb !== 'function') {
+      throw new Error(`${cb} is not a function`)
+    }
+
+    const arr = this
+    const ctx = context ? context : this
+    const res = []
+    const len = arr.length
+    let k = 0
+    while(k < len) {
+      const item = cb.call(ctx, arr[k], k, arr)
+      res.push(item)
+      k++
+    }
+    return res
+  }
+
+  const arr = [1,2,3]
+  const res = arr.my_map((item) => item + 1)
+  console.log(res)
+</script>
