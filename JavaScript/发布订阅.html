@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    class MyEvent {
+      constructor() {}
+      handlers = {}
+
+      $on(type, fn) {
+        if (!Reflect.has(this.handlers, type)) {
+          this.handlers[type] = []
+        }
+        this.handlers[type].push(fn)
+      }
+
+      $emit(type, ...params) {
+        if (!Reflect.has(this.handlers, type)) {
+          throw new Error(`未注册该事件${type}`)
+        }
+        this.handlers[type].forEach((fn) => {
+          fn(...params)
+        })
+      }
+
+      $remove(type, fn) {
+        if (!Reflect.has(this.handlers, type)) {
+          throw new Error(`无效事件${type}`)
+        }
+        if (!fn) {
+          return Reflect.deleteProperty(this.handlers, type)
+        } else {
+          const inx = this.handlers[type].findIndex((handler) => handler === fn)
+          if (inx === -1) {
+            throw new Error('无效事件')
+          }
+          this.handlers[type].splice(inx, 1)
+          if (!this.handlers[type].length) {
+            return Reflect.deleteProperty(this.handlers, type)
+          }
+        }
+      }
+    }
+
+    const myEvent = new MyEvent()
+
+    const add = (a,b,c) => {
+      console.log(a,b,c)
+    }
+    const a1 = (a) => {
+      console.log(a)
+    }
+
+    myEvent.$on('add', add)
+    myEvent.$on('add', a1)
+
+    myEvent.$emit('add', 1, 2, 3)
+    console.log(myEvent)
+    console.log(myEvent.$remove('add', add))
+  </script>
+</body>
+</html>
