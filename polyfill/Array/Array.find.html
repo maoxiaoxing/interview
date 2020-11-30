@@ -1,0 +1,28 @@
+<script>
+  Array.prototype.my_find = function(cb, otherThis) {
+    if (typeof cb === 'function') {
+      `${cb} is not a function`
+    }
+
+    const arr = this
+    const len = arr.length
+    let k = 0
+    while(k < len) {
+      const value = arr[k]
+      if (cb.call(otherThis, value, k, arr)) {
+        return value
+      }
+      k++
+    }
+
+    return undefined
+  }
+
+  const arr = [
+    { name: '毛小星', value: 'k1' },
+    { name: '杨小A', value: 'k2' },
+  ]
+
+  const person = arr.my_find((item) => item.value === 'k1')
+  console.log(person)
+</script>
