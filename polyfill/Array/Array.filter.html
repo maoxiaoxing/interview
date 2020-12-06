@@ -1,0 +1,28 @@
+<script>
+  Array.prototype.my_filter = function(cb, otherThis) {
+    if (typeof cb !== 'function') {
+      throw new Error(`${cb} is not a function`)
+    }
+
+    const arr = this
+    const ctx = otherThis ? otherThis : arr
+    const len = arr.length
+    const res = []
+
+    let i = 0
+    while(i < len) {
+      const item = cb.call(ctx, arr[i], i, arr)
+      if (item) {
+        res.push(arr[i])
+      }
+      i++
+    }
+
+    return res
+  }
+
+  const arr = [1,2,3,4,5,6]
+
+  const res = arr.my_filter((item) => item > 3)
+  console.log(res)
+</script>                                                                                      

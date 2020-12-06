@@ -1,0 +1,42 @@
+<script>
+  const nums1 = [1,2,3, 8]
+  const nums2 = [2,5,6]
+  function margeArray(arr1, arr2) {
+    const res = []
+    let i = 0
+    let k = 0
+    const arr1len = arr1.length
+    const arr2len = arr2.length
+    while(i < arr1len) {
+        if (arr1[i] < arr2[k]) {
+            res.push(arr1[i])
+            i++
+        } else {
+            res.push(arr2[k])
+            k++
+        }
+    }
+    if (arr2[k + 1]) {
+      res.concat(arr2.slice(k+1, arr2len))
+    }
+    return res
+}
+const res = margeArray(nums1, nums2)
+console.log(res)
+
+// const pro = new Promise((resolve, reject) => {
+//     const innerpro = new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(1);
+//         }, 0);
+//         console.log(2);
+//         resolve(3);
+//     });
+//     innerpro.then(res => console.log(res));
+//     resolve(4);
+//     console.log('pro');
+// })
+// pro.then(res => console.log(res));
+// console.log('end');
+
+</script>
