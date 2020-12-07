@@ -1,0 +1,24 @@
+<script>
+  // 数组中占比超过一半的元素称之为主要元素。给定一个整数数组，找到它的主要元素。若没有，返回-1。
+
+  var majorityElement = function(nums) {
+    const count = {}
+    const len = nums.length
+
+    nums.forEach((item) => {
+      if (!count[item]) {
+        count[item] = 0
+      }
+      count[item]++
+    })
+
+    const temp = len / 2
+
+    for (const index in count) {
+      if (count[index] > temp) {
+        return index
+      }
+    }
+    return -1
+  };
+</script>
