@@ -1,0 +1,51 @@
+<script>
+  // 给定一个按非递减顺序排序的整数数组 A，返回每个数字的平方组成的新数组，要求也按非递减顺序排序。
+  // 思路： 双指针
+
+  var sortedSquares = function(nums) {
+    const len = nums.length
+
+    let start = 0
+    let end = len - 1
+    const res = []
+
+    for(let i = len - 1; i >= 0; i--) {
+      let sItem = Math.pow(nums[start], 2)
+      let eItem = Math.pow(nums[end], 2)
+
+      if (sItem > eItem) {
+        res[i] = sItem
+        start++
+      } else {
+        res[i] = eItem
+        end--
+      }
+    }
+
+    return res
+  }
+
+  // var sortedSquares = function(nums) {
+  //   const len = nums.length
+
+  //   let start = 0
+  //   let end = len - 1
+  //   const res = []
+
+  //   while(start <= end) {
+  //     let sItem = Math.pow(nums[start], 2)
+  //     let eItem = Math.pow(nums[end], 2)
+
+  //     if (sItem > eItem) {
+  //       res.unshift(sItem)
+  //       start++
+  //     } else {
+  //       res.unshift(eItem)
+  //       end--
+  //     }
+  //   }
+  //   return res
+  // }
+
+  console.log(sortedSquares([-4,-1,0,3,10]))
+</script>
