@@ -1,0 +1,63 @@
+<script>
+// 给定一个整型数组，在数组中找出由三个数组成的最大乘积，并输出这个乘积。
+
+// 示例 1:
+
+// 输入: [1,2,3]
+// 输出: 6
+// 示例 2:
+
+// 输入: [1,2,3,4]
+// 输出: 24
+
+
+// 1.
+// var maximumProduct = function(nums) {
+//   nums.sort((a, b) => a - b)
+//   const len = nums.length
+//   let res1 = 1
+//   let res2 = 1
+//   for(let i = 1; i <= 3; i++) {
+//     res1 *= nums[len - i]
+//   }
+//   res2 = nums[0] * nums[1] * nums[len - 1]
+//   return Math.max(res1, res2)
+// }
+
+// 2.
+var maximumProduct = function(nums) {
+  const len = nums.length
+  if (len === 3) {
+    return nums[0] * nums[1] * nums[2]
+  }
+
+  let first = -Infinity
+  let second = -Infinity
+  let third = -Infinity
+  let min1 = Infinity
+  let min2 = Infinity
+
+  for(let i = 0; i < len; i++) {
+    if (nums[i] > first) {
+      third = second
+      second = first
+      first = nums[i]
+    } else if(nums[i] > second) {
+      third = second
+      second = nums[i]
+    } else if (nums[i] > third) {
+      third = nums[i]
+    }
+
+    if (min1 > nums[i]) {
+      min2 = min1
+      min1 = nums[i]
+    } else if (min2 > nums[i]) {
+      min2 = nums[i]
+    }
+  }
+  return Math.max(first * second * third, min1 * min2 * first)
+}
+
+console.log(maximumProduct([1,2,3,4]))
+</script>
