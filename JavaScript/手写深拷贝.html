@@ -1,0 +1,43 @@
+<script>
+
+  const deepCopy = function(obj, map = new WeakMap()) {
+    if (obj === null) return obj
+    if (obj instanceof RegExp) return new RegExp(obj)
+    if (obj instanceof Date) return new Date(obj)
+    if (typeof obj !== 'object') return obj
+
+    if (map.has(obj)) return map.get(obj)
+
+    const res = new obj.constructor()
+
+    map.set(obj, res)
+    
+    for(const i in obj) {
+      res[i] = deepCopy(obj[i], map)
+    }
+    return res
+  }
+
+  const obj = {
+    name: 'maoxiaoxing',
+    age: 25,
+    sex: '男',
+    hobby: ['打篮球', '写代码', '陪女朋友逛街', '打游戏'],
+    girlFriend: {
+      name: 'yangxiaoA',
+      age: 23,
+      sex: '女',
+      hobby: ['宅', '旅游', '打游戏'],
+      test: null,
+    },
+    reg: /$1/,
+    test: null,
+  }
+
+  const copyObj = deepCopy(obj)
+  copyObj.test = '333'
+  copyObj.girlFriend.test = '333'
+  console.log(copyObj, obj)
+
+
+</script>
