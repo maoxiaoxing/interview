@@ -1,0 +1,97 @@
+<script>
+  function Person() {
+    return {
+      name: 'maoxiaoxing'
+    }
+  }
+
+  const bool = true
+  const str = ''
+  const symbol = Symbol()
+  const num = 2
+  const bigInt = BigInt(78787979079797)
+  const mNull = null
+  const mUndefined = undefined
+  const arr = []
+  const obj = {}
+  const set = new Set()
+  const map = new Map()
+  const weakSet = new WeakSet()
+  const weakMap = new WeakMap()
+  const regExp = new RegExp()
+  const date = new Date()
+  const div = document.createElement('div')
+  const span = document.createElement('span')
+  const func = function() {}
+  const arrowFunc = () => {}
+  const proxy = new Proxy({}, () => {})
+  const mClass = new class {}
+  const promise = new Promise(() => {})
+  const mNumber = Number('1')
+  const person = new Person()
+  const buf = new ArrayBuffer(16)
+
+  console.log(typeof bool, 'bool')
+  console.log(typeof str, 'str')
+  console.log(typeof symbol, 'symbol')
+  console.log(typeof num, 'num')
+  console.log(typeof bigInt, 'bigInt')
+  console.log(typeof mNull, 'mNull')
+  console.log(typeof mUndefined, 'mUndefined')
+  console.log(typeof arr, 'arr')
+  console.log(typeof obj, 'obj')
+  console.log(typeof set, 'set')
+  console.log(typeof map, 'map')
+  console.log(typeof weakSet, 'weakSet')
+  console.log(typeof weakMap, 'weakMap')
+  console.log(typeof regExp, 'regExp')
+  console.log(typeof date, 'date')
+  console.log(typeof div, 'div')
+  console.log(typeof span, 'span')
+  console.log(typeof func, 'func')
+  console.log(typeof arrowFunc, 'arrowFunc')
+  console.log(typeof proxy, 'proxy')
+  console.log(typeof Reflect, 'Reflect')
+  console.log(typeof mClass, 'mClass')
+  console.log(typeof promise, 'promise')
+  console.log(typeof mNumber, 'mNumber')
+  console.log(typeof person, 'person')
+  console.log(typeof buf, 'buf')
+
+
+
+  function getType(param) {
+    return Object.prototype.toString.call(param)
+  }
+
+  console.log(getType(bool), 'bool')
+  console.log(getType(str), 'str')
+  console.log(getType(symbol), 'symbol')
+  console.log(getType(num), 'num')
+  console.log(getType(bigInt), 'bigInt')
+  console.log(getType(mNull), 'mNull')
+  console.log(getType(mUndefined), 'mUndefined')
+  console.log(getType(arr), 'arr')
+  console.log(getType(obj), 'obj')
+  console.log(getType(set), 'set')
+  console.log(getType(map), 'map')
+  console.log(getType(weakSet), 'weakSet')
+  console.log(getType(weakMap), 'weakMap')
+  console.log(getType(regExp), 'regExp')
+  console.log(getType(date), 'date')
+  console.log(getType(div), 'div')
+  console.log(getType(span), 'span')
+  console.log(getType(func), 'func')
+  console.log(getType(arrowFunc), 'arrowFunc')
+  console.log(getType(proxy), 'proxy')
+  console.log(getType(Reflect), 'Reflect')
+  console.log(getType(mClass), 'mClass')
+  console.log(getType(promise), 'promise')
+  console.log(getType(mNumber), 'mNumber')
+  console.log(getType(person), 'person')
+  console.log(getType(buf), 'buf')
+
+
+
+
+</script>
