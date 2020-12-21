@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      display: flex;
+      justify-content: flex-start;
+      width: 300px;
+      height: 300px;
+      flex-wrap: wrap;
+      flex-direction: row;
+      flex-shrink: 1.5;
+    }
+    .item {
+      width: 100px;
+      height: 100px;
+    }
+    .item1 {
+      background: red;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item2 {
+      background: yellow;
+    }
+    .item3 {
+      background: yellowgreen;
+    }
+    .item4 {
+      background: blue;
+    }
+    .item5 {
+      background: pink;
+    }
+    .item6 {
+      width: 200px;
+      background: orchid;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item item1">1</div>
+    <div class="item item2"></div>
+    <div class="item item3"></div>
+    <div class="item item4"></div>
+    <div class="item item5"></div>
+    <div class="item item6">
+      <div class="inner1"></div>
+      <div class="inner1"></div>
+      <div class="inner1"></div>
+    </div>
+  </div>
+</body>
+</html>
