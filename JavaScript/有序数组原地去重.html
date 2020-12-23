@@ -14,4 +14,12 @@
   }
 
   console.log(unique(arr))
+
+  function unique1(array) {
+    return array.filter((item, index, arr1) => {
+      return arr1.indexOf(item) === index
+    })
+  }
+
+  console.log(unique1(arr))
 </script>
