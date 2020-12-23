@@ -30,6 +30,10 @@
   const mNumber = Number('1')
   const person = new Person()
   const buf = new ArrayBuffer(16)
+  const numObj = new Number(0)
+  const error = new Error()
+  const toStringTag = { [Symbol.toStringTag]: "A" }
+  const o2 = { [Symbol.toStringTag]: null }
 
   console.log(typeof bool, 'bool')
   console.log(typeof str, 'str')
@@ -57,6 +61,7 @@
   console.log(typeof mNumber, 'mNumber')
   console.log(typeof person, 'person')
   console.log(typeof buf, 'buf')
+  console.log(typeof numObj, 'numObj')
 
 
 
@@ -90,6 +95,16 @@
   console.log(getType(mNumber), 'mNumber')
   console.log(getType(person), 'person')
   console.log(getType(buf), 'buf')
+  console.log(getType(numObj), 'numObj')
+  console.log(getType(1), '1')
+  console.log(getType((function() {
+    return arguments
+  })()), 'arguments')
+  console.log(error, 'error')
+  console.log(toStringTag, 'toStringTag')
+  console.log(o2, 'o2')
+
+
 
 
 
