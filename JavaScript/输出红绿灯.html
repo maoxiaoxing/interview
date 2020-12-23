@@ -1,0 +1,15 @@
+<script>
+  function fn() {
+    console.log('绿灯')
+    setTimeout(() => {
+      console.log('黄灯')
+      setTimeout(() => {
+        console.log('红灯')
+        setTimeout(() => {
+          fn()
+        }, 2000)
+      }, 2000)
+    }, 2000)
+  }
+  fn()
+</script>
