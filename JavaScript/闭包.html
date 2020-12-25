@@ -5,12 +5,12 @@ function invoke() {
     fn();
 }
 function fn() {
-    alert(a, 'fn');
-    var a = 300
+    alert(a + ' fn');
+    // var a = 300
     fn1()
 }
 function fn1() {
-  alert(a, 'fn1')
+  alert(a + ' fn1')
 }
 invoke(fn);
 
@@ -19,11 +19,11 @@ var a = 100;
 function create() {
     var a = 200;
     return function() {
-        alert(a);
+        alert(a + ' create');
     }
 }
-var fn = create();
-fn();
+var fn2 = create();
+fn2();
 
 
 </script>
