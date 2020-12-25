@@ -1,0 +1,15 @@
+<script>
+  const object = {
+    a: 1
+  }
+
+  function fn(obj) {
+    obj.a = 2
+    obj.b = 3
+    obj = {a: 3}
+    obj.c = 1
+  }
+
+  fn(object)
+  console.log(object)
+</script>
