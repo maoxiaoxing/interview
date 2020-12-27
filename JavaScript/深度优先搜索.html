@@ -36,6 +36,22 @@ const tree = {
   ]
 }
 
+const depthFirst1 = function(treeData, nodes = []) {
+  if (treeData) {
+    nodes.push(treeData)
+
+    if (treeData.children && treeData.children.length) {
+      treeData.children.forEach((item) => {
+        depthFirst1(item, nodes)
+      })
+    }
+  }
+
+  return nodes
+}
+
+console.log(depthFirst1(tree))
+
 const depthFirst = function(treeData) {
   if (treeData === null) return treeData
 
