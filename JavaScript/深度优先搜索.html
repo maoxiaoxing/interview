@@ -1,0 +1,59 @@
+<script>
+const tree = {
+  key: '第一层-1',
+  children: [
+      {
+          key: '第二层-1-1',
+          children: [
+              {
+                  key: '第三层-1-1',
+                  children: [],
+              },
+              {
+                  key: '第三层-1-2',
+                  children: [],
+              }
+          ]
+      },
+      {
+          key: '第二层-2-1',
+          children: [
+              {
+                  key: '第三层-2-1',
+                  children: [],
+              }
+          ]
+      },
+      {
+          key: '第二层-3-1',
+          children: [
+              {
+                  key: '第三层-3-1',
+                  children: [],
+              }
+          ]
+      },
+  ]
+}
+
+const depthFirst = function(treeData) {
+  if (treeData === null) return treeData
+
+  const stack = []
+  const nodes = []
+  stack.push(treeData)
+  while(stack.length) {
+    const temp = stack.pop()
+    const children = temp.children
+    nodes.push(temp)
+    if (children.length) {
+      for (let i = children.length - 1; i >= 0; i--) {
+        stack.push(children[i])
+      }
+    }
+  }
+  return nodes
+}
+
+console.log(depthFirst(tree))
+</script>
