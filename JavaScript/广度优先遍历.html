@@ -1,0 +1,61 @@
+<script>
+  
+const tree = {
+  key: '第一层-1',
+  children: [
+      {
+          key: '第二层-1-1',
+          children: [
+              {
+                  key: '第三层-1-1',
+                  children: [],
+              },
+              {
+                  key: '第三层-1-2',
+                  children: [],
+              }
+          ]
+      },
+      {
+          key: '第二层-2-1',
+          children: [
+              {
+                  key: '第三层-2-1',
+                  children: [],
+              }
+          ]
+      },
+      {
+          key: '第二层-3-1',
+          children: [
+              {
+                  key: '第三层-3-1',
+                  children: [],
+              }
+          ]
+      },
+  ]
+}
+
+const bfs = function(node) {
+  if (node === null) return node
+
+  const queue = []
+  const nodes = []
+  queue.push(node)
+
+  while(queue.length) {
+    const temp = queue.shift()
+    const children = temp.children
+
+    nodes.push(temp)
+
+    for(let i = 0; i < children.length; i++) {
+      queue.push(children[i])
+    }
+  }
+  return nodes
+}
+
+console.log(bfs(tree))
+</script>
