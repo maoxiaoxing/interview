@@ -1,0 +1,17 @@
+<script>
+
+  const arr = [1, [1, 2, 3], [4, [5, 6], 7], 8, [9, [10, [11, [12], 13]]]]
+
+  function flat(array) {
+    return array.reduce((pre, item) => {
+      if (Array.isArray(item)) {
+        return pre.concat(flat(item))
+      } else {
+        return pre.concat(item)
+      }
+    }, [])
+  }
+
+  console.log(flat(arr))
+
+</script>
