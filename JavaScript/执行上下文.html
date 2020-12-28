@@ -1,0 +1,18 @@
+<script>
+  var name = 'king'
+  const person1 = {
+    name: 'maoxiaoxing',
+    eat: function() {
+      console.log(this.name)
+    }
+  }
+
+  const person2 = {
+    name: 'yangxiaoA',
+    eat: () => {
+      console.log(this.name)
+    }
+  }
+
+  person1.eat.bind(person2, 'benjamin')()
+</script>
