@@ -1,0 +1,14 @@
+<script src="./手写promise.js"></script>
+<script>
+  const promise = new myPromise((resolve, reject) => {
+    resolve('123')
+  })
+  promise.then((res) => {
+    console.log(res)
+    return new myPromise((re) => {
+      re(1)
+    })
+  }).then((res) => {
+    console.log(res)
+  })
+</script>
