@@ -34,8 +34,15 @@
 
   MyPromise.resolve(22).then((res) => {
     console.log(res, 'catch1')
-    return new Error()
+    throw new Error()
   }).catch((err) => {
     console.log(err, 'catch2')
+  })
+
+  const p1 = new MyPromise((resolve, reject) => {
+    reject('cc')
+  })
+  p1.catch((err) => {
+    cosole.log(err, 'err')
   })
 </script>
