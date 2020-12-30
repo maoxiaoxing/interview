@@ -67,7 +67,7 @@ class MyPromise {
           } catch(err) {
             reject(err)
           }
-        })
+        }, 0)
       } else if(this.status === REJECTED) { // 如果当前状态是失败
         setTimeout(() => {
           try {
@@ -76,7 +76,7 @@ class MyPromise {
           } catch(err) {
             reject(err)
           }
-        })
+        }, 0)
       } else {
         // 如果当前状态是 pending，证明 then 中有异步代码，如果直接返回，不会输出结果，所以要放入回调方法中
         this.onFulfilledQueue.push(() => {
@@ -87,7 +87,18 @@ class MyPromise {
             } catch(err) {
               reject(err)
             }
-          })
+          }, 0)
+        })
+
+        this.onRejecedQueue.push(() => {
+          setTimeout(() => {
+            try {
+              const reason = onRejeced(this.error)
+              resolvePromise(promiseThen, reason, resolve, reject)
+            } catch(err) {
+              reject(err)
+            }
+          }, 0)
         })
       }
     })
