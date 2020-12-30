@@ -43,6 +43,13 @@
     reject('cc')
   })
   p1.catch((err) => {
-    cosole.log(err, 'err')
+    cosole.log(err, 'p1err')
+  })
+
+  const p2 = new Promise((resolve, reject) => {
+    reject('cc')
+  })
+  p2.catch((err) => {
+    console.log(err, 'p2err')
   })
 </script>
