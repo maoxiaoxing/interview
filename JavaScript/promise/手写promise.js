@@ -95,6 +95,10 @@ class myPromise {
     return promiseThen
   }
 
+  catch(onRejeced) {
+    return this.then(undefined, onRejeced)
+  }
+
   static resolve(value) {
     if (value instanceof myPromise) return value
 
@@ -106,4 +110,6 @@ class myPromise {
       reject(reason)
     })
   }
+
+
 }
