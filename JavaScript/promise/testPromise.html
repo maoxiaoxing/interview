@@ -1,34 +1,41 @@
 <script src="./手写promise.js"></script>
 <script>
-  const promise = new myPromise((resolve, reject) => {
+  const promise = new MyPromise((resolve, reject) => {
     resolve('123')
   })
   promise.then((res) => {
-    console.log(res)
-    return new myPromise((re) => {
+    console.log(res, 'then1')
+    return new MyPromise((re) => {
       re(1)
     })
   }).then((res) => {
-    console.log(res)
+    console.log(res, 'then2')
   })
 
   // Promise.reject().then((res) => {
   //   console.log(res, 'reject')
   // })
 
-  myPromise.resolve(1).then((res) => {
-    // console.log(1)
+  MyPromise.resolve(1).then((res) => {
+    console.log(1, 'resolve1')
     return res
   }).then((res) => {
-    console.log(res, 1)
+    console.log(res, 'resolve2')
     return res
   }).then((res) => {
-    console.log(res, 2)
+    console.log(res, 'resolve3')
   })
 
-  myPromise.reject(1).then((res) => {
-    console.log(res, 'rea')
+  MyPromise.reject(1).then((res) => {
+    console.log(res, 'reject1')
   }, (rej) => {
-    console.log(rej, 'rej')
+    console.log(rej, 'reject2')
+  })
+
+  MyPromise.resolve(22).then((res) => {
+    console.log(res, 'catch1')
+    return new Error()
+  }).catch((err) => {
+    console.log(err, 'catch2')
   })
 </script>

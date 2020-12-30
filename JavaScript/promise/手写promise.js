@@ -11,14 +11,13 @@ function resolvePromise(promise, res, resolve, reject) {
   // 如果是普通值 直接调用resolve
   // 如果是 promise 对象 查看 promise 对象返回的结果
   // 在根据 promise 对象返回的结果 决定调用 resolve 还是调用 reject
-  if(res instanceof promise) {
+  if(res instanceof MyPromise) {
     res.then(resolve, reject)
   } else {
     resolve(res)
   }
 }
-
-class myPromise {
+class MyPromise {
   constructor(executor) {
     try{
       // new Promise 立即执行 同步任务
@@ -59,7 +58,7 @@ class myPromise {
     onFulfilled = onFulfilled || (value => value) // 处理 onFulfilled 的空值
     onRejeced = onRejeced || (error => {throw error}) // 处理 onRejeced 的空值
 
-    const promiseThen = new myPromise((resolve, reject) => { // 创建新的 promise 对象
+    const promiseThen = new MyPromise((resolve, reject) => { // 创建新的 promise 对象
       if (this.status === FULFILLED) { // 如果当前状态是成功
         setTimeout(() => {
           try {
@@ -100,13 +99,13 @@ class myPromise {
   }
 
   static resolve(value) {
-    if (value instanceof myPromise) return value
+    if (value instanceof MyPromise) return value
 
-    return new Promise((resolve) => resolve(value))
+    return new MyPromise((resolve) => resolve(value))
   }
 
   static reject(reason) {
-    return new Promise((resolve, reject) => {
+    return new MyPromise((resolve, reject) => {
       reject(reason)
     })
   }
