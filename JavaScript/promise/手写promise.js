@@ -100,4 +100,10 @@ class myPromise {
 
     return new Promise((resolve) => resolve(value))
   }
+
+  static reject(reason) {
+    return new Promise((resolve, reject) => {
+      reject(reason)
+    })
+  }
 }

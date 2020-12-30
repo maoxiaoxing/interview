@@ -12,9 +12,9 @@
     console.log(res)
   })
 
-  Promise.reject(1).then((res) => {
-    console.log(res)
-  })
+  // Promise.reject().then((res) => {
+  //   console.log(res, 'reject')
+  // })
 
   myPromise.resolve(1).then((res) => {
     // console.log(1)
@@ -24,5 +24,11 @@
     return res
   }).then((res) => {
     console.log(res, 2)
+  })
+
+  myPromise.reject(1).then((res) => {
+    console.log(res, 'rea')
+  }, (rej) => {
+    console.log(rej, 'rej')
   })
 </script>
