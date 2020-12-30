@@ -11,4 +11,18 @@
   }).then((res) => {
     console.log(res)
   })
+
+  Promise.reject(1).then((res) => {
+    console.log(res)
+  })
+
+  myPromise.resolve(1).then((res) => {
+    // console.log(1)
+    return res
+  }).then((res) => {
+    console.log(res, 1)
+    return res
+  }).then((res) => {
+    console.log(res, 2)
+  })
 </script>

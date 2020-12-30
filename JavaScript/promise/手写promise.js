@@ -94,4 +94,10 @@ class myPromise {
     })
     return promiseThen
   }
+
+  static resolve(value) {
+    if (value instanceof myPromise) return value
+
+    return new Promise((resolve) => resolve(value))
+  }
 }
