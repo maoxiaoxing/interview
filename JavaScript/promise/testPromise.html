@@ -52,4 +52,30 @@
   p2.catch((err) => {
     console.log(err, 'p2err')
   })
+
+  const promise1 = new Promise((resolve) => {
+    resolve(1)
+  })
+  const promise2 = new Promise((resolve, reject) => {
+    reject(2)
+  })
+  const promises = ['a', promise1, 'b', promise2]
+  Promise.all(promises).then((res) =>{
+    console.log(res, 'res')
+  }, (err) => {
+    console.log(err, 'rrrr')
+  }).catch((err) =>{
+    console.log(err, 'err')
+  })
+
+  const pp1 = new MyPromise((resolve) => {
+    resolve(1)
+  })
+  const pp2 = new MyPromise((resolve, reject) => {
+    reject(2)
+  })
+  const pps = ['1', pp1, '2']
+  MyPromise.all(pps).then((res) => {
+    console.log(res, 'ppres')
+  })
 </script>

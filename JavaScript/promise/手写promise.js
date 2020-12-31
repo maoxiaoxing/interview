@@ -121,5 +121,25 @@ class MyPromise {
     })
   }
 
+  static all(promises) {
+    const result = []
+
+    return new MyPromise((resolve, reject) => {
+      function addData(key, value) {
+        result[key] = value
+
+        if (key === promises.length) {
+          resolve(result)
+        }
+      }
+      promises.forEach((promise, inx) => {
+        if (promise instanceof MyPromise) {
+          promise.then((res) => addData(inx, res), (err) => reject(err))
+        } else {
+          addData(inx, promise)
+        }
+      })
+    })
+  }
 
 }
