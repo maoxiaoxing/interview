@@ -16,20 +16,21 @@
 // console.log(a, b)
 // console.log(window.a, window.b)
 
+// ------------------------------------------------
 // let c = 1
 // console.log(window.c)
 
 // 输出10 和 20
 // 重点；非匿名自执行函数，函数名只读。
-var b ;
+// var b ;
+// // console.log(b)
+// (function b(){
+//     b = 20;
+//     console.log(b)
+//     console.log(window.b);
+//     // console.log(window)
+// })();
 // console.log(b)
-(function b(){
-    b = 20;
-    console.log(b)
-    console.log(window.b);
-    // console.log(window)
-})();
-console.log(b)
 
 // var c = 10
 // function fn() {
@@ -38,5 +39,18 @@ console.log(b)
 // }
 // fn()
 
+// --------------------------------------------
+// 解析：由于变量提升，自执行函数立即执行，函数内部，变量提升 var a, 没有找到a，输出 undefined
+// 之后 a = 5，是局部变量，第二 console 输出的还是刚开始定义的全局变量 a
+// 然后 a = 20，输出 a
+var a = 10;
+(function () {
+    console.log(a)
+    a = 5
+    console.log(window.a)
+    var a = 20;
+    console.log(a)
+})()
+console.log(a)
 
 </script>
