@@ -1,0 +1,42 @@
+<script>
+
+// var name = 'Tom';
+// (function() {
+// if (typeof name == 'undefined') {
+//   var name = 'Jack';
+//   console.log('Goodbye ' + name);
+// } else {
+//   console.log('Hello ' + name);
+// }
+// })();
+
+// function b() {
+// }
+// var a = 1
+// console.log(a, b)
+// console.log(window.a, window.b)
+
+// let c = 1
+// console.log(window.c)
+
+// 输出10 和 20
+// 重点；非匿名自执行函数，函数名只读。
+var b ;
+// console.log(b)
+(function b(){
+    b = 20;
+    console.log(b)
+    console.log(window.b);
+    // console.log(window)
+})();
+console.log(b)
+
+// var c = 10
+// function fn() {
+//   c = 30
+//   console.log(window.c)
+// }
+// fn()
+
+
+</script>
