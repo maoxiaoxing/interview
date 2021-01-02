@@ -68,13 +68,22 @@
 
 
 // ----------------------------------
-function changeObjProperty(o) {
-  o.siteUrl = "http://www.baidu.com"
-  o = new Object()
-  o.siteUrl = "http://www.google.com"
-} 
-let webSite = new Object();
-changeObjProperty(webSite);
-console.log(webSite.siteUrl);
+// function changeObjProperty(o) {
+//   o.siteUrl = "http://www.baidu.com"
+//   o = new Object()
+//   o.siteUrl = "http://www.google.com"
+// } 
+// let webSite = new Object();
+// changeObjProperty(webSite);
+// console.log(webSite.siteUrl);
+
+
+// -----------------------------------------
+var a = {n: 1};
+var b = a;
+a.x = a = {n: 2};
+
+console.log(a.x) 	
+console.log(b.x)
 
 </script>
