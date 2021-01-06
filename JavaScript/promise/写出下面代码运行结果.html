@@ -1,29 +1,52 @@
 <script>
-  async function async1() {
-    console.log('async1 start');
-    await async2();
-    console.log('async1 end');
-    console.log('111')
-  }
-  async function async2() {
-      console.log('async2');
-      return 1
-  }
-  console.log('script start');
-  setTimeout(function() {
-      console.log('setTimeout');
-  }, 0)
-  async1();
-  new Promise(function(resolve) {
-      console.log('promise1');
-      resolve();
-  }).then(function() {
-      console.log('promise2');
-  });
-  console.log('script end');
+  // async function async1() {
+  //   console.log('async1 start');
+  //   await async2();
+  //   console.log('async1 end');
+  //   console.log('111')
+  // }
+  // async function async2() {
+  //     console.log('async2');
+  //     return 1
+  // }
+  // console.log('script start');
+  // setTimeout(function() {
+  //     console.log('setTimeout');
+  // }, 0)
+  // async1();
+  // new Promise(function(resolve) {
+  //     console.log('promise1');
+  //     resolve();
+  // }).then(function() {
+  //     console.log('promise2');
+  // });
+  // console.log('script end');
 
-  async2().then((res) => {
-    console.log(res, 'res')
-  })
+  // async2().then((res) => {
+  //   console.log(res, 'res')
+  // })
   // 'script start' 'async1 start' 'async2' 'promise1' 'script end' ''async1 end'' 'promise2' 'setTimeout'
+
+  setTimeout(() => {
+      console.log(0);
+  });
+
+  new Promise(resolve => {
+      console.log(1);
+
+      setTimeout(() => {
+          resolve();
+          Promise.resolve().then(() => console.log(2));
+          console.log(3);
+      });
+
+      Promise.resolve().then(() => console.log(4));
+
+  }).then(() => {
+      console.log(5);
+      Promise.resolve().then(() => console.log(8)); 
+      setTimeout(() => console.log(6));
+  });
+  console.log(7);
+  // 1 7 4 0 3 5 2 8 6
 </script>
