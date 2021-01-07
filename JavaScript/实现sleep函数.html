@@ -1,0 +1,20 @@
+<script>
+  function sleep(fn, time) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(fn)
+      }, time)
+    })
+  }
+
+  function printName(name) {
+    console.log(name)
+  }
+
+  async function printNames() {
+    await sleep(printName('毛小星'), 1000)
+    await sleep(printName('杨小A'), 2000)
+  }
+
+  printNames()
+</script>
