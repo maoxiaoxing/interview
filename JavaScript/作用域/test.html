@@ -1,0 +1,33 @@
+<script>
+  // var x=10;
+  // function fn() {
+  //   console.log(x)
+  // }
+  // function show(f){
+  //   var x=20;
+  //   f();
+  // }
+  // show(fn)//输出结果为10
+
+    var name = '222'
+    var a = {
+      name: '111',
+      say: function() {
+        console.log(this.name)
+      }
+    }
+
+    var fun = a.say
+    fun()
+    a.say()
+
+    var b = {
+      name: '333',
+      say: function(fun) {
+        fun()
+      }
+    }
+    b.say(a.say)
+    b.say = a.say
+    b.say()
+</script>
