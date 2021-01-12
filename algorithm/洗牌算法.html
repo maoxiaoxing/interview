@@ -1,0 +1,16 @@
+<script>
+  function shuffle(arr) {
+    const res = []
+    while(arr.length) {
+      const reIndex = Math.floor(Math.random() * arr.length)
+      if (arr[reIndex]) {
+        res.push(arr[reIndex])
+        arr.splice(reIndex, 1)
+      }
+    }
+    return res
+  }
+
+  const arr = [2,3,4,8,5,1,9,10]
+  console.log(shuffle(arr))
+</script>

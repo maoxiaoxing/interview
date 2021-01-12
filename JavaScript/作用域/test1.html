@@ -1,0 +1,17 @@
+<script>
+  var a = 1
+  var obj = {
+    a: 2,
+    b: () => {
+      console.log(this.a)
+    }
+  }
+
+  var obj1 = {
+    a: 3
+  }
+
+  // obj.b.apply(obj1)
+  var b = obj.b.bind(obj1)
+  b()
+</script>
