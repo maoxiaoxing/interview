@@ -1,0 +1,16 @@
+<script>
+  function round(min, max, N) {
+    const arr = []
+
+    while(arr.length < N) {
+      const item = Math.floor(Math.random() * (max - min + 1) + min)
+      if (!arr.includes(item)) {
+        arr.push(item)
+      }
+    }
+
+    return arr
+  }
+
+  console.log(round(2, 10, 5))
+</script>
