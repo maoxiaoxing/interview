@@ -1,0 +1,13 @@
+<script>
+  let r1 = Array.prototype.join.call([1, 2, 3], '-');
+  console.log(r1);
+
+  function uncurring(fn) {
+    return function(context, ...args) {
+      return Reflect.apply(fn, context, args)
+    }
+  }
+
+  const join = uncurring(Array.prototype.join)
+  console.log(join([4,5,6], '+'))
+</script>

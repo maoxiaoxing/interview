@@ -1,0 +1,22 @@
+<script>
+  function getCoins(c) {
+    const coins = c
+
+    return function makeCoins(money) {
+      let total = 0
+      const arr = []
+
+      for(let i = coins.length - 1; i >= 0; i--) {
+        const coin = coins[i]
+        while(coin + total <= money) {
+          arr.push(coin)
+          total = coin + total
+        }
+      }
+      return arr
+    }
+  }
+
+  const makeCoins = getCoins([1, 5, 10, 25])
+  console.log(makeCoins(36))
+</script>
