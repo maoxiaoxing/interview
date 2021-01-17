@@ -1,0 +1,21 @@
+<script>
+  function findSecondNum(arr) {
+    let max = Math.max(arr[0], arr[1])
+    let max2 = Math.min(1, 2)
+
+    for(let i = 2; i < arr.length; i++) {
+      if (arr[i] > max) {
+        max2 = max
+        max = arr[i]
+      } else if (arr[i] < max && arr[i] > max2) {
+        max2 = arr[i]
+      }
+    }
+    return max2
+  }
+
+  const arr = [2,33,4,7,9,2,20,10]
+
+  console.log(findSecondNum(arr))
+
+</script>
