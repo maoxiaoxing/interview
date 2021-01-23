@@ -1,0 +1,31 @@
+<script>
+  // 请把俩个数组 [A1, A2, B1, B2, C1, C2, D1, D2] 和 [A, B, C, D]，合并为 [A1, A2, A, B1, B2, B, C1, C2, C, D1, D2, D]
+
+  const arr1 = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2', 'D1', 'D2']
+  const arr2 = ['A', 'B', 'C', 'D']
+
+  function composeArr(arr1, arr2) {
+    if (!Array.isArray(arr1) && !Array.isArray(arr2)) {
+      throw new Error(`${arr1}或${arr2}不为数组`)
+    }
+    let temp = arr2[0]
+    const res = []
+    let j = 0
+    for(let i = 0; i < arr1.length; i++) {
+      if (temp === arr1[i].charAt(0)) {
+        res.push(arr1[i])
+      } else {
+        res.push(temp)
+        res.push(arr1[i])
+        temp = arr2[++j]
+      }
+      if (i === arr1.length - 1) {
+        res.push(temp)
+      }
+    }
+    
+    return res
+  }
+
+  console.log(composeArr(arr1, arr2))
+</script>
