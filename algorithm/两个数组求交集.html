@@ -1,0 +1,29 @@
+<script>
+  const arr1 = [1,2,1]
+  const arr2 = [1,2,3]
+
+  function intersect(arr1, arr2) {
+    const res = []
+    const hash = {}
+    for(const item of arr1) {
+      if (hash[item]) {
+        hash[item]++
+      } else {
+        hash[item] = 1
+      }
+    }
+
+    for(const item of arr2) {
+      if (hash[item] > 0) {
+        res.push(item)
+        hash[item]--
+      }
+    }
+
+    return res
+  }
+  var nums1 = [1,1]
+var nums2 = [1,1,1]
+
+  console.log(intersect(nums1, nums2))
+</script>
