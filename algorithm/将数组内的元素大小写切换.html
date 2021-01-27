@@ -1,0 +1,14 @@
+<script>
+  const str = 'AbC'
+
+  function reverseCase(string) {
+    let res = ''
+    for(const item of string) {
+      const temp = item === item.toLowerCase() ? item.toUpperCase() : item.toLowerCase()
+      res += temp
+    }
+    return res
+  }
+
+  console.log(reverseCase(str))
+</script>
