@@ -1,0 +1,21 @@
+<script>
+  function selectionSort(arr) {
+    let minIndex
+    let temp
+    for(let i = 0; i < arr.length; i++) {
+      minIndex = i
+      for(let j = i + 1; j < arr.length; j++) {
+        if (arr[j] < arr[minIndex]) {
+          minIndex = j
+        }
+      }
+      temp = arr[i]
+      arr[i] = arr[minIndex]
+      arr[minIndex] = temp
+    }
+    return arr
+  }
+
+  const arr = [2,3,8,4,9,11,5]
+  console.log(selectionSort(arr))
+</script>
