@@ -1,0 +1,21 @@
+<script>
+  var scope = 'global scope'
+
+  function bar() {
+    var scope = 'local scope'
+    function foo() {
+      return scope
+    }
+    return foo()
+  }
+  console.log(bar())
+
+  function baz() {
+    var scope = 'local scope'
+    function foo() {
+      return scope
+    }
+    return foo
+  }
+  console.log(baz()())
+</script>
