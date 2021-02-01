@@ -16,8 +16,13 @@
       console.log(this.id)
     }
   }
-  var id = 'not awesome'
-  obj1.cool()
-  const cool1 = obj1.cool
-  cool()
+  // var id = 'not awesome'
+  // obj1.cool()
+  // const cool1 = obj1.cool
+  // cool()
+
+  obj.cool.call(obj)
+
+  const cool2 = obj.cool.bind(obj)
+  cool2()
 </script>
