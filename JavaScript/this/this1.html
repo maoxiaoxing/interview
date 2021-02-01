@@ -9,4 +9,15 @@
   obj.cool()
   const cool = obj.cool
   cool()
+
+  const obj1 = {
+    id: 'awesome',
+    cool: () => {
+      console.log(this.id)
+    }
+  }
+  var id = 'not awesome'
+  obj1.cool()
+  const cool1 = obj1.cool
+  cool()
 </script>
