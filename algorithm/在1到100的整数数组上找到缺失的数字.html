@@ -1,0 +1,22 @@
+<script>
+  // 找到数组1-100的数组中缺失的一个数字
+  /*
+    解题思路：
+    算数组中期待的数据总和，然后算出真实数组中的总和，两个值相减，减出来的值就是缺失的值
+  */
+
+  function getMissingNum(nums) {
+    const preLen = nums.length + 1
+    const preSum = preLen * (preLen + 1) / 2
+
+    let realSum = 0
+
+    nums.forEach((item) => realSum += item)
+
+    const res = preSum - realSum
+    return res
+  }
+
+  const arr = [1,2,3,5,6]
+  console.log(getMissingNum(arr))
+</script>
