@@ -1,0 +1,15 @@
+<script>
+function a(b, c) {
+  function b(){};
+  console.log(b, 1)
+}
+a(1, 2);
+
+function a(b, c) {
+  var b;
+  console.log(b, 2)
+}
+a(1, 2);
+
+// 函数变量提升，js没有函数重载，输出两个1
+</script>
