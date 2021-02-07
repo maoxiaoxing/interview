@@ -5,9 +5,12 @@ var obj = {
    getName: function () {
        function printName () {
            console.log(this.name);
+           console.log(this)
        }
+       console.log(this)
        printName();
    }
 }
 obj.getName();
+console.log(window.printName)
 </script>
