@@ -1,0 +1,33 @@
+<script>
+  // 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+  // 如果数组中不存在目标值 target，返回 [-1, -1]。
+
+  /**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var searchRange = function(nums, target) {
+  let start = 0
+  let end = nums.length - 1
+
+  const bool = nums.includes(target)
+
+  if (bool) {
+    while (nums[start] !== nums[end]) {
+      if (nums[start] !== target) {
+        start++
+      }
+      if (nums[end] !== target) {
+        end--
+      }
+    }
+    return [start, end]
+  }
+  return [-1, -1]
+  // return [nums.indexOf(target),nums.lastIndexOf(target)]
+};
+
+console.log(searchRange([1,2,3,4], 3))
+
+</script>
