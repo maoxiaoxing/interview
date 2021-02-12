@@ -1,0 +1,26 @@
+<script>
+  // 给你一个未排序的整数数组 nums ，请你找出其中没有出现的最小的正整数。
+  // 进阶：你可以实现时间复杂度为 O(n) 并且只使用常数级别额外空间的解决方案吗？
+
+  /**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var firstMissingPositive = function(nums) {
+  const set = new Set()
+
+  for(const item of nums) {
+    set.add(item)
+  }
+
+  for(i = 1; i < nums.length + 1; i++) {
+    if (!set.has(i)) {
+      return i
+    }
+  }
+  return 1
+};
+
+const nums = [7,8,9,11,12]
+console.log(firstMissingPositive(nums))
+</script>
