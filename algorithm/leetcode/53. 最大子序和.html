@@ -1,0 +1,18 @@
+<script>
+  // 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+
+  /**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function(nums) {
+  let pre = 0
+  let max = nums[0]
+
+  nums.forEach((item) => {
+    pre = Math.max(pre + item, item)
+    max = Math.max(pre, max)
+  })
+  return max
+};
+</script>
