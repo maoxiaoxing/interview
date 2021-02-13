@@ -6,15 +6,31 @@
  * @param {number[]} nums
  * @return {number}
  */
+// var findRepeatNumber = function(nums) {
+//   const obj = {}
+
+//   for(let i = 0;i < nums.length; i++) {
+//     if (!obj[nums[i]]) {
+//       obj[nums[i]] = 1
+//     } else {
+//       return nums[i]
+//     }
+//   }
+// };
+
+// 利用Set, Set 不会重复添加数组元素，长度不变就证明有重复元素
 var findRepeatNumber = function(nums) {
-  const obj = {}
+  const s = new Set()
 
   for(let i = 0;i < nums.length; i++) {
-    if (!obj[nums[i]]) {
-      obj[nums[i]] = 1
-    } else {
+    let len = s.size
+    s.add(nums[i])
+
+    if (len === s.size) {
       return nums[i]
     }
   }
 };
+
+console.log(findRepeatNumber([0, 1, 2, 3, 4, 11, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]))
 </script>
