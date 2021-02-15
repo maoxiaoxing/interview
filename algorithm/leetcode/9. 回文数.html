@@ -6,11 +6,33 @@
  * @param {number} x
  * @return {boolean}
  */
+// var isPalindrome = function(x) {
+//   const str = x.toString()
+
+//   const arr = str.split('')
+//   const reverseStr = arr.reverse().join('')
+//   return str === reverseStr
+// };
+
+
+// 双指针
 var isPalindrome = function(x) {
+  if (x < 0) return false
+  if (x < 10) return true
+
   const str = x.toString()
 
-  const arr = str.split('')
-  const reverseStr = arr.reverse().join('')
-  return str === reverseStr
+  let left = 0
+  let right = str.length - 1
+  let flag = true
+
+  while (left < right) {
+    if (str[left] !== str[right]) {
+      return false
+    }
+    left++
+    right--
+  }
+  return flag
 };
 </script>
