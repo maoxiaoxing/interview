@@ -1,0 +1,24 @@
+<script>
+  // 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+  let res = 0
+  let start = 0
+
+  for(let i = 0; i < s.length; i++) {
+    const position = s.indexOf(s[i], start)
+
+    if(position < i) {
+      start = position + 1
+    }
+    res = Math.max((i - start + 1), res)
+  }
+  return res
+};
+
+console.log(lengthOfLongestSubstring('pwwkew'))
+</script>
