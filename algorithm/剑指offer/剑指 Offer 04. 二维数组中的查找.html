@@ -7,11 +7,19 @@
  * @return {boolean}
  */
 // 暴力解法
- var findNumberIn2DArray = function(matrix, target) {
-  const arr = matrix.reduce((pre, item) => {
-    return [...pre, ...item]
-  }, [])
+//  var findNumberIn2DArray = function(matrix, target) {
+//   const arr = matrix.reduce((pre, item) => {
+//     return [...pre, ...item]
+//   }, [])
 
-  return arr.includes(target)
+//   return arr.includes(target)
+// };
+
+// ---------------------------------------------
+
+ var findNumberIn2DArray = function(matrix, target) {
+  return matrix.some((item) => {
+    return item.includes(target)
+  })
 };
 </script>
