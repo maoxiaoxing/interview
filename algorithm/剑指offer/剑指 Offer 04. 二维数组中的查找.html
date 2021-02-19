@@ -17,9 +17,30 @@
 
 // ---------------------------------------------
 
- var findNumberIn2DArray = function(matrix, target) {
-  return matrix.some((item) => {
-    return item.includes(target)
-  })
-};
+//  var findNumberIn2DArray = function(matrix, target) {
+//   return matrix.some((item) => {
+//     return item.includes(target)
+//   })
+// };
+
+// -----------------------------------------------
+// 矩形顺序走法
+//  var findNumberIn2DArray = function(matrix, target) {
+//   if (matrix.length) return false
+//   let row = 0
+//   let col = matrix[0].length - 1
+
+//   while (row < matrix.length && col >= 0) {
+//     if (matrix[row][col] === target) {
+//       return true
+//     } else if(matrix[row][col] > target) {
+//       col--
+//     } else {
+//       row++
+//     }
+//   }
+//   return false
+// };
+
+
 </script>
