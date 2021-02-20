@@ -12,4 +12,37 @@
     }, 2000)
   }
   fn()
+
+//--------------------------------
+// promise 版本
+
+function red() {
+  console.log('红灯')
+}
+
+function green() {
+  console.log('绿灯')
+}
+
+function yellow() {
+  console.log('黄灯')
+}
+
+function wait(time, cb) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      cb()
+      resolve()
+    }, time)
+  })
+}
+
+async function main() {
+  await wait(3000, red)
+  await wait(2000, green)
+  await wait(2000, yellow)
+  main()
+}
+
+main()
 </script>
