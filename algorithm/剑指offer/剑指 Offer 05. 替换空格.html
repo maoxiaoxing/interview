@@ -5,7 +5,14 @@
  * @param {string} s
  * @return {string}
  */
+// 正则
 var replaceSpace = function(s) {
   return s.replace(/\s/g, '%20')
+};
+
+// split
+var replaceSpace = function(s) {
+  const arr = s.split(' ')
+  return arr.join('%20')
 };
 </script>
