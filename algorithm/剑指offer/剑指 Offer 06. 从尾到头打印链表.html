@@ -20,4 +20,25 @@ var reversePrint = function(head) {
   }
   return arr
 };
+
+// 反转链表
+var reversePrint = function(head) {
+  if (head === null) return []
+
+  let point = head.next
+  head.next = null
+  const arr = []
+  while (point !== null) {
+    let temp = point.next
+    point.next = head
+    head = point
+    point = temp
+  }
+
+  while (head) {
+    arr.push(head.val)
+    head = head.next
+  }
+  return arr
+};
 </script>
