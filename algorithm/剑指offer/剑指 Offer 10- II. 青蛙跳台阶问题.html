@@ -13,6 +13,14 @@
 //   return numWays(n - 1) + numWays(n - 2) % 1000000007
 // };
 
+// 尾递归
+var numWays = function(n) {
+  const helper = (n, last1 = 1, last = 1) => {
+    if (n <= 1) return last
+    return helper(n - 1, last, (last1 + last) % 1000000007)
+  }
+  return helper(n)
+};
 
 // 循环
 var numWays = function(n) {
