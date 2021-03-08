@@ -1,0 +1,33 @@
+<script>
+  // 输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
+
+  /**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+// 分治思想，树的前序遍历，第一个肯定是根节点，将这个根节点保存起来，在中序遍历中找到根节点的下标，
+// 这个下标一方面表根节点在中序遍历中的位置，一方面又将左右子树分开
+var buildTree = function(preorder, inorder) {
+  if (!preorder.length || !inorder.length) {
+    return null;
+  }
+  const rootNode = preorder[0]
+  const node = new TreeNode(rootNode)
+
+  let i = 0
+  for(; i < inorder.length; i++) {
+    if (rootNode === inorder[i]) break
+  }
+  node.left = buildTree(preorder.slice(1, i + 1), inorder.slice(0, i))
+  node.right = buildTree(preorder.slice(i + 1), inorder.slice(i + 1))
+  return node
+};
+</script>
