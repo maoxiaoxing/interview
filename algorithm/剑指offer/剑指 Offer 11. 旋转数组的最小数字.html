@@ -5,17 +5,28 @@
  * @param {number[]} numbers
  * @return {number}
  */
-var minArray = function(numbers) {
+// var minArray = function(numbers) {
   
-  let i = 0
-  for(; i < numbers.length; ++i) {
-    if (numbers[i] < numbers[i - 1]) {
-      break
+//   let i = 0
+//   for(; i < numbers.length; ++i) {
+//     if (numbers[i] < numbers[i - 1]) {
+//       break
+//     }
+//   }
+
+//   const arr = numbers.slice(i)
+//   numbers.splice(0, i)
+//   return arr[0]
+// };
+
+
+// 找到比前一个小的数
+var minArray = function(numbers) {
+  for(let i = 0; i < numbers.length; ++i) {
+    if (numbers[i] > numbers[i + 1]) {
+      return numbers[i+1]
     }
   }
-
-  const arr = numbers.slice(i)
-  numbers.splice(0, i)
-  return arr[0]
+  return numbers[0]
 };
 </script>
