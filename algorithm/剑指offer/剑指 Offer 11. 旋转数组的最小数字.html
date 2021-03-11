@@ -29,4 +29,25 @@ var minArray = function(numbers) {
   }
   return numbers[0]
 };
+
+891234567
+111121
+// 二分法查找
+var minArray = function(numbers) {
+  let left = 0
+  let right = numbers.length - 1
+
+  while (left < right) {
+    const mid = Math.floor((left + right) / 2)
+
+    if (numbers[mid] > numbers[right]) {
+      left = mid +1
+    } else if (numbers[mid] < numbers[right]) {
+      right = mid
+    } else {
+      right--
+    }
+  }
+  return numbers[right]
+};
 </script>
