@@ -21,4 +21,15 @@ var hammingWeight = function(n) {
   const res = n.toString(2).match(/1/g)
   return res ? res.length : 0
 };
+
+// 与运算
+var hammingWeight = function(n) {
+  let count = 0
+
+  while (n) {
+    n = n & (n - 1)
+    count++
+  }
+  return count
+};
 </script>
