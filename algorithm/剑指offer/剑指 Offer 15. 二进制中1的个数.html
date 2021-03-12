@@ -15,4 +15,10 @@ var hammingWeight = function(n) {
     }
     return arr.length
 };
+
+// 正则
+var hammingWeight = function(n) {
+  const res = n.toString(2).match(/1/g)
+  return res ? res.length : 0
+};
 </script>
