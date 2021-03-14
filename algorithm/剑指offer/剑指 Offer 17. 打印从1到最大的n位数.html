@@ -15,4 +15,9 @@ var printNumbers = function(n) {
   }
   return arr
 };
+
+// 利用 Array.from
+var printNumbers = function(n) {
+  return Array.from({length: (Math.pow(10, n) - 1)}, (item, index) => index + 1)
+};
 </script>
