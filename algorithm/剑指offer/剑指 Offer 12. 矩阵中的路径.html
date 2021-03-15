@@ -1,0 +1,55 @@
+<script>
+  // 请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一格开始，每一步可以在矩阵中向左、右、上、下移动一格。如果一条路径经过了矩阵的某一格，那么该路径不能再次进入该格子。例如，在下面的3×4的矩阵中包含一条字符串“bfce”的路径（路径中的字母用加粗标出）。
+// [["a","b","c","e"],
+// ["s","f","c","s"],
+// ["a","d","e","e"]]
+// 但矩阵中不包含字符串“abfb”的路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入这个格子。
+
+/**
+ * @param {character[][]} board
+ * @param {string} word
+ * @return {boolean}
+ */
+// 回溯＋剪枝
+var exist = function(board, word) {
+  const colLen = board.length // 列长度
+  const rowLen = board[0].length // 行长度
+  let key = 0 // word下标，从0开始
+
+  /**
+  * @description 判断word是否在矩阵中
+  * @param i 行下标
+  * @param j 列下标
+  * @param key word下标
+  */
+  function _dfs(i, j, key) {
+    // i 和 j 超出矩阵范围 或者 矩阵当前元素不等于 word 中的元素，返回 false
+    if (i < 0 || j < 0 || i >= rowLen || j >= colLen || board[j][i] !== word[key]) return false
+
+    // 如果 k 等于 word 长度，证明遍历完 word ，已经找到了
+    if(key === word.length - 1) return true
+
+    // 将矩阵的当前值存起来
+    const temp = board[j][i]
+    // 将矩阵当前值赋值成一个其他值，表示当前格子已经走过
+    board[j][i] = 0
+
+    // 矩阵上下左右都走一遍
+    const res = _dfs(i - 1, j, key + 1) || _dfs(i, j - 1, key + 1) || _dfs(i + 1, j, key + 1) || _dfs(i, j + 1, key + 1)
+
+    // 将矩阵复原
+    board[j][i] = temp
+
+    return res
+  }
+
+  for(let j = 0; j < colLen - 1; j++) {
+    for(let i = 0; i < rowLen - 1; i++) {
+      if (_dfs(i, j, key)) return true
+    }
+  }
+
+  return false
+};
+
+</script>
