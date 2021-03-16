@@ -1,0 +1,20 @@
+<script>
+// 输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数位于数组的前半部分，所有偶数位于数组的后半部分。
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+// 暴力解法，对2取余，等于1的时候，将当前数字删除，将这个数放在数组最前列
+var exchange = function(nums) {
+  let i = 0
+  while (i < nums.length) {
+    if ((nums[i] % 2) === 1) {
+      const item = nums.splice(i, 1)
+      nums.unshift(item)
+    }
+    i++
+  }
+  return nums
+};
+</script>
