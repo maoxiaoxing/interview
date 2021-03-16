@@ -17,4 +17,19 @@ var exchange = function(nums) {
   }
   return nums
 };
+
+// 维护奇数数组和偶数数组，最后合并奇数偶数数组
+var exchange = function(nums) {
+  const odd = []
+  const even = []
+
+  for(const item of nums) {
+    if (item % 2 === 1) {
+      odd.push(item)
+    } else {
+      even.push(item)
+    }
+  }
+  return [...odd, ...even]
+};
 </script>
