@@ -43,8 +43,8 @@ var exist = function(board, word) {
     return res
   }
 
-  for(let j = 0; j < colLen - 1; j++) {
-    for(let i = 0; i < rowLen - 1; i++) {
+  for(let j = 0; j < colLen; j++) {
+    for(let i = 0; i < rowLen; i++) {
       if (_dfs(i, j, key)) return true
     }
   }
