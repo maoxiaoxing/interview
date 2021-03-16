@@ -1,0 +1,25 @@
+<script>
+  Object.prototype._create = function(proto, obj) {
+    if (typeof proto !== 'object' && typeof proto !== 'function') {
+      throw new Error('对象的原型只能是一个对象: ' + proto)
+    } else if (proto === null) {
+      throw new Error('第一个参数不支持null')
+    }
+
+    if (obj !== undefined) {
+      throw new Error('此浏览器不支持第二个参数')
+    }
+
+    function Fn() {}
+    Fn.prototype = proto
+    return new Fn
+  }
+
+  const obj = {a: 1}
+
+  const obj1 = Object._create(obj)
+  // const obj2 = Object._create(null)
+  console.log(obj1)
+  console.log(obj1.__proto__)
+  // console.log(obj2)
+</script>
