@@ -32,4 +32,22 @@ var exchange = function(nums) {
   }
   return [...odd, ...even]
 };
+
+// 双指针 如果是奇数，不操作, 偶数和右指针交换
+var exchange = function(nums) {
+  let left = 0
+  let right = nums.length
+
+  while (left < right) {
+    // 如果是奇数，不操作
+    if (nums[left] & 1) {
+      left++
+    } else {
+      [nums[left], nums[right]] = [nums[right], nums[left]]
+      right--
+    }
+  }
+
+  return nums
+};
 </script>
