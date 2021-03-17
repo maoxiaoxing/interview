@@ -15,6 +15,21 @@
  * @return {ListNode}
  */
 var deleteNode = function(head, val) {
+  let current= head
+  let next = head.next
 
+  if (current.val === val) {
+    return next
+  }
+
+  while (next) {
+    if (next.val === val) {
+      return next.next
+    }
+
+    current = next
+    next = next.next
+  }
+  return head
 };
 </script>
