@@ -18,18 +18,33 @@ var deleteNode = function(head, val) {
   let current= head
   let next = head.next
 
-  if (current.val === val) {
+  if (current.val === val) { // 如果删除的是当前节点，那么就直接返回下一个节点即可
     return next
   }
 
   while (next) {
-    if (next.val === val) {
-      return next.next
+    if (next.val === val) { // 如果删除的下一个节点，就让当前节点的 next 等于下一个节点的下一个节点
+      current.next = next.next
     }
 
     current = next
     next = next.next
   }
+  return head
+};
+
+// 递归
+var deleteNode = function(head, val) {
+  // 如果当前值是目标值，就返回下一个节点
+  if (head.val === val) {
+    return head.next
+  }
+
+  // [4,5,1,9] 目标值是 1
+  // 第一个节点是 4 ，让 4 的下一个节点，等于递归函数，递归中，又会去找下一个
+  // 当前节点是 5 的时候，5 的下一个节点就是目标值 ，接着递归
+  // 当前节点是 1 ，1 是目标值，因为有上面的 if 判断，所以 5 的 next 就会变成 9，这时候递归结束
+  head.next = deleteNode(head.next, val)
   return head
 };
 </script>
