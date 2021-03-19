@@ -1,0 +1,36 @@
+<script>
+  // 剑指 Offer 24. 反转链表
+
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var reverseList = function(head) {
+  if (!head) {
+    return head
+  }
+  const stack = []
+
+  while (head) {
+    stack.push(head)
+    head = head.next
+  }
+
+  const newHead = stack[stack.length - 1]
+
+  while (stack.length > 1) {
+    const temp = stack.pop()
+    temp.next = stack[stack.length - 1]
+  }
+  const last = stack.pop()
+  last.next = null
+  return newHead
+};
+</script>
