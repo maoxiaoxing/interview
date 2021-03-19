@@ -16,10 +16,12 @@
  */
 // 快慢指针, 先让快指针走 k 步，然后快慢指针一起走，当快指针走完的时候，慢指针就是倒数第 k 个
 var getKthFromEnd = function(head, k) {
-  let fast, slow = head
+  let fast = head
+  let slow = head
   let i = 0
   while (i < k) {
     fast = fast.next
+    i++
   }
 
   while (fast) {
@@ -27,5 +29,22 @@ var getKthFromEnd = function(head, k) {
     slow = slow.next
   }
   return slow
+};
+
+// 栈方法，将所有节点都推入栈中，循环 k ，每次拿出栈顶的节点，k 循环结束，即为第 k 个节点
+var getKthFromEnd = function(head, k) {
+  let res = head
+
+  while (head) {
+    stack.push(head)
+    head = head.next
+  }
+
+  let i = 0
+  while (i < k) {
+    res = stack.pop()
+    i++
+  }
+  return res
 };
 </script>
