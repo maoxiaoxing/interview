@@ -35,4 +35,19 @@ var reverseList = function(head) {
   // last.next = null
   return newHead
 };
+
+// 迭代，交换变量，我们只要将当前节点的 next 指向前一个节点即可
+var reverseList = function(head) {
+  let pre = null
+  let cur = head
+
+  while (cur) {
+    const temp = cur.next // 将 next 节点保存起来
+    cur.next = pre // 将当前节点的 next 指向 前一个节点
+    pre = cur
+    cur = temp
+  }
+
+  return pre
+};
 </script>
