@@ -12,6 +12,8 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
+// 栈方法，将所有节点放入栈中，栈顶就是新的头部节点，遍历栈，将当前节点的 next 指向栈顶元素
+// 当最后一个元素的时候，直接复制为 null 
 var reverseList = function(head) {
   if (!head) {
     return head
@@ -25,12 +27,12 @@ var reverseList = function(head) {
 
   const newHead = stack[stack.length - 1]
 
-  while (stack.length > 1) {
+  while (stack.length) {
     const temp = stack.pop()
-    temp.next = stack[stack.length - 1]
+    temp.next = stack.length ? stack[stack.length - 1] : null
   }
-  const last = stack.pop()
-  last.next = null
+  // const last = stack.pop()
+  // last.next = null
   return newHead
 };
 </script>
