@@ -12,6 +12,39 @@
     { id: 11, pid: 07 },
   ]
 
+  const tree = [
+    { 
+      id: 01,
+      pid: null,
+      children: [
+        { 
+          id: 03,
+          pid: 01,
+          children: [
+            { id: 04, pid: 03 },
+            { id: 06, pid: 03 },
+          ]
+        },
+        { id: 05, pid: 01 },
+      ]
+    },
+    { 
+      id: 02, 
+      pid: null,
+      children: [
+        { 
+          id: 07,
+          pid: 02,
+          children: [
+            { id: 10, pid: 07 },
+            { id: 11, pid: 07 },
+          ]
+        },
+        { id: 09, pid: 02 },
+      ]
+    },
+  ]
+
   /**
    * @description 查找包含自身节点的父代节点
    * @param list 列表数据

@@ -1,0 +1,80 @@
+<script>
+  const tree = [
+    { 
+      id: 01,
+      pid: null,
+      children: [
+        { 
+          id: 03,
+          pid: 01,
+          children: [
+            { id: 04, pid: 03 },
+            { id: 06, pid: 03 },
+          ]
+        },
+        { id: 05, pid: 01 },
+      ]
+    },
+    { 
+      id: 02, 
+      pid: null,
+      children: [
+        { 
+          id: 07,
+          pid: 02,
+          children: [
+            { id: 10, pid: 07 },
+            { id: 11, pid: 07 },
+          ]
+        },
+        { id: 09, pid: 02 },
+      ]
+    },
+  ]
+/**
+ * @description 查找包含自身节点的父代节点
+ * @param tree 需要查找的树数据
+ * @param curKey 当前节点key
+ * @param keyField 自定义 key 字段
+ * @param node 找到的node 可以不传
+ */
+// function findCurNode(tree, curKey, keyField, node = null) {
+//   tree.forEach((item) => {
+//     if (item[keyField] === curKey) {
+//       node = item
+//     }
+//     if (item.children && item.children.length) {
+//       const findChildren = findCurNode(item.children, curKey, keyField, node)
+//       if (findChildren) {
+//         node = findChildren
+//       }
+//     }
+//   })
+//   return node
+// }
+
+function findCurNode(tree, curKey, keyField, node = null) {
+  const stack = []
+  for (const item of tree) {
+    if (item) {
+      stack.push(item)
+      while (stack.length) {
+        const temp = stack.pop()
+
+        if (temp[keyField] === curKey) {
+          node = temp
+          break
+        }
+
+        const children = temp.children || []
+        for (let i = children.length - 1; i >= 0; i--) {
+            stack.push(children[i])
+        }
+      }
+    }
+  }
+  return node
+}
+
+console.log(findCurNode(tree, 10, 'id'))
+</script>
