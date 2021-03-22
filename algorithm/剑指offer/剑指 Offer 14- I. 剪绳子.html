@@ -1,0 +1,28 @@
+<script>
+  // 给你一根长度为 n 的绳子，请把绳子剪成整数长度的 m 段（m、n都是整数，n>1并且m>1），每段绳子的长度记为 k[0],k[1]...k[m-1] 。请问 k[0]*k[1]*...*k[m-1] 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。
+
+/**
+ * @param {number} n
+ * @return {number}
+ */
+// 绳子能被分成 n 段 ，n > 1，所以 n 从 2 开始
+// n 为 2，1+1=2；1*1=1
+// n 为 3，1+2=3；1*2=2
+// 我们通过示例找出规律
+// 最好能将数拆成无数个 3，因为 1 对于乘法是没用的 所以有几种情况
+// n 对 3 取整，结果为 integer， n 对 3 取余，结果为 remainder
+// 结果为 0 ，那就是 integer 个 3 相乘，
+// 结果为1，那就是 integer - 1 个 3 相乘，再乘上 4
+// 结果为2，那就是 integer 个 3 相乘，再乘上 remainder
+var cuttingRope = function(n) {
+  if (n === 2) return 1
+  if (n === 3) return 2
+
+  let integer = Math.floor(n / 3)
+  let remainder = n % 3
+
+  if (remainder === 0) return Math.pow(3, integer)
+  if (remainder === 1) return Math.pow(3, integer - 1) * 4
+  if (remainder === 2) return Math.pow(3, integer) * remainder
+};
+</script>
