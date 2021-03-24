@@ -10,14 +10,25 @@
 var myPow = function(x, n) {
   let res = 1
   const isPositive = n > 0
-  const len = parseInt(n)
+  const len = Math.abs(n)
   for(let i = 0; i < len; i++) {
-    if (isPositive) {
-      res *= x
-    } else {
-      res = x / 2
-    }
+    res *= x
   }
-  return isPositive ? res : -res
+  return isPositive ? res : 1/res
+};
+
+// 二分，如果，n 是偶数，二分之后，就是 y * y，如果是奇数的话，就是 y * y * x
+var myPow = function(x, n) {
+  if(n==0)return 1;
+  if(n==1)return x;
+  if(n>0){
+      var y=myPow(x,Math.floor(n/2));
+      if(n%2 === 0){
+          return y*y;
+      }else{
+          return y*y*x;
+      }
+  }
+  return 1/myPow(x,-n);
 };
 </script>
