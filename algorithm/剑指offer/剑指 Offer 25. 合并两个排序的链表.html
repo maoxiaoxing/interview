@@ -1,0 +1,35 @@
+<script>
+  // 输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} l1
+ * @param {ListNode} l2
+ * @return {ListNode}
+ */
+// 双指针的思想，
+// 初始化一个新节点0，通过遍历 l1 和 l2 ，如果 l1 > l2 的当前节点值，那就让新节点的 next 等于l2 ，反之为 l1
+// 当 l1 或 l2 有一个遍历完成，就直接将新节点的 next 指向 另一个没有遍历完的
+var mergeTwoLists = function(l1, l2) {
+  const res = new ListNode(0)
+  let cur = res
+  while (l1 !== null && l2 !== null) {
+    if (l1.val > l2.val) {
+      cur.next = l2
+      l2 = l2.next
+    } else {
+      cur.next = l1
+      l1 = l1.next
+    }
+    cur = cur.next
+  }
+
+  cur.next = l1 !== null ? l1 : l2
+  return res
+};
+</script>
