@@ -23,4 +23,23 @@ var mirrorTree = function(root) {
 
   return root
 };
+
+
+// 栈方法
+// 将左右子树都放入栈中，遍历栈，每次取出栈顶元素，将左右子树交换
+var mirrorTree = function(root) {
+  if (!root) return null
+  const stack = [root]
+
+  while (stack.length) {
+    const node = stack.pop()
+    if (node.left) stack.push(node.left)
+    if (node.right) stack.push(node.right)
+    const temp = node.left
+    node.left = node.right
+    node.right = temp
+  }
+
+  return root
+};
 </script>
