@@ -1,0 +1,28 @@
+<script>
+  // 请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。
+//例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {boolean}
+ */
+// 递归
+// 对称二叉树 左子树的左子树等于右子树的右子树 且 左子树的右子树 等于 右子树的左子树
+var isSymmetric = function(root) {
+  const isEqual = (left, right) => {
+    if (left === null && right === null) return true
+    if (left === null || right === null || left.val !== right.val) return false
+    return isEqual(left.left, right.right) && isEqual(left.right, right.left)
+  }
+
+  if (!root) return true
+  return isEqual(root.left, root.right)
+};
+</script>
