@@ -1,0 +1,41 @@
+<script>
+// 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
+// 有效字符串需满足：
+// 左括号必须用相同类型的右括号闭合。
+// 左括号必须以正确的顺序闭合。
+
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+// 我们来看看这题的规律，括号必须一一顺序对应，有两种情况，
+// 一是两个紧挨的括号一一对应， ()[]{}
+// 二是括号从中间对分对应 {([])}
+// 将括号的对应关系用map存储起来，结果的括号要作为 key，匹配到就意味着闭合 创建一个栈去用来匹配括号对应关系
+// 循环字符串，如果 map 中没有这个 括号，那么这个括号就是 开始的括号
+// 如果 map 中有这个括号，那就是结尾括号，如果stack中没有括号了 或者 栈尾的元素 和 它对应的开始括号不相等，就返回 false
+// 最后返回 stack 长度的取反，stack 有长度，就证明存在没有匹配上的括号，返回false；
+// 如果 stack 没有长度，证明都匹配上了，返回true
+var isValid = function(s) {
+  const charMap = {
+    ')': '(',
+    '}': '{',
+    ']': '[',
+  }
+
+  const stack = []
+
+  for (const c of s) {
+    if (Reflect.has(charMap, c)) {
+      if (!stack.length || stack[stack.length - 1] !== charMap[c]) {
+        return false
+      }
+      stack.pop()
+    } else {
+      stack.push(c)
+    }
+  }
+  return !stack.length
+};
+</script>
