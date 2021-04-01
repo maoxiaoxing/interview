@@ -27,4 +27,24 @@ var strStr = function(haystack, needle) {
     }
     return -1
 };
+
+// 双指针，这个题解特别耗时，但是思路比较巧妙
+// 滑动窗口，分别设置 h 和 n 指针，h 到 h + n 就是可视窗口
+// 当可视窗口内的字符串 和 needle 中有相等的，那么 n 指针向后移一位；否则证明没有匹配，n 指针归零，h指针后移
+// 遍历完，如果 n 指针的下标 和 needle 相等，那就是找到了，返回 h 指针的下标即可；否则就是没找到，返回 -1
+var strStr = function(haystack, needle) {
+  let h = 0
+  let n = 0
+  const hLen = haystack.length
+  const nLen = needle.length
+  while (h < hLen && n < nLen) {
+    if (haystack[h + n] === needle[i]) {
+      n++
+    } else {
+      n = 0
+      h++
+    }
+  }
+  return n === nLen ? h : -1
+};
 </script>
