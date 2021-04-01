@@ -11,4 +11,20 @@
 var strStr = function(haystack, needle) {
   return haystack.indexOf(needle)
 };
+
+// needle 为空字符串，就返回0
+// 循环 haystack，只需要遍历到 倒数第二个即可
+// 每次循环截取 needle.length 个长度的字符串和 needle 进行比较
+// 相等返回下标，不相等返回 -1
+var strStr = function(haystack, needle) {
+  if (!needle) return 0
+    let hLen = haystack.length
+    let nLen = needle.length
+    for(let i = 0; i < (hLen - nLen + 1); i++) {
+      if (haystack.substr(i, nLen) === needle) {
+          return i
+      }
+    }
+    return -1
+};
 </script>
