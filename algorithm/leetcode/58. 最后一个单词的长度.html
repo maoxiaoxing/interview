@@ -1,0 +1,16 @@
+<script>
+// 给你一个字符串 s，由若干单词组成，单词之间用空格隔开。返回字符串中最后一个单词的长度。如果不存在最后一个单词，请返回 0 。
+// 单词 是指仅由字母组成、不包含任何空格字符的最大子字符串。
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+// 将字符串用转成数组，过滤掉无效值 空串
+// 取数组最后一个，最后一个存在，就返回它的长度，不存在，那证明字符串是空的，返回0即可
+var lengthOfLastWord = function(s) {
+  const arr = s.split(' ')
+  const last = arr.filter((item) => item).slice(-1)
+  return last[0] && last[0].length || 0
+};
+</script>
