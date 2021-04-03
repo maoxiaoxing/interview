@@ -13,4 +13,28 @@ var lengthOfLastWord = function(s) {
   const last = arr.filter((item) => item).slice(-1)
   return last[0] && last[0].length || 0
 };
+
+// 双指针
+// 整体思路：定义尾指针 end，从后向前遍历，
+// 不为空串证明就是最后一个字符串的尾部了
+// 定义头指针 strat 为 end，start 也向前遍历，找到为空串证明就是最后一个字符串的头部，
+// 最后 end - start 即为最后一个字符串的长度
+// 有下面这几种情况
+// 'hello world' 这种是正常的字符串，end不用动，定义start等于end，start找到空串即可
+// 'hello world  ' 这种尾部有空格的就需要 end 找到不为空串的，定义start等于end，start找到空串即可
+// ' ' 这种空串的情况，end 就直接返回 0 即可
+var lengthOfLastWord = function(s) {
+  let end = s.length - 1
+
+  while (end >= 0 && s[end] === ' ') {
+    end--
+  }
+  if (end < 0) return 0
+
+  let start = end
+  while (start >= 0 && s[start] !== ' ') {
+    start--
+  }
+  return end - start
+};
 </script>
