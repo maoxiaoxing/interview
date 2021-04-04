@@ -1,0 +1,24 @@
+<script>
+// 给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
+// 最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
+// 你可以假设除了整数 0 之外，这个整数不会以零开头。
+
+/**
+ * @param {number[]} digits
+ * @return {number[]}
+ */
+// 从后开始遍历 digits，一种情况[1,2,3]还有一种情况[1,2,9]
+// 每一位自增并对本身取余，如果某一位不为0，就证明不需要加一了
+// 还有一种情况是[9,9,9] 加一就是[1,0,0,0]，所以就创建新数组，然后将第一位置为1即可
+var plusOne = function(digits) {
+  for(let i = digits.length - 1; i >= 0; i--) {
+    digits[i]++
+    digits[i] = digits[i] % 10
+    if (digits[i] !== 0) return digits
+  }
+
+  digits = Array.from({length: digits.length + 1}, (row) => 0)
+  digits[0] = 1
+  return digits
+};
+</script>
