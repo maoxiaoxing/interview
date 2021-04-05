@@ -11,7 +11,7 @@
 - [剑指 Offer 06. 从尾到头打印链表](https://github.com/maoxiaoxing/interview/issues/4)
 - [剑指 Offer 09. 用两个栈实现队列](https://github.com/maoxiaoxing/interview/issues/5)
 - [剑指 Offer 10- I. 斐波那契数列](https://github.com/maoxiaoxing/interview/issues/6)
-- [剑指 Offer 10- II. 青蛙跳台阶问题](https://github.com/maoxiaoxing/interview/issues/10)
+- [剑指 Offer 10- II. 青蛙跳台阶问题](https://github.com/maoxiaoxing/interview/issues/7)
 - [剑指 Offer 11. 旋转数组的最小数字](https://github.com/maoxiaoxing/interview/issues/11)
 
 
