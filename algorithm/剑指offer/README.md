@@ -13,5 +13,8 @@
 - [剑指 Offer 10- I. 斐波那契数列](https://github.com/maoxiaoxing/interview/issues/6)
 - [剑指 Offer 10- II. 青蛙跳台阶问题](https://github.com/maoxiaoxing/interview/issues/7)
 - [剑指 Offer 11. 旋转数组的最小数字](https://github.com/maoxiaoxing/interview/issues/11)
+- [剑指 Offer 12. 矩阵中的路径](https://github.com/maoxiaoxing/interview/issues/9)
+- [剑指 Offer 14- I. 剪绳子](https://github.com/maoxiaoxing/interview/issues/12)
+- [剑指 Offer 15. 二进制中1的个数](https://github.com/maoxiaoxing/interview/issues/13)
 
 
