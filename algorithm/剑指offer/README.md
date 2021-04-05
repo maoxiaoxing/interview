@@ -16,5 +16,6 @@
 - [剑指 Offer 12. 矩阵中的路径](https://github.com/maoxiaoxing/interview/issues/9)
 - [剑指 Offer 14- I. 剪绳子](https://github.com/maoxiaoxing/interview/issues/12)
 - [剑指 Offer 15. 二进制中1的个数](https://github.com/maoxiaoxing/interview/issues/13)
+- [剑指 Offer 16. 数值的整数次方](https://github.com/maoxiaoxing/interview/issues/14)
 
 
