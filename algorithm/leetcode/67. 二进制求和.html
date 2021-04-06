@@ -1,0 +1,21 @@
+<script>
+// 给你两个二进制字符串，返回它们的和（用二进制表示）。
+// 输入为 非空 字符串且只包含数字 1 和 0。
+
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+// 我的第一反应是用 parseInt ，但是我们知道 js 中的最大安全整数是2^53 - 1
+// 所以大数的时候，计算精度会有问题
+var addBinary = function(a, b) {
+  return (parseInt(a, 2) + parseInt(b, 2)).toString(2);
+};
+
+// 看了别人写的题解，js 中的新数据类型 BigInt
+// 前面拼接 0b 就是标识这时一个二进制的数
+var addBinary = function(a, b) {
+  return (BigInt("0b" + a) + BigInt("0b" + b)).toString(2);
+};
+</script>
