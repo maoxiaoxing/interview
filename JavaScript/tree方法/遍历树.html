@@ -1,0 +1,82 @@
+<script>
+const tree = [
+{
+  key: '第一层-1',
+  label: '第一层-1',
+  children: [
+      {
+          key: '第二层-1-1',
+          label: '第二层-1-1',
+          children: [
+              {
+                  key: '第三层-1-1',
+                  label: '第三层-1-1',
+                  children: [],
+              },
+              {
+                  key: '第三层-1-2',
+                  label: '第三层-1-2',
+                  children: [],
+              }
+          ]
+      },
+      {
+          key: '第二层-2-1',
+          label: '第二层-2-1',
+          children: [
+              {
+                  key: '第三层-2-1',
+                  label: '第三层-2-1',
+                  children: [],
+              }
+          ]
+      },
+      {
+          key: '第二层-3-1',
+          label: '第二层-3-1',
+          children: [
+              {
+                  key: '第三层-3-1',
+                  label: '第三层-3-1',
+                  children: [],
+              }
+          ]
+      },
+  ]
+}
+]
+
+/**
+ * @description 遍历 tree 给 tree 添加数据
+ * @param tree tree 数据
+ * @param keyField 对应 node 节点的 value 字段
+ * @param labelField 对应 node 节点的 title 字段
+ */
+function formatTree(tree, keyField, labelField) {
+  for(const node of tree) {
+    node.value = node[keyField]
+    node.title = node[labelField]
+    if (node.children && node.children.length) {
+      formatTree(node.children, keyField, labelField)
+    }
+  }
+  return tree
+}
+
+function formatTree1(tree, keyField, labelField) {
+  const bfs = (treeData, key, label) => {
+    for(const node of treeData) {
+      node.value = node[key]
+      node.title = node[label]
+      if (node.children && node.children.length) {
+        formatTree(node.children, key, label)
+      }
+    }
+    return tree
+  }
+  return bfs(tree, keyField, labelField)
+}
+
+console.log(formatTree(tree, 'key', 'label'))
+console.log(formatTree1(tree, 'key', 'label'))
+</script>
