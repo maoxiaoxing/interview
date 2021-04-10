@@ -22,4 +22,15 @@
     }
   }
   console.log(42 == obj2)
+
+  const a = {
+    i: 2,
+    valueOf: function() {
+      return this.i++
+    }
+  }
+
+  if (a == 2 && a == 3) {
+    console.log('foo')
+  }
 </script>
