@@ -1,0 +1,22 @@
+<script>
+// 1) 如果Type(x)是数字，Type(y)是字符串，则返回x == ToNumber(y)的结果。
+// (2) 如果Type(x)是字符串，Type(y)是数字，则返回ToNumber(x) == y的结果。
+var a = 42
+var b = '42'
+
+console.log(a == b)
+
+// (1) 如果Type(x)是布尔类型，则返回ToNumber(x) == y的结果；
+// (2) 如果Type(y)是布尔类型，则返回x == ToNumber(y)的结果。
+
+var x = true
+var y = '1'
+var z = 1
+
+console.log(x == y)
+console.log(x == z)
+
+// (1) 如果x为null, y为undefined，则结果为true。
+// (2) 如果x为undefined, y为null，则结果为true。
+console.log(null == undefined)
+</script>
