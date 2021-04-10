@@ -1,0 +1,25 @@
+<script>
+  const obj = {
+    valueOf: function() {
+      return 42
+    }
+  }
+  console.log(42 == obj)
+
+  const obj1 = {
+    toString: function() {
+      return 42
+    }
+  }
+  console.log(42 == obj1)
+
+  const obj2 = {
+    valueOf: function() {
+      return '43'
+    },
+    toString: function() {
+      return 42
+    }
+  }
+  console.log(42 == obj2)
+</script>
