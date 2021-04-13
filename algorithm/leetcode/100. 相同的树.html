@@ -1,0 +1,33 @@
+<script>
+//   给你两棵二叉树的根节点 p 和 q ，编写一个函数来检验这两棵树是否相同。
+// 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。
+
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} p
+ * @param {TreeNode} q
+ * @return {boolean}
+ */
+// 如果 p 和 q 都是 null，那就都返回 true
+// 如果 p 和 q 中其中有一个为 null ，就为 false
+// 如果 p 和 q 的值不相等就返回false
+// 否则就递归比较左右子树是否完全相等
+var isSameTree = function(p, q) {
+  if (p === null && q === null) {
+    return true
+  } else if (p === null || q === null) {
+    return false
+  } else if (p.val !== q.val) {
+    return false
+  } else {
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+  }
+};
+</script>
