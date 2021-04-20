@@ -1,0 +1,19 @@
+<script>
+  // 给定两个数组，编写一个函数来计算它们的交集。
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+// 遍历nums1，如果nums2中包含其中的元素 且 res 不包含这个元素（去重）
+var intersection = function(nums1, nums2) {
+  const res = []
+  for(const item of nums1) {
+    if (nums2.includes(item) && !res.includes(item)) {
+      res.push(item)
+    }
+  }
+  return res
+};
+</script>
