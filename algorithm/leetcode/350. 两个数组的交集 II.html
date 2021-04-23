@@ -1,0 +1,33 @@
+<script>
+// 给定两个数组，编写一个函数来计算它们的交集。
+
+/**
+ * @param {number[]} nums1
+ * @param {number[]} nums2
+ * @return {number[]}
+ */
+// 对两个数组排序 遍历两个数组，两个数组都是有顺序的
+// 如果 nums1 中的元素小于 nums2 中的元素的话，index1 就向后移动
+// 如果 nums1 中的元素大于 nums2 中的元素的话，index2 就向后移动
+// 直到 nums1 中的元素和 nums2 中的元素相等，就放入结果数组中，然后两个指针同时向后移动
+// 如果没有交集，就返回空数组
+var intersect = function(nums1, nums2) {
+  nums1.sort((a, b) => a-b)
+  nums2.sort((a, b) => a-b)
+  let index1 = 0
+  let index2 = 0
+  const res = []
+  while (index1 < nums1.length && index2 < nums2.length) {
+    if (nums1[index1] === nums2[index2]) {
+      res.push(nums1[index1])
+      index1++
+      index2++
+    } else if (nums1[index1] < nums2[index2]) {
+      index1++
+    } else {
+      index2++
+    }
+  }
+  return res
+};
+</script>
