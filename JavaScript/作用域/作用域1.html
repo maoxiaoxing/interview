@@ -1,0 +1,11 @@
+<script>
+  var a = 10;
+  (function() {
+    console.log(a)
+    a = 5
+    console.log(window.a)
+    console.log(this.a)
+    var a = 20
+    console.log(a)
+  })()
+</script>
