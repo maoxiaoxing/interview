@@ -7,10 +7,27 @@
  * @return {number}
  */
 // sort 排序
-var findKthLargest = function(nums, k) {
-  nums.sort((a, b) => b - a)
+// var findKthLargest = function(nums, k) {
+//   nums.sort((a, b) => b - a)
 
-  return nums[k-1]
+//   return nums[k-1]
+// };
+
+
+// 冒泡排序，最大的沉底，从后向前找第 k 大的数即可
+var findKthLargest = function(nums, k) {
+  for(let i = 0; i < nums.length; i++) {
+    for(let j = 0; j < nums.length; j++) {
+      if (nums[j] > nums[j+1]) {
+        const temp = nums[j + 1]
+        nums[j + 1] = nums[j]
+        nums[j] = temp
+      }
+      if ((j === nums.length - 1) && (i === k-1)) {
+        return nums[-k]
+      }
+    }
+  }
 };
 
 findKthLargest([3,2,1,5,6,4], 2)
