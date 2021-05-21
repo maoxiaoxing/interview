@@ -13,12 +13,34 @@
     .box {
       background: yellowgreen;
       box-shadow: 0 0 0 10px #655;
+      /* border: 10px solid; */
+    }
+    .box1 {
+      outline: 10px solid deeppink;
+      border: 10px solid #655;
+      border-radius: 5px;
+    }
+    .box2 {
+      box-shadow: 0 0 0 10px deeppink;
+      border: 10px solid #655;
+      border-radius: 5px;
     }
   </style>
 </head>
 <body>
+  <p>--- box-shodow ---</p>
   <div class="box">
+    从前车马慢
+  </div>
 
+  <p>--- outline ---</p>
+  <div class="box1">
+    一生只够爱一人
+  </div>
+
+  <p>--- box-shadow + border ---</p>
+  <div class="box2">
+    双圆角
   </div>
 </body>
 </html>
