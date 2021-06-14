@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    @keyframes ants {
+      to { background-position: 100% }
+    }
     body{
       display: flex;
       flex-wrap: wrap;
@@ -35,6 +38,13 @@
       border: 16px solid transparent;
       border-image: 16 repeating-linear-gradient(-45deg, red 0, red 1em, transparent 0, transparent 2em, #58a 0, #58a 3em, transparent 0, transparent 4em);
     }
+    .box4 {
+      padding: 1em;
+      border: 1px solid transparent;
+      background: linear-gradient(white, white) padding-box,
+        repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0 /.6em .6em;
+      animation: ants 12s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -43,5 +53,6 @@
   </div>
   <div class="box2"></div>
   <div class="box3"></div>
+  <div class="box4">爱你的人不一定等你，但是等你的人一定爱你</div>
 </body>
 </html>
