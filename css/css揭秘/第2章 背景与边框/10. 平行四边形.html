@@ -25,11 +25,30 @@
     .box1 {
       transform: skewX(-45deg);
     }
+    .box2 {
+      margin-left: 200px;
+      position: relative;
+      box-shadow: none;
+    }
+    .box2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background: #58a;
+      transform: skewX(45deg);
+    }
   </style>
 </head>
 <body>
   <div class="box1">
     爱是形容词吗，是形容我们吗？
+  </div>
+  <div class="box2">
+    万一努力的尽头，是你呢
   </div>
 </body>
 </html>
