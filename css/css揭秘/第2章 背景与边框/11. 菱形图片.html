@@ -6,6 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    body{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    div {
+      margin-right: 150px;
+      margin-top: 100px;
+      margin-bottom: 10px;
+    }
     .box1 {
       width: 400px;
       transform: rotate(45deg);
@@ -15,10 +24,22 @@
       max-width: 100%;
       transform: rotate(-45deg);
     }
+    .box2 {
+      width: 400px;
+      transform: rotate(45deg);
+      overflow: hidden;
+    }
+    .box2 > img {
+      max-width: 100%;
+      transform: rotate(-45deg) scale(1.42);
+    }
   </style>
 </head>
 <body>
   <div class="box1">
+    <img src="./img/cat.png" alt="">
+  </div>
+  <div class="box2">
     <img src="./img/cat.png" alt="">
   </div>
 </body>
