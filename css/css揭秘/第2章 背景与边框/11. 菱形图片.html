@@ -36,6 +36,13 @@
     .box3 {
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
     }
+    .box4 {
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      transition: 1s clip-path;
+    }
+    .box4:hover {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
   </style>
 </head>
 <body>
@@ -46,6 +53,9 @@
     <img src="./img/cat.png" alt="">
   </div>
   <div class="box3">
+    <img src="./img/cat.png" alt="">
+  </div>
+  <div class="box4">
     <img src="./img/cat.png" alt="">
   </div>
 </body>
