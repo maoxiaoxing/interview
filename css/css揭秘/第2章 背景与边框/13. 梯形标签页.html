@@ -41,10 +41,28 @@
       background-color: #58a;
       transform: perspective(.5em) rotateX(1deg);
     }
+    .box3 {
+      position: relative;
+      display: inline-block;
+      padding: .5em 1em .35em;
+    }
+    .box3::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-color: #58a;
+      transform: scaleY(1.3) perspective(.5em) rotateX(1deg);
+      transform-origin: bottom;
+    }
   </style>
 </head>
 <body>
   <div class="box1">花、太阳、雨和你，我对你的思念写进了纸和笔</div>
   <div class="box2">你比夏天的微风更让人心动</div>
+  <div class="box3">我想你一定很忙，所以你就看前三个字就好了</div>
 </body>
 </html>
