@@ -25,9 +25,27 @@
     .box1 {
       transform: perspective(.5em) rotateX(1deg);
     }
+    .box2 {
+      position: relative;
+      display: inline-block;
+      padding: .5em 1em .35em;
+      color: white;
+    }
+    .box2::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      background-color: #58a;
+      transform: perspective(.5em) rotate(5deg);
+    }
   </style>
 </head>
 <body>
   <div class="box1">花、太阳、雨和你，我对你的思念写进了纸和笔</div>
+  <div class="box2">你比夏天的微风更让人心动</div>
 </body>
 </html>
