@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>简单的饼图</title>
   <style>
+    @keyframes spin {
+      to {transform: rotate(.5turn);}
+    }
+    @keyframes bg {
+      50% {background: #655;}
+    }
     body{
       display: flex;
       flex-wrap: wrap;
@@ -30,6 +36,22 @@
       border-radius: 50%;
       background-image: linear-gradient(to right, yellow 50%, rgb(163, 32, 32) 0);
     }
+    .box3 {
+      border-radius: 50%;
+      background-image: linear-gradient(to right, yellow 50%, rgb(163, 32, 32) 0);
+    }
+    .box3::before {
+      padding: 0;
+      content: '';
+      display: block;
+      margin-left: 50%;
+      height: 100%;
+      border-radius: 0 100% 100% 0 /50%;
+      background-color: inherit;
+      transform-origin: left;
+      animation: spin 3s linear infinite, bg 6s step-end infinite;
+      /* transform: rotate(72deg); */
+    }
   </style>
 </head>
 <body>
@@ -37,5 +59,6 @@
     如果你也刚好看到黄昏，那就当做我们的见面吧
   </div>
   <div class="box2">日落美好该用什么理由发给你呢</div>
+  <div class="box3"></div>
 </body>
 </html>
