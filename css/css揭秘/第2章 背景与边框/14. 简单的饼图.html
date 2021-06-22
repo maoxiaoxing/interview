@@ -49,10 +49,30 @@
       width: 100px;
       height: 100%;
       border-radius: 0 100% 100% 0 /50%;
-      background-color: inherit;
+      background-color: pink;
       transform-origin: left;
       animation: spin 3s linear infinite, bg 6s step-end infinite;
       /* transform: rotate(72deg); */
+    }
+    .box4 {
+      padding: 0;
+      border-radius: 50%;
+      background-image: linear-gradient(to right, yellow 50%, rgb(163, 32, 32) 0);
+    }
+    .box4::before {
+      padding: 0;
+      content: '';
+      display: block;
+      margin-left: 50%;
+      width: 100px;
+      height: 100%;
+      border-radius: 0 100% 100% 0 /50%;
+      background-color: pink;
+      transform-origin: left;
+      animation: spin 3s linear infinite, bg 6s step-end infinite;
+      animation-play-state: paused;
+      animation-delay: inherit;
+      transform: rotate(72deg);
     }
   </style>
 </head>
@@ -62,5 +82,6 @@
   </div>
   <div class="box2">日落美好该用什么理由发给你呢</div>
   <div class="box3"></div>
+  <div class="box4"></div>
 </body>
 </html>
