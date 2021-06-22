@@ -12,6 +12,9 @@
     @keyframes bg {
       50% {background: #655;}
     }
+    @keyframes fillup {
+      to {stroke-dasharray: 158158;}
+    }
     body{
       display: flex;
       flex-wrap: wrap;
@@ -83,6 +86,20 @@
       stroke: #655;
       stroke-width: 30;
     }
+    .svg2 {
+      width: 100px;
+      height: 100px;
+      transform: rotate(-90deg);
+      background-color: yellowgreen;
+      border-radius: 50%;
+    }
+    .svg2 > circle {
+      fill: yellowgreen;
+      stroke: #655;
+      stroke-width: 20;
+      stroke-dasharray: 38100;
+      animation: fillup 5s linear infinite;
+    }
   </style>
 </head>
 <body>
@@ -93,6 +110,9 @@
   <div class="box3"></div>
   <div class="box4"></div>
   <svg class="svg1">
+    <circle r="30" cx="50" cy="50"></circle>
+  </svg>
+  <svg class="svg2">
     <circle r="30" cx="50" cy="50"></circle>
   </svg>
 </body>
