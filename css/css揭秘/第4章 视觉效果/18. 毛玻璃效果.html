@@ -50,6 +50,30 @@
       filter: blur(20px);
       /* background: url(../img/tigger.png); */
     }
+
+    .box3 {
+      /* background: url(../img/tigger.png); */
+      background: url(../img/tigger.png) 0 /cover fixed;
+      background-size: 100% 100%;
+    }
+    .box3 > .main {
+      width: 200px;
+      height: 160px;
+      background: hsla(0, 0%, 100%, .3);
+      position: relative;
+    }
+    .box3 > .main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      /* z-index: -1; */
+      /* background: rgba(255, 0, 0, .5); */
+      filter: blur(20px);
+      /* background: url(../img/tigger.png) 0 /cover fixed; */
+    }
   </style>
 </head>
 <body>
@@ -62,6 +86,12 @@
   <div class="box2">
     <div class="main">
       想念如果有声音，你一定会觉得我很吵
+    </div>
+  </div>
+
+  <div class="box3">
+    <div class="main">
+      即使隔了千山万水，也像一起走了千山万水
     </div>
   </div>
 </body>
