@@ -30,12 +30,36 @@
       height: 160px;
       background: hsla(0, 0%, 100%, .3);
     }
+    .box2 {
+      background: url(../img/tigger.png);
+    }
+    .box2 > .main {
+      width: 200px;
+      height: 160px;
+      background: hsla(0, 0%, 100%, .3);
+      position: relative;
+    }
+    .box2 > .main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(255, 0, 0, .5);
+    }
   </style>
 </head>
 <body>
   <div class="box1">
     <div class="main">
       晚点遇到吧，你刚好温柔，我刚好成熟
+    </div>
+  </div>
+
+  <div class="box2">
+    <div class="main">
+      想念如果有声音，你一定会觉得我很吵
     </div>
   </div>
 </body>
