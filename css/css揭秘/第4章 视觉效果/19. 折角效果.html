@@ -36,11 +36,31 @@
       background: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .4) 0) no-repeat 100% 0 /3em 1.73em,
         linear-gradient(-150deg, transparent 1.5em, #58a 0);
     }
+    .box4 {
+      position: relative;
+      background-color: #58a;
+      background: linear-gradient(-150deg, transparent 1.5em, #58a 0);
+      border-radius: .5em;
+    }
+    .box4::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .4) 0) 100% 0 no-repeat;
+      width: 1.73em;
+      height: 3em;
+      transform: translateY(-1.3em) rotate(-30deg);
+      transform-origin: bottom right;
+      border-bottom-left-radius: inherit;
+      box-shadow: -.2em .2em .3em -.1em rgba(0, 0, 0, .15);
+    }
   </style>
 </head>
 <body>
   <div class="box1">夜深人静，那是爱情，偷偷的控制着我的心，提醒着我，爱你要随时待命</div>
   <div class="box2"></div>
   <div class="box3"></div>
+  <div class="box4"></div>
 </body>
 </html>
