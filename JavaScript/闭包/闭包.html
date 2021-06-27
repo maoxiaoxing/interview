@@ -19,6 +19,7 @@ invoke(fn);
 var a = 100;
 
 function create() {
+    console.log(a, 'aa')
     var a = 200;
     return function() {
         console.log(a + ' create')
