@@ -22,13 +22,22 @@
       padding: 10px;
       box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
     }
+    @font-face {
+      font-family: Ampersand;
+      src: local('Baskerville'), local('Goudy Old Style'), local('Palatino'), local('Garamond');
+    }
     .box1 > span {
       font-family: Baskerville, "Goudy Old Style", Garamond, Palatino, serif;
+      font-style: italic;
+    }
+    .box2 > span {
+      font-family: Ampersand;
       font-style: italic;
     }
   </style>
 </head>
 <body>
   <div class="box1">HTML <span>&amp;</span>CSS</div>
+  <div class="box2">HTML <span>&amp;</span>CSS</div>
 </body>
 </html>
