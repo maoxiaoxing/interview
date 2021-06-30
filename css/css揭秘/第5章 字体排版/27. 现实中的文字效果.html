@@ -45,6 +45,22 @@
       color: white;
       text-shadow: 3px 3px black, -3px -3px black, 3px -3px black, -3px 3px black;
     }
+    .box5 {
+      font: 500%/1 Rockwell, serif;
+      background: deeppink;
+      color: white;
+    }
+    .box5 text {
+      fill: currentColor;
+    }
+    .box5 svg {
+      overflow: visible;
+    }
+    .box5 use {
+      stroke: black;
+      stroke-width: 6;
+      stroke-linejoin: round;
+    }
   </style>
 </head>
 <body>
@@ -52,5 +68,11 @@
   <div class="box2">我这一生都是唯物主义者，唯有你，让我希望有来生</div>
   <div class="box3">人间烟火 山河远阔 无一是你 无一不是你</div>
   <div class="box4">你是个可爱又浪漫的麻烦</div>
+  <div class="box5">
+    <svg width="2em" height="1.2em">
+      <use xlink:href="#css"></use>
+      <text id="css" y="1em">LOVE</text>
+    </svg>
+  </div>
 </body>
 </html>
