@@ -11,23 +11,30 @@
       height: 60px;
       border-radius: 50%;
       background-color: pink;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .3) inset;
+      transition: .2s;
+      font-size: 10px;
+      text-align: center;
+      line-height: 60px;
+    }
+    .box1:hover {
       border: 10px solid transparent;
       background-clip: padding-box;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, .3) inset,
         0 .1em .2em 0.5em rgba(0, 0, 0, .5);
       position: relative;
     }
-    .box1::before {
+    /* .box1::before {
       content: '';
       position: absolute;
       top: -10px;
       right: -10px;
       bottom: -10px;
       left: -10px;
-    }
+    } */
   </style>
 </head>
 <body>
-  <div class="box1"></div>
+  <div class="box1">爱与自由</div>
 </body>
 </html>
