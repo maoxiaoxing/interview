@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .box1 {
+      width: 200px;
+      height: 200px;
+      margin: 20px 0 0 20px;
+    }
+    .box1 path {
+      fill: none;
+    }
+    .box1 svg {
+      display: block;
+      overflow: visible;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <svg viewBox="0 0 100 100">
+      <path d="M 0, 50 a 50, 50 0 1, 1 0, 1 z" id="circle"></path>
+      <text>
+        <textPath xlink:href="#circle">
+          有时候我词不达意 但真的很高兴能遇见你
+        </textPath>
+      </text>
+    </svg>
+  </div>
+</body>
+</html>
