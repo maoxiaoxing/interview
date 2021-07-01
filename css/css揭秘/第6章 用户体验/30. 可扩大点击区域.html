@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box1 {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: pink;
+      border: 10px solid transparent;
+      background-clip: padding-box;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .3) inset,
+        0 .1em .2em 0.5em rgba(0, 0, 0, .5);
+      position: relative;
+    }
+    .box1::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      bottom: -10px;
+      left: -10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1"></div>
+</body>
+</html>
