@@ -34,6 +34,30 @@
       text-indent: .15em;
       line-height: .65;
     }
+    .box3 > input[type="checkbox"] + label::before {
+      content: '\2713';
+      display: inline-block;
+      vertical-align: .2em;
+      width: .8em;
+      height: .8em;
+      margin-right: .2em;
+      border-radius: .2em;
+      background: yellowgreen;
+      text-indent: .15em;
+      line-height: .65;
+    }
+    .box3 > input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+    }
+    .box3 > input[type="checkbox"]:focus + label::before {
+      box-shadow: 0 0 .1em .1em #58a;
+    }
+    .box3 > input[type="checkbox"]:disabled + label::before {
+      background: gray;
+      box-shadow: none;
+      color: #555;
+    }
   </style>
 </head>
 <body>
@@ -44,6 +68,10 @@
   <div class="box2">
     <input type="checkbox" id="awesome1" />
     <label for="awesome1">awesome</label>
+  </div>
+  <div class="box3">
+    <input type="checkbox" id="awesome2" />
+    <label for="awesome2">awesome</label>
   </div>
 </body>
 </html>
