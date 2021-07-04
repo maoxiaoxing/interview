@@ -6,21 +6,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .box1 {
+    body {
+      display: flex;
+    }
+    body > div {
       width: 300px;
       height: 200px;
-      overflow: auto;
+      margin-right: 10px;
+      margin-bottom: 10px;
       box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
+    }
+    body > div > div {
+      height: 30px;
+    }
+    .box1 {
+      overflow: auto;
       background: radial-gradient(at top, rgba(0, 0, 0, .2), transparent 70%) no-repeat;
       background-size: 100% 15px;
     }
-    .box1 > div {
-      height: 30px;
+    .box2 {
+      overflow: auto;
+      background: linear-gradient(white, white), radial-gradient(at top, rgba(0, 0, 0, .2), transparent 70%);
+      background-repeat: no-repeat;
+      background-size: 100% 15px;
+      background-attachment: local, scroll;
     }
   </style>
 </head>
 <body>
   <div class="box1">
+    <div>Ada Catlace</div>
+    <div>Alan Purring</div>
+    <div>Schrodingcat</div>
+    <div>Schrodingcat</div>
+    <div>Schrodingcat</div>
+    <div>Schrodingcat</div>
+    <div>Schrodingcat</div>
+    <div>Schrodingcat</div>
+    <div>Schrodingcat</div>
+  </div>
+  <div class="box2">
     <div>Ada Catlace</div>
     <div>Alan Purring</div>
     <div>Schrodingcat</div>
