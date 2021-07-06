@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    div {
+      display: flex;
+      width: 300px;
+      height: 200px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      justify-content: center;
+      box-sizing: border-box;
+      padding: 10px;
+      box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
+    }
+    .box1 {
+      position: relative;
+    }
+    .box1 > div {
+      width: 18em;
+      height: 6em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -3em;
+      margin-left: -9em;
+    }
+  </style>
+</head>
+<body>
+  <div class="box1">
+    <div>我向蓝色借了一片海，准备叫它温柔。</div>
+  </div>
+</body>
+</html>
