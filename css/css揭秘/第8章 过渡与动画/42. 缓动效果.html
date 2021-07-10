@@ -9,13 +9,23 @@
     @keyframes bounce {
       60%, 80%, to { 
         transform: translateY(300px);
-        animation-timing-function: ease-out;
       }
       70% { transform: translateY(200px); }
       90% { transform: translateY(300px); }
     }
     @keyframes bounce1 {
-      60%, 80%, to { transform: translateY(300px); }
+      60%, 80%, to { 
+        transform: translateY(300px);
+        animation-timing-function: ease-out;
+      }
+      70% { transform: translateY(200px); }
+      90% { transform: translateY(300px); }
+    }
+    @keyframes bounce2 {
+      60%, 80%, to { 
+        transform: translateY(300px);
+        animation-timing-function: ease;
+      }
       70% { transform: translateY(200px); }
       90% { transform: translateY(300px); }
     }
@@ -43,16 +53,20 @@
       animation: bounce 3s;
     }
     .box2 {
-      width: 60px;
-      height: 60px;
       background-color: yellowgreen;
       border-radius: 50%;
-      animation: bounce 3s ease-in;
+      animation: bounce1 3s ease-in;
+    }
+    .box3 {
+      background-color: pink;
+      border-radius: 50%;
+      animation: bounce2 3s cubic-bezier(.1, .25, 1, .25);
     }
   </style>
 </head>
 <body>
   <div class="box1"></div>
-  <div class="box2" />
+  <div class="box2"></div>
+  <div class="box3"></div>
 </body>
 </html>
