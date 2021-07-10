@@ -7,6 +7,14 @@
   <title>Document</title>
   <style>
     @keyframes bounce {
+      60%, 80%, to { 
+        transform: translateY(300px);
+        animation-timing-function: ease-out;
+      }
+      70% { transform: translateY(200px); }
+      90% { transform: translateY(300px); }
+    }
+    @keyframes bounce1 {
       60%, 80%, to { transform: translateY(300px); }
       70% { transform: translateY(200px); }
       90% { transform: translateY(300px); }
@@ -17,8 +25,8 @@
     }
     div {
       display: flex;
-      width: 300px;
-      height: 200px;
+      width: 60px;
+      height: 60px;
       margin-right: 10px;
       margin-bottom: 10px;
       justify-content: center;
@@ -34,10 +42,17 @@
       border-radius: 50%;
       animation: bounce 3s;
     }
+    .box2 {
+      width: 60px;
+      height: 60px;
+      background-color: yellowgreen;
+      border-radius: 50%;
+      animation: bounce 3s ease-in;
+    }
   </style>
 </head>
 <body>
-  <div class="box1">
-  </div>
+  <div class="box1"></div>
+  <div class="box2" />
 </body>
 </html>
