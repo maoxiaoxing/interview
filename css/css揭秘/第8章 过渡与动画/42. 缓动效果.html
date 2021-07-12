@@ -62,11 +62,27 @@
       border-radius: 50%;
       animation: bounce2 3s cubic-bezier(.1, .25, 1, .25);
     }
+    .box4 {
+      margin-left: 60px;
+    }
+    .box4 input:not(:focus) + .callout {
+      transform: scale(0);
+    }
+    .box4 .callout {
+      transition: .5s transform;
+      transform-origin: 1.4em -.4em;
+    }
   </style>
 </head>
 <body>
   <div class="box1"></div>
   <div class="box2"></div>
   <div class="box3"></div>
+  <div class="box4">
+    <label>
+      <input id="username" />
+      <span class="callout">Only letters</span>
+    </label>
+  </div>
 </body>
 </html>

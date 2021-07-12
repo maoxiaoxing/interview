@@ -2,8 +2,11 @@
 function Person(name, age) {
     this.name = name
 
-    return '123'
+    return ''
 }
+
+Person.prototype.age = 18
+Person.prototype.name = 18
 
 const person1 = new Person('Jack', 12)
 console.log(person1.name)
