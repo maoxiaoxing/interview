@@ -11,13 +11,36 @@
           width: 0;
         }
     }
+    body{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    div {
+      /* display: flex;
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box; */
+      padding: 10px;
+      box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
+    }
     .box1 {
       width: 7.7em;
       animation: typing 8s;
+    }
+    .box2 {
+      width: 15ch;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: tying 6s steps(15);
     }
   </style>
 </head>
 <body>
   <div class="box1">CSS is awesome</div>
+  <div class="box2">CSS is awesome</div>
 </body>
 </html>
