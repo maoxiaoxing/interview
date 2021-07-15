@@ -11,6 +11,11 @@
           width: 0;
         }
     }
+    @keyframes scaret {
+        50% {
+          border-color: transparent;
+        }
+    }
     body{
       display: flex;
       flex-wrap: wrap;
@@ -37,10 +42,17 @@
       white-space: nowrap;
       animation: tying 6s steps(15);
     }
+    .box3 {
+      width: 15ch;
+      overflow: hidden;
+      white-space: nowrap;
+      animation: tying 6s steps(15), caret 1s steps(1) infinite;
+    }
   </style>
 </head>
 <body>
   <div class="box1">CSS is awesome</div>
+  <div class="box2">CSS is awesome</div>
   <div class="box2">CSS is awesome</div>
 </body>
 </html>
