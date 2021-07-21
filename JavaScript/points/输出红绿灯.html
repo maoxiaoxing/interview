@@ -11,7 +11,7 @@
       }, 2000)
     }, 2000)
   }
-  trafficLights()
+  // trafficLights()
 
 //--------------------------------
 // promise 版本
@@ -37,11 +37,19 @@ function wait(time, cb) {
   })
 }
 
+// async function main() {
+//   await wait(3000, red)
+//   await wait(2000, green)
+//   await wait(2000, yellow)
+//   main()
+// }
+
 async function main() {
-  await wait(3000, red)
-  await wait(2000, green)
-  await wait(2000, yellow)
-  main()
+  while(true) {
+    await wait(3000, red)
+    await wait(2000, green)
+    await wait(2000, yellow)
+  }
 }
 
 main()
