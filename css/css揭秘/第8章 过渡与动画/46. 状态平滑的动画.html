@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
+    @keyframes panoramic {
+      to { background-position: 100% 0; }
+    }
     body{
       display: flex;
       flex-wrap: wrap;
@@ -23,8 +26,11 @@
       box-shadow: 2px 3px 4px rgba(0, 0, 0, .5);
     }
     .box1 {
+      width: 300px;
+      height: 300px;
       background: url("../img/epub_26211795_467.jfif");
       background-size: auto 100%;
+      animation: panoramic 10s linear infinite alternate;
     }
   </style>
 </head>
