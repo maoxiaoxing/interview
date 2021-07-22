@@ -37,6 +37,16 @@
     .box2:hover {
       animation: panoramic 10s linear infinite alternate;
     }
+    .box3 {
+      background: url("../img/epub_26211795_467.jfif");
+      background-size: auto 100%;
+      animation: panoramic 10s linear infinite alternate;
+      animation-play-state: paused;
+    }
+    .box3:hover {
+      /* animation: panoramic 10s linear infinite alternate; */
+      animation-play-state: running;
+    }
   </style>
 </head>
 <body>
@@ -44,5 +54,7 @@
   <div class="box1"></div>
   <span>鼠标悬浮</span>
   <div class="box2"></div>
+  <span>暂停效果</span>
+  <div class="box3"></div>
 </body>
 </html>
