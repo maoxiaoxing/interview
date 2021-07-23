@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    console.log(['1', '2', '3'].map(parseInt))
+    // 相当于 map((item, index) => parseInt(item, index))
+    // 1 0   0按照10处理，返回1
+    // 2 1   parseInt 的第二个参数最小值就是2， NAN
+    // 3 2   3 不是二进制
+  </script>
+</body>
+</html>
