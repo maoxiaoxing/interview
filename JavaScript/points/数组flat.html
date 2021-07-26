@@ -12,6 +12,15 @@
     }, [])
   }
 
-  console.log(flat(arr))
+  function flat1(_arr) {
+    while(_arr.some((item) => Array.isArray(item))) {
+      _arr = [].concat(..._arr)
+    }
+    return _arr
+  }
+
+  console.log(flat1(arr))
+
+  // console.log(flat(arr))
 
 </script>
