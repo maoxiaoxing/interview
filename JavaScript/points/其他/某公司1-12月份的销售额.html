@@ -28,6 +28,18 @@
 
     const res = trans(sales)
     console.log(res)
+
+    function trans1(record) {
+      const obj = {...record, length: 12}
+      const _obj = Array.from(obj).slice(1)
+      const res = _obj.map((item) => {
+        return item || null
+      })
+      return res
+    }
+
+    const res1 = trans1(sales)
+    console.log(res1)
   </script>
 </body>
 </html>
