@@ -1,0 +1,88 @@
+<script>
+  const taskQueue = []
+
+  const eat = (str) => {
+    log(str)
+    publish()
+  }
+
+  const sleep = (timer) => {
+    setTimeout(() => {
+      log(`等待${timer}s`)
+      publish()
+    }, timer * 1000)
+  }
+
+  const lazyMan = (str) => {
+    log(`Hi, This is ${str}`)
+    publish()
+  }
+
+  const log = (str) => {
+    console.log(str)
+  }
+
+  const fnMap = new Map([
+    ['eat', eat],
+    ['sleep', sleep],
+    ['lazyMan', lazyMan],
+    ['firstSleep', sleep],
+  ])
+
+  const sub = (type, arg) => {
+    const param = {
+      type,
+      arg,
+    }
+    if (param.type === 'firstSleep') {
+      taskQueue.unshift(param)
+    } else {
+      taskQueue.push(param)
+    }
+  }
+
+  const publish = () => {
+    if (taskQueue.length) {
+      run(taskQueue.shift())
+    }
+  }
+
+  const run = (option) => {
+    const fn = fnMap.get(option.type)
+    fn(option.arg)
+  }
+
+  function LazyMan (name) {
+    const _this = this
+
+    sub('lazyMan', name)
+
+    setTimeout(() => {
+      publish()
+    }, 0)
+
+
+    const eat = (meal) => {
+      sub('eat', meal)
+      return _this
+    }
+
+    const sleep = (timer) =>{
+      sub('sleep', timer)
+      return _this
+    }
+
+    const firstSleep = (timer) =>{
+      sub('firstSleep', timer)
+      return _this
+    }
+
+    this.eat = eat
+    this.sleep = sleep
+    this.firstSleep = firstSleep
+
+    return this
+  }
+
+  LazyMan('Tony').eat('lunch').eat('dinner').firstSleep(5).sleep(10).eat('junk food');
+</script>
