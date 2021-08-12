@@ -1,0 +1,25 @@
+<script>
+  var Singleton = function(name) {
+    this.name = name
+  }
+
+  Singleton.prototype.getName = function() {
+    alert(this.name)
+  }
+
+  Singleton.getInstance = (function() {
+    let instance
+    return function(name) {
+      if (!instance) {
+        instance = new Singleton(name)
+      }
+      return instance
+    }
+  })()
+
+  const a = Singleton.getInstance('a')
+  const b = Singleton.getInstance('b')
+
+  console.log(a, b)
+  console.log(a === b)
+</script>
