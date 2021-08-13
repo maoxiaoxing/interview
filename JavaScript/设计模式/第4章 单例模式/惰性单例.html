@@ -1,11 +1,46 @@
-<script>
-  Singleton.getInstance = (function() {
-    let instance
-    return function(name) {
-      if (!instance) {
-        instance = new Singleton(name)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <button id="loginBtn">登录</button>
+  </div>
+
+
+  <script>
+    // Singleton.getInstance = (function() {
+    //   let instance
+    //   return function(name) {
+    //     if (!instance) {
+    //       instance = new Singleton(name)
+    //     }
+    //     return instance
+    //   }
+    // })()
+
+    const createLoginLayer = (function() {
+      let div
+      return function() {
+        if (!div) {
+          div = document.createElement('div')
+          div.innerHTML = '我是登录浮窗'
+          div.style.display = 'none'
+          document.body.appendChild(div)
+        }
+
+        return div
       }
-      return instance
+    })()
+
+    document.getElementById('loginBtn').onclick = function() {
+      const loginLayer = createLoginLayer()
+      loginLayer.style.display = 'block'
     }
-  })()
-</script>
+  </script>
+</body>
+</html>
