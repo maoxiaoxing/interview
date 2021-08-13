@@ -1,0 +1,11 @@
+<script>
+  Singleton.getInstance = (function() {
+    let instance
+    return function(name) {
+      if (!instance) {
+        instance = new Singleton(name)
+      }
+      return instance
+    }
+  })()
+</script>
