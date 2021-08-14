@@ -1,0 +1,27 @@
+<script>
+  const performanceS = (salary) => salary * 7
+  const performanceA = (salary) => salary * 5
+  const performanceB = (salary) => salary * 3
+
+  class Bonus {
+    constructor() {
+    }
+
+    setSalary = (salary) => {
+      this.salary = salary
+    }
+
+    setStrategy = (strategy) => {
+      this.strategy = strategy
+    }
+
+    getBonus = () => {
+      return this.strategy(this.salary)
+    }
+  }
+
+  const bonus = new Bonus()
+  bonus.setSalary(20000)
+  bonus.setStrategy(performanceA)
+  console.log(bonus.getBonus())
+</script>
