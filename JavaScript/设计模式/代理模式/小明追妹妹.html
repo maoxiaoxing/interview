@@ -1,0 +1,28 @@
+<script>
+  class Flower {
+    constructor(type) {
+      this.type = type
+    }
+  }
+
+  const xiaoming = {
+    sendFlower: function(target) {
+      const flower = new Flower('rose')
+      target.receiveFlower(flower.type)
+    }
+  }
+
+  const B = {
+    receiveFlower: function(flower) {
+      xiaomei.receiveFlower(flower)
+    }
+  }
+
+  const xiaomei = {
+    receiveFlower: function(flower) {
+      console.log(`xiaomei收到了${flower}`)
+    }
+  }
+
+  xiaoming.sendFlower(B)
+</script>
