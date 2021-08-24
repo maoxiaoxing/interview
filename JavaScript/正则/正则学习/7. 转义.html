@@ -5,4 +5,8 @@
   const str = '12.34'
   const reg = /\d+\.\d+/
   console.log(reg.test(str))
+
+  // 正则对象，传入的正则，要有两层转义
+  const reg1 = new RegExp('\\d+\\.\\d+')
+  console.log(reg1.test(str))
 </script>
