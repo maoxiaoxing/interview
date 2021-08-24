@@ -9,4 +9,8 @@
   // 正则对象，传入的正则，要有两层转义
   const reg1 = new RegExp('\\d+\\.\\d+')
   console.log(reg1.test(str))
+
+  const url = 'https://wwww.baidu.com'
+  const reg2 = /https?:\/\/\w+\.\w+\.\w+/
+  console.log(reg2.test(url))
 </script>
