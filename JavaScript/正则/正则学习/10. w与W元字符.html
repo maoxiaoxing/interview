@@ -11,4 +11,7 @@
 
   // \W 除了 字母 数字 _
   console.log('maoxiaoxing@'.match(/\W/))
+
+  const username = prompt('请输入用户名')
+  console.log(/^[a-z]\w{4,9}$/.test(username))
 </script>
