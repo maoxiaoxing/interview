@@ -4,4 +4,9 @@
   const str = 'maoxiaoxing9527_&123'
   console.log(str.match(/\w+/))
 
+  // 简单的验证邮箱
+  const email = '930649054@qq.com'
+  const reg = /^\w+@\w+.\w+/
+  console.log(reg.test(email))
+
 </script>
