@@ -15,4 +15,8 @@
   // 匹配非数字
   const reg3 = /[\D]/g
   console.log(str1.match(reg3))
+
+  // 匹配非数字、特殊字符
+  const reg4 = /[^-\d，：]/g
+  console.log(str1.match(reg4))
 </script>
