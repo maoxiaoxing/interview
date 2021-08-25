@@ -12,11 +12,15 @@
   const reg2 = /[-\d，：]/g
   console.log(str1.match(reg2))
 
-  // 匹配非数字
+  // 匹配非数字 \D 为除了数字
   const reg3 = /[\D]/g
   console.log(str1.match(reg3))
 
   // 匹配非数字、特殊字符
   const reg4 = /[^-\d，：]/g
   console.log(str1.match(reg4))
+
+  // \s 匹配空格 \n 也算空格
+  const reg5 = /\s/
+  console.log(reg5.test('\n88'))
 </script>
