@@ -16,4 +16,8 @@
   const reg1 = /.+/s
   console.log(str1.match(reg1)[0])
 
+  // 空格也是字符
+  const str2 = '010 - 88888888'
+  const reg2 = /\d+ - \d{8}/ // 等价于 /\d+\s-\s\d{8}/
+  console.log(str2.match(reg2))
 </script>
