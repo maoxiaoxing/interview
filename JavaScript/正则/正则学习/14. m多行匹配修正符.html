@@ -6,5 +6,16 @@
     #4 node,300元 #
   `
   const reg = /^\s*#\d+\s+.+\s+#$/gm
-  console.log(str.match(reg))
+  // console.log(str.match(reg))
+
+  const lessons = str.match(reg).map((s) => {
+    s = s.replace(/\s*#\d+\s+/, '').replace(/\s*#\s*/, '')
+    const [name, price] = s.split(',')
+    return {
+      name,
+      price,
+    }
+  })
+
+  console.log(lessons)
 </script>
