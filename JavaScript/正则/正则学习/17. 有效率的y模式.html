@@ -1,0 +1,12 @@
+<script>
+  const str = `购物qq群：66666666,88888888,99999999
+  像雾像雨又像风`
+  
+  const reg = /(\d+),?/y
+  reg.lastIndex = 6
+  const qq = []
+  while((res = reg.exec(str))) {
+    qq.push(res[0])
+  }
+  console.log(qq)
+</script>
