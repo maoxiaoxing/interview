@@ -3,4 +3,12 @@
   const str = 'maoxiaoxing'
   const reg = /[ox]/g
   console.log(str.match(reg))
+
+  // \1 匹配第一个括号() 
+  // \2 匹配第二个括号() 以此类推
+
+  const time = '2021-08-29'
+  // const reg1 = /\d+[-/]\d+[-/]\d+/
+  const reg1 = /^\d+([-\/])\d{2}\1\d+$/
+  console.log(time.match(reg1))
 </script>
