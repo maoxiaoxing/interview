@@ -1,0 +1,7 @@
+<script>
+  // 原子表中的字符不解析
+  // () 在原子表中单纯表示括号，在外边则正常表示院子组
+  const str = '(maoxiaoxing).+'
+  console.log(str.match(/[.+]/gi))
+  console.log(str.match(/[()]/gi))
+</script>
