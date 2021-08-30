@@ -6,4 +6,5 @@
   // 匹配汉字
   const str1 = `张三:101-66666666,李四:010-88888888`
   console.log(str1.match(/[^\d:\-,]/g))
+  console.log(str1.match(/\p{sc=Han}+/gu))
 </script>
