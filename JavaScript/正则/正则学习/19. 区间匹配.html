@@ -7,6 +7,8 @@
   <title>Document</title>
 </head>
 <body>
+  <input type="text" name="username">
+
   <script>
     // 匹配数字
     const str = '2010'
@@ -15,6 +17,12 @@
     // 匹配英文
     const str1 = 'maoxiaoxing'
     console.log(str1.match(/[a-z]+/g))
+
+    // 匹配名字 必须以英文开头
+    const input = document.querySelector('[name="username"]')
+    input.addEventListener('keyup', function() {
+      console.log(this.value.match(/^[a-z]\w{2,6}$/i))
+    })
   </script>
 </body>
 </html>
