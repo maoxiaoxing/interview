@@ -1,0 +1,8 @@
+<script>
+  const dom = `
+    <h1>标题</h1>
+    <h2>正文</h2>
+  `
+  const reg = /<(h[1-6])>[\s\S]*<\/\1>/g
+  console.log(dom.match(reg))
+</script>
