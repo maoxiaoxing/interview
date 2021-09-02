@@ -1,11 +1,19 @@
 <script>
   const str = `
     https://www.maoxiaoxing.com
-    http://baidu.com
-    https://hdcms.com
-  `
+    http://taobao.cn
+    https://www.baidu.com
+  `;
 
-  const reg = /https?:\/\/(\w+.\w+.(com|cn|org))/gi
+  // 原子组内使用 ?: 表示不记录该原子组
+  const reg = /https?:\/\/((?:\w+\.)?\w+\.(?:com|cn))/gi;
+  // let reg = /https?:\/\/((?:\w+\.)?\w+\.(?:com|cn))/gi;
 
-  console.log(str.match(reg))
+  // console.log(reg.exec(str))
+  const strs = []
+  while((res = reg.exec(str))) {
+    strs.push(res[1])
+  }
+  console.log(strs)
+
 </script>
