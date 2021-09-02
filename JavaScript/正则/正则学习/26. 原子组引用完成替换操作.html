@@ -9,7 +9,10 @@
 
   console.log(str.replace(reg, `<p>$2</p>`))
 
-  str.replace(reg, (p0, p1, p2) => {
-    console.log(p0, p1, p2)
+  const res = str.replace(reg, (p0, p1, p2) => {
+    console.log(p0, p1, p2, '---')
+    return `<p>${p2}}</p>`
   })
+
+  console.log(res)
 </script>
