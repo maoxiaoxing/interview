@@ -1,0 +1,11 @@
+<script>
+  const str = `
+    https://www.maoxiaoxing.com
+    http://baidu.com
+    https://hdcms.com
+  `
+
+  const reg = /https?:\/\/(\w+.\w+.(com|cn|org))/gi
+
+  console.log(str.match(reg))
+</script>
