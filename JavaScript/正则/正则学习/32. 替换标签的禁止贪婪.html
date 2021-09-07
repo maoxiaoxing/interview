@@ -15,7 +15,7 @@
   
   <script>
     const main = document.querySelector('main')
-    const reg = /<span>[\s\S]+<\/span>/gi
+    const reg = /<span>[\s\S]+?<\/span>/gi
     main.innerHTML.replace(reg, v => {
       console.log(v)
     })
