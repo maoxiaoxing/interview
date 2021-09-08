@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>maoxiaoxing</h1>
+  <h2>maoxiaoxing.com</h2>
+  <h1>baidu.com</h1>
+
+  <script>
+    const reg = /<(h[1-6])>([\s\S]+?)<\/\1>/gi
+    const body = document.body
+
+    console.dir(body.innerHTML.match(reg))
+  </script>
+</body>
+</html>
