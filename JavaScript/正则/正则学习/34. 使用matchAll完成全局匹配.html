@@ -16,6 +16,14 @@
     const body = document.body
 
     console.dir(body.innerHTML.match(reg))
+
+    // 使用 matchAll 获取 内容
+    const contents = []
+    const res = body.innerHTML.matchAll(reg)
+    for(const interator of res) {
+      contents.push(interator[2])
+    }
+    console.table(contents)
   </script>
 </body>
 </html>
