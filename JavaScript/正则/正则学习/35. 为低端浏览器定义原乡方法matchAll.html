@@ -20,17 +20,20 @@
       const res = this.match(reg)
       if (res) {
         const str = this.replace(res[0], "^".repeat(res[0].length))
+        console.log(res, 'sss')
         const match = str._matchAll(reg) || []
+        console.log(match, 'match')
         return [res, ...match]
       }
     }
     // console.log(body.innerHTML._matchAll(/(a)/i))
     const contents = []
-    const res = body.innerHTML.matchAll(reg)
-    for(const interator of res) {
-      contents.push(interator[2])
-    }
-    console.table(contents)
+    const res = body.innerHTML._matchAll(reg)
+    console.log(res, 'res')
+    // for(const interator of res) {
+    //   contents.push(interator[2])
+    // }
+    // console.table(contents)
   </script>
 </body>
 </html>
