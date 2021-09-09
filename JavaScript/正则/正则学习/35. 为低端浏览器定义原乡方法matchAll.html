@@ -24,7 +24,13 @@
         return [res, ...match]
       }
     }
-    console.log(body.innerHTML._matchAll(/(a)/i))
+    // console.log(body.innerHTML._matchAll(/(a)/i))
+    const contents = []
+    const res = body.innerHTML.matchAll(reg)
+    for(const interator of res) {
+      contents.push(interator[2])
+    }
+    console.table(contents)
   </script>
 </body>
 </html>
