@@ -15,7 +15,16 @@
     const reg = /<(h[1-6])>([\s\S]+?)<\/\1>/gi
     const body = document.body
 
-    
+    // 实现 matchAll
+    String.prototype._matchAll = function(reg) {
+      const res = this.match(reg)
+      if (res) {
+        const str = this.replace(res[0], "^".repeat(res[0].length))
+        const match = str._matchAll(reg) || []
+        return [res, ...match]
+      }
+    }
+    console.log(body.innerHTML._matchAll(/(a)/i))
   </script>
 </body>
 </html>
