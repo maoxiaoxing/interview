@@ -18,6 +18,7 @@
     // 实现 matchAll
     String.prototype._matchAll = function(reg) {
       const res = this.match(reg)
+      console.log(res, '999')
       if (res) {
         const str = this.replace(res[0], "^".repeat(res[0].length))
         console.log(res, 'sss')
@@ -26,8 +27,8 @@
         return [res, ...match]
       }
     }
-    // console.log(body.innerHTML._matchAll(/(a)/i))
-    const contents = []
+    // console.log(body.innerHTML._matchAll(/(ao)/i))
+    // const contents = []
     const res = body.innerHTML._matchAll(reg)
     console.log(res, 'res')
     // for(const interator of res) {
