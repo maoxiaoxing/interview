@@ -27,6 +27,12 @@
       }
       return result
     }
+
+    const body = document.body
+    const reg = /<(h[1-6])>[\s\S]+?<\/\1>/g
+
+    const marchs = search(body.innerHTML, reg)
+    console.log(marchs)
   </script>
 </body>
 </html>
