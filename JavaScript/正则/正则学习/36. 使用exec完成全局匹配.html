@@ -7,15 +7,26 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <h1>maoxiaoxing</h1>
+  <h2>maoxiaoxing.com</h2>
+  <h1>baidu.com</h1>
+
   <script>
-    const str = 'maoxiaoxing'
-    const reg = /o/gi
-    let result = []
-    while((res = reg.exec(str))) {
-      result.push(res)
+    // const str = 'maoxiaoxing'
+    // const reg = /o/gi
+    // let result = []
+    // while((res = reg.exec(str))) {
+    //   result.push(res)
+    // }
+    // console.log(result)
+
+    function search(string, reg) {
+      const result = []
+      while(res = reg.exec(string)) {
+        result.push(res)
+      }
+      return result
     }
-    console.log(result)
   </script>
 </body>
 </html>
