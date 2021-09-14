@@ -23,4 +23,11 @@
   for(const iterator of urls.matchAll(reg1)) {
     console.log(iterator)
   }
+
+  // 拆分
+  const date = '2021-09-14'
+  const date1 = '2021/09/14'
+  const reg2 = /[-\/]/
+  console.log(date.split(reg2))
+  console.log(date1.split(reg2))
 </script>
