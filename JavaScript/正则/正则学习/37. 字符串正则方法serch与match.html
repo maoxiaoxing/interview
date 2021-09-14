@@ -6,4 +6,12 @@
 
   // 匹配
   console.log(str.match(/m/gi))
+
+  const urls = `
+    https://baidu.com
+    https://www.sina.com.cn
+    http://www.123.com
+  `
+  const reg = /https?:\/\/(\w+\.)?(\w+\.)+(com|cn|org|cc)/gi
+  console.log(urls.match(reg))
 </script>
