@@ -14,4 +14,13 @@
   `
   const reg = /https?:\/\/(\w+\.)?(\w+\.)+(com|cn|org|cc)/gi
   console.log(urls.match(reg))
+
+
+  // ?: 忽略匹配
+  const reg1 = /https?:\/\/(?:\w+\.)?(?:\w+\.)+(?:com|cn|org|cc)/gi
+
+  // 匹配所有
+  for(const iterator of urls.matchAll(reg1)) {
+    console.log(iterator)
+  }
 </script>
