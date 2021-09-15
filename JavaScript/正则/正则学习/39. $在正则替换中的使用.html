@@ -1,23 +1,35 @@
-<script>
-  const tel = '2021/09/15'
-  console.log(tel.replace(/\//g, '-'))
-
-  // 使用 $ 替换
-  const tel1 = '(101)88888888 (202)99999999'
-  const reg = /\((\d{3,4})\)(\d{7,8})/g
-  // console.log(tel1.match(reg))
-  const res = tel1.replace(reg, '$1-$2')
-  console.log(res)
-
-  const str = '%maoxiaoxing='
-  const reg1 = /maoxiaoxing/
-
-  // $` 为匹配字符的前面的字符
-  console.log(str.replace(reg1, '$`'))
-
-  // $' 为匹配字符的后面的字符
-  console.log(str.replace(reg1, "$'"))
-
-  // $& 为匹配上的字符
-  console.log(str.replace(reg1, '-$&-'))
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const tel = '2021/09/15'
+    console.log(tel.replace(/\//g, '-'))
+  
+    // 使用 $ 替换
+    const tel1 = '(101)88888888 (202)99999999'
+    const reg = /\((\d{3,4})\)(\d{7,8})/g
+    // console.log(tel1.match(reg))
+    const res = tel1.replace(reg, '$1-$2')
+    console.log(res)
+  
+    const str = '%maoxiaoxing='
+    const reg1 = /maoxiaoxing/
+  
+    // $` 为匹配字符的前面的字符
+    console.log(str.replace(reg1, '$`'))
+  
+    // $' 为匹配字符的后面的字符
+    console.log(str.replace(reg1, "$'"))
+  
+    // $& 为匹配上的字符
+    console.log(str.replace(reg1, '-$&-'))
+  </script>
+</body>
+</html>
