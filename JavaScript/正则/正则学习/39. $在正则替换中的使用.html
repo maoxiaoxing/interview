@@ -9,13 +9,13 @@
   const res = tel1.replace(reg, '$1-$2')
   console.log(res)
 
-  // $' 为匹配上的后面的字符
   // $& 为匹配上的
   const str = '%maoxiaoxing='
   const reg1 = /maoxiaoxing/
 
-  // $` 为匹配上的前面的字符
+  // $` 为匹配字符的前面的字符
   console.log(str.replace(reg1, '$`'))
 
-  // console.log(str.replace(reg1))
+  // $' 为匹配字符的后面的字符
+  console.log(str.replace(reg1, "$'"))
 </script>
