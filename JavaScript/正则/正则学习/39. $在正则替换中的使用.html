@@ -9,7 +9,6 @@
   const res = tel1.replace(reg, '$1-$2')
   console.log(res)
 
-  // $& 为匹配上的
   const str = '%maoxiaoxing='
   const reg1 = /maoxiaoxing/
 
@@ -18,4 +17,7 @@
 
   // $' 为匹配字符的后面的字符
   console.log(str.replace(reg1, "$'"))
+
+  // $& 为匹配上的字符
+  console.log(str.replace(reg1, '-$&-'))
 </script>
