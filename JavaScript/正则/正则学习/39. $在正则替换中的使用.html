@@ -7,6 +7,9 @@
   <title>Document</title>
 </head>
 <body>
+  <div class="blog">
+    毛小星爱写博客，写博客是一个好习惯
+  </div>
   
   <script>
     const tel = '2021/09/15'
@@ -30,6 +33,9 @@
   
     // $& 为匹配上的字符
     console.log(str.replace(reg1, '-$&-'))
+
+    const div = document.querySelector('.blog')
+    div.innerHTML = div.innerHTML.replace(/博客/g, '<a href="https://www.cnblogs.com/bejamin/">$&</a>')
   </script>
 </body>
 </html>
