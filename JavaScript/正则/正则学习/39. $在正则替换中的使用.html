@@ -1,4 +1,21 @@
 <script>
   const tel = '2021/09/15'
   console.log(tel.replace(/\//g, '-'))
+
+  // 使用 $ 替换
+  const tel1 = '(101)88888888 (202)99999999'
+  const reg = /\((\d{3,4})\)(\d{7,8})/g
+  // console.log(tel1.match(reg))
+  const res = tel1.replace(reg, '$1-$2')
+  console.log(res)
+
+  // $' 为匹配上的后面的字符
+  // $& 为匹配上的
+  const str = '%maoxiaoxing='
+  const reg1 = /maoxiaoxing/
+
+  // $` 为匹配上的前面的字符
+  console.log(str.replace(reg1, '$`'))
+
+  // console.log(str.replace(reg1))
 </script>
