@@ -16,8 +16,9 @@
   <script>
     const main = document.querySelector('main')
 
-    const reg = /<(h[1-6])>(.*?)<\/\1>/gi
-    main.innerHTML = main.innerHTML.replace(reg, '<h4>$2</h4>')
+    const reg = /<(h[1-6])>(?<cc>.*?)<\/\1>/gi
+    // main.innerHTML = main.innerHTML.replace(reg, '<h4>$2</h4>')
+    main.innerHTML = main.innerHTML.replace(reg, '<h4>$<cc></h4>')
 
 
   </script>
