@@ -16,6 +16,7 @@
   <script>
     const main = document.querySelector('main')
 
+    // ?<x> 为原子组别名， 取值使用 $<x>
     const reg = /<(h[1-6])>(?<cc>.*?)<\/\1>/gi
     // main.innerHTML = main.innerHTML.replace(reg, '<h4>$2</h4>')
     main.innerHTML = main.innerHTML.replace(reg, '<h4>$<cc></h4>')
