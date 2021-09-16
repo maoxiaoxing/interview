@@ -8,15 +8,24 @@
 </head>
 <body>
   <main>
-    <a style="color:red" href="https://www.cnblogs.com/bejamin/">
+    <a style="color:red" href="http://www.cnblogs.com/bejamin/">
       毛小星的博客园
     </a>
-    <a href="https:www.baidu.com">百度一下</a>
+    <a href="http:www.baidu.com">百度一下</a>
     <h4>https://www.cnblogs.com/bejamin/</h4>
+    <a href="https://yahoo.com"></a>
   </main>
   
   <script>
+    const main = document.querySelector('main')
+    const reg = /(<a.*href=['"])(http)(:\/\/)(wwww.)?(\w+)/gi
 
+    main.innerHTML = main.innerHTML.replace(reg, (v, ...args) => {
+      console.log(v)
+      console.log([...args])
+      args[1] += 's'
+      return args.splice(0,5).join('')
+    })
   </script>
 </body>
 </html>
