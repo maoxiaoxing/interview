@@ -16,7 +16,9 @@
   </main>
 
   <script>
-  
+    const main = document.querySelector('main')
+    const reg = /<a.*?href=(['"])(?<link>.*?)\1>(?<content>.*?)<\/a>/i
+    console.log(main.innerHTML.match(reg))
   </script>
 </body>
 </html>
