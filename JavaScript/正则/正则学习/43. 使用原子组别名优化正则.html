@@ -8,18 +8,23 @@
 </head>
 <body>
   <main>
-    <a href="https://www.baidu.com">百度</a>
+    <a id="11" href="https://www.baidu.com">百度</a>
     <a style="color:red" href="http://www.cnblogs.com/bejamin/">
       毛小星的博客园
     </a>
-    <a href="https://www.sina.com.cn"></a>
+    <a href="https://www.sina.com.cn">新浪</a>
   </main>
 
   <script>
     const main = document.querySelector('main')
-    const reg = /<a.*?href=(['"])(?<link>.*?)\1>(?<content>.*?)<\/a>/i
+    const reg = /<a.*?href=(['"])(?<link>.*?)\1>(?<content>[\s\S]*?)<\/a>/ig
     // console.log(main.innerHTML.match(reg))
-
+    const link = []
+    for(const iterator of main.innerHTML.matchAll(reg)) {
+      console.log(iterator)
+      link.push(iterator.groups)
+    }
+    console.log(link)
   </script>
 </body>
 </html>
