@@ -20,8 +20,14 @@
 
     // 有 g 的时候， match 没有正则细节
     const reg1 = /毛小星/g
-    console.log(main.innerHTML.match(reg1))
-    console.log(reg1.exec(main.innerHTML))
+    // console.log(main.innerHTML.match(reg1))
+    // console.log(reg1.exec(main.innerHTML))
+
+    let count = 0
+    while((res = reg1.exec(main.innerHTML))) {
+      count++
+    }
+    console.log(count)
   </script>
 </body>
 </html>
