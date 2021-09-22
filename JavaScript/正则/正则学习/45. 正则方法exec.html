@@ -14,6 +14,7 @@
   <script>
     const reg = /毛小星/
     const main = document.querySelector('main')
+    // 没有全局 g 符号的时候， match 和 exec 的匹配基本一致
     console.log(main.innerHTML.match(reg))
     console.log(reg.exec(main.innerHTML))
   </script>
