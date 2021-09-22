@@ -8,7 +8,7 @@
 </head>
 <body>
   <main>
-    毛小星在学习正则，他爱写博客
+    毛小星在学习正则，毛小星爱写博客
   </main>
 
   <script>
@@ -17,6 +17,11 @@
     // 没有全局 g 符号的时候， match 和 exec 的匹配基本一致
     console.log(main.innerHTML.match(reg))
     console.log(reg.exec(main.innerHTML))
+
+    // 有 g 的时候， match 没有正则细节
+    const reg1 = /毛小星/g
+    console.log(main.innerHTML.match(reg1))
+    console.log(reg1.exec(main.innerHTML))
   </script>
 </body>
 </html>
