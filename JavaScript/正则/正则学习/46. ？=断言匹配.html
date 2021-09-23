@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    毛小星在学习正则，毛小星爱写博客
+  </main>
+
+  <script>
+    const reg = /毛小星/g
+    const main = document.querySelector('main')
+    main.innerHTML = main.innerHTML.replace(reg, `<a href="https://www.cnblogs.com/">$&</a>`)
+  </script>
+</body>
+</html>
