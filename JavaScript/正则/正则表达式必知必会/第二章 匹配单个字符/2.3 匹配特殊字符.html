@@ -1,5 +1,4 @@
 <script>
-  // . 可以匹配任意字符
   const str = `
     sales.xlsx
     name.xlsx
@@ -10,8 +9,6 @@
     aa1.xlsx
     bb1.xlsx
   `
-  const reg = /sales./g
-  // 匹配所以的 sales 文件
-  // const reg = /sales..?xlsx/g
+  const reg = /.a.\.xlsx/g
   console.log(str.match(reg))
 </script>
