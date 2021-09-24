@@ -1,0 +1,13 @@
+<script>
+  // . 可以匹配任意字符
+  const str = `
+    sales.xlsx
+    name.xlsx
+    sales1.xlsx
+    aaa.xlsx
+    sales2.xlsx
+    sales3.xlsx
+  `
+  const reg = /sales./g
+  console.log(str.match(reg))
+</script>
