@@ -5,20 +5,36 @@
  * @param {string} s
  * @return {number}
  */
+// var lengthOfLongestSubstring = function(s) {
+//   let res = 0
+//   let start = 0
+
+//   for(let i = 0; i < s.length; i++) {
+//     const position = s.indexOf(s[i], start)
+
+//     if(position < i) {
+//       start = position + 1
+//     }
+//     res = Math.max((i - start + 1), res)
+//   }
+//   return res
+// };
+
 var lengthOfLongestSubstring = function(s) {
-  let res = 0
-  let start = 0
+  const len = s.length
+  const map = new Map()
+  let l = r = res = 0
 
-  for(let i = 0; i < s.length; i++) {
-    const position = s.indexOf(s[i], start)
-
-    if(position < i) {
-      start = position + 1
-    }
-    res = Math.max((i - start + 1), res)
+  while (r < len) {
+    const t = s[r]
+    l = Math.max(l, map.get(t) ?? 0)
+    res = Math.max(res, r - l + 1)
+    map.set(t, ++r)
   }
   return res
 };
 
 console.log(lengthOfLongestSubstring('pwwkew'))
+
+
 </script>
