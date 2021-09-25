@@ -7,9 +7,11 @@
     sales2.xlsx
     sales3.xlsx
     aa1.xlsx
+    aa2.xlsx
     bb1.xlsx
+    sa1.xlsx
+    sa2.xlsx
   `
-  // 匹配特殊字符，需要使用 转义符
-  const reg = /.a.\.xlsx/g
+  const reg = /[as]a.\.xlsx/
   console.log(str.match(reg))
 </script>
