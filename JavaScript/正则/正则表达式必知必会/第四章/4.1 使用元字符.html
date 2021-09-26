@@ -1,0 +1,13 @@
+<script>
+  const str = `
+    var myArray = new Array()
+    if (myArray[0] == 0) {}
+  `
+  const reg = /myArray[0]/
+  console.log(str.match(reg))
+
+  // [] 是元字符，需要进行转义
+  const reg1 = /myArray\[0\]/
+  console.log(str.match(reg1))
+  
+</script>
