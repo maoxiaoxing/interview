@@ -1,11 +1,13 @@
 <script>
-  const lessons = `
+  let lessons = `
     js,200元,300次
     java,300.00元,600次
     node.js,180元,260次
   `
   const reg = /(\d+)(.00)?(?=元)/gi
-  lessons.replace(reg, (v, ...args) => {
-    console.log(args)
+  lessons = lessons.replace(reg, (v, ...args) => {
+    args[1] = args[1] || '.00'
+    return args.slice(0, 2).join('')
   })
+  console.log(lessons)
 </script>
