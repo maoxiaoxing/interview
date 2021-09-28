@@ -19,5 +19,6 @@
     h1h2h3
   `
   // 匹配字母数字 \w 等价于 [0-9a-zA-Z_]
-  console.log(text.match(/\w\d\w\d\w\d/g))
+  // console.log(text.match(/\w\d\w\d\w\d/g))
+  console.log(text.match(/(\w\d){3}/g))
 </script>
