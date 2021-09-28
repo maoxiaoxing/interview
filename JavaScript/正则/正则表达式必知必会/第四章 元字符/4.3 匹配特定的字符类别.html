@@ -8,4 +8,16 @@
   `
   // 匹配数字 \d 等价于 [0-9]
   console.log(str.match(/arr\[\d\]/))
+
+  const text = `
+    11213
+    A1C2E3
+    48075
+    48237
+    m1b4f2
+    90046
+    h1h2h3
+  `
+  // 匹配字母数字 \w 等价于 [0-9a-zA-Z_]
+  console.log(text.match(/\w\d\w\d\w\d/g))
 </script>
