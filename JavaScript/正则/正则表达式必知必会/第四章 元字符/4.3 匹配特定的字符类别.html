@@ -1,5 +1,4 @@
 <script>
-  // 匹配数字
   const str = `
     const arr = new Array()
     ...
@@ -7,5 +6,6 @@
       ...
     }
   `
+  // 匹配数字 \d 等价于 [0-9]
   console.log(str.match(/arr\[\d\]/))
 </script>
