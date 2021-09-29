@@ -1,7 +1,7 @@
 <script>
   // + 匹配一个或多个字符
   const text = `
-    Send personal email to ben@forta.com.
+    Send personal email to ben@forta.com or ben.forta@forta.com.
     For questions about a book use support@forta.com.
     Feel Free to send unsolicited emial to spam@forta.com
     If your message is urgent try ben@urgent.forta.com.
@@ -9,4 +9,8 @@
   // 匹配不完全的邮箱
   const reg = /\w+@\w+\.\w+/g
   console.log(text.match(reg))
+
+  // 匹配完全的
+  const reg1 = /[\w.]+@[\w.]+\.\w+/g
+  console.log(text.match(reg1))
 </script>
