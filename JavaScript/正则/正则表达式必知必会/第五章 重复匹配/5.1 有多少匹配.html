@@ -14,8 +14,20 @@
   const reg1 = /[\w.]+@[\w.]+\.\w+/g
   console.log(text.match(reg1))
 
+
+
   // * 匹配零个或多个
   const str = `Hello .ben@forta.com is my email address.`
   const strReg = /\w+[\w.]*@[\w.]+\.\w+/
   console.log(str.match(strReg))
+
+
+
+  // ? 匹配零个或一个
+  const urls = `
+    https://www.baidu.com
+    http://www.forta.com
+  `
+  const urlReg = /https?:\/\/[\w.]+/g
+  console.log(urls.match(urlReg))
 </script>
