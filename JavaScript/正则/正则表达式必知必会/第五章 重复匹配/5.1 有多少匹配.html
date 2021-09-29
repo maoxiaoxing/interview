@@ -1,0 +1,10 @@
+<script>
+  // + 匹配一个或多个字符
+  const text = `
+    Send personal email to ben@forta.com.
+    For questions about a book use support@forta.com.
+    Feel Free to send unsolicited emial to spam@forta.com
+  `
+  const reg = /\w+@\w+.\w+/g
+  console.log(text.match(reg))
+</script>
