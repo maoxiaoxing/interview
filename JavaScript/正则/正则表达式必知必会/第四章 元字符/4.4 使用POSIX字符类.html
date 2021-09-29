@@ -1,0 +1,10 @@
+<script>
+  // JavaScript 不支持 POSIX 字符类
+  const hx = `
+    <h1>毛小星</h1>
+    <h2>maoxiaoxing</h2>
+  `
+  // const hxReg = /<(h[[:alnum:]])>[\s\S]<\/\1>/g
+  const hxReg = /[[:alnum:]]/g
+  console.log(hx.match(hxReg))
+</script>
