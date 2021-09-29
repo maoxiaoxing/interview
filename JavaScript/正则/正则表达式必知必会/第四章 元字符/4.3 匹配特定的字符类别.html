@@ -25,4 +25,5 @@
   // 匹配空白字符
   const str1 = `I love you`
   console.log(str1.replace(/\s/g, '❤'))
+  console.log(str1.replace(/(\S)+/g, '$&❤'))
 </script>
