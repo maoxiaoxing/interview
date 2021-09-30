@@ -14,6 +14,7 @@
   
   <script>
     const main = document.querySelector('main')
+    // 找到 "https 之后的内容 " 之前的内容
     const reg = /(?<=(['"])https?:\/\/).+(?=\1)/g
     // console.log(main.innerHTML.match(reg))
     main.innerHTML = main.innerHTML.replace(reg, 'www.$&')
