@@ -15,7 +15,8 @@
   <script>
     const main = document.querySelector('main')
     const reg = /(?<=(['"])https?:\/\/).+(?=\1)/g
-    console.log(main.innerHTML.match(reg))
+    // console.log(main.innerHTML.match(reg))
+    main.innerHTML = main.innerHTML.replace(reg, 'www.$&')
 
     // 查找 maoxiaoxing 后面的 数字，但是不匹配 maoxiaoxing
     const str = `maoxiaoxing9527lwy9528`
