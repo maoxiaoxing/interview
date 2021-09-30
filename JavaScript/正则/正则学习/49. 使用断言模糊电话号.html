@@ -3,9 +3,13 @@
     maoxiaoxing: 13888888888
     lwy: 13666666666
   `
-  const reg = /(?<=\d{4})\d+(?=\d{3})/g
-  users = users.replace(reg, (s) => {
+  const reg = /(?<=\d{3})\d+(?=\d{4})/g
+  const users1 = users.replace(reg, (s) => {
     return '*'.repeat(4)
   })
-  console.log(users)
+  console.log(users1)
+
+  const reg1 = /(\d{3})(\d{4})(\d{4})/g
+  const users2 = users.replace(reg1, '$1****$3')
+  console.log(users2)
 </script>
