@@ -1,0 +1,11 @@
+<script>
+  let users = `
+    maoxiaoxing: 13888888888
+    lwy: 13666666666
+  `
+  const reg = /(?<=\d{4})\d+(?=\d{3})/g
+  users = users.replace(reg, (s) => {
+    return '*'.repeat(4)
+  })
+  console.log(users)
+</script>
