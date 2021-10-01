@@ -8,4 +8,16 @@
   // 匹配日期
   const reg = /\d{4}-\d{2}-\d{2}/g
   console.log(str.match(reg))
+
+  const coins = `
+    $100.00
+    $200.689
+    $98.00
+    $26.953
+    $1021.666
+    $33.678
+  `
+  // 找出大于等于 100 美元的
+  const reg1 = /\$\d{3,}\.\d{2,3}/g
+  console.log(coins.match(reg1))
 </script>
