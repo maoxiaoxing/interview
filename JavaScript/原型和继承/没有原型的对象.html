@@ -2,4 +2,11 @@
   const mxx = { name: 'maoxiaoxing' }
   console.log(mxx)
   console.log(mxx.hasOwnProperty('name'))
+
+  const mxx1 = Object.create(null, {
+    name: {
+      value: '毛小星'
+    }
+  })
+  console.log(mxx1.hasOwnProperty('name'))
 </script>
