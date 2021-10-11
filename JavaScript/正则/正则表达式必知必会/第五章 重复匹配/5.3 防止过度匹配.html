@@ -7,6 +7,14 @@
   // console.log(text.match(reg))
 
   // * 为贪婪性 *? 为 * 的懒惰型
-  const reg = /<([Bb])>.*?<\/\1>/g
-  console.log(text.match(reg))
+  // const reg = /<([Bb])>.*?<\/\1>/g
+  // console.log(text.match(reg))
+
+  // 过度匹配
+  // const reg = /<([Bb])>[\s\S]+<\/\1>/g
+  // console.log(text.match(reg))
+
+  // + 也为贪婪型 +? 为 + 的懒惰型
+  // const reg = /<([Bb])>[\s\S]+?<\/\1>/g
+  // console.log(text.match(reg))
 </script>
