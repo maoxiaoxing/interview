@@ -1,0 +1,8 @@
+<script>
+  const text = `
+    This offer is not available to customers living in <B>AK</B> and <B>HI</B>
+  `
+  // 过度匹配
+  const reg = /<([Bb])>.*<\/\1>/
+  console.log(text.match(reg))
+</script>
