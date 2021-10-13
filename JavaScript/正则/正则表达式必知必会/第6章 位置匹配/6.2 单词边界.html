@@ -12,4 +12,9 @@
 
   // 匹配以 cap 结尾的
   console.log(str1.match(/cap\b/g))
+
+  const str2 = `Please enter the nine-digit id as it appers on your color - coded pass-key.`
+  // 匹配前后都不是 \w 的 连字符 -
+  console.log(str2.match(/\B-\B/g))
+  console.log(str2.match(/\Bas\B/))
 </script>
