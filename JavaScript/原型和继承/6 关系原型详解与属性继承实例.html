@@ -6,16 +6,24 @@
   }
 
   function User() {}
+  const user = new User()
 
+  // user 的构造函数是 User
+  console.log(user.__proto__ === User.prototype)
 
-  // console.log(User.prototype.__proto__ === Object.prototype)
-  // console.log(User.prototype.__proto__ === User.__proto__.__proto__)
+  // User.prototype 也是一个对象，它是由顶层对象 Object 实例出来的
+  console.log(User.prototype.__proto__ === Object.prototype)
 
   // 所有函数都是 Function 的实例
   console.log(User.__proto__ === Function.prototype)
 
   // 函数的 prototype 也是对象，也是集成自顶层的 Object
   console.log(Function.prototype.__proto__ === Object.prototype)
+
+    // User.prototype.__proto__ 指向 Object.prototype 
+    // User.__proto__ 指向 Function.prototype
+    // Function.prototype 也是由顶层对象 Object 实例出来的
+    console.log(User.prototype.__proto__ === User.__proto__.__proto__)
 
   // Function 的构造函数还是 Function
   console.log(Function.__proto__ === Function.prototype)
