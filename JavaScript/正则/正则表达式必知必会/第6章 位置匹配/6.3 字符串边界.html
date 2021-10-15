@@ -11,4 +11,26 @@
   console.log(str.match(/cat$/gi))
 
 
+  const code = `
+    // cache
+    const cache = new Map()
+
+    // add 方法
+    function add(...rest) {
+        // 如果有缓存结果，取缓存
+        if (cache.get(JSON.stringify(rest))) {
+          return cache.get(JSON.stringify(rest))
+        }
+        // 否则重新结算新结果
+        const res = rest.reduce((pre, item) => {
+          console.log('--')
+          return pre + item
+        }, 0)
+        // 将结果缓存
+        cache.set(JSON.stringify(rest), res)
+        return res
+    }
+  `
+  // 匹配单行注释
+  console.log(code.match(/(?:^|\n|\r)\s*\/\/.*(?:\r|\n|$)/g))
 </script>
