@@ -1,10 +1,14 @@
 <script>
-  const str = `Cat is naughty. The cat scattered his food all over the room`
+  const str = `Cat is naughty. The cat scattered his food all over the room, but i like the cat`
 
   // 匹配所有 cat
   console.log(str.match(/cat/gi))
 
   // 匹配开头的 cat
   console.log(str.match(/^cat/gi))
+
+  // 匹配结尾的 cat
+  console.log(str.match(/cat$/gi))
+
 
 </script>
