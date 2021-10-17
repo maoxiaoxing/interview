@@ -19,18 +19,41 @@
 
     // peek 返回栈顶的元素，不对栈做任何修改
     peek() {
-
+      return this.items[this.items.length - 1]
     }
 
     // isEmpty 如果栈中没有任何元素就返回 true 否则返回 false
     isEmpty() {
-
+      return this.items.length === 0
     }
 
     // clear 移除栈中的元素
-    clear() {}
+    clear() {
+      this.items = []
+    }
 
     // size 返回栈中的元素个数
-    size() {}
+    size() {
+      return this.items.length
+    }
   }
+
+  const stack = new Stack()
+  console.log(stack.isEmpty())
+
+  stack.push('a')
+  stack.push('b')
+  console.log(stack.peek())
+
+  stack.push('c')
+  console.log(stack.size())
+  console.log(stack.isEmpty())
+
+  stack.push('d')
+  console.log(stack.pop())
+
+  stack.clear()
+  console.log(stack.size())
+  console.log(stack.isEmpty())
+
 </script>
