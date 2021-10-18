@@ -45,17 +45,33 @@
     size() {
       return this.count
     }
+
+    toString() {
+      if (this.isEmpty()) {
+        return ''
+      }
+      console.log(13)
+      let str = `${this.items[0]}`
+      for(let i = 1; i < this.count; i++) {
+        str = `${str},${this.items[i]}`
+      }
+      return str
+    }
   }
 
   const stack = new Stack()
   stack.push('aa')
   stack.push('bb')
-  console.log(stack.items)
-  console.log(stack.peek())
-  console.log(stack.pop())
-  console.log(stack.pop())
-  console.log(stack.pop())
-  console.log(stack.count)
+  stack.push('cc')
+  stack.push('dd')
+  // console.log(stack.items)
+  // console.log(stack.peek())
+  // console.log(stack.pop())
+  // console.log(stack.pop())
+  // console.log(stack.pop())
+  // console.log(stack.count)
+
+  console.log(stack.toString())
 
 
 
