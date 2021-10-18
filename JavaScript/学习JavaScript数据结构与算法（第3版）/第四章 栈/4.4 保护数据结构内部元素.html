@@ -1,8 +1,49 @@
 <script>
+  const items = new Map()
   class Stack {
     constructor() {
-      this._count = 0
-      this._items = {}
+    }
+
+    push(element) {
+      items.set(this.size(), element)
+    }
+
+    pop() {
+      if (this.isEmpty()) {
+        return undefined
+      }
+      const res = items.get(items.size - 1)
+      items.delete(items.size - 1)
+      return res
+    }
+
+    peek() {
+      return items.get(items.size - 1)
+    }
+
+    isEmpty() {
+      return items.size === 0
+    }
+
+    size() {
+      return items.size
+    }
+
+    clear() {
+      items.clear()
+    }
+
+    toString() {
+      return [...items.values()].toString()
     }
   }
+
+  const stack = new Stack()
+  stack.push('i')
+  stack.push('love')
+  console.log(stack.toString())
+  console.log(stack.size())
+
+  const stack1 = new Stack()
+  console.log(stack1)
 </script>
