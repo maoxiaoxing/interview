@@ -4,6 +4,37 @@
       this.count = 0
       this.items = {}
     }
+
+    // push 添加一个元素到栈顶
+    push(element) {
+      this.items[this.count] = element
+      this.count++
+    }
+
+    // pop 移除栈顶元素，同时返回被移除的元素
+    pop() {
+      return this.items.pop()
+    }
+
+    // peek 返回栈顶的元素，不对栈做任何修改
+    peek() {
+      return this.items[this.items.length - 1]
+    }
+
+    // isEmpty 如果栈中没有任何元素就返回 true 否则返回 false
+    isEmpty() {
+      return this.items.length === 0
+    }
+
+    // clear 移除栈中的元素
+    clear() {
+      this.items = []
+    }
+
+    // size 返回栈中的元素个数
+    size() {
+      return this.items.length
+    }
   }
 
 </script>
