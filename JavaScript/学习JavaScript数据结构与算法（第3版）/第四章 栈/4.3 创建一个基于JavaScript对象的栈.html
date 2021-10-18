@@ -13,28 +13,50 @@
 
     // pop 移除栈顶元素，同时返回被移除的元素
     pop() {
-      return this.items.pop()
+      if (this.isEmpty()) {
+        return undefined
+      }
+      this.count--
+      const res = this.items[this.count]
+      Reflect.deleteProperty(this.items, this.count)
+      return res
     }
 
     // peek 返回栈顶的元素，不对栈做任何修改
     peek() {
-      return this.items[this.items.length - 1]
+      return this.items[this.count - 1]
     }
 
     // isEmpty 如果栈中没有任何元素就返回 true 否则返回 false
     isEmpty() {
-      return this.items.length === 0
+      return this.count === 0
     }
 
     // clear 移除栈中的元素
     clear() {
-      this.items = []
+      // this.items = {}
+      // this.count = 0
+      while(this.isEmpty()) {
+        this.pop()
+      }
     }
 
     // size 返回栈中的元素个数
     size() {
-      return this.items.length
+      return this.count
     }
   }
+
+  const stack = new Stack()
+  stack.push('aa')
+  stack.push('bb')
+  console.log(stack.items)
+  console.log(stack.peek())
+  console.log(stack.pop())
+  console.log(stack.pop())
+  console.log(stack.pop())
+  console.log(stack.count)
+
+
 
 </script>
