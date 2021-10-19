@@ -23,7 +23,10 @@
     }
 
     peek() {
-
+      if (this.isEmpty()) {
+        return undefined
+      }
+      return this.items[this.lowestCount]
     }
 
     isEmpty() {
