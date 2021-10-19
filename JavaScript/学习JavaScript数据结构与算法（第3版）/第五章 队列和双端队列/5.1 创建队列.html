@@ -12,7 +12,14 @@
     }
 
     dequeue() {
+      if (this.isEmpty()) {
+        return undefined
+      }
 
+      const res = this.items[this.lowestCount]
+      Reflect.deleteProperty(this.items, this.lowestCount)
+      this.lowestCount++
+      return res
     }
 
     peek() {
