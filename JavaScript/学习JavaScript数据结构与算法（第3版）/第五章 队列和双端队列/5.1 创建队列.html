@@ -50,15 +50,28 @@
 
       let str = `${this.items[this.lowestCount]}`
       for(let i = this.lowestCount+1; i < this.count; i++) {
-        str = `${str}, ${this.items[i]}`
+        str = `${str},${this.items[i]}`
       }
       return str
     }
   }
 
   const queue = new Queue()
+  console.log(queue.isEmpty())
 
   queue.enquque('i')
-  queue.enquque()
+  queue.enquque('love')
+  queue.enquque('you')
+
+  console.log(queue.toString())
+  console.log(queue.dequeue())
+  console.log(queue.peek())
+  console.log(queue.size())
+  console.log(queue.isEmpty())
+
+  queue.clear()
+  console.log(queue.isEmpty())
+  console.log(queue.size())
+
 
 </script>
