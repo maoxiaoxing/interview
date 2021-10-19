@@ -3,11 +3,12 @@
     constructor() {
       this.count = 0
       this.lowestCount = 0
-      this.item = {}
+      this.items = {}
     }
 
-    enquque() {
-
+    enquque(element) {
+      this.items[this.count] = element
+      this.count++
     }
 
     dequeue() {
