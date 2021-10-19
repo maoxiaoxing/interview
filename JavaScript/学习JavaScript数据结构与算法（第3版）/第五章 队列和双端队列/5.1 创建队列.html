@@ -42,8 +42,23 @@
       this.lowestCount = 0
       this.items = {}
     }
+
+    toString() {
+      if (this.isEmpty()) {
+        return ''
+      }
+
+      let str = `${this.items[this.lowestCount]}`
+      for(let i = this.lowestCount+1; i < this.count; i++) {
+        str = `${str}, ${this.items[i]}`
+      }
+      return str
+    }
   }
 
   const queue = new Queue()
+
+  queue.enquque('i')
+  queue.enquque()
 
 </script>
