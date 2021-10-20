@@ -1,0 +1,31 @@
+<script src="./queue.js"></script>
+<script>
+  function hotPotato(elementsList, num) {
+    const queue = new Queue()
+    const elimitatedList = []
+
+    for(let i = 0; i < elementsList.length; i++) {
+      queue.enquque(elementsList[i])
+    }
+
+    while(queue.size() > 1) {
+      for(let i = 0; i < num; i++) {
+        queue.enquque(queue.dequeue())
+      }
+      elimitatedList.push(queue.dequeue())
+    }
+
+    return {
+      eliminated: elimitatedList,
+      winner: queue.dequeue()
+    }
+  }
+
+  const names = ['小明', '小红', '小英', '小梅', '小亮']
+  const res = hotPotato(names, 7)
+  res.eliminated.forEach((name) => {
+    console.log(`${name}在击鼓传花游戏中被淘汰`)
+  })
+
+  console.log(`胜利者：${res.winner}`)
+</script>
