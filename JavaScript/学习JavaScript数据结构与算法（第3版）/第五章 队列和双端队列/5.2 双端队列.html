@@ -6,12 +6,12 @@
       this.items = {}
     }
 
-    enquque(element) {
+    addBack(element) {
       this.items[this.count] = element
       this.count++
     }
 
-    dequeue() {
+    removeFront() {
       if (this.isEmpty()) {
         return undefined
       }
@@ -22,11 +22,34 @@
       return res
     }
 
-    peek() {
+    peekFront() {
       if (this.isEmpty()) {
         return undefined
       }
       return this.items[this.lowestCount]
+    }
+
+    peekBack() {
+      if (this.isEmpty()) {
+        return undefined
+      }
+      return this.items[this.count]
+    }
+
+    addFront(element) {
+      if (this.isEmpty()) {
+
+      }
+    }
+
+    removeBack() {
+      if (this.isEmpty()) {
+        return undefined
+      }
+      this.count--
+      const res = this.items[this.count]
+      Reflect.deleteProperty(this.items, this.count)
+      return res
     }
 
     isEmpty() {
