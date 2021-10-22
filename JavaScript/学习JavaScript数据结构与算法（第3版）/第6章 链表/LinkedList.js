@@ -31,4 +31,27 @@ class LinkedList {
     }
     this.count++
   }
+
+  removeAt(index) {
+    if (index >= 0 && index < this.count) {
+      let current = this.head
+
+      if (index === 0) {
+        this.head = current.next
+      } else {
+        let prev
+        for(let i = 0; i < index; i++) {
+          prev = current
+          current = current.next
+        }
+
+        prev.next = current.next
+      }
+
+      this.count--
+      return current.element
+    }
+
+    return undefined
+  }
 }
