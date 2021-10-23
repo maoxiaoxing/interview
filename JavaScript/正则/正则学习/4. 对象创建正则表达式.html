@@ -12,14 +12,21 @@
   </div>
   
   <script>
-    const con = prompt('请输入检测的内容，支持正则')
-    const reg = new RegExp(con, 'g')
+    // const con = prompt('请输入检测的内容，支持正则')
+    // const reg = new RegExp(con, 'g')
 
-    const div = document.querySelector('div')
+    // const div = document.querySelector('div')
 
-    div.innerHTML = div.innerHTML.replace(con, (str) => {
-      return `<span style="color:red">${str}</span>`
-    })
+    // div.innerHTML = div.innerHTML.replace(con, (str) => {
+    //   return `<span style="color:red">${str}</span>`
+    // })
+
+    const str = `maoxiaoxing`
+    const reg1 = new RegExp('a', 'g')
+    console.log(str.match(reg1))
+
+    const reg2 = new RegExp(/a/, 'g')
+    console.log(str.match(reg2))
   </script>
 </body>
 </html>
