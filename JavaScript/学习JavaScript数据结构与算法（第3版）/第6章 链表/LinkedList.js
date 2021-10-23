@@ -54,4 +54,17 @@ class LinkedList {
 
     return undefined
   }
+
+  getElementAt(index) {
+    if (index >= 0 && index < this.count) {
+      let node = this.head
+      let i = 0
+      while(i < index && node) {
+        node = node.next
+        i++
+      }
+      return node
+    }
+    return undefined
+  }
 }
