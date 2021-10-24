@@ -88,6 +88,50 @@ const test = `
 console.log(test.match(/^\s*maoxiaoxing/gm)) // ['\n    maoxiaoxing', '    maoxiaoxing']
 ```
 
-下面我们可以来看一个更加复杂的例子
+下面我们可以来看一个更加实用的例子
+
+```js
+const str = `
+    #1 js,200元 #
+    #2 html,100元 #
+    #3 css,100元 # 666
+    #4 node,300元 #
+  `
+```
+
+这里我们有一些课程需要我们去格式化成数组对象的形式，方便前端去展示，我们可以这样做
+
+```js
+const reg = /^\s*#\d+\s+.+\s+#$/gm
+
+const lessons = str.match(reg).map((s) => {
+  s = s.replace(/\s*#\d+\s+/, '').replace(/\s*#\s*/, '')
+  const [name, price] = s.split(',')
+  return {
+    name,
+    price,
+  }
+})
+```
+
+lessons 就是下面这样的数据结构
+
+```js
+// lessons
+[
+  {
+    "name": "js",
+    "price": "200元"
+  },
+  {
+    "name": "html",
+    "price": "100元"
+  },
+  {
+    "name": "node",
+    "price": "300元"
+  }
+]
+```
 
 ## 3 正则方法
