@@ -161,3 +161,17 @@ const reg = /maoxiaoxing/g
 console.log(reg.flags) // g
 ```
 
+### 3.2 dotAll
+
+dotAll 属性用作判断正则表达式是否使用了 s 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.dotAll) // false
+```
+
+```js
+const reg = /maoxiaoxing/s
+console.log(reg.dotAll) // true
+```
+
