@@ -48,4 +48,11 @@ console.log(str.match(reg)) // ['a', 'a']
 
 ### 2.1 g修饰符
 
+默认情况下，JavaScript 中的正则表达式匹配到第一个匹配项就会停止后面的匹配了，而 g 修饰符可以达到全局匹配
+
+```js
+const str = `maoxiaoxing`
+const reg = /a/g
+console.log(str.match(reg)) // ['a', 'a']
+```
 
