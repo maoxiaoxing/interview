@@ -217,3 +217,12 @@ const reg = /maoxiaoxing/m
 console.log(reg.multiline) // true
 ```
 
+### 3.6 source
+
+source 属性返回正则表达式中的内容字符创
+
+```js
+const reg = /maoxiaoxing/g
+console.log(reg.source) // maoxiaoxing
+```
+
