@@ -203,3 +203,17 @@ const reg = /maoxiaoxing/i
 console.log(reg.ignoreCase) // true
 ```
 
+### 3.5 multiline
+
+multiline 属性用作判断是否使用了 m 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.multiline) // false
+```
+
+```js
+const reg = /maoxiaoxing/m
+console.log(reg.multiline) // true
+```
+
