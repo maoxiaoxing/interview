@@ -61,8 +61,33 @@ console.log(str.match(reg)) // ['a', 'a']
 在正则表达式中，是严格区分大小写的，但是我们有时候在做匹配的时候并不想区分大小写，i 修饰符可以做到不区分大小写
 
 ```js
-
+const str = 'maoXiaoXing'
+const reg = /X/gi
+console.log(str.match(reg)) // ['X', 'X']
 ```
 
+### 2.3 m修饰符
+
+g 修饰符虽然可以做到全局匹配，但有时候也不是万能的，比如在遇到换行符的时候，就无法做到精准匹配，这时候 m 修饰符就起到了作用，m 修饰符可以使 ^ 和 $ 匹配一段文本中每行的开始和结束位置。
+
+```js
+const test = `
+  maoxiaoxing is a handsome guy
+  maoxiaoxing is attractive
+`
+console.log(test.match(/^\s*maoxiaoxing/g)) // ['\n    maoxiaoxing']
+```
+
+增加 m 修饰符之后
+
+```js
+const test = `
+  maoxiaoxing is a handsome guy
+  maoxiaoxing is attractive
+`
+console.log(test.match(/^\s*maoxiaoxing/gm)) // ['\n    maoxiaoxing', '    maoxiaoxing']
+```
+
+下面我们可以来看一个更加复杂的例子
 
 ## 3 正则方法
