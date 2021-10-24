@@ -1,0 +1,15 @@
+<script>
+  const test = `
+    maoxiaoxing is a handsome guy
+    maoxiaoxing is attractive
+    badboy
+  `
+  console.log(test.match(/badboy./))
+  console.log(test.match(/badboy./s))
+
+  var str="google\nrunoob\ntaobao";
+  var n1=str.match(/google./);   // 没有使用 s，无法匹配\n
+  var n2=str.match(/runoob./s);
+  console.log(n1)
+  console.log(n2)
+</script>

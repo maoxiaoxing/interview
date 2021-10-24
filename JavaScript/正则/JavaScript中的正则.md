@@ -71,21 +71,21 @@ console.log(str.match(reg)) // ['X', 'X']
 g 修饰符虽然可以做到全局匹配，但有时候也不是万能的，比如在遇到换行符的时候，就无法做到精准匹配，这时候 m 修饰符就起到了作用，m 修饰符可以使 ^ 和 $ 匹配一段文本中每行的开始和结束位置。
 
 ```js
-const test = `
+const str = `
   maoxiaoxing is a handsome guy
   maoxiaoxing is attractive
 `
-console.log(test.match(/^\s*maoxiaoxing/g)) // ['\n    maoxiaoxing']
+console.log(str.match(/^\s*maoxiaoxing/g)) // ['\n    maoxiaoxing']
 ```
 
 增加 m 修饰符之后
 
 ```js
-const test = `
+const str = `
   maoxiaoxing is a handsome guy
   maoxiaoxing is attractive
 `
-console.log(test.match(/^\s*maoxiaoxing/gm)) // ['\n    maoxiaoxing', '    maoxiaoxing']
+console.log(str.match(/^\s*maoxiaoxing/gm)) // ['\n    maoxiaoxing', '    maoxiaoxing']
 ```
 
 下面我们可以来看一个更加实用的例子
@@ -134,4 +134,30 @@ lessons 就是下面这样的数据结构
 ]
 ```
 
-## 3 正则方法
+### 2.4 s修饰符
+
+默认情况下的圆点 . 是 匹配除换行符 \n 之外的任何字符，加上 s 之后, . 中包含换行符 \n。
+
+```js
+const str = `
+    maoxiaoxing is a handsome guy
+    maoxiaoxing is attractive
+    badboy
+  `
+  console.log(str.match(/badboy./)) // null
+  console.log(str.match(/badboy./s)) // ['badboy\n']
+```
+
+## 3 正则实例属性
+
+下面列举一些比较常用的实例属性
+
+### 3.1 flags
+
+flags 属性能够获取到正则表达式的修饰符
+
+```js
+const reg = /maoxiaoxing/g
+console.log(reg.flags) // g
+```
+
