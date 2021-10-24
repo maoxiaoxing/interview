@@ -188,3 +188,18 @@ console.log(reg.global) // false
 const reg = /maoxiaoxing/g
 console.log(reg.global) // true
 ```
+
+### 3.4 ignoreCase
+
+ignoreCase 属性用作判断是否使用了 i 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.ignoreCase) // false
+```
+
+```js
+const reg = /maoxiaoxing/i
+console.log(reg.ignoreCase) // true
+```
+
