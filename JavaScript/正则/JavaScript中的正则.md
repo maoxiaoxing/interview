@@ -240,4 +240,17 @@ const reg = /maoxiaoxing/y
 console.log(reg.sticky) // true
 ```
 
+### 3.8 unicode
+
+unicode 属性判断是否使用了 u 标志
+
+```js
+const regex = /\u{61}/
+console.log(regex.unicode) // true
+```
+
+```js
+const regex = /\u{61}/u
+console.log(regex.unicode) // true
+```
 
