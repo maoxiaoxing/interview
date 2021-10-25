@@ -254,3 +254,5 @@ const regex = /\u{61}/u
 console.log(regex.unicode) // true
 ```
 
+## 正则方法
+
