@@ -226,3 +226,18 @@ const reg = /maoxiaoxing/g
 console.log(reg.source) // maoxiaoxing
 ```
 
+### 3.7 sticky 
+
+sticky 属性判断是否使用了 y 标志
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.sticky) // false
+```
+
+```js
+const reg = /maoxiaoxing/y
+console.log(reg.sticky) // true
+```
+
+
