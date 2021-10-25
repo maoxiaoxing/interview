@@ -254,5 +254,6 @@ const regex = /\u{61}/u
 console.log(regex.unicode) // true
 ```
 
-## 正则方法
+## 4 正则方法
 
+### 4.1 exec
