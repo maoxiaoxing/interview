@@ -109,5 +109,7 @@ class LinkedList {
     return this.count
   }
 
-  
+  isEmpty() {
+    return this.size() === 0
+  }
 }
