@@ -116,4 +116,19 @@ class LinkedList {
   getHead() {
     return this.head
   }
+
+  toString() {
+    if (!this.head) {
+      return ''
+    }
+    let str = `${this.head.element}`
+    let i = 0
+    let current = this.head.next
+    while(i < this.size() && current) {
+      str = `${str}, ${current.element}`
+      current = current.next
+      i++
+    }
+    return str
+  }
 }
