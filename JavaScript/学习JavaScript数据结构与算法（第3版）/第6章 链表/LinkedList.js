@@ -131,4 +131,20 @@ class LinkedList {
     }
     return str
   }
+
+  toArray() {
+    const arr = []
+    if (!this.head) {
+      return arr
+    }
+
+    let i = 0
+    let current = this.head
+    while(i < this.size() && current) {
+      arr.push(current.element)
+      current = current.next
+      i++
+    }
+    return arr
+  }
 }
