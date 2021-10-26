@@ -86,4 +86,17 @@ class LinkedList {
     }
     return false
   }
+
+  indexOf(element) {
+    let current = this.head
+    let i = 0
+    while(i < this.count && current) {
+      if (this.equalsFn(element, current.element)) {
+        return i
+      }
+      i++
+      current = current.next
+    }
+    return -1
+  }
 }
