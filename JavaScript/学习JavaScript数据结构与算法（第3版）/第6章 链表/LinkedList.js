@@ -112,4 +112,8 @@ class LinkedList {
   isEmpty() {
     return this.size() === 0
   }
+
+  getHead() {
+    return this.head
+  }
 }
