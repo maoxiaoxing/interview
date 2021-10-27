@@ -1,0 +1,9 @@
+<script>
+  const str = `
+    Hello, https://github.com/maoxiaoxing is my github address
+  `
+  const reg = /(https?:\/\/\w+[\w\.](com|cn|org)[\/][\w]+)/g
+  console.log(str.match(reg))
+  const res = str.replace(reg, `<a href="$&">$&</a>`)
+  console.log(res)
+</script>
