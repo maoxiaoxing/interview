@@ -1,0 +1,12 @@
+<script>
+  const content = `
+    <body>
+      <h1>Welcome to maoxiaoxing's blog</h1>
+      <h2>This is a blog about regular</h2>
+      The content of the blog is wonderful
+      <h3>recall</h4>
+    </body>
+  `
+  const reg = /<(h[1-6])>.*?<\/\1>/g
+  console.log(content.match(reg))
+</script>
