@@ -5,3 +5,9 @@ class DoublyNode extends Node {
   }
 }
 
+class DoublyLinkedList extends LinkedList {
+  constructor(equalsFn = defaultEquals) {
+    super(equalsFn)
+    this.tail = undefined
+  }
+}
