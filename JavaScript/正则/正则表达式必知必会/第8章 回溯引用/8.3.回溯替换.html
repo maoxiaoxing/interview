@@ -16,4 +16,20 @@
   console.log(str1.match(reg1))
   const res1 = str1.replace(reg1, `$1 $2-$3`)
   console.log(res1)
+
+
+  // \E 结束 \L 或 \U 转换
+  // \l 把下一个字符转换为小写
+  // \L 把 \L 到 \E 之间的字符全部转换为小写
+  // \u 把下一个字符转换为大写
+  // \U 把 \U 到 \E 之间的字符全部转换为大写
+
+  const html = `
+    <BODY>
+      <H1>Welcome to my blog</H1>
+    </BODY>
+  `
+
+  const reg2 = /(<[Hh]1>)(.*?)(<\/[Hh]1>)/g
+  console.log(html.match(reg2))
 </script>
