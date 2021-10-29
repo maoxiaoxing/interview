@@ -6,4 +6,12 @@
   console.log(str.match(reg))
   const res = str.replace(reg, `<a href="$&">$&</a>`)
   console.log(res)
+
+  const str1 = `
+    313-555-1234
+    248-555-9999
+    810-555-9000
+  `
+  const reg1 = /(\d{3})-(\d{3})-(\d{4})/g
+  console.log(str1.match(reg1))
 </script>

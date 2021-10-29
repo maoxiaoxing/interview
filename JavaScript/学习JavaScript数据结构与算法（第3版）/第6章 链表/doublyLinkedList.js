@@ -43,4 +43,8 @@ class DoublyLinkedList extends LinkedList {
     }
     return false   
   }
+
+  removeAt(index) {
+    
+  }
 }
