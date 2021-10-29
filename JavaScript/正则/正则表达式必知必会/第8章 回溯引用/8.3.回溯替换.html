@@ -14,4 +14,6 @@
   `
   const reg1 = /(\d{3})-(\d{3})-(\d{4})/g
   console.log(str1.match(reg1))
+  const res1 = str1.replace(reg1, `$1 $2-$3`)
+  console.log(res1)
 </script>
