@@ -23,6 +23,7 @@
   // \L 把 \L 到 \E 之间的字符全部转换为小写
   // \u 把下一个字符转换为大写
   // \U 把 \U 到 \E 之间的字符全部转换为大写
+  // Js 中不支持
 
   const html = `
     <BODY>
@@ -31,5 +32,5 @@
   `
 
   const reg2 = /(<[Hh]1>)(.*?)(<\/[Hh]1>)/g
-  console.log(html.match(reg2))
+  console.log(html.replace(reg2, `$1$2$3`))
 </script>
