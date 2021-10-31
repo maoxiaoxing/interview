@@ -42,11 +42,11 @@ const reg = new RegExp(/a/, 'g')
 console.log(str.match(reg)) // ['a', 'a']
 ```
 
-## 2 修饰符
+## 2 修饰符和实例属性
 
-修饰符也叫标记，修饰符可以指定正则表达式的额外匹配策略，修饰符不写在正则表达式里面，而是写在正则表达式之外的符号
+修饰符也叫标记，修饰符可以指定正则表达式的额外匹配策略，修饰符不写在正则表达式里面，而是写在正则表达式之外的符号，每个修饰符都有对应的实例属性去检测，下面我们来看看
 
-### 2.1 g修饰符
+### 2.1 g修饰符和 global 属性
 
 默认情况下，JavaScript 中的正则表达式匹配到第一个匹配项就会停止后面的匹配了，而 g 修饰符可以达到全局匹配
 
@@ -56,7 +56,19 @@ const reg = /a/g
 console.log(str.match(reg)) // ['a', 'a']
 ```
 
-### 2.2 i修饰符
+global 属性用作判断正则表达式是否使用了 g 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.global) // false
+```
+
+```js
+const reg = /maoxiaoxing/g
+console.log(reg.global) // true
+```
+
+### 2.2 i修饰符和 ignoreCase 属性
 
 在正则表达式中，是严格区分大小写的，但是我们有时候在做匹配的时候并不想区分大小写，i 修饰符可以做到不区分大小写
 
@@ -66,7 +78,19 @@ const reg = /X/gi
 console.log(str.match(reg)) // ['X', 'X']
 ```
 
-### 2.3 m修饰符
+ignoreCase 属性用作判断是否使用了 i 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.ignoreCase) // false
+```
+
+```js
+const reg = /maoxiaoxing/i
+console.log(reg.ignoreCase) // true
+```
+
+### 2.3 m修饰符和 multiline 属性
 
 g 修饰符虽然可以做到全局匹配，但有时候也不是万能的，比如在遇到换行符的时候，就无法做到精准匹配，这时候 m 修饰符就起到了作用，m 修饰符可以使 ^ 和 $ 匹配一段文本中每行的开始和结束位置。
 
@@ -134,7 +158,19 @@ lessons 就是下面这样的数据结构
 ]
 ```
 
-### 2.4 s修饰符
+multiline 属性用作判断是否使用了 m 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.multiline) // false
+```
+
+```js
+const reg = /maoxiaoxing/m
+console.log(reg.multiline) // true
+```
+
+### 2.4 s修饰符和 dotAll 属性
 
 默认情况下的圆点 . 是 匹配除换行符 \n 之外的任何字符，加上 s 之后, . 中包含换行符 \n。
 
@@ -146,6 +182,34 @@ const str = `
   `
   console.log(str.match(/badboy./)) // null
   console.log(str.match(/badboy./s)) // ['badboy\n']
+```
+
+dotAll 属性用作判断正则表达式是否使用了 s 修饰符
+
+```js
+const reg = /maoxiaoxing/
+console.log(reg.dotAll) // false
+```
+
+```js
+const reg = /maoxiaoxing/s
+console.log(reg.dotAll) // true
+```
+
+### 2.5 u修饰符和 unicode 属性
+
+
+
+unicode 属性判断是否使用了 u 标志
+
+```js
+const regex = /\u{61}/
+console.log(regex.unicode) // true
+```
+
+```js
+const regex = /\u{61}/u
+console.log(regex.unicode) // true
 ```
 
 ## 3 正则实例属性
