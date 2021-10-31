@@ -198,7 +198,13 @@ console.log(reg.dotAll) // true
 
 ### 2.5 u修饰符和 unicode 属性
 
+u 标志开启了多种 Unicode 相关的特性
+在我们的开发中，可能会有涉及匹配汉字的需求
 
+```js
+const str = 'maoxiaoxing9527.学正则'
+console.log(str.match(/\p{sc=Han}/gu)) // ['学', '正', '则']
+```
 
 unicode 属性判断是否使用了 u 标志
 
@@ -212,85 +218,7 @@ const regex = /\u{61}/u
 console.log(regex.unicode) // true
 ```
 
-## 3 正则实例属性
-
-下面列举一些比较常用的实例属性
-
-### 3.1 flags
-
-flags 属性能够获取到正则表达式的修饰符
-
-```js
-const reg = /maoxiaoxing/g
-console.log(reg.flags) // g
-```
-
-### 3.2 dotAll
-
-dotAll 属性用作判断正则表达式是否使用了 s 修饰符
-
-```js
-const reg = /maoxiaoxing/
-console.log(reg.dotAll) // false
-```
-
-```js
-const reg = /maoxiaoxing/s
-console.log(reg.dotAll) // true
-```
-
-### 3.3 global
-
-global 属性用作判断正则表达式是否使用了 g 修饰符
-
-```js
-const reg = /maoxiaoxing/
-console.log(reg.global) // false
-```
-
-```js
-const reg = /maoxiaoxing/g
-console.log(reg.global) // true
-```
-
-### 3.4 ignoreCase
-
-ignoreCase 属性用作判断是否使用了 i 修饰符
-
-```js
-const reg = /maoxiaoxing/
-console.log(reg.ignoreCase) // false
-```
-
-```js
-const reg = /maoxiaoxing/i
-console.log(reg.ignoreCase) // true
-```
-
-### 3.5 multiline
-
-multiline 属性用作判断是否使用了 m 修饰符
-
-```js
-const reg = /maoxiaoxing/
-console.log(reg.multiline) // false
-```
-
-```js
-const reg = /maoxiaoxing/m
-console.log(reg.multiline) // true
-```
-
-### 3.6 source
-
-source 属性返回正则表达式中的内容字符创
-
-```js
-const reg = /maoxiaoxing/g
-console.log(reg.source) // maoxiaoxing
-```
-
-### 3.7 sticky 
+### 2.6 y修饰符和 sticky 属性
 
 sticky 属性判断是否使用了 y 标志
 
@@ -304,20 +232,16 @@ const reg = /maoxiaoxing/y
 console.log(reg.sticky) // true
 ```
 
-### 3.8 unicode
+### 2.7 flags 属性
 
-unicode 属性判断是否使用了 u 标志
-
-```js
-const regex = /\u{61}/
-console.log(regex.unicode) // true
-```
+flags 属性能够获取到正则表达式的修饰符
 
 ```js
-const regex = /\u{61}/u
-console.log(regex.unicode) // true
+const reg = /maoxiaoxing/g
+console.log(reg.flags) // g
 ```
 
-## 4 正则方法
 
-### 4.1 exec
+## 3 正则方法
+
+### 3.1 exec
