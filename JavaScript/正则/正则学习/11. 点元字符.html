@@ -1,7 +1,10 @@
 <script>
   // . 除了换行符的任意字符
-  const str = 'maoxiaoxing9527\n*&^%'
+  const str = 'maoxiaoxing9527*&^%'
   console.log(str.match(/.+/))
+
+  const str11 = 'maoxiaoxing9527.*&^%'
+  console.log(str11.match(/\./))
 
 // 匹配网址
   const url = 'https://www.baidu.com'

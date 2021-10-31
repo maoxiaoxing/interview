@@ -287,6 +287,15 @@ const str = 'maoxiaoxing9527\n*&^%'
 console.log(str.match(/.+/)) // ['maoxiaoxing9527']
 ```
 
+如果我们需要匹配字符串 . 那么就需要使用 \ 对它进行转义
+
+```js
+const str11 = 'maoxiaoxing9527.*&^%'
+console.log(str11.match(/\./)) // ['.']
+```
+
+### 
+
 <!-- ## 3 正则方法
 
 ### 3.1 test
