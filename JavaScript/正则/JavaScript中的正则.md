@@ -337,10 +337,18 @@ console.log(str.match(reg)) // ['张', '三', '：', '-', '，', '李', '四', '
 
 ### \s 和 \S 元字符
 
-\s 匹配空白字符
+\s 匹配空白字符 \n 也算空格
 
 ```js
+const reg5 = /\s/
+console.log(reg5.test('\n88')) // true
+```
 
+\S 匹配非空格  只有只为空白的时候才为假
+
+```js
+const reg6 = /\S/
+console.log(reg6.test(' ')) // false
 ```
 
 <!-- ## 3 正则方法
