@@ -294,7 +294,22 @@ const str11 = 'maoxiaoxing9527.*&^%'
 console.log(str11.match(/\./)) // ['.']
 ```
 
-### 
+### w 与 W 元字符
+
+\w 匹配字母 数字 _
+
+```js
+const str = 'maoxiaoxing9527_&123'
+console.log(str.match(/\w+/)) // maoxiaoxing9527_
+```
+
+可以利用 \w 匹配做一个简单的邮箱验证
+
+```js
+const email = 'maoxiaoxing@163.com'
+const reg = /^\w+@\w+.\w+/
+console.log(reg.test(email)) // true
+```
 
 <!-- ## 3 正则方法
 
