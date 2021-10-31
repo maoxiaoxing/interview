@@ -271,7 +271,7 @@ console.log(reg.flags) // g
 
 正则中有很多特殊字符，下面我们来看看怎样使用
 
-### . 元字符
+### 3.1 . 元字符
 
 . 字符在正则匹配除了换行符的任意字符
 
@@ -294,7 +294,7 @@ const str11 = 'maoxiaoxing9527.*&^%'
 console.log(str11.match(/\./)) // ['.']
 ```
 
-### w 与 W 元字符
+### 3.2 w 与 W 元字符
 
 \w 匹配字母 数字 _
 
@@ -316,6 +316,18 @@ console.log(reg.test(email)) // true
 ```js
 console.log('maoxiaoxing@163.com'.match(/\W/g)) // ['@', '.']
 ```
+
+### 3.3 \d 和 \D 元字符
+
+\d 匹配数字
+
+```js
+const str = 'maoxiaoxing 9527'
+const reg = /\d+/g
+console.log(str.match(reg)) // ['9527']
+```
+
+\D 匹配非数字
 
 <!-- ## 3 正则方法
 
