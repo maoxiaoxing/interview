@@ -224,6 +224,28 @@ console.log(regex.unicode) // true
 如果正则表达式开启了 g 模式，lastIndex 会一直递增，直到匹配到选项或无匹配选项
 而开启了 y 模式，如果没有匹配到，那么 lastIndex 就会归零
 
+```js
+const str = `amaoxiaoxing`
+const reg = /a/g
+
+console.log(reg.exec(str)) // ['a']
+console.log(reg.lastIndex) // 1
+console.log(reg.exec(str)) // ['a']
+console.log(reg.lastIndex) // 3
+```
+
+下面我们来看看使用了 y 模式
+
+```js
+const str = `amaoxiaoxing`
+const reg = /a/g
+
+console.log(reg.exec(str)) // ['a']
+console.log(reg.lastIndex) // 1
+console.log(reg.exec(str)) // null
+console.log(reg.lastIndex) // 0
+```
+
 sticky 属性判断是否使用了 y 标志
 
 ```js
