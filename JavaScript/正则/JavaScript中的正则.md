@@ -220,6 +220,10 @@ console.log(regex.unicode) // true
 
 ### 2.6 y修饰符和 sticky 属性
 
+了解过正则的朋友会知道正则表达式会有一个 lastIndex 属性来记录匹配的位置
+如果正则表达式开启了 g 模式，lastIndex 会一直递增，直到匹配到选项或无匹配选项
+而开启了 y 模式，如果没有匹配到，那么 lastIndex 就会归零
+
 sticky 属性判断是否使用了 y 标志
 
 ```js
