@@ -1,0 +1,11 @@
+<script>
+  const str = `888,999,333,666`
+
+  const reg = /(\d+)/g
+  console.log(reg.exec(str))
+  const arr = []
+  while((res = reg.exec(str))) {
+    arr.push(res[0])
+  }
+  console.log(arr)
+</script>
