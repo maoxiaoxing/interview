@@ -271,7 +271,21 @@ console.log(reg.flags) // g
 
 正则中有很多特殊字符，下面我们来看看怎样使用
 
-### 
+### . 元字符
+
+. 字符在正则匹配除了换行符的任意字符
+
+```js
+const str = 'maoxiaoxing9527*&^%'
+console.log(str.match(/.+/)) // ['maoxiaoxing9527*&^%']
+```
+
+\n 在正则中表示换行符
+
+```js
+const str = 'maoxiaoxing9527\n*&^%'
+console.log(str.match(/.+/)) // ['maoxiaoxing9527']
+```
 
 <!-- ## 3 正则方法
 
