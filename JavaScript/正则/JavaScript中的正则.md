@@ -311,6 +311,12 @@ const reg = /^\w+@\w+.\w+/
 console.log(reg.test(email)) // true
 ```
 
+\W 匹配非字母 数字 _
+
+```js
+console.log('maoxiaoxing@163.com'.match(/\W/g)) // ['@', '.']
+```
+
 <!-- ## 3 正则方法
 
 ### 3.1 test
