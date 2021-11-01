@@ -4,6 +4,9 @@
   console.log(reg.test('1'))
   console.log('12'.match(reg))
 
+  const str = 'abc is not a word'
+  console.log(str.match(/[^abc]/g))
+
   const reg1 = /(12|34)/
 
   console.log('126634'.match(reg1))
