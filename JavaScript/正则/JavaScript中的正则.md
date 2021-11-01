@@ -353,7 +353,17 @@ console.log(reg6.test(' ')) // false
 
 ## 4 字符边界
 
-#### 
+### 4.1 \b
+
+在讲 \b 之前我们先来看看一个例子，我们需要匹配字符串中的 cat 单词
+
+```js
+const str = `The cat scattered his food all over the room`
+console.log(str.match(/cat/g)) // ['cat', 'cat']
+```
+
+明明只有一个 cat 单词，却匹配到了两个，这个正则将 scattered 单词中的 cat 也匹配到了，这显然是不符合我们的预期的。
+这个时候 \b 就能发挥
 
 ## 5 量词
 ## 6 原子组和原子表
