@@ -355,15 +355,39 @@ console.log(reg6.test(' ')) // false
 
 ### 4.1 \b
 
-在讲 \b 之前我们先来看看一个例子，我们需要匹配字符串中的 cat 单词
+在讲 \b 之前我们先来看看一个例子，我们需要匹配字符串中的 cap 单词
 
 ```js
-const str = `The cat scattered his food all over the room`
-console.log(str.match(/cat/g)) // ['cat', 'cat']
+const str = `The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.`
+console.log(str.match(/cap/g)) // ['cap', 'cap', 'cap', 'cap', 'cap']
 ```
 
-明明只有一个 cat 单词，却匹配到了两个，这个正则将 scattered 单词中的 cat 也匹配到了，这显然是不符合我们的预期的。
+明明只有一个 cap 单词，却匹配到了一堆 cap，这时因为很多单词中都包含 cap 单词，而我们却没有给正则对相关单词的限制，这显然是不符合我们的预期的。
 这个时候 \b 就能发挥它的作用了，\b 匹配一个单词的边界，更准确地说 \b 匹配这样一个位置，这个位置用来构成单词的字符（字母、数字和下划线，也就是和 \w 相匹配的字符）和一个不能用来构成单词的字符（也就是与 \W 相匹配的字符）之间。
+
+我们先来看看单个 \b 的使用效果
+
+```js
+const str = `The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.`
+console.log(str1.match(/\bcap/g)) // ['cap', 'cap', 'cap', 'cap']
+```
+
+我们能看到，使用 \bcap 是匹配以 cap 开头的单词
+
+以此类推，使用 cap\b 肯定就是匹配以 cap 结尾的单词
+
+```js
+const str = `The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.`
+console.log(str1.match(/cap\b/g)) // ['cap', 'cap']
+```
+
+回到我们刚开始的问题，我们想匹配单个 cap 单词的话，应该使用的就是 \bcap\b 了
+
+```js
+const str = `The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.`
+console.log(str1.match(/\bcap\b/g))
+```
+
 
 ## 5 量词
 ## 6 原子组和原子表

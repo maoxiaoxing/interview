@@ -7,11 +7,14 @@
   const str1 = `
     The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.
   `
+  console.log(str1.match(/cap/g))
   // 匹配以 cap 开头的
   console.log(str1.match(/\bcap/g))
 
   // 匹配以 cap 结尾的
   console.log(str1.match(/cap\b/g))
+
+  console.log(str1.match(/\bcap\b/g))
 
   const str2 = `Please enter the nine-digit id as it appers on your color - coded pass-key.`
   // 匹配前后都不是 \w 的 连字符 -
