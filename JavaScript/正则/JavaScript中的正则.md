@@ -353,7 +353,7 @@ console.log(reg6.test(' ')) // false
 
 ## 4 字符边界
 
-### 4.1 \b
+### 4.1 \b 和 \B
 
 在讲 \b 之前我们先来看看一个例子，我们需要匹配字符串中的 cap 单词
 
@@ -385,9 +385,22 @@ console.log(str1.match(/cap\b/g)) // ['cap', 'cap']
 
 ```js
 const str = `The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.`
-console.log(str1.match(/\bcap\b/g))
+console.log(str1.match(/\bcap\b/g)) // ['cap']
 ```
 
+\B 匹配非单词边界，可能稍微不太好理解，下面我来看一个例子
+
+```js
+const str = `maoxiaoxing is a handsome-guy and smart - guy`
+console.log(str.match(/\B-\B/g)) // ['-']
+```
+
+\B 表示不匹配一个单词的边界，也就是上一个字符和下一个字符属于同一类型的位置：要么两者都必须是单词，要么两者都必须是非单词，例如在两个字母之间或两个空格之间
+
+```js
+const str = `maoxiaoxing is a handsome-guy and smart - guy`
+console.log(str.match(/\Ban\B/g)) // ['an']
+```
 
 ## 5 量词
 ## 6 原子组和原子表
