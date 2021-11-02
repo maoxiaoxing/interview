@@ -402,6 +402,33 @@ const str = `maoxiaoxing is a handsome-guy and smart - guy`
 console.log(str.match(/\Ban\B/g)) // ['an']
 ```
 
+### 4.2 ^ 和 $
+
+^ 匹配一个字符串的开头
+
+```js
+const str = `maoxiaoxing is a handsome-guy`
+const reg = /^maoxiaoxing/g
+console.log(reg.test(str)) // true
+```
+
+$ 匹配一个字符串的结尾
+
+```js
+const str = `maoxiaoxing is a handsome-guy`
+const reg = /guy$/g
+console.log(reg.test(str)) // true
+```
+
+在实际开发中，可以使用 ^ 和 $ 来验证名字的有效性，比如名称只能以英文开头，以字母下划线结尾
+
+```js
+const reg2 = /^[a-z]\w+$/
+console.log(reg2.test('maoxiaoxing9527')) // true
+console.log(reg2.test('毛小星')) // false
+console.log(reg2.test('9527maoxiaoxing')) // false
+```
+
 ## 5 量词
 ## 6 原子组和原子表
 

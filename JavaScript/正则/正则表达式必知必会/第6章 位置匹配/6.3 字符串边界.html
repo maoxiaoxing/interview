@@ -32,7 +32,8 @@
     }
   `
   // 匹配单行注释
-  console.log(code.match(/(?:^|\n|\r)\s*\/\/.*(?:\r|\n|$)/g))
+  console.log(code.match(/(?:\n|\r)\s*\/\/.*(?:\r|\n)/g))
+  console.log(code.match(/\s*\/\/.*/g))
   
   // js 不支持 ?m
 </script>

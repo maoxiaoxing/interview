@@ -3,4 +3,22 @@
   console.log(str.match(/\B-\B/g))
   console.log(str.match(/\Ban\B/g))
 
+  const str1 = `choice is greater than effort`
+  const str2 = `
+    maoxiaoxing is a handsome-guy and smart - guy\nMany girls like him\nmaoxiaoxing refused them
+  `
+  const reg = /^maoxiaoxing/g
+  console.log(reg.test(str))
+
+  console.log(str.match(/^is$/g))
+
+  const str3 = `maoxiaoxing is a handsome-guy`
+  const reg1 = /guy$/
+  console.log(reg1.test(str3))
+
+  const name = `maoxiaoxing9527`
+  const reg2 = /^[a-z]\w+$/
+  console.log(reg2.test(name))
+  console.log(reg2.test('毛小星'))
+  console.log(reg2.test('9527maoxiaoxing'))
 </script>
