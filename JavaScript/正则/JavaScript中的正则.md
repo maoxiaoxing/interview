@@ -199,11 +199,14 @@ console.log(reg.dotAll) // true
 ### 2.5 u修饰符和 unicode 属性
 
 u 标志开启了多种 Unicode 相关的特性
-在我们的开发中，可能会有涉及匹配汉字的需求
+
+
+
+匹配所有的单个汉字
 
 ```js
-const str = 'maoxiaoxing9527.学正则'
-console.log(str.match(/\p{sc=Han}/gu)) // ['学', '正', '则']
+const str = 'maoxiaoxing9527.要继续努力，加油！'
+console.log(str.match(/\p{sc=Han}/gu)) // ['要', '继', '续', '努', '力', '加', '油']
 ```
 
 unicode 属性判断是否使用了 u 标志
@@ -420,7 +423,7 @@ const reg = /guy$/g
 console.log(reg.test(str)) // true
 ```
 
-在实际开发中，可以使用 ^ 和 $ 来验证名字的有效性，比如名称只能以英文开头，以字母下划线结尾
+在实际开发中，可以使用 ^ 和 $ 来验证名称的有效性，比如名称只能以小写英文开头，以字母下划线结尾
 
 ```js
 const reg2 = /^[a-z]\w+$/
@@ -430,6 +433,13 @@ console.log(reg2.test('9527maoxiaoxing')) // false
 ```
 
 ## 5 量词
+
+### 5.1 x+
+
+\+ 号用来匹配 x 的一项或多项
+
+
+
 ## 6 原子组和原子表
 
 ## 7 断言
