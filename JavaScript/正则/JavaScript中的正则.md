@@ -214,13 +214,18 @@ const str = 'maoxiaoxing9527.要继续努力，加油！'
 console.log(str.match(/\p{P}/gu)) // ['.', '，', '！']
 ```
 
-
-
 匹配所有的单个汉字
 
 ```js
 const str = 'maoxiaoxing9527.要继续努力，加油！'
 console.log(str.match(/\p{sc=Han}/gu)) // ['要', '继', '续', '努', '力', '加', '油']
+```
+
+匹配汉字
+
+```js
+const str = 'maoxiaoxing9527.要继续努力，加油！'
+console.log(str.match(/[\u4e00-\u9fa5]+/g)) // ['要继续努力', '加油']
 ```
 
 unicode 属性判断是否使用了 u 标志
