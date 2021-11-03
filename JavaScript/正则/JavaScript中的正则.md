@@ -207,6 +207,15 @@ const str = 'maoxiaoxing9527.要继续努力，加油！'
 console.log(str.match(/\p{L}/gu)) // ['m', 'a', 'o', 'x', 'i', 'a', 'o', 'x', 'i', 'n', 'g', '要', '继', '续', '努', '力', '加', '油']
 ```
 
+匹配标点符号
+
+```js
+const str = 'maoxiaoxing9527.要继续努力，加油！'
+console.log(str.match(/\p{P}/gu)) // ['.', '，', '！']
+```
+
+
+
 匹配所有的单个汉字
 
 ```js
