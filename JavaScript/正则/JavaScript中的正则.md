@@ -200,7 +200,12 @@ console.log(reg.dotAll) // true
 
 u 标志开启了多种 Unicode 相关的特性
 
+匹配字母和汉字
 
+```js
+const str = 'maoxiaoxing9527.要继续努力，加油！'
+console.log(str.match(/\p{L}/gu)) // ['m', 'a', 'o', 'x', 'i', 'a', 'o', 'x', 'i', 'n', 'g', '要', '继', '续', '努', '力', '加', '油']
+```
 
 匹配所有的单个汉字
 
