@@ -457,6 +457,9 @@ console.log(reg2.test('9527maoxiaoxing')) // false
 
 \+ 号用来匹配 x 的一项或多项
 
+```js
+
+```
 
 
 ## 6 原子组和原子表
