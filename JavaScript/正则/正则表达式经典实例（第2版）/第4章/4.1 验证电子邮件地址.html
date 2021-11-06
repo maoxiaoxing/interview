@@ -6,11 +6,15 @@
   const reg1 = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/
   console.log(reg1.test(email))
 
-  // 不允许前导、末尾或连续的点号 
+  // 包含所有字符的简单形式
   const reg2 = /^[A-Za-z0-9_!#$%&*+/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/
   console.log(reg2.test(email))
 
-  // 顶级域名必须包含2-6个字母
+  // 不允许前导、末尾或连续的点号 
   const reg3 = /^([A-Za-z0-9_!#$%&*+/=?`{|}~^.-])+(?:\1+)*@([A-Za-z0-9.-])+(?:\2+)*$/
   console.log(reg3.test(email))
+
+  // 顶级域名必须包含2-6个字母
+  const reg4 = /^[\w!#$%&*+/=?`{|}~^-]+(?:\.[!#$%&*+/=?`{|}~^-]+)*@(?:[A-Za-z0-9-]+\.)+[A-Za-z]{2,6}$/
+  console.log(reg4.test(email))
 </script>
