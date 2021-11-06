@@ -5,4 +5,8 @@
 
   const reg1 = /^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$/
   console.log(reg1.test(email))
+
+  // 不允许前导、末尾或连续的点号 
+  const reg2 = /^[A-Za-z0-9_!#$%&*+/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/
+  console.log(reg2.test(email))
 </script>
