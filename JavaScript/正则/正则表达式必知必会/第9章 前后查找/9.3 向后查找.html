@@ -5,6 +5,7 @@
     CFMX1: $899.00
     Total items found: 3
   `
+  console.log(strs.match(/\$[\d+.]+/g))
   console.log(strs.match(/[\d+.]+/g))
   const reg = /(?<=\$)[\d.]+/g
   console.log(strs.match(reg))
