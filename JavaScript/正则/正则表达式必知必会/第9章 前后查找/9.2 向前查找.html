@@ -1,0 +1,10 @@
+<script>
+  const urls = `
+    http://www.forta.com
+    https://mail.forta.com
+    ftp://ftp.forta.com
+  `
+  const reg = /.+(?=:)/g
+  console.log(urls.match(reg))
+  console.log(urls.match(/(http)/g))
+</script>
