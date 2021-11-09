@@ -4,7 +4,6 @@
     https://mail.forta.com
     ftp://ftp.forta.com
   `
-  const reg = /.+(?=:)/g
+  const reg = /\w+(?=:)/g
   console.log(urls.match(reg))
-  console.log(urls.match(/(http)/g))
 </script>
