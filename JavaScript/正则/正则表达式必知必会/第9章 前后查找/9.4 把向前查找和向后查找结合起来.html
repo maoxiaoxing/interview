@@ -6,4 +6,7 @@
   `
   const reg = /(<div>)[\s\S]+(<\/div>)/g
   console.log(html.replace(reg, '$1dog eat meat$2'))
+
+  const reg1 = /(?<=<div>)[\s\S]+(?=<\/div>)/
+  console.log(html.replace(reg1, 'dog eat meat'))
 </script>
