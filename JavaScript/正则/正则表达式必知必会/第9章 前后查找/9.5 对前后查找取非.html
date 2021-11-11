@@ -8,4 +8,8 @@
 
   // 查找不以 $ 开头的数字
   console.log(str.match(/\b(?<!\$)\d+\b/g))
+
+  const url = `https://tieba.baidu.com/index.html`
+  
+  console.log(url.match(/[a-z]+(?=:\/\/)/g))
 </script>
