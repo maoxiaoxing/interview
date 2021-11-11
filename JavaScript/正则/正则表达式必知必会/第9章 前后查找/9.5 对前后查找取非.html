@@ -1,0 +1,8 @@
+<script>
+  const str = `
+    I paid $30 for 100 apples, 50 oranges, and 60 pears.
+    I saved $5 on this order.
+  `
+  // 查找 $后面的数字
+  console.log(str.match(/(?<=\$)\d+/g))
+</script>
