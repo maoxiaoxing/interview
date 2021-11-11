@@ -9,7 +9,13 @@
   // 查找不以 $ 开头的数字
   console.log(str.match(/\b(?<!\$)\d+\b/g))
 
-  const url = `https://tieba.baidu.com/index.html`
+  const url = `
+    https://tieba.baidu.com/index.html
+    https://www.baidu.com
+  `
   
-  console.log(url.match(/[a-z]+(?=:\/\/)/g))
+  // 简单匹配 url 中的协议
+  console.log(url.match(/^[a-z]+(?=:\/\/)/g))
+
+  console.log(url.match(/[\w.:\/]+(?!\/index.html)/gms))
 </script>
