@@ -5,4 +5,7 @@
   `
   // 查找 $后面的数字
   console.log(str.match(/(?<=\$)\d+/g))
+
+  // 查找不以 $ 开头的数字
+  console.log(str.match(/\b(?<!\$)\d+\b/g))
 </script>
