@@ -455,13 +455,30 @@ console.log(reg2.test('9527maoxiaoxing')) // false
 
 ### 5.1 x+
 
-\+ 号用来匹配字符的一项或多项
+\+ 号用来匹配字符的一个或多个
 
 下面我们看一个例子，cat eat fishhhhhhh 这个句子有单词拼写错误，我们想替换成正确的fish
 
 ```js
 const str = 'cat eat fishhhhhhh'
 console.log(str.replace(/\w+h+/, 'fish')) // cat eat fish
+```
+
+### 5.2 x*
+
+\* 号用来匹配字符的零个或多个
+
+开发中我们有时需要匹配一些代码中的注释
+
+```js
+const code = `
+  // 注释
+  const a = 1
+  // this is comment
+  console.log(2)
+`
+const reg = /\/\/.*/g
+console.log(code.match(reg)) // ['// 注释', '// this is comment']
 ```
 
 
