@@ -481,6 +481,21 @@ const reg = /\/\/.*/g
 console.log(code.match(reg)) // ['// 注释', '// this is comment']
 ```
 
+### 5.3 x?
+
+? 在正则中有很多用途，x? 是其中一种，匹配字符的零个或一个
+
+开发中我们往往需要匹配 url，有的 url 是以 http 开头的，有的是以 https 开头的，这时 ? 就可以发挥它的作用了
+
+```js
+const urls = `
+  https://www.baidu.com
+  http://www.forta.com
+`
+const urlReg = /https?:\/\/[\w.]+/g
+console.log(urls.match(urlReg)) // ['https://www.baidu.com', 'http://www.forta.com']
+```
+
 
 ## 6 原子组和原子表
 
