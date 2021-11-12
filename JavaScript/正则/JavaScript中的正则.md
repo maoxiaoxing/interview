@@ -455,10 +455,13 @@ console.log(reg2.test('9527maoxiaoxing')) // false
 
 ### 5.1 x+
 
-\+ 号用来匹配 x 的一项或多项
+\+ 号用来匹配字符的一项或多项
+
+下面我们看一个例子，cat eat fishhhhhhh 这个句子有单词拼写错误，我们想替换成正确的fish
 
 ```js
-
+const str = 'cat eat fishhhhhhh'
+console.log(str.replace(/\w+h+/, 'fish')) // cat eat fish
 ```
 
 
