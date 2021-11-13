@@ -500,6 +500,9 @@ console.log(urls.match(urlReg)) // ['https://www.baidu.com', 'http://www.forta.c
 
 上面小节提到的 + 、* 、? 虽然解决了很多问题，但是却无法为匹配的字符提供一个精确的范围。
 
+#### 5.4.1 x{n}
+
+x{n} 
 
 
 ## 6 原子组和原子表
