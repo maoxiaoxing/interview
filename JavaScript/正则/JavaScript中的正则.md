@@ -496,6 +496,11 @@ const urlReg = /https?:\/\/[\w.]+/g
 console.log(urls.match(urlReg)) // ['https://www.baidu.com', 'http://www.forta.com']
 ```
 
+### 5.4 匹配次数的精确值
+
+上面小节提到的 + 、* 、? 虽然解决了很多问题，但是却无法为匹配的字符提供一个精确的范围。
+
+
 
 ## 6 原子组和原子表
 
