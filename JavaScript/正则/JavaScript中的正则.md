@@ -502,7 +502,19 @@ console.log(urls.match(urlReg)) // ['https://www.baidu.com', 'http://www.forta.c
 
 #### 5.4.1 x{n}
 
-x{n} 
+x{n} 匹配字符的 n 个
+我们来看下面的例子，匹配字符串中的所有日期
+
+```js
+const str = `
+  2009-10-12
+  2013-11-18
+  2020-12-12
+  02-11-22
+`
+const reg = /\d{4}-\d{2}-\d{2}/g
+console.log(str.match(reg)) // ['2009-10-12', '2013-11-18', '2020-12-12']
+```
 
 
 ## 6 原子组和原子表
