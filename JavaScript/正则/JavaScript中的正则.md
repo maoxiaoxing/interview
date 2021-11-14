@@ -516,6 +516,17 @@ const reg = /\d{4}-\d{2}-\d{2}/g
 console.log(str.match(reg)) // ['2009-10-12', '2013-11-18', '2020-12-12']
 ```
 
+#### 5.4.2 x{n,}
+
+x{n,} 表示至少匹配字符的 n 个
+例如 [a-z]{3,} 就表示至少匹配 3 个字母，少于 3 个字母就不会发生匹配
+
+```js
+const reg3 = /[a-z]{3,}/
+console.log('c'.match(reg3)) // null
+console.log('cat'.match(reg3)) // ['cat']
+console.log('catherine'.match(reg3)) // ['catherine']
+```
 
 ## 6 原子组和原子表
 
