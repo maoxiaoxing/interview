@@ -546,6 +546,18 @@ const reg = /\$\d{3,}\.\d{2,3}/g
 console.log(coins.match(reg)) // ['$100.00', '$200.689', '$1021.666']
 ```
 
+如果 x{n,m} 中的 m 和 n 相等的话，和 x{n} 的结果是一样的
+
+```js
+console.log('cat'.match(/[a-z]{2,2}/)) // ['ca']
+```
+
+如果 x{n,m} 中的 m 小于 n 的话， 就会报语法错误
+
+```js
+console.log('cat'.match(/[a-z]{3,2}/)) // Uncaught SyntaxError: Invalid regular expression: /[a-z]{3,2}/: numbers out of order in {} quantifier
+```
+
 ## 6 原子组和原子表
 
 ## 7 断言
