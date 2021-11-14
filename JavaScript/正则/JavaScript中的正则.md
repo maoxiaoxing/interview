@@ -528,6 +528,24 @@ console.log('cat'.match(reg3)) // ['cat']
 console.log('catherine'.match(reg3)) // ['catherine']
 ```
 
+#### 5.4.3 x{n,m}
+
+x{n,m} 表示匹配 x 字符的 n 到 m 个
+可以看一下面的例子，我们需要在一堆钱币中找到大于 100 的
+
+```js
+const coins = `
+  $100.00
+  $200.689
+  $98.00
+  $26.953
+  $1021.666
+  $33.678
+`
+const reg = /\$\d{3,}\.\d{2,3}/g
+console.log(coins.match(reg)) // ['$100.00', '$200.689', '$1021.666']
+```
+
 ## 6 原子组和原子表
 
 ## 7 断言
