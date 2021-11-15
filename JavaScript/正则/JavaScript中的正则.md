@@ -558,6 +558,16 @@ console.log('cat'.match(/[a-z]{2,2}/)) // ['ca']
 console.log('cat'.match(/[a-z]{3,2}/)) // Uncaught SyntaxError: Invalid regular expression: /[a-z]{3,2}/: numbers out of order in {} quantifier
 ```
 
+### 5.5 禁止贪婪
+
+上面列举的量词都是贪婪的，它们都会匹配朝多的方向匹配，例如 a{1,6} 这个正则就会尽可能向 6 个 a 匹配，这种匹配机制是非常有用的，但是有时候也会存在过度匹配的情况，我们看看下面这个例子
+
+```js
+const text = `跟着<span>毛小星</span>一起学<span>正则</span>`
+const reg = /<span>.*<\/span>/g
+console.log(text.match(reg)) // ['<span>毛小星</span>一起学<span>正则</span>']
+```
+
 ## 6 原子组和原子表
 
 ## 7 断言
