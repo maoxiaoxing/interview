@@ -1,0 +1,12 @@
+<script>
+  const phones = `
+    123-456-7890
+    (123)456-7890
+    (123)-456-7890
+    (123-456-7890
+    1234567890
+    123 456 7890
+  `
+  const reg = /\(?\d{3}\)?-?\d{3}-\d{4}/g
+  console.log(phones.match(reg))
+</script>
