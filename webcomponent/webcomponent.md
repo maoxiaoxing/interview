@@ -12,4 +12,5 @@
 > Vue
 ![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211211221450907-1466848368.png)
 
-
+看到这有的人可能会问为什么 Web Components 不会替代 Vue 和 React，我们还需要学习它呢？
+很简单，Web Components 是浏览器的标准，任何前端框架想要有持久的生命力，都必须遵循标准，Vue 和 React 现在虽然非常流行，但是不能保证他们一直都是常青树，甚至有可能在未来的某一个时间段像 JQuery 退出了历史舞台。况且 Web Components 组件化和这些 MVVM 框架都是相同的，如果你学过 Vue 和 React ，那么学习 Web Components 简直不要太轻松。尤其是使用过 Vue 的同学，Vue 的很多语法和 Web Components 非常相似，例如 slot、template和生命周期等。其实尤雨溪在开发 Vue 的时候，很多思想都是借鉴的 Web Components。
