@@ -28,5 +28,34 @@ HTML Imports 其实是一门已经被浏览器废弃的技术了，但是为什�
 HTML Imports 这个语法看起来真的很酷炫，原先我们在 HTML 中只能引入 JavaScript 和 CSS，现在却能引入 html 文件了，这个功能确实很好用啊，为什么要废弃掉呢？
 在我们以往对 Chrome 印象中，Chrome 浏览器一直是一个遵纪守法的良好公民，它的所有功能一直遵循 W3c 和 ECMA 的标准。其实则不然，Chrome 的很多特性其实是在倒逼标准的形成，Chrome 浏览器总是喜欢自己实现一些属性，为了不与标准冲突，它会在这些新特性前面加上自己的前缀 -webkit-，而且大部分特性确实很好用，于是其他浏览器也纷纷效仿，大家都在属性前面加上前缀，例如 -moz- 、-ms-、-o-，久而久之，很多属性虽然没有被纳入 W3c 的标准，却已经成为了事实上的标准，因为很多项目已经使用这样的技术运行很久了。
 Web Components 其实不是最近几年才火的，早在 2011 年就已经诞生了。那时前端还没有组件化的概念，于是不安分的 Chrome 就自己实现了 Web Components 也是第一个版本 v0，这极大地引起了其他浏览器厂商的不满，平时实现几个 Css 属性就算了，Web Components 这么重要的新功能不可能让 Chrome 说了算，而 Chrome 从考虑到浏览器兼容性的问题也意识到了独木难支，于是和其他浏览器厂商一起开会，会议上大家产生的激烈的分歧，很多浏览器厂商觉得马上快出 ECMAScript 6 了，想先看看 ES 6 的模块化功能，觉得 HTML Imports 很鸡肋，于是根据各个浏览器厂商的不满，又修改了 v1 版本，也就是我们现在能看到的版本。
-2015 年是一个前端革命性的一年，这一年 ECMAScript 2015 诞生了，而且就在这一年前后，三大前端框架（Angular、React、Vue）相继火遍全世界，这几个前端框架都有组件化的概念，于是很多浏览器厂商就没有开发 Web Components 的动力了，
+2015 年是一个前端革命性的一年，这一年 ECMAScript 2015 诞生了，而且就在这一年前后，三大前端框架（Angular、React、Vue）相继火遍全世界，这几个前端框架都有组件化的概念，于是很多浏览器厂商就没有开发 Web Components 的动力了，但是几年后又觉得浏览器需要这样一个组件化的规范，而且也迫于开发者的压力，于是在 2017 年 Safari 实现了 Web Components ，但是没有实现 is 属性，火狐也在 Firefox 2018 中实现了 Web Components，Edge 和 opera 早就使用 Chrome 内核了，而 IE 这个老古董，你懂得！就让他淹没在历史长河吧！
+至此，几大主流浏览器基本都实现了 Web Components，但是很遗憾 HTML Imports 却被遗弃了，但是我们可以来看看下一代 HTML Modules 技术
+
+```html
+<!-- component.html -->
+<template>
+  component
+</template>
+<script type="module"></script>
+```
+
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import component from './component.html'
+  </script>
+</body>
+</html>
+```
+
+目前这种语法还没有任何浏览器支持，因为它还有很大的争议，在 js 中引入 html 有点怪，至于为什么要这样引入，这里做个伏笔，后面讲到 template 的时候就知道为什么了
 
