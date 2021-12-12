@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <my-bubbles click>my-bubbles</my-bubbles>
+  
+  <script type="module">
+    import { FcBubbles } from 'https://unpkg.zhimg.com/fancy-components'
+
+    new FcBubbles()
+
+    customElements.define(
+      'my-bubbles',
+      class extends customElements.get('fc-bubbles') {
+        constructor () {
+          super()
+          this.onclick = function () {
+            console.log('my-bubbles')
+          }
+        }
+      })
+  </script>
+</body>
+</html>

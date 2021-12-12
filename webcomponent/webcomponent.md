@@ -63,29 +63,76 @@ Web Components 其实不是最近几年才火的，早在 2011 年就已经诞�
 
 ### customElements.define
 
-customElements 是 window 上面的属性，而 customElements 上面最常用的属性就是 define 属性，是用来定义自定义元素。define 的第一个参数是注册的组件名称，第二个参数接收一个继承的类，用来定义组件。
+customElements 是 window 上面的属性，而 customElements 上面最常用的属性就是 define 属性，是用来定义自定义元素。define 的第一个参数是注册的组件名称，第二个参数接收一个继承的类，用来定义组件，这个类中的 this 的指向就是当前这个组件。
 
 ```html
-<mxx-button>按钮</mxx-button>
+<mxx-tag></mxx-tag>
   
-  <script>
-    customElements.define('mxx-button', class extends HTMLElement {})
-  </script>
+<script>
+  customElements.define('mxx-tag', class extends HTMLElement {
+    constructor () {
+      super()
+      this.innerHTML = 'mxx-tag'
+    }
+  })
+</script>
 ```
 
 这样一个最简单的组件就诞生了，但是需要注意的有以下几点
 
 - define 的第一个参数，必须以 - 作为分隔符，否则就会报错，这时因为需要和原生的标签区分开。
 - 不能注册同名组件
-- 标签只能写成 \<mxx-button>按钮<\/mxx-button> 这种完整的标签，而不能写成 <mxx-button \/> 这种自闭和标签
+- 标签只能写成 \<mxx-tag>按钮<\/mxx-tag> 这种完整的标签，而不能写成 <mxx-tag \/> 这种自闭和标签
 
 ### customElements.get
 
 customElements.get 能够获取组件中的构造函数
 
 ```html
+<mxx-tag></mxx-tag>
+  
+<script>
+  customElements.define('mxx-tag', class extends HTMLElement {
+    constructor () {
+      super()
+      this.innerHTML = 'mxx-tag'
+    }
+  })
 
+  console.log(customElements.get('mxx-tag'))
+</script>
 ```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211212163233487-1067528368.png)
+
+有了这个特性，我们就能使用这个特性对组件已经写好的组件进行扩展，例如我们来扩展 [fancy-components](https://github.com/fancy-components) 中的按钮
+
+```html
+<my-bubbles click>my-bubbles</my-bubbles>
+  
+<script type="module">
+  import { FcBubbles } from 'https://unpkg.zhimg.com/fancy-components'
+
+  new FcBubbles()
+
+  customElements.define(
+    'my-bubbles',
+    class extends customElements.get('fc-bubbles') {
+      constructor () {
+        super()
+        this.onclick = function () {
+          console.log('my-bubbles')
+        }
+      }
+    })
+</script>
+```
+
+![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/bubbles.gif)
+
+### customElements.whenDefined
+
+
 
 
 
