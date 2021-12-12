@@ -132,6 +132,115 @@ customElements.get 能够获取组件中的构造函数
 
 ### customElements.whenDefined
 
+通常我们在写代码的时候，都会将 script 标签放在页面的底部，这时为了在渲染的时候，先解析 html ，防止 js 的加载阻塞 dom 的渲染。那么就有一个问题，当我们在渲染的 dom 的时候，遇到这些自定义的标签，其实浏览器是将这些标签标志位为定义的标签，知道遇到 customElements.define 的时候，才会知道这是我们自定义的标签。
+定义了的标签是可以通过 css 的选择器 :defined 获取的，那么获取未定义的标签就是 :not(:deined)，那么在组件未加载的过程中，我们就可以做一个加载动画
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      display: grid;
+      place-items: center;
+    }
+    @keyframes loading {
+      to { background-position: 300% 0; }
+    }
+    :not(:defined) {
+      width: 300px;
+      height: 60px;
+      background: blue linear-gradient(60deg, transparent, transparent 20%, white 40%, transparent 60%) 0 / 300%;
+      border-radius: 10px;
+      animation: loading 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div>普通标签</div>
+  <mxx-tag></mxx-tag>
+  
+  <script>
+    setTimeout(() => {
+      customElements.define('mxx-tag', class extends HTMLElement {
+        constructor () {
+          super()
+          this.innerHTML = 'mxx-tag'
+        }
+      })
+    }, 3000)
+
+  </script>
+</body>
+</html>
+```
+
+![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/definedloading.gif)
+
+:not(:defined) 仅仅只能解决 css 遇到的问题，而 customElements.whenDefined 就能解决一些组件未定义的时候遇到的 js 问题
+customElements.whenDefined 接收一个标签名称的参数，它返回一个 Promise 对象
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body,html {
+      height: 100%;
+    }
+    body{
+      display: grid;
+      place-items: center;
+    }
+    @keyframes loading {
+      to { background-position: 300% 0; }
+    }
+    :not(:defined) {
+      width: 300px;
+      height: 60px;
+      background: blue linear-gradient(60deg, transparent, transparent 20%, white 40%, transparent 60%) 0 / 300%;
+      border-radius: 10px;
+      animation: loading 2s infinite;
+    }
+    mxx-tag {
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      font-weight: 800;
+    }
+  </style>
+</head>
+<body>
+  <mxx-tag>加载中...</mxx-tag>
+  
+  <script>
+    setTimeout(() => {
+      customElements.define('mxx-tag', class extends HTMLElement {
+        constructor () {
+          super()
+          this.innerHTML = 'mxx-tag'
+        }
+      })
+    }, 3000)
+
+    customElements.whenDefined('mxx-tag')
+      .then(() => {
+        document.querySelector('mxx-tag').innerHTML = 'mxx-tag'
+      })
+  </script>
+</body>
+</html>
+```
+
+![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/definedloading1.gif)
 
 
 

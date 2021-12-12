@@ -5,18 +5,49 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    body,html {
+      height: 100%;
+    }
+    body{
+      display: grid;
+      place-items: center;
+    }
+    @keyframes loading {
+      to { background-position: 300% 0; }
+    }
+    :not(:defined) {
+      width: 300px;
+      height: 60px;
+      background: blue linear-gradient(60deg, transparent, transparent 20%, white 40%, transparent 60%) 0 / 300%;
+      border-radius: 10px;
+      animation: loading 2s infinite;
+    }
+    mxx-tag {
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      font-weight: 800;
+    }
+  </style>
 </head>
 <body>
-  <mxx-tag></mxx-tag>
+  <mxx-tag>加载中...</mxx-tag>
   
   <script>
-    customElements.define('mxx-tag', class extends HTMLElement {
-      constructor () {
-        super()
-        this.innerHTML = 'mxx-tag'
-      }
-    })
+    setTimeout(() => {
+      customElements.define('mxx-tag', class extends HTMLElement {
+        constructor () {
+          super()
+          this.innerHTML = 'mxx-tag'
+        }
+      })
+    }, 3000)
 
+    customElements.whenDefined('mxx-tag')
+      .then(() => {
+        document.querySelector('mxx-tag').innerHTML = 'mxx-tag'
+      })
   </script>
 </body>
 </html>
