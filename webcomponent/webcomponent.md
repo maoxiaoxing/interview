@@ -268,9 +268,11 @@ customElements.upgrade(el)
 console.log(el instanceof MxxTag) // true
 ```
 
-## 声明周期
+## 生命周期
 
-在组件化开发的过程中，有一个无论如何都绕不开的问题，就是声明周期，我们都知道 Vue、React 都有自己的生命周期体系，虽然两者都使用了 hooks 的概念，但是殊途同归。而 Web Components 也有自己的声明周期，下面我们来看看都有什么生命周期
+### connectedCallback 和 disconnectedCallback
+
+在组件化开发的过程中，有一个无论如何都绕不开的问题，就是生命周期，我们都知道 Vue、React 都有自己的生命周期体系，虽然两者都使用了 hooks 的概念，但是殊途同归。而 Web Components 也有自己的生命周期，下面我们来看看都有什么生命周期
 
 ```js
 customElements.define('fancy-components', class extends HTMLElement {
@@ -294,7 +296,10 @@ customElements.define('fancy-components', class extends HTMLElement {
 })
 ```
 
-connectedCallback 和 disconnectedCallback 这两个生命周期应该比较好理解，connectedCallback 是组件加载完的声明周期，disconnectedCallback 是组件删除后的声明周期，只有 adoptedCallback 不太好理解，adopted 是领养的意思，下面我们来看下面的例子
+connectedCallback 是组件加载完的生命周期，disconnectedCallback 是组件删除后的生命周期
+### adoptedCallback
+
+connectedCallback 和 disconnectedCallback 这两个生命周期应该比较好理解，只有 adoptedCallback 不太好理解，adopted 是领养的意思，下面我们来看下面的例子
 
 ```html
 <!-- ifram.html -->
@@ -354,4 +359,5 @@ connectedCallback 和 disconnectedCallback 这两个生命周期应该比较好�
 
 这样 iframe 中的内容就被剪切出来了，仔细想想这个太强大了，如果我们把百度的搜索引擎收养出来，那我们岂不是可以直接做一个搜索引擎了吗，但是现实却是残酷的，这个收养功能只能嵌入同域下的内容，跨域的内容会直接报错。其实很好理解，现实我们想收养孩子，也只能从福利院收养（规范只能收养同域下的节点），否则就是拐卖人口（跨域）了。
 
+### attributeChangedCallback
 
