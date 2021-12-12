@@ -59,3 +59,34 @@ Web Components 其实不是最近几年才火的，早在 2011 年就已经诞�
 
 目前这种语法还没有任何浏览器支持，因为它还有很大的争议，在 js 中引入 html 有点怪，至于为什么要这样引入，这里做个伏笔，后面讲到 template 的时候就知道为什么了
 
+## customElements
+
+### customElements.define
+
+customElements 是 window 上面的属性，而 customElements 上面最常用的属性就是 define 属性，是用来定义自定义元素。define 的第一个参数是注册的组件名称，第二个参数接收一个继承的类，用来定义组件。
+
+```html
+<mxx-button>按钮</mxx-button>
+  
+  <script>
+    customElements.define('mxx-button', class extends HTMLElement {})
+  </script>
+```
+
+这样一个最简单的组件就诞生了，但是需要注意的有以下几点
+
+- define 的第一个参数，必须以 - 作为分隔符，否则就会报错，这时因为需要和原生的标签区分开。
+- 不能注册同名组件
+- 标签只能写成 \<mxx-button>按钮<\/mxx-button> 这种完整的标签，而不能写成 <mxx-button \/> 这种自闭和标签
+
+### customElements.get
+
+customElements.get 能够获取组件中的构造函数
+
+```html
+
+```
+
+
+
+
