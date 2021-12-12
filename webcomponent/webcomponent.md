@@ -242,7 +242,31 @@ customElements.whenDefined 接收一个标签名称的参数，它返回一个 P
 
 ![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/definedloading1.gif)
 
+### customElements.upgrade
 
+upgrade 是升级的意思，它的作用不太好解释，我们直接看一个例子就明白了
+上面我们都是在 html 中创建自定义标签，这回我们尝试在 js 中创建标签
+
+```js
+const el = document.createElement('mxx-tag')
+
+class MxxTag extends HTMLElement {}
+customElements.define('mxx-tag', MxxTag)
+console.log(el instanceof MxxTag) // false
+```
+
+上面的 console 返回了 false ，很好理解，因为还没有定义 mxx-tag 标签的时候，我们就创建了 el 属性
+解决这个问题很简单，只要把创建 el 的代码写在定义标签之后就可以了，其实还有一种解决方法，就是使用 customElements.upgrade 升级一下 el 即可
+
+```js
+const el = document.createElement('mxx-tag')
+
+class MxxTag extends HTMLElement {}
+customElements.define('mxx-tag', MxxTag)
+console.log(el instanceof MxxTag) // false
+customElements.upgrade(el)
+console.log(el instanceof MxxTag) // true
+```
 
 
 
