@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <mxx-tag></mxx-tag>
+  
+  <script>
+    customElements.define('mxx-tag', class extends HTMLElement {
+      constructor () {
+        super()
+        this.innerHTML = `<div>来自 iframe</div>`
+      }
+
+      adoptedCallback () {
+        console.log('被收养了')
+      }
+    })
+  </script>
+</body>
+</html>

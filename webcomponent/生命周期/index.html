@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>前端学不动</title>
+</head>
+<body>
+  <fancy-components></fancy-components>
+
+  <script>
+    customElements.define('fancy-components', class extends HTMLElement {
+      constructor () {
+        super()
+        // 相当于 Vue 的 setup
+        console.log('先运行构造函数')
+      }
+      connectedCallback () {
+        // 相当于 Vue 的 mounted
+        console.log('再运行连接回调')
+      }
+      disconnectedCallback () {
+        // 相当于 Vue 的 unmounted
+        console.log('当删除组件时才会运行失联回调')
+      }
+      adoptedCallback () {
+        // 当使用 document.adoptNode 后会触发该生命周期
+        console.log('当使用 document.adoptNode 后会运行收养回调')
+      }
+    })
+  </script>
+</body>
+</html>

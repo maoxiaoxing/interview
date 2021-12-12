@@ -268,5 +268,90 @@ customElements.upgrade(el)
 console.log(el instanceof MxxTag) // true
 ```
 
+## 声明周期
+
+在组件化开发的过程中，有一个无论如何都绕不开的问题，就是声明周期，我们都知道 Vue、React 都有自己的生命周期体系，虽然两者都使用了 hooks 的概念，但是殊途同归。而 Web Components 也有自己的声明周期，下面我们来看看都有什么生命周期
+
+```js
+customElements.define('fancy-components', class extends HTMLElement {
+  constructor () {
+    super()
+    // 相当于 Vue 的 setup
+    console.log('先运行构造函数')
+  }
+  connectedCallback () {
+    // 相当于 Vue 的 mounted
+    console.log('再运行连接回调')
+  }
+  disconnectedCallback () {
+    // 相当于 Vue 的 unmounted
+    console.log('当删除组件时才会运行失联回调')
+  }
+  adoptedCallback () {
+    // 当使用 document.adoptNode 后会触发该生命周期
+    console.log('当使用 document.adoptNode 后会运行收养回调')
+  }
+})
+```
+
+connectedCallback 和 disconnectedCallback 这两个生命周期应该比较好理解，connectedCallback 是组件加载完的声明周期，disconnectedCallback 是组件删除后的声明周期，只有 adoptedCallback 不太好理解，adopted 是领养的意思，下面我们来看下面的例子
+
+```html
+<!-- ifram.html -->
+<mxx-tag></mxx-tag>
+  
+<script>
+  customElements.define('mxx-tag', class extends HTMLElement {
+    constructor () {
+      super()
+      this.innerHTML = `<div>来自 iframe</div>`
+    }
+  })
+</script>
+```
+
+```html
+<!-- component.html -->
+<iframe src="./iframe.html"></iframe>
+```
+
+上面这段代码的执行结果如下图这样
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211212202750932-2021380788.png)
+
+现在我们想将 iframe 中的内容剪切出来
+
+```html
+<mxx-tag></mxx-tag>
+  
+<script>
+  customElements.define('mxx-tag', class extends HTMLElement {
+    constructor () {
+      super()
+      this.innerHTML = `<div>来自 iframe</div>`
+    }
+
+    adoptedCallback () {
+      console.log('被收养了')
+    }
+  })
+</script>
+```
+
+```html
+<iframe src="./iframe.html"></iframe>
+
+<script>
+  const iframe = document.querySelector('iframe')
+  iframe.onload = function () {
+    const mxxTag = iframe.contentDocument.querySelector('mxx-tag')
+    document.body.append(document.adoptNode(mxxTag))
+  }
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211212202947838-1695496593.png)
+
+这样 iframe 中的内容就被剪切出来了，仔细想想这个太强大了，如果我们把百度的搜索引擎收养出来，那我们岂不是可以直接做一个搜索引擎了吗，但是现实却是残酷的，这个收养功能只能嵌入同域下的内容，跨域的内容会直接报错。其实很好理解，现实我们想收养孩子，也只能从福利院收养（规范只能收养同域下的节点），否则就是拐卖人口（跨域）了。
 
 
