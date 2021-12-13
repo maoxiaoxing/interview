@@ -361,3 +361,48 @@ connectedCallback 和 disconnectedCallback 这两个生命周期应该比较好�
 
 ### attributeChangedCallback
 
+在讲 attributeChangedCallback 之前，我们需要先弄清一个概念，attribute 和 property 的区别，它们两个都被翻译为属性，但是它们却有很大的不同
+
+- property
+
+一般对象中的属性就是 property，例如下面这样
+
+```js
+const person = {
+  name: '毛小星',
+}
+```
+
+name 就是 person 对象中的一个属性
+
+- attribute
+
+attribute 在很多网站上也被翻译为属性，但是它更像是特征或者特性
+
+```html
+<div id="box"></div>
+
+<script>
+  const div = document.querySelector('div')
+  console.log(div)
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211213082156218-111856196.png)
+
+上面我们用 js 获取了 dom ，按常理来说它应该是一个 js 对象，但是结果打印的是一个 dom 对象，上面的 id 就是 dom 对象的 attribute
+那么我们想象中它也应该是一个 js 对象啊，那应该也能修改它的属性
+
+```js
+const div = document.querySelector('div')
+console.log(div)
+div.id = 'mxx'
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211213082658684-1891176056.png)
+
+确实也
+
+## 在 MVVM 框架中使用 Web Components
+
+
