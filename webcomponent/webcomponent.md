@@ -440,7 +440,29 @@ div.setAttribute('visible', true)
 
 #### attributeChangedCallback 的作用
 
-attributeChangedCallback 的作用实际上就是用来监听 dom 的
+attributeChangedCallback 的作用实际上就是用来监听 dom 的属性变化，我们先来看看它的语法
+
+```html
+<mxx-component color="blue">小熊饼干</mxx-component>
+
+<script>
+  customElements.define('mxx-component', class extends HTMLElement {
+    // 相当于 Vue 的 data
+    static observedAttributes = ['color']
+
+    attributeChangedCallback (name, oldValue, newValue) {
+      // 相当于 Vue 的 watch
+      if (name === 'color') {
+        this.style.color = newValue
+      }
+    }
+  })
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211214083248562-349523714.png)
+
+可以看到页面上的小熊饼干就变成了蓝色
 
 ## 在 MVVM 框架中使用 Web Components
 

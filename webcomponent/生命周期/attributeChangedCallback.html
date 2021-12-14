@@ -8,6 +8,7 @@
 </head>
 <body>
   <div id="box"></div>
+  <mxx-component color="blue">小熊饼干</mxx-component>
 
   <script>
     const div = document.querySelector('div')
@@ -19,6 +20,20 @@
     div.visible = true
     div.setAttribute('visible', true)
     console.log(div.getAttribute('id'))
+
+    customElements.define('mxx-component', class extends HTMLElement {
+      // 相当于 Vue 的 data
+      static observedAttributes = ['color']
+      // 也可以写成下面这样：
+      // static get observedAttributes () { return ['id'] }
+
+      attributeChangedCallback (name, oldValue, newValue) {
+        // 相当于 Vue 的 watch
+        if (name === 'color') {
+          this.style.color = newValue
+        }
+      }
+    })
 
   </script>
 </body>
