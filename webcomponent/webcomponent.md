@@ -363,7 +363,7 @@ connectedCallback 和 disconnectedCallback 这两个生命周期应该比较好�
 
 在讲 attributeChangedCallback 之前，我们需要先弄清一个概念，attribute 和 property 的区别，它们两个都被翻译为属性，但是它们却有很大的不同
 
-- property
+#### property
 
 一般对象中的属性就是 property，例如下面这样
 
@@ -375,7 +375,7 @@ const person = {
 
 name 就是 person 对象中的一个属性
 
-- attribute
+#### attribute
 
 attribute 在很多网站上也被翻译为属性，但是它更像是特征或者特性
 
@@ -402,10 +402,45 @@ div.id = 'mxx'
 ![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211213082658684-1891176056.png)
 
 确实也修改成功了，而且好像有类似于 MVVM 框架中的数据双向绑定的功能，那这样的看的话，好像 property 和 attribute 好像是一回事啊，其实不然，我们来看看 dom 对象的在 js 中的真实表现
+有两种方法能够打印出真实的 dom 对象，一种是使用 console.dir ，另一种是在 console.log 中添加一个 %O 的参数
+
+```html
+<div id="box"></div>
+
+<script>
+  const div = document.querySelector('div')
+  // console.dir(div)
+  console.log('%O', div)
+
+  div.id = 'mxx'
+
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211214080627256-818364580.png)
+
+可以看到 dom 上有很多的属性，这里我们只截取了一部分属性，可以看到 div 上面的 id 属性确实从 box 变成了 mxx
+这样我们应该就能直接给 dom 上添加属性
 
 ```js
-
+const div = document.querySelector('div')
+div.visible = true
 ```
+
+但是其实这样是不能给 dom 上面添加上属性的，这时你应该就能想到两个 api：setAttribute 和 getAttribute
+
+```js
+const div = document.querySelector('div')
+div.setAttribute('visible', true)
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211214081926740-992026412.png)
+
+只有使用这种方式才能将属性添加到 dom 上
+
+#### attributeChangedCallback 的作用
+
+attributeChangedCallback 的作用实际上就是用来监听 dom 的
 
 ## 在 MVVM 框架中使用 Web Components
 
