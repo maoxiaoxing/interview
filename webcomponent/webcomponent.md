@@ -452,6 +452,7 @@ attributeChangedCallback 的作用实际上就是用来监听 dom 的属性变�
 
     attributeChangedCallback (name, oldValue, newValue) {
       // 相当于 Vue 的 watch
+      if (oldValue === newValue) return false
       if (name === 'color') {
         this.style.color = newValue
       }
@@ -462,7 +463,56 @@ attributeChangedCallback 的作用实际上就是用来监听 dom 的属性变�
 
 ![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211214083248562-349523714.png)
 
-可以看到页面上的小熊饼干就变成了蓝色
+可以看到页面上的小熊饼干就变成了蓝色，注意 observedAttributes 是必不可少的，它相当于告诉浏览器 color 这个属性是响应式的。
+其实如果细心的人会发现，attributeChangedCallback 和 vue 中的 watch 非常相似，并且 oldValue、newValue 这两个参数和 watch 是相反的。这是因为 watch 中的 oldValue 不是很常用，当数据没有变化的时候，vue 会用 diff 算法判断不会走进 watch 方法，所以视图不会发生改变，oldValue 也就不是很常用了；而 Web Components 没有这样的机制，即使一个属性被赋予了同样的值，也会触发 attributeChangedCallback，而且还需要我们自己做视图层的更新。Vue 和 Web Components 就像是一个自动挡，另一个是手动挡，自动挡的车开起来肯定是省事，手动挡的更有驾驶乐趣，但是毫无疑问会更麻烦一些。
+
+#### 让属性也具有双向绑定特性
+
+上面可以通过给 dom 传 attribute 值，然后改变颜色，现在我们也想通过 js 获取 dom 去改变元素的 color 值，我们先来尝试一下
+
+```js
+const mxxComponent = document.querySelector('mxx-component')
+mxxComponent.color = 'red'
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211215081120659-435228423.png)
+
+好像并没有成功，这是因为我们确实只改变了 dom 对象上面的 property 值，没有触发 attribute 的值改变，所以 attributeChangedCallback 方法也没有执行。
+es6中的 set 和 get 语法可以帮助我们解决这个问题
+
+```html
+<mxx-component color="blue">小熊饼干</mxx-component>
+
+<script>
+  customElements.define('mxx-component', class extends HTMLElement {
+    // 相当于 Vue 的 data
+    get color () {
+      return this.getAttribute('color')
+    }
+    set color (val) {
+      this.setAttribute('color', val)
+    }
+    static observedAttributes = ['color']
+
+    attributeChangedCallback (name, oldValue, newValue) {
+      // 相当于 Vue 的 watch
+      if (oldValue === newValue) return false
+      if (name === 'color') {
+        this.style.color = newValue
+      }
+    }
+  })
+
+  const mxxComponent = document.querySelector('mxx-component')
+  mxxComponent.color = 'red'
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211215081748434-1528791047.png)
+
+这回页面的颜色就发生了改变，这是因为我们使用 get 语法在获取 color 属性的时候，返回的是 dom 上面的 attribute 值，而在 set 语法中我们也是将 dom 上 attribute 值设置为传入的颜色，所以这样就会触发 attributeChangedCallback 方法，这实际上就是一个"双向绑定"。
+
+## 组件继承
 
 ## 在 MVVM 框架中使用 Web Components
 
