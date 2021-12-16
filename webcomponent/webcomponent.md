@@ -608,3 +608,43 @@ module.exports = {
 }
 ```
 
+### 在 Vue3（Vite） 中使用 Web Components
+
+下面我们在 Vue3（Vite）中使用 Web Components，首先也是下载 fancy-components，然后注册使用
+
+```js
+// main.js
+import { FcBubbles } from 'fancy-components'
+new FcBubbles()
+```
+
+```html
+<!-- App.vue -->
+<template>
+  <fc-bubbles Click>
+    vue-vite
+  </fc-bubbles>
+</template>
+```
+
+![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/vue-vite-fc-bubbles.gif)
+
+我们发现能正常使用，但是也会遇到和 vue-cli 中一样的 fc-bubbles 不能识别的警告问题，我们在 vite.config.js 中做一点配置即可
+
+```js
+// vite.config.js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue({
+    template: {
+      compilerOptions: {
+        isCustomElement: tag => tag.startsWith('fc-')
+      }
+    }
+  })]
+})
+```
+
