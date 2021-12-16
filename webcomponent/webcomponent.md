@@ -516,4 +516,45 @@ es6中的 set 和 get 语法可以帮助我们解决这个问题
 
 ## 在 MVVM 框架中使用 Web Components
 
+下面我们使用 fancy-components 看看在各个框架中的使用方法
+首先就是下载 fancy-components
+
+```bash
+npm i fancy-components
+```
+### 在 react 中使用 Web Components
+
+首先我们需要在 index.js 中引入 fancy-components 并实例化组件
+
+```js
+// index.js
+import { FcBubbles } from 'fancy-components'
+new FcBubbles()
+```
+
+然后我们在 app 组件中使用实例好的 FcBubbles 组件，在 react 中使用 Web Components 组件有一点是需要注意的是，react 中的组件基本都是驼峰命名的，但是 Web Components 组件是不支持驼峰命名的，所以我们需要将 Web Components 写成标签形式的，例如 FcBubbles 组件就需要写成 fc-bubbles
+
+```js
+// app.js
+import './App.css'
+import logo from './logo.svg'
+
+function App() {
+  return (
+    <main>
+      <fc-bubbles click>
+        <img src={logo} className="App-logo" alt="logo" style={{height: 300, width: 300}}></img>
+      </fc-bubbles>
+    </main>
+  );
+}
+
+export default App
+```
+
+![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/fc-bubbles.gif)
+
+在 react 中使用 Web Components 还是比较顺利的
+
+
 
