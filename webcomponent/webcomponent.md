@@ -579,4 +579,32 @@ new FcBubbles()
 
 需要注意的是，在 Vue 中由于有虚拟 dom 这个概念，而且 dom 上面的有一些属性被占用或者重写了，所以一些关键字必须用一些特殊的写法，比如 click 这个属性的开头必须大写
 
+![](https://gitee.com/maoxiaoxing/mxx-blog/raw/master/Img/vue-fc-bubbles.gif)
+
+### 在 Vue3（vue-cli） 中使用 Web Components
+
+下面我们在 vue3（vue-cli） 中使用 Web Components，和 Vue2 中使用 Web Components 大同小异，虽然组件也能使用，但是在控制台会有一个警告
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211216204201415-67020218.png)
+
+这个问题是因为 fc-bubbles 并没有在 components 里面注册，所以 vue-cli 不能识别，解决这个问题也很简单，我们只需要在 vue.confing.js 声明一下自定义标签即可即可
+
+```js
+// vue.confing.js
+module.exports = {
+  chainWebpack: config => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => {
+        options.compilerOptions = {
+          ...(options.compilerOptions || {}),
+          isCustomElement: tag => tag.startsWith('fc-')
+        }
+
+        return options
+      })
+  }
+}
+```
 
