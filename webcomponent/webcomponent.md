@@ -556,5 +556,27 @@ export default App
 
 在 react 中使用 Web Components 还是比较顺利的
 
+### 在 Vue2（vue-cli） 中使用 Web Components
+
+在 main.js 中引入 fancy-components 并实例化组件
+
+```js
+import { FcBubbles } from 'fancy-components'
+new FcBubbles()
+```
+
+然后我们在 App.vue 中使用这个组件
+
+```html
+<template>
+  <div id="app">
+    <fc-bubbles Click>
+      <img alt="Vue logo" src="./assets/logo.png">
+    </fc-bubbles>
+  </div>
+</template>
+```
+
+需要注意的是，在 Vue 中由于有虚拟 dom 这个概念，而且 dom 上面的有一些属性被占用或者重写了，所以一些关键字必须用一些特殊的写法，比如 click 这个属性的开头必须大写
 
 
