@@ -514,6 +514,8 @@ es6中的 set 和 get 语法可以帮助我们解决这个问题
 
 ## 组件继承
 
+我们知道 Element 在是很多 dom 的父类，Element 往下还能分为 SVGElement、HTMLElement 等，而 HTMLElement 还能下分 HTMLDivElement、HTMLInputElement、HTMLAnchorElement、HTMLUListElement 等等几十个类。
+
 ## 在 MVVM 框架中使用 Web Components
 
 下面我们使用 fancy-components 看看在各个框架中的使用方法
