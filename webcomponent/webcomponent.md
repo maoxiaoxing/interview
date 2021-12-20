@@ -549,6 +549,104 @@ console.log(svg.constructor)
 
 这回我们知道 Element 在是很多 dom 的父类，Element 往下还能分为 SVGElement、HTMLElement 等，而 HTMLElement 还能下分 HTMLDivElement、HTMLInputElement、HTMLAnchorElement、HTMLUListElement 等等几十个类。
 
+上面的很多例子，我们都发现组件是继承自 HTMLElement，但是有一些标签比较特殊，比如 input 标签，它的很多属性在 HTMLElement 都没有
+
+```html
+<mxx-input placeholder="请输入"></mxx-input>
+
+<script>
+  customElements.define('mxx-input', class extends HTMLElement {
+    constructor () {
+      super()
+      this.innerHTML = `<input></input>`
+    }
+  })
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211220093038039-249872636.png)
+
+我们发现 mxx-input 并没有加上 placeholder 属性，查看元素我们才发现原来 placeholder 只是加在了 mxx-input 标签上，并没有加在内层的 input 标签上
+解决这个问题也很简单
+
+```html
+<mxx-input placeholder="请输入"></mxx-input>
+
+<script>
+  customElements.define('mxx-input', class extends HTMLElement {
+    constructor () {
+      super()
+      this.innerHTML = `<input></input>`
+    }
+
+    static observedAttributes = ['placeholder']
+
+    get placeholder () {
+      return this.querySelector('input').getAttribute('placeholder')
+    }
+
+    set placeholder (val) {
+      this.querySelector('input').setAttribute('placeholder', val)
+    }
+
+    attributeChangedCallback (name, oldValue, newValue) {
+      if (oldValue === newValue) return false
+      if (name === 'placeholder') {
+        this.querySelector('input').placeholder = newValue
+      }
+    }
+  })
+</script>
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211220094001703-139817366.png)
+
+这样就对了，但是我们都知道 input 上有太多属性了，每一个属性都这么加，那未免也太麻烦了，我们为什么不直接继承自 HTMLInputElement 不就行了吗
+
+```js
+customElements.define('mxx-input', class extends HTMLInputElement {})
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211220094344470-1763839659.png)
+
+我们发现报了一个错误，自定义元素只能继承自 HTMLElement
+其实 customElements.define 还有第三个参数，可以解决这个问题
+
+```html
+<input is="mxx-input" placeholder="请输入">
+
+<script>
+  customElements.define('mxx-input', class extends HTMLInputElement {
+    constructor () {
+      super()
+    }
+  }, { extends: 'input' })
+</script>
+```
+
+我们只需要在第三个参数配置 extends: 'input' 即可，相应的标签也要写成原生的 input ，而且为了标识我们是自定义组件，需要在 input 标签上添加 is 属性，值为 mxx-input
+
+有的时候我们想用 js 创建自定义标签，也需要加上 is 配置
+
+```js
+document.body.append(document.createElement('input', { is: 'mxx-input' }))
+```
+
+或者这样也可以
+
+```js
+class MxxInput extends HTMLInputElement {
+  constructor () {
+    super()
+
+    this.placeholder = '请输入'
+  }
+}
+
+customElements.define('mxx-input', MxxInput, { extends: 'input' })
+document.body.append(new MxxInput())
+```
+
 ## 在 MVVM 框架中使用 Web Components
 
 下面我们使用 fancy-components 看看在各个框架中的使用方法

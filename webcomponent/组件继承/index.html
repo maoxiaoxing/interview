@@ -7,14 +7,48 @@
   <title>Document</title>
 </head>
 <body>
-  <div></div>
+  <!-- <mxx-input placeholder="请输入"></mxx-input> -->
+  <input is="mxx-input" placeholder="请输入">
 
   <script>
-    const div = document.querySelector('div')
-    // div.constructor()
-    console.log(div.constructor)
+    // customElements.define('mxx-input', class extends HTMLElement {
+    //   constructor () {
+    //     super()
+    //     this.innerHTML = `<input></input>`
+    //   }
 
-    
+    //   static observedAttributes = ['placeholder']
+
+    //   get placeholder () {
+    //     return this.querySelector('input').getAttribute('placeholder')
+    //   }
+
+    //   set placeholder (val) {
+    //     this.querySelector('input').setAttribute('placeholder', val)
+    //   }
+
+    //   attributeChangedCallback (name, oldValue, newValue) {
+    //     if (oldValue === newValue) return false
+    //     if (name === 'placeholder') {
+    //       this.querySelector('input').placeholder = newValue
+    //     }
+    //   }
+    // })
+
+    // customElements.define('mxx-input', class extends HTMLInputElement {})
+
+    class MxxInput extends HTMLInputElement {
+      constructor () {
+        super()
+
+        this.placeholder = '请输入'
+      }
+    }
+
+    customElements.define('mxx-input', MxxInput, { extends: 'input' })
+
+    // document.body.append(document.createElement('input', { is: 'mxx-input' }))
+    document.body.append(new MxxInput())
   </script>
 </body>
 </html>
