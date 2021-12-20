@@ -13,13 +13,16 @@
     const div = document.querySelector('div')
     // div.constructor()
     console.log(div.constructor)
+    console.log(document.createElement('div'))
+    console.log(document.createElement('svg').constructor)
 
-    const svg = document.createElementNS('htt:/http://www.w3.org/2000/svg' ,'svg')
-    console.log(svg)
 
-    console.log(Object.getPrototypeOf(HTMLElement) === Element)
-    console.log(HTMLElement.__proto__ === Element)
-    SVG
+    const svg = document.createElementNS('http://www.w3.org/2000/svg' ,'svg')
+    console.log(svg.constructor)
+
+    // console.log(Object.getPrototypeOf(HTMLElement) === Element)
+    // console.log(HTMLElement.__proto__ === Element)
+    // console.log(div instanceof SVGElement)
   </script>
 </body>
 </html>

@@ -514,7 +514,40 @@ es6中的 set 和 get 语法可以帮助我们解决这个问题
 
 ## 组件继承
 
-我们知道 Element 在是很多 dom 的父类，Element 往下还能分为 SVGElement、HTMLElement 等，而 HTMLElement 还能下分 HTMLDivElement、HTMLInputElement、HTMLAnchorElement、HTMLUListElement 等等几十个类。
+在了解 Web Components 的组件继承之前，我们先来回顾一些基础知识
+我们都知道所有的 dom 节点都是基于 Element 类创建的，例如我们想创建一个 div 元素
+
+```js
+const div = document.createElement('div')
+console.log(div.constructor)
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211220091432534-1898634208.png)
+
+我们又打印了新创建的 div 标签的构造函数，发现 div 确实是继承自 HTMLDivElement 的
+
+我们再来尝试创建一个比较特殊的标签 svg
+
+```js
+const svg = document.createElement('svg')
+console.log(svg.constructor)
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211220091649574-388418090.png)
+
+这不对啊，svg 标签怎么会是继承自 HTMLUnknownElement 的呢？
+其实 svg 不属于 HTMLElement 类下面的标签，而是 SVGElement 下面的标签，我们在创建 svg 的时候需要用到 createElementNS 来创建
+
+```js
+const svg = document.createElementNS('http://www.w3.org/2000/svg' ,'svg')
+console.log(svg.constructor)
+```
+
+![](https://img2020.cnblogs.com/blog/1575596/202112/1575596-20211220092231921-376163169.png)
+
+这回就对了，svg 原来是继承自 SVGSVGElement 这个类的
+
+这回我们知道 Element 在是很多 dom 的父类，Element 往下还能分为 SVGElement、HTMLElement 等，而 HTMLElement 还能下分 HTMLDivElement、HTMLInputElement、HTMLAnchorElement、HTMLUListElement 等等几十个类。
 
 ## 在 MVVM 框架中使用 Web Components
 
