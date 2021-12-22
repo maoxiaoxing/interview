@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function User (name) {
+      this.name = name
+    }
+    // User.prototype = {
+    //   constructor: User,
+    //   show () {
+    //     console.log(this.name)
+    //   }
+    // }
+
+    User.prototype.show = function () {
+      console.log(this.name)
+    }
+    console.log(User)
+    console.log(User.prototype.__proto__ === Object.prototype)
+    console.log(User.prototype.constructor)
+
+    const zhangsan = new User.prototype.constructor('zhangsan')
+    console.log(zhangsan)
+    zhangsan.show()
+  </script>
+</body>
+</html>
