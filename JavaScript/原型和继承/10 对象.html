@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    function User (name) {
+      this.name = name
+      this.show = () => {
+        console.log(this.name)
+      }
+    }
+
+    const mxx = new User('maoxiaoxing')
+
+    function createByObject (obj, ...args) {
+      const constructor = Object.getPrototypeOf(obj).constructor
+      return new constructor(...args)
+    }
+
+    const xiaoxing = createByObject(mxx, '小星')
+    xiaoxing.show()
+  </script>
+</body>
+</html>
