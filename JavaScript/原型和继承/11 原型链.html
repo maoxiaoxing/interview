@@ -3,4 +3,18 @@
   console.log(arr.__proto__)
   console.log(arr.__proto__.__proto__ === Object.prototype)
   console.log(arr.__proto__.__proto__.constructor)
+
+  const a = {
+    name: 'a'
+  }
+  const b = {
+    name: 'b',
+    show () {
+      console.log(this.name)
+    }
+  }
+  Object.setPrototypeOf(a, b)
+
+  console.log(a)
+  a.show()
 </script>
