@@ -1,0 +1,13 @@
+<script>
+  function A () {}
+  function B () {}
+  const b = new B()
+  A.prototype = b
+
+  const a = new A()
+  // A.prototype = b
+
+
+  console.log(a instanceof A)
+  console.log(a instanceof Object)
+</script>
