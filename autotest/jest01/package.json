@@ -4,7 +4,9 @@
   "description": "",
   "main": "demo.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watchAll": "npm run test --watchAll",
+    "test:watch": "jest --watch"
   },
   "keywords": [],
   "author": "",
