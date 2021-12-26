@@ -29,3 +29,24 @@
 //     console.log('a 组件的 b 功能')
 //   })
 // })
+
+
+// 生命周期钩子
+// test('global-api test', () => {
+//   console.log('global api')
+// })
+// beforeAll(() => {
+//   console.log('beforeAll')
+// })
+
+// beforeEach(() => {
+//   console.log('beforeEach')
+// })
+
+// afterAll(() => {
+//   console.log('afterAll')
+// })
+
+// afterEach(() => {
+//   console.log('afterEach')
+// })
