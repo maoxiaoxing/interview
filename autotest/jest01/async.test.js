@@ -38,11 +38,11 @@ const getData = () => {
 //   return expect(getData()).resolves.toEqual({foo: 'bar'})
 // })
 
-test('async test', async () => {
-  try {
-    const data = await getData()
-    expect(data).toEqual({foo: 'bar'})
-  } catch (err) {
-    expect(err).toMatch('mxx')
-  }
-})
+// test('async test', async () => {
+//   try {
+//     const data = await getData()
+//     expect(data).toEqual({foo: 'bar'})
+//   } catch (err) {
+//     expect(err).toMatch('mxx')
+//   }
+// })
