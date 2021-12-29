@@ -1,4 +1,6 @@
 
+import axios from "axios"
+
 function forEach(items, cb) {
   for (let index = 0; index < items.length; index++) {
     cb(items[index], index)
@@ -20,3 +22,7 @@ test('mock func', () => {
   console.log(mockFn.mock)
   expect(mockFn.mock.calls.length).toBe(testArr.length)
 })
+
+function getUsers () {
+  return axios.get('/users')
+}

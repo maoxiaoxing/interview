@@ -18,6 +18,7 @@
     "jest": "^27.4.5"
   },
   "dependencies": {
-    "@types/jest": "^27.0.3"
+    "@types/jest": "^27.0.3",
+    "axios": "^0.24.0"
   }
 }
