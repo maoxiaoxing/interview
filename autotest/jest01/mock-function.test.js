@@ -28,3 +28,15 @@ jest.mock('axios')
 function getUsers () {
   return axios.get('/users')
 }
+
+jest.mock('./foo')
+
+import foo from './foo'
+
+foo.mockImplementation(() => {
+  return 123
+})
+
+test('mockImplementation', () => {
+  expect(foo()).toBe(123)
+})
