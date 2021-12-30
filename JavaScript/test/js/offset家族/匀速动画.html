@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>匀速动画</title>
+    <style>
+        .dbox{
+            width: 490px;
+            height: 170px;
+            border: 1px solid black;
+            padding: 5px;
+            margin:0 auto;
+            position: relative;
+        }
+        .xbox{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            position: absolute;
+            padding: 0;
+            margin: 0;
+            width: 2450px;
+        }
+        li{
+            float: left;
+            height: 170px;
+        }
+        .sbox{
+            position: absolute;
+            bottom:10px;
+            right: 20px;
+        }
+        span{
+            width: 15px;
+            height: 15px;
+            font-size: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            text-align: center;
+            line-height: 15px;
+            background: black;
+            color: white;
+        }
+        .spanhover{
+            color: red;
+            border: 1px solid red;
+            background: white;
+        }
+        button{
+            position: absolute;
+            top:65px;
+            width: 20px;
+            height: 40px;
+            font-size: 20px;
+            text-align: center;
+            padding: 0;
+            margin: 0;
+            outline: none;
+        }
+        .btnl{
+            left:0px;
+        }
+        .btnr{
+            right: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="dbox">
+    <div class="xbox">
+        <ul>
+            <li><img src="01.jpg" title="01"></li>
+            <li><img src="02.jpg" title="02"></li>
+            <li><img src="03.jpg" title="03"></li>
+            <li><img src="04.jpg" title="04"></li>
+            <li><img src="05.jpg" title="05"></li>
+        </ul>
+        <div class="sbox">
+            <span class="spanhover">1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+        </div>
+        <button class="btnl"> < </button>
+        <button class="btnr"> > </button>
+    </div>
+</div>
+
+<script>
+    var ul = document.getElementsByTagName("ul")[0];
+    var span = document.getElementsByTagName("span");
+    var btnl = document.getElementsByTagName("button")[0];
+    var btnr = document.getElementsByTagName("button")[1];
+    var index = 0;
+    var bh;
+
+
+    for(var i = 0;i<span.length;i++){
+        span[i].index = i;
+        span[i].onmouseover = function () {
+            index = this.index;
+
+            for(var i = 0;i<span.length;i++){
+                span[i].className = "";
+            }
+            this.className = "spanhover";
+            var juli = -(index*490);
+            run(ul,juli);
+        }
+        
+    }
+
+    btnl.onclick = function () {
+            index--;
+            if(index<0){
+                index = span.length-1;
+            }
+            for(var i = 0;i<span.length;i++){
+                span[i].className = "";
+            }
+            span[index].className = "spanhover";
+            var juli = -(index*490);
+            run(ul,juli);
+    }
+
+    btnr.onclick = function () {
+        index++;
+        if(index>span.length-1){
+            index = 0;
+        }
+        for(var i = 0;i<span.length;i++){
+            span[i].className = "";
+        }
+        span[index].className = "spanhover";
+        var juli = -(index*490);
+        run(ul,juli);
+    }
+
+    function run(ele,left) {
+            clearInterval(ele.timer);
+            ele.timer = setInterval(function () {
+                var nowleft = ele.offsetLeft;
+                var temp = 0;
+                nowleft>left ?temp = -3:temp = 3;
+                if(Math.abs(nowleft-left) < temp){
+                    clearInterval(ele.timer);
+                    ele.style.left = left + "px";
+
+                }else {
+                    ele.style.left = nowleft + temp + "px";
+                }
+            },10)
+
+    }
+
+
+</script>
+</body>
+</html>

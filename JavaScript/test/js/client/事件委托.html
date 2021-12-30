@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件委托</title>
+    <style>
+        li{
+            background: red;
+            margin-top: 10px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+<button>创建四个li</button>
+<ul>
+    <li>诸葛亮了</li>
+    <a href="#">孙尚香啊</a>
+    <li>诸葛亮了</li>
+    <a href="#">孙尚香啊</a>
+    <li>诸葛亮了</li>
+    <li>诸葛亮了</li>
+</ul>
+
+<script>
+    window.onload = function () {
+        var ul = document.getElementsByTagName("ul")[0];
+        var liarr = document.getElementsByTagName("li");
+        var btn = document.getElementsByTagName("button")[0];
+        btn.onclick = function () {
+            for(var i = 0;i<4;i++){
+                var newli = document.createElement("li");
+                newli.innerHTML = "诸葛亮了"
+                var newa = document.createElement("a");
+                newa.innerHTML = "孙尚香啊";
+                newa.href = "#";
+                ul.appendChild(newli);
+                ul.appendChild(newa);
+            }
+        }
+
+        ul.onclick = function (event) {
+            console.log(event.target)
+            event = event || window.event;
+            var dd = event.target ? event.target : window.srcElement;
+            if(dd.tagName == "LI"){
+                console.log("1")
+                alert("这是li");
+            }
+        }
+    }
+
+
+</script>
+
+</body>
+</html>

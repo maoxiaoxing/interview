@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>钢琴块</title>
+    <style>
+        body,html{
+            background: green;
+        }
+        .ksbox{
+            height: 651px;
+            width: 400px;
+            background: white;
+            margin: 150px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .top{
+            height: 600px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .start{
+            z-index: 999;
+            width: 400px;
+            height: 600px;
+            position:absolute;
+            top:0px;
+        }
+        .start-spn{
+            cursor: pointer;
+            width: 340px;
+            font-size: 50px;
+            text-align: center;
+            border-bottom: 1px solid black;
+            margin-left: 60px;
+            color:blue;
+        }
+        .bottom{
+            height: 50px;
+            width: 100%;
+            border-top:1px solid black;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            font-weight: bolder;
+        }
+        .movebox{
+            height: 650px;
+            width: 400px;
+            /*background: #4f629f;*/
+            position: absolute;
+            top:-150px;
+            /*display:none;*/
+        }
+        .colbox{
+            width: 400px;
+            height: 150px;
+            /*box-shadow: 5px 5px 5px #888888;*/
+
+        }
+        .rowbox{
+              width: 98px;
+              height: 150px;
+              border: 1px solid black;
+              display: inline-block;
+              float: left;
+
+          }
+        .colbox div{
+            width: 98px;
+            height: 150px;
+            border: 1px solid black;
+            display: inline-block;
+            float: left;
+            box-shadow: 5px 5px 10px #888888;
+
+        }
+    </style>
+</head>
+<body>
+<div class="ksbox">
+    <div class="top">
+        <div class="start">
+            <span class="start-spn">Game Start</span>
+        </div>
+        <div class="movebox"></div>
+    </div>
+    <div class="bottom">游戏开始</div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        var movebox = document.getElementsByClassName("movebox")[0];
+        var startspn = document.getElementsByClassName("start-spn")[0];
+        var start = document.getElementsByClassName("start")[0];
+        var bottom = document.getElementsByClassName("bottom")[0];
+        var timer;
+        var num = 0;
+        var speed = 5;
+
+        startspn.onclick = function () {
+            start.style.display = "none";
+            if(movebox.children.length){
+                movebox.innerHTML = "";
+            }
+            bottom.innerHTML = "游戏开始";
+            this.parentNode.style.display = "none";
+            num = 0;
+            speed = 5;
+
+            // console.log(nowtop);
+            timer = setInterval(function () {
+                var nowtop = movebox.offsetTop;
+                var step = nowtop + speed;
+                if (nowtop >= 0) {
+                    movebox.style.top = "-150px";
+
+                    fun();
+
+                } else {
+                    movebox.style.top = step + "px";
+
+                }
+
+            //     console.log(speed);
+            }, 40)
+
+
+        }
+
+        function fun() {
+            var colbox = document.createElement("div");
+            colbox.className = "colbox";
+            var temp = Math.floor(Math.random() * 4);
+            for (var i = 0; i < 4; i++) {
+                var rowbox = document.createElement("div");
+                // rowbox.className = "rowbox";
+                if (i == temp) {
+                    rowbox.style.background = "black";
+                    rowbox.className = "i";
+                }
+
+
+                rowbox.onclick = function () {
+                    // console.log(this.className);
+                    if (this.className == "i") {
+                        this.style.background = "red";
+                        this.className = "";
+                        num++;
+                        bottom.innerHTML = "当前得分：" + num;
+
+                    } else {
+                        bottom.innerHTML = "游戏结束，当前得分：" + num;
+                        clearInterval(timer);
+                        start.children[0].innerHTML = "Renew game";
+                        start.style.display = "block";
+                    }
+                    if (num % 20 == 0) {
+                        speed++;
+                    }
+                }
+
+                colbox.appendChild(rowbox);
+                movebox.appendChild(colbox);
+            }
+            movebox.insertBefore(colbox, movebox.children[0]);
+
+            if (movebox.children.length >= 6) {
+                var bool = true;
+                for (var i = 0; i < movebox.children[movebox.children.length - 1].children.length; i++) {
+                    if (movebox.children[movebox.children.length - 1].children[i].className == "i") {
+                        bottom.innerHTML = "游戏结束，当前得分：" + num;
+                        clearInterval(timer);
+                        start.children[0].innerHTML = "Renew game";
+                        start.style.display = "block";
+                        // movebox.innerHTML = "";
+                        bool = false;
+                    }
+                }
+                if (bool) {
+                    movebox.removeChild(movebox.children[movebox.children.length - 1]);
+                }
+            }
+        }
+
+
+
+    }
+
+</script>
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标在盒子中的位置</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin: 300px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div>
+</div>
+
+<script>
+    var div = document.getElementsByTagName("div")[0];
+    var dtop = div.offsetTop;
+    var dleft = div.offsetLeft;
+    console.log(dtop);
+    console.log(dleft);
+    div.onmousemove = function () {
+        var event = event || window.event;
+        var x = event.pageX;
+        var y = event.pageY;
+        var top = (x-dleft) + "px";
+        var left = (y-dtop) + "px";
+        div.innerHTML = "Top="+ top + "<br>Left=" + left;
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

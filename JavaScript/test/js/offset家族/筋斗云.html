@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>筋斗云</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            background: #B3B3B3;
+        }
+        div{
+            width: 700px;
+            height: 42px;
+            background: white url("wifi.png")no-repeat right;
+            border-radius: 5px;
+            margin: 100px auto;
+            position: relative;
+        }
+        ul{
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+        }
+        li{
+            list-style: none;
+            float: left;
+            width: 83px;
+            height: 42px;
+            line-height: 42px;
+            text-align: center;
+            /*background: red;*/
+        }
+        span{
+            width: 83px;
+            height: 42px;
+            background: url("cloud.gif");
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <span> </span>
+    <ul>
+        <li>aaaa</li>
+        <li>aaaa</li>
+        <li>aaaa</li>
+        <li>aaaa</li>
+        <li>aaaa</li>
+        <li>aaaa</li>
+        <li>aaaa</li>
+        <li>aaaa</li>
+    </ul>
+
+</div>
+
+<script>
+    var liarr = document.getElementsByTagName("li");
+    var jdy = document.getElementsByTagName("span")[0];
+    var ul = document.getElementsByTagName("ul")[0];
+    var liwidth = liarr[0].offsetWidth;
+    
+    for(var i = 0;i<liarr.length;i++){
+        liarr[i].index = i;
+        liarr[i].onmouseover = function () {
+            var jdytarget = this.index * liwidth;
+            run(jdy,jdytarget);
+        }
+    }
+
+    ul.onmouseout = function () {
+        run(jdy,0);
+    }
+
+    function run(ele,target) {
+        clearInterval(ele.timer);
+        ele.timer = setInterval(function () {
+            var leader = ele.offsetLeft;
+            leader = leader + (target-leader)/10;
+            console.log(leader)
+            if((target-leader)>0){
+                leader = Math.ceil(leader);
+            }
+            if((target-leader)<0){
+                leader = Math.floor(leader);
+            }
+            if((target-leader) == 0){
+                clearInterval(ele.timer);
+                ele.style.left = target + "px";
+            }
+            ele.style.left = leader + "px";
+        },20)
+    }
+    
+    
+</script>
+
+</body>
+</html>

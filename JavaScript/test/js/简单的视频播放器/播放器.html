@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是播放器</title>
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+            margin: 50px;
+        }
+        .player{
+            width: 600px;
+            height: 337px;
+            /*background: green;*/
+            margin: 0 auto;
+            position: relative;
+        }
+        .player video{
+            width: 600px;
+            height: 337px;
+            border-radius: 15px;
+            display: inline-block;
+        }
+        .controls{
+            width: 580px;
+            height: 40px;
+            background:  rgba(255, 255, 0, 0.3);
+            border-radius: 10px;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .switch{
+            color: white;
+            position: absolute;
+            top:13px;
+            left: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .process{
+            width: 350px;
+            height: 10px;
+            background:  rgba(255,255,255,0.4);
+            position: absolute;
+            top:15px;
+            left: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .cuur-process{
+            width: 0%;
+            height: 10px;
+            background: white;
+        }
+        .time{
+            width: 109px;
+            height: 20px;
+            line-height: 20px;
+            /*background: red;*/
+            position: absolute;
+            top: 10px;
+            left: 400px;
+            font-size: 12px;
+            color: white;
+            margin-left: 20px;
+        }
+        .extend{
+            position: absolute;
+            top: 12px;
+            right: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>视频案例</h1>
+<div class="player">
+    <video src="video/fun.mp4"></video>
+    <div class="controls">
+        <a href="#" class="switch icon-play"></a>
+        <div class="process">
+            <div class="cuur-process"></div>
+        </div>
+        <div class="time">
+            <span class="cuur-time">00:00:00</span>
+            <span>/</span>
+            <span class="total-time">00:00:00</span>
+        </div>
+        <a href="#" class="extend  icon-resize-full"></a>
+    </div>
+</div>
+
+<script>
+    window.onload = function () {
+        var video = document.querySelector("video");
+        var btn = document.querySelector(".switch");
+        var cuurprocess = document.querySelector(".cuur-process");
+        var cuurtime = document.querySelector(".cuur-time");
+        var totaltime = document.querySelector(".total-time");
+        var extend = document.querySelector(".extend");
+
+        // console.log(timenum)
+        video.oncanplay=function () {
+            var timenum = video.duration;
+            // console.log(timenum)
+            fun();
+            function fun() {
+                var timestr1 = time(timenum);
+                totaltime.innerHTML = timestr1;
+            }
+
+            this.ontimeupdate = function () {
+                var nowtime = this.currentTime;
+                // console.log(nowtime)
+                var timenum1 = nowtime/timenum*100 + "%";
+                // console.log(timenum1)
+                cuurprocess.style.width = timenum1;
+                // console.log(cuurprocess.style.width)
+                var timestr = time(nowtime);
+                cuurtime.innerHTML = timestr;
+            }
+
+            function time(num) {
+                var h = parseInt(num/3600);
+                var m = parseInt(num%3600/60);
+                var s = parseInt(num%60);
+
+                if(h<10){
+                    h = "0" + h;
+                }
+                if(m<10){
+                    m = "0" + m;
+                }
+                if(s<10){
+                    s = "0" + s;
+                }
+                var temp = h + ":" + m + ":" + s;
+                return temp;
+            }
+        }
+
+        btn.onclick = function () {
+            if(btn.classList.contains("icon-play")){
+                video.play();
+                this.classList.remove("icon-play");
+                this.classList.add("icon-pause");
+            }else {
+                this.classList.remove("icon-pause");
+                this.classList.add("icon-play");
+                video.pause();
+            }
+
+        }
+        
+        extend.onclick = function () {
+            video.webkitRequestFullScreen();
+        }
+        
+
+
+    }
+</script>
+
+</body>
+</html>

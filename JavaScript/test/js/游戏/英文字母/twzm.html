@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>英文字母</title>
+    <style>
+        body,html{
+            background: #333333;
+        }
+        button{
+            position: fixed;
+            top:10px;
+            left:600px;
+        }
+        span{
+            position: fixed;
+            top:12px;
+            left:690px;
+            color: white;
+        }
+        em{
+            font-size: 20px;
+            color: yellow;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<button>开始</button>
+<span>得分：0计时：0</span>
+
+
+<script>
+    var btn = document.getElementsByTagName("button")[0];
+    var body = document.getElementsByTagName("body")[0];
+    var spn = document.getElementsByTagName("span")[0];
+    var str = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var timer;
+    var time = 0;
+    var score = 0;
+    
+    btn.onclick = function () {
+        for(var i = 0;i<3;i++){
+            lettermove();
+        }
+        xiao();
+        timer = setInterval(function () {
+            var emarr = document.getElementsByTagName("em");
+            if(emarr.length == 0){
+                clearInterval(timer);
+            }
+            time++;
+            spn.innerHTML = "得分:" + score + "计时:" + time;
+        },1000)
+
+    }
+
+
+    function lettermove() {
+        var letterem = document.createElement("em");
+        var temp = parseInt(Math.random()*25);
+        letterem.innerHTML = str[temp];
+        // console.log(letterem.innerHTML);
+        var x = Math.ceil(Math.random()*1500+200);
+        var speed = Math.ceil(Math.random()*5);
+        // console.log(speed);
+        letterem.style.top = "30px";
+        letterem.style.left = x + "px";
+        body.appendChild(letterem);
+        letterem.timer = setInterval(function () {
+            var y = letterem.offsetTop;
+            if(y>=900){
+                letterem.style.top = "30px";
+            }else{
+                letterem.style.top = y + speed + "px";
+            }
+        },50)
+    }
+    
+    function xiao() {
+        var emarr = document.getElementsByTagName("em");
+        document.onkeydown = function (event) {
+            var event = event || window.event;
+            var keychar = String.fromCharCode(event.keyCode);
+            for(var i = 0;i<emarr.length;i++){
+                if(emarr[i].innerHTML == keychar){
+                    clearInterval(emarr[i].timer);
+                    score++;
+                    console.log(score);
+                    emarr[i].parentNode.removeChild(emarr[i]);
+                    break;
+                }
+            }
+
+        }
+
+    }
+    
+</script>
+
+
+
+
+</body>
+</html>

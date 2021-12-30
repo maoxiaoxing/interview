@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标放大</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .lbox{
+            width: 350px;
+            height: 350px;
+            border:1px solid black;
+            position: relative;
+            margin: 50px;
+
+        }
+        .lbox img{
+            width: 100%;
+            height: 100%;
+        }
+        .yellow{
+            width: 176px;
+            height: 176px;
+            background: rgba(255,255,0,0.3);
+            position: absolute;
+            top:0px;
+            left: 0px;
+            display: none;
+        }
+        .rbox{
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            position: absolute;
+            top: 50px;
+            left: 410px;
+            overflow: hidden;
+            display: none;
+
+        }
+        .rbox img{
+            position: absolute;
+            top:0px;
+            left: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="lbox">
+    <img src="001.jpg">
+    <div class="yellow"></div>
+</div>
+<div class="rbox">
+    <img src="0001.jpg">
+</div>
+
+<script>
+    var yellow = document.getElementsByClassName("yellow")[0];
+    var lbox = document.getElementsByClassName("lbox")[0];
+    var rbox = document.getElementsByClassName("rbox")[0];
+
+    lbox.onmousemove = function () {
+        yellow.style.display = "block";
+        rbox.style.display = "block";
+        var event = event || window.event;
+        var mtop = event.pageY - lbox.offsetTop;
+        var mleft = event.pageX - lbox.offsetLeft;
+
+        if(mtop<=yellow.offsetHeight/2){
+            mtop = 0;
+        }else if(mtop>=lbox.offsetHeight-yellow.offsetHeight/2){
+            mtop = lbox.offsetHeight-yellow.offsetHeight;
+        }else{
+            mtop = mtop-yellow.offsetHeight/2;
+        }
+
+        if(mleft<=yellow.offsetWidth/2){
+            mleft = 0;
+        }else if(mleft>=lbox.offsetWidth-yellow.offsetWidth/2){
+            mleft = lbox.offsetWidth-yellow.offsetWidth;
+        }else{
+            mleft = mleft-yellow.offsetWidth/2;
+        }
+        yellow.style.top = mtop + "px";
+        yellow.style.left = mleft + "px";
+
+
+        var biliX = yellow.offsetLeft/(lbox.offsetWidth-yellow.offsetWidth);
+        var biliY = yellow.offsetTop/(lbox.offsetHeight-yellow.offsetHeight);
+        var imgleft;
+        var imgtop;
+
+        if(mleft == 0){
+            imgleft = mleft*biliX;
+        }else{
+            imgleft = -(rbox.children[0].offsetWidth-rbox.offsetWidth)*biliX;
+        }
+        if(mtop == 0){
+            imgtop = mtop*biliY;
+        }else{
+            imgtop = -(rbox.children[0].offsetHeight-rbox.offsetHeight)*biliY;
+        }
+        rbox.children[0].style.left = imgleft + "px";
+        rbox.children[0].style.top = imgtop + "px";
+    }
+
+    lbox.onmouseout = function () {
+        yellow.style.display = "none";
+        rbox.style.display = "none";
+    }
+
+
+</script>
+
+
+</body>
+</html>
