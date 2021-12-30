@@ -23,6 +23,8 @@ test('mock func', () => {
   expect(mockFn.mock.calls.length).toBe(testArr.length)
 })
 
+jest.mock('axios')
+
 function getUsers () {
   return axios.get('/users')
 }
