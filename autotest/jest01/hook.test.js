@@ -36,4 +36,20 @@ test('test2', () => {
   expect(user.foo).toBe('bar')
 })
 
+describe('group', () => {
+  beforeEach(() => {
+    console.log('group beforeEach')
+  })
 
+  afterEach(() => {
+    console.log('group afterEach')
+  })
+
+  test('group test1', () => {
+    console.log('group test1')
+  })
+
+  test('group test2', () => {
+    console.log('group test2')
+  })
+})
