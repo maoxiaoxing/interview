@@ -21,3 +21,8 @@ test('vue test', () => {
   console.log(document.body.innerHTML)
   expect(document.body.innerHTML).toMatch(/hello vue/)
 })
+
+test('snapshot testing', () => {
+  renderVueComponent()
+  expect(document.body.innerHTML).toMatchSnapshot()
+})
