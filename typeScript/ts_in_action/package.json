@@ -2,8 +2,10 @@
   "name": "ts_in_action",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.ts",
   "scripts": {
+    "dev": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+    "build": "webpack --mode=production --config ./build/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
