@@ -1,1 +1,2 @@
 var hello = 'Hello TypeScript';
+
