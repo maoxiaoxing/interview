@@ -11,3 +11,4 @@ interface Log<T = string> {
 }
 
 const myLog: Log<number> = log
+
