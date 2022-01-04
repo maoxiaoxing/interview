@@ -1,3 +1,4 @@
+// import './interface-func2'
 const hello: string = 'Hello TypeScript'
 
 const app: any = document.querySelector('#app')
