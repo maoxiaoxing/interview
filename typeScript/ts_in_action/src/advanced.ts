@@ -136,3 +136,67 @@ let logb = <T>(y: T): T => {
   return y
 }
 loga = logb
+
+
+// 类型保护
+enum Type {
+  Strong,
+  Week,
+}
+
+class Java {
+  helloJava () {
+    console.log('hello java')
+  }
+}
+
+class JavaScript {
+  helloJavaScript () {
+    console.log('hello JavaScript')
+  }
+}
+
+function isJava(lang: Java | JavaScript): lang is Java {
+  return (lang as Java).helloJava !== undefined
+}
+
+function getLanguage (type: Type, x: string | number) {
+  const lang = type === Type.Strong ? new Java() : new JavaScript()
+  // if ((lang as Java).helloJava) {
+  //   (lang as Java).helloJava()
+  // } else {
+  //   (lang as JavaScript).helloJavaScript()
+  // }
+
+  // 使用 instanceof
+  if (lang instanceof Java) {
+    lang.helloJava()
+  } else {
+    lang.helloJavaScript()
+  }
+
+
+  // in
+  if ('helloJava' in lang) {
+    lang.helloJava()
+  } else {
+    lang.helloJavaScript()
+  }
+
+
+  // typeof
+  if (typeof x === 'string') {
+    x.length
+  } else {
+    x.toFixed(2)
+  }
+
+
+  // 
+  if (isJava(lang)) {
+    lang.helloJava()
+  } else {
+    lang.helloJavaScript()
+  }
+  return lang
+}
