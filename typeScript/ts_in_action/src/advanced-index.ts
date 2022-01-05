@@ -4,6 +4,7 @@ let obj3 = {
   c: 3,
 }
 
+// 索引类型
 function getValues<T, K extends keyof T> (obj: T, keys: K[]): T[K][] {
   return keys.map(key => obj[key])
 }

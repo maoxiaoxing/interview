@@ -51,6 +51,7 @@ interface Circle {
   r: number;
 }
 
+// 联合类型
 type Shape = Square | Rectangle | Circle
 
 function area (s: Shape) {
