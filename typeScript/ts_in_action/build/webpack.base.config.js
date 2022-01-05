@@ -9,6 +9,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx']
   },
+  devServer: {
+    open: true,
+  },
   module: {
     rules: [
       {
