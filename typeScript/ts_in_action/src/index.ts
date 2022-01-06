@@ -2,6 +2,7 @@
 // import './advanced-union'
 // import './advanced/advanced-index'
 // import './namespace/b'
+import './interface/interface-merge'
 
 const hello: string = 'Hello TypeScript'
 
