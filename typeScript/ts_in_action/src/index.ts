@@ -1,6 +1,7 @@
 // import './interface-func2'
 // import './advanced-union'
-import './advanced-index'
+// import './advanced/advanced-index'
+// import './namespace/b'
 
 const hello: string = 'Hello TypeScript'
 
