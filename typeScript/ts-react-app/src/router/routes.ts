@@ -1,6 +1,7 @@
 import React from 'react';
 import Hello from '../pages/demo/hello'
 import Test from '../pages/demo/test'
+import Employee from '../pages/employee'
 
 export interface MxxRouter {
   path: string;
@@ -34,6 +35,13 @@ const routes: MxxRouter[] = [
       },
     ],
   },
+  {
+    path: '/employee',
+    name: 'Employee',
+    title: 'Employee',
+    descriptions: 'Employee',
+    component: Employee,
+  }
 ]
 
 export default routes
