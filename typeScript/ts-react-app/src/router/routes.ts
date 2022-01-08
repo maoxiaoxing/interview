@@ -1,6 +1,6 @@
 import React from 'react';
-import Hello from '../pages/test/hello'
-import Test from '../pages/test/test'
+import Hello from '../pages/demo/hello'
+import Test from '../pages/demo/test'
 
 export interface MxxRouter {
   path: string;
@@ -13,20 +13,20 @@ export interface MxxRouter {
 
 const routes: MxxRouter[] = [
   {
-    path: '/test',
-    name: 'Test',
-    title: 'Test',
-    descriptions: 'Test',
+    path: '/demo',
+    name: 'Demo',
+    title: 'Demo',
+    descriptions: 'Demo',
     children: [
       {
-        path: '/test/hello',
+        path: '/demo/hello',
         name: 'Hello',
         title: 'Hello',
         descriptions: 'Hello',
         component: Hello,
       },
       {
-        path: '/test/test',
+        path: '/demo/test',
         name: 'Test',
         title: 'Test',
         descriptions: 'Test',
