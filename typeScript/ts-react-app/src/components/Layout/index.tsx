@@ -4,7 +4,7 @@ import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
 } from '@ant-design/icons'
-import routes from '../../router/routes'
+import routes, { MxxRouter } from '../../router/routes'
 import { Route, Routes, useNavigate } from 'react-router-dom'
 import style from './style.module.css'
 
@@ -19,12 +19,12 @@ const MxxLayout = () => {
     setCollapsed(!collapsed)
   }
 
-  const toPage = (route: any) => {
-    navigate(route.key)
+  const toPage = (route: MxxRouter) => {
+    navigate(route.path)
   }
 
-  const renderMenu = (routes: any) => {
-    return routes.map((route: any, index: any) => {
+  const renderMenu = (routes: MxxRouter[]) => {
+    return routes.map((route: MxxRouter, index: number) => {
       return (
         <React.Fragment key={route.path + index}>
           {
@@ -34,7 +34,7 @@ const MxxLayout = () => {
                 renderMenu(route.children)
               }
             </SubMenu> :
-            <Menu.Item key={route.path} onClick={toPage}>
+            <Menu.Item key={route.path} onClick={() => toPage(route)}>
               {route.title}
             </Menu.Item>
           }
@@ -43,22 +43,13 @@ const MxxLayout = () => {
     })
   }
 
-  const RouterView = (routes: any) => {
-    return routes.map((item: any, index: any) => {
+  const RouterView = (routes: MxxRouter[]): any => {
+    return routes.map((item: any) => {
       if (item.children) {
         return RouterView(item.children)
       } else {
-        return <Route key={item.path} path={item.path} element={<item.component/>}></Route>
+        return <Route key={item.path} path={item.path} element={<item.component />}></Route>
       }
-      // return <Route key={index} path={item.path} element={(routeProps: any) => {
-      //   if (item.children) {
-      //     // return <RouterView {...routeProps} routes={item.children} />
-      //     return RouterView(item.children)
-      //   } else {
-      //     // return <item.component {...routeProps} />
-      //     return <Route ></Route>
-      //   }
-      // }} />
     })
   }
 
