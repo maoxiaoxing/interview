@@ -1,12 +1,22 @@
 import React from 'react'
+import HelloClass from './helloClass'
 
-const Hello = () => {
+interface Greeting {
+  name: string;
+  firstName: string;
+}
+
+const Hello = (props: Greeting) => {
 
   return (
     <div>
-      123
+      <HelloClass name="typescript"></HelloClass>
     </div>
   )
+}
+
+Hello.defaultProps = {
+  firstName: ''
 }
 
 export default Hello

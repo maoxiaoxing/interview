@@ -8,7 +8,7 @@ export interface MxxRouter {
   title: string;
   descriptions: string;
   children?: MxxRouter[];
-  component?: React.FC;
+  component?: any;
 }
 
 const routes: MxxRouter[] = [
