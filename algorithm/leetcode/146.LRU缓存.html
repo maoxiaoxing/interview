@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+/**
+ * @param {number} capacity
+ */
+var LRUCache = function(capacity) {
+  this.capacity = capacity
+  this.cache = []
+};
+
+/** 
+ * @param {number} key
+ * @return {number}
+ */
+LRUCache.prototype.get = function(key) {
+  const index = this.cache.findIndex((item) => {
+    return item.key === key
+  })
+  if (index === -1) {
+    return index
+  }
+  const value = this.cache[index].value
+  this.cache.splice(index, 1)
+  this.cache.unshift({
+    value,
+    key,
+  })
+  return value
+};
+
+/** 
+ * @param {number} key 
+ * @param {number} value
+ * @return {void}
+ */
+LRUCache.prototype.put = function(key, value) {
+  const index = this.cache.findIndex((item) => {
+    return item.key === key
+  })
+  if (index > -1) {
+    this.cache.splice(index, 1)
+  } else if (this.cache.length >= this.capacity) {
+    this.cache.pop()
+  }
+  this.cache.unshift({
+    key,
+    value,
+  })
+};
+
+  </script>
+</body>
+</html>
