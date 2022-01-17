@@ -1,0 +1,15 @@
+<script>
+  const a = {
+    url: 'abc'
+  }
+  const b = {
+    name: 'mxx'
+  }
+  // hasOwnProperty 只看属性
+  // in 看原型链
+  Object.setPrototypeOf(a, b)
+  console.log('name' in a)
+
+  console.log(a.hasOwnProperty('url'))
+  console.log(a.hasOwnProperty('name'))
+</script>
