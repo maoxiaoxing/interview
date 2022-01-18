@@ -9,6 +9,7 @@
   // in 看原型链
   Object.setPrototypeOf(a, b)
   console.log('name' in a)
+  console.log(a.__proto__ === b)
 
   console.log(a.hasOwnProperty('url'))
   console.log(a.hasOwnProperty('name'))
