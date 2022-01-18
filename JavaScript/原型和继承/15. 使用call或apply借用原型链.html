@@ -1,0 +1,11 @@
+<script>
+  const o1 = {
+    data: [1,5,7,2,4,9,7,8],
+  }
+  Object.setPrototypeOf(o1, {
+    max() {
+      return this.data.sort((a, b) => b - a)[0]
+    }
+  })
+  console.log(o1.max())
+</script>
