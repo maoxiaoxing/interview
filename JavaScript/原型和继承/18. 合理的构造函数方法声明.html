@@ -1,0 +1,14 @@
+<script>
+  function User (name) {
+    this.name = name
+    // this.show = function () {
+    //   console.log(this.name)
+    // }
+  }
+  User.prototype.show = function () {
+    console.log(this.name)
+  }
+
+  const zhangsan = new User('张三')
+  const lisi = new User('李四')
+</script>
