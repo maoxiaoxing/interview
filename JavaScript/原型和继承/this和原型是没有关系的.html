@@ -1,0 +1,14 @@
+<script>
+  const mxx = {
+    name: 'mxx'
+  }
+  const User = {
+    name: 'user',
+    show () {
+      console.log(this.name)
+    }
+  }
+
+  Object.setPrototypeOf(mxx, User)
+  mxx.show()
+</script>
