@@ -1,0 +1,26 @@
+<script>
+  const mxx = {
+    name: 'mxx',
+    action: {},
+    get proto() {
+      return this.action
+    },
+    set proto(obj) {
+      if (obj instanceof Object) {
+        this.action = obj
+      }
+    }
+  }
+  mxx.__proto__ = {
+    show() {
+      console.log(this.name)
+    }
+  }
+  mxx.proto = 'kkk'
+  console.log(mxx.proto)
+  // __proto__ 只能是对象才会生效
+  // mxx.__proto__ = 66
+  // Object.setPrototypeOf(mxx, 66)
+
+  mxx.show()
+</script>
