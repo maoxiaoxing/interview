@@ -1,0 +1,21 @@
+<script>
+  const user = {
+    show() {
+      return this.name
+    }
+  }
+
+  // const mxx = Object.create(user, {
+  //   name: {
+  //     value: 'mxx'
+  //   }
+  // })
+
+  const mxx = {name: 'mxx'}
+  // mxx.__proto__ = user
+
+  Object.setPrototypeOf(mxx, user)
+
+  console.log(mxx.show())
+  console.log(Object.getPrototypeOf(mxx))
+</script>
