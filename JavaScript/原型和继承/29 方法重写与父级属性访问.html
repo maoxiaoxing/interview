@@ -1,0 +1,21 @@
+<script>
+  function User () {
+  }
+  User.prototype.show = function () {
+    console.log('user.name')
+  }
+  User.prototype.site = function () {
+    return 'mxx'
+  }
+  
+  function Admin () {
+  }
+
+  Admin.prototype = Object.create(User.prototype)
+  Admin.prototype.constructor = Admin
+  Admin.prototype.show = function () {
+    console.log(User.prototype.site() + 'admin.show')
+  }
+  const ad = new Admin()
+  ad.show()
+</script>
