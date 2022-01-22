@@ -20,7 +20,12 @@
   function Member () {}
   // Member.prototype.__proto__ = Admin.prototype
   Member.prototype = Object.create(Admin.prototype)
-  Member.prototype.constructor = Member
+  // Member.prototype.constructor = Member
+  Object.defineProperty(Member.prototype, 'constructor', {
+    value: Member,
+    enumerable: false,
+  })
+
   Member.prototype.role = function () {
     console.log('Member.role')
   }
@@ -32,4 +37,8 @@
   const m = new Member()
   m.role()
   m.name()
+
+  for (const key in m) {
+    console.log(key)
+  }
 </script>
