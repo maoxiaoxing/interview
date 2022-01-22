@@ -1,0 +1,35 @@
+<script>
+  function User () {
+  }
+
+  User.prototype.name = function () {
+    console.log(this)
+  }
+
+  const u = new User()
+  console.log(u)
+
+  function Admin () {
+  }
+  Admin.prototype.__proto__ = User.prototype
+
+  Admin.prototype.role = function () {
+    console.log('admin.role')
+  }
+
+  function Member () {}
+  // Member.prototype.__proto__ = Admin.prototype
+  Member.prototype = Object.create(Admin.prototype)
+  Member.prototype.constructor = Member
+  Member.prototype.role = function () {
+    console.log('Member.role')
+  }
+
+  const a = new Admin()
+  a.role()
+  a.name()
+
+  const m = new Member()
+  m.role()
+  m.name()
+</script>
