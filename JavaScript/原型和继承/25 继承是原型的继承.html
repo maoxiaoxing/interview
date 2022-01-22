@@ -21,6 +21,8 @@
   // Member.prototype.__proto__ = Admin.prototype
   Member.prototype = Object.create(Admin.prototype)
   // Member.prototype.constructor = Member
+
+  // 禁止 constructor 被遍历
   Object.defineProperty(Member.prototype, 'constructor', {
     value: Member,
     enumerable: false,
