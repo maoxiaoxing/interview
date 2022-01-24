@@ -1,0 +1,29 @@
+<script>
+  function extend(sub, sup) {
+    sub.prototype = Object.create(sup.prototype)
+    Object.defineProperty(sub.prototype, 'constructor', {
+      value: sub,
+      enumerable: false,
+    })
+  }
+
+  function User (name, age) {
+    this.name = name
+    this.age = age
+  }
+  User.prototype.show = function () {
+    console.log(this.name, this.age)
+  }
+
+  function Admin (...args) {
+    User.call(this, ...args)
+  }
+  // Admin.prototype = Object.create(User.prototype)
+  // Object.defineProperty(Admin.prototype, 'constructor', {
+  //   value: Admin,
+  //   enumerable: false,
+  // })
+  extend(Admin, User)
+  const admin = new Admin('mxx', 18)
+  admin.show()
+</script>
