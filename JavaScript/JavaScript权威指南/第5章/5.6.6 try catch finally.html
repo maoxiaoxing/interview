@@ -9,4 +9,16 @@
     }
   }
   console.log(test())
+
+  function test1 () {
+    try {
+      throw new Error('error')
+    } catch (error) {
+      return 99
+    } finally {
+      return 1
+    }
+  }
+  console.log(test1())
+
 </script>
