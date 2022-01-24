@@ -1,0 +1,12 @@
+<script>
+  function test () {
+    try {
+      throw new Error('error')
+    } catch (error) {
+      console.log(error)
+    } finally {
+      return 1
+    }
+  }
+  console.log(test())
+</script>
