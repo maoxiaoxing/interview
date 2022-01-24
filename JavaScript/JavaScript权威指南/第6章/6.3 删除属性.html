@@ -1,0 +1,19 @@
+<script>
+  const a = {
+    p: {
+      x: 1
+    }
+  }
+  const b = a.p
+  delete a.p
+  console.log(b)
+  console.log(a)
+
+  function A () {}
+  A.prototype.name = 'ii'
+
+  const c = Object.create(A.prototype)
+  c.p = 1
+  delete c.p
+  console.log(c)
+</script>
