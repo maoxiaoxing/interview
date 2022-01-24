@@ -1,0 +1,22 @@
+<script>
+  function User () {}
+  User.prototype.show = function () {
+    console.log(this.description())
+  }
+
+  function Member () {}
+  Member.prototype = Object.create(User.prototype)
+  Member.prototype.description = function () {
+    return 'Member'
+  }
+
+  function Admin () {}
+  Admin.prototype = Object.create(User.prototype)
+  Admin.prototype.description = function () {
+    return 'Admin'
+  }
+
+  for (const obj of [new Admin(), new Member()]) {
+    obj.show()
+  }
+</script>
