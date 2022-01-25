@@ -1,0 +1,6 @@
+<script>
+  const p = {x: 1}
+  const o = Object.create(p)
+  console.log(o.__proto__ === p)
+  console.log(p.isPrototypeOf(o))
+</script>
