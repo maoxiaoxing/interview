@@ -1,0 +1,17 @@
+<script>
+  const obj = {
+    name: 'mxx',
+    age: 18,
+    length: 2,
+  }
+  const a = {
+    '0': 'a',
+    '1': 'b',
+    length: 2,
+  }
+  const arr = Array.prototype.map.call(a, (item, index) => {
+    console.log(item, index)
+    return item
+  })
+  console.log(arr)
+</script>
