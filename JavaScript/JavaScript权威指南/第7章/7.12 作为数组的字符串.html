@@ -1,0 +1,8 @@
+<script>
+  const str = 'abcdef'
+  const arr = Array.prototype.map.call(str, (item, index) => {
+    console.log(item, index)
+    return item
+  })
+  console.log(arr)
+</script>
