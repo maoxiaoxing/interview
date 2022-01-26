@@ -16,7 +16,14 @@
   <div>456</div>
   <script>
     const divs = document.querySelectorAll('div')
-    Array.prototype.map.call(divs, (item) => {
+    // Array.prototype.map.call(divs, (item) => {
+    //   item.addEventListener('click', function () {
+    //     this.classList.toggle('hide')
+    //   })
+    // })
+    const arr = [1]
+    const arr1 = [...divs]
+    arr1.map((item) => {
       item.addEventListener('click', function () {
         this.classList.toggle('hide')
       })
