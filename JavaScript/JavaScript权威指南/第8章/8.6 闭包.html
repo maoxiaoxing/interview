@@ -19,4 +19,27 @@
   }
   console.log(checkscope1()())
 
+  function constfuncs () {
+    const funcs = []
+    for (var i = 0; i < 10; i++) {
+      funcs[i] = function () {
+        return i
+      }
+    }
+    return funcs
+  }
+
+  console.log(constfuncs()[5]())
+
+  function constfuncs1 () {
+    const funcs = []
+    for (var i = 0; i < 10; i++) {
+      funcs[i] = function (i) {
+        return i
+      }(i)
+    }
+    return funcs
+  }
+  console.log(constfuncs1()[5])
+
 </script>
