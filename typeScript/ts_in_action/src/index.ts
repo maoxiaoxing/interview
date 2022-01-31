@@ -2,7 +2,9 @@
 // import './advanced-union'
 // import './advanced/advanced-index'
 // import './namespace/b'
-import './interface/interface-merge'
+// import './interface/interface-merge'
+
+import './01demo/04-equality-arrowing'
 
 const hello: string = 'Hello TypeScript'
 
