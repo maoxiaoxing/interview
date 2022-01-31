@@ -14,4 +14,4 @@ export function example () {
 let x = example()
 x = 1
 x = '1'
-// x = true
+x = true
