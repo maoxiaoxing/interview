@@ -1,3 +1,4 @@
+// 等值缩小
 function example(x: boolean | string, y: number | string) {
   if (x === y) {
     return x.toUpperCase() + y.toUpperCase()

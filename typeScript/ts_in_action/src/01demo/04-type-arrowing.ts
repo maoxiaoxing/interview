@@ -1,3 +1,4 @@
+// 真值缩小
 function printAll(strs: string | string[] | null) {
   if (strs) {
     if (typeof strs === 'object') {

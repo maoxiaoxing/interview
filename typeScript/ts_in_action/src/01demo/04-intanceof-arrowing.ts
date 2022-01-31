@@ -1,3 +1,4 @@
+// instanceof 缩小
 export function logValue(x: Date | string) {
   if (x instanceof Date) {
     return x.toUTCString()

@@ -1,3 +1,4 @@
+// in 缩小
 export type Fish = {
   swim: () => void
 }
