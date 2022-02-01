@@ -20,12 +20,7 @@ console.log(mxx.s)
 
 interface MxxDateConstructor {
   new (s: string): Date;
-  (s: number): number
-}
-
-function MxxDate (s: string | number) {
-  if (typeof s === 'number') return s
-  return new Date(s)
+  (s: number): string;
 }
 
 function handleMxxDate(MxxDate: MxxDateConstructor) {
@@ -34,4 +29,4 @@ function handleMxxDate(MxxDate: MxxDateConstructor) {
   console.log(d)
   console.log(d1)
 }
-handleMxxDate(MxxDate as MxxDateConstructor)
+handleMxxDate(Date)
