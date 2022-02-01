@@ -1,3 +1,4 @@
+// 限制条件
 interface Length {
   length: number;
 }

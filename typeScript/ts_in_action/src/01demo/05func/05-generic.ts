@@ -1,3 +1,4 @@
+// 泛型
 export function map<I, O>(arr: I[], func: (arg: I) => O): O[] {
   return arr.map(func)
 }
