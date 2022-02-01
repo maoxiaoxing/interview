@@ -4,8 +4,7 @@
 // import './namespace/b'
 // import './interface/interface-merge'
 
-// import './01demo/04-equality-arrowing'
-import './01demo/04-intanceof-arrowing'
+// import './01demo/04narrowing/04-equality-arrowing'
 
 const hello: string = 'Hello TypeScript'
 
