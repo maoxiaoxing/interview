@@ -1,3 +1,4 @@
+// 函数表达式
 export type GreetFn = (s: string) => void
 
 function greeter (fn: GreetFn) {
