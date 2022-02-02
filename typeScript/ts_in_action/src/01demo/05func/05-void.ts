@@ -7,3 +7,8 @@ const f: void = fn()
 // function fn2 (): void {
 //   return ''
 // }
+
+interface A {
+  (): boolean;
+}
+const a: A = () => false

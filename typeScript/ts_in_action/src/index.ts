@@ -8,7 +8,9 @@
 
 // import './01demo/05func/05-expression'
 // import './01demo/05func/05-sign'
-import './01demo/05func/05-constructor-sign'
+// import './01demo/05func/05-constructor-sign'
+
+import './01demo/06object/06-readonly'
 
 const hello: string = 'Hello TypeScript'
 
