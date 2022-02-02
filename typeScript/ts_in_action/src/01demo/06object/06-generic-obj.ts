@@ -1,3 +1,4 @@
+// 泛型对象
 export interface Box<T> {
   a: T,
 }

@@ -1,3 +1,4 @@
+// 索引签名
 export interface StringArr {
   [index: number]: string
 }
