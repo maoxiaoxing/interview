@@ -18,6 +18,7 @@ function getLabel<T extends string | number> (s: T): NameOrId<T> {
   //   name: 'Jack'
   // }
   // return idLabel
+  throw ''
 }
 
 const id = getLabel(1)
