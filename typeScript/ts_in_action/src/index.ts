@@ -13,7 +13,9 @@
 // import './01demo/06object/06-readonly'
 
 // import './01demo/07-generic/07-generic-class'
-import './01demo/07-generic/07-condition'
+// import './01demo/07-generic/07-condition'
+
+import './01demo/08-class/08-class'
 
 const hello: string = 'Hello TypeScript'
 
