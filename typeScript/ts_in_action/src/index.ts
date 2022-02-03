@@ -15,7 +15,8 @@
 // import './01demo/07-generic/07-generic-class'
 // import './01demo/07-generic/07-condition'
 
-import './01demo/08-class/08-class'
+// import './01demo/08-class/08-class'
+import './01demo/08-class/08-getter-setter'
 
 const hello: string = 'Hello TypeScript'
 
