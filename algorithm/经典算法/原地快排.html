@@ -1,0 +1,30 @@
+<script>
+  const array = [8, 19, 10, 2, 6, 12, 3, 4, 9, 5]
+  const quickSort = (_array) => {
+    const sort = (_arr, start = 0, end = _arr.length-1) => {
+      if (start >= end) return
+      let i = start
+      let j = end
+      let mid = _arr[j]
+      while (i < j) {
+        while (i < j && _arr[i] <= mid) {
+          i++
+        }
+        _arr[j] = _arr[i]
+        while (i < j && _arr[j] >= mid) {
+          j--
+        }
+        _arr[i] = _arr[j]
+      }
+      _arr[i] = mid
+      sort(_arr, start, i-1)
+      sort(_arr, i+1, end)
+    }
+    const resArray = _array.concat()
+    sort(resArray)
+    return resArray
+  }
+
+  const res = quickSort(array)
+  console.log(res)
+</script>
