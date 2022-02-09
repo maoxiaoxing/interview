@@ -3,10 +3,26 @@
     let i = 0
     return function () {
       console.log(i++)
+      let m = 1
+      return function () {
+        console.log('i', i++)
+        console.log('m', m++)
+      }
     }
   }
-  const add = sum()
+  // const add = sum()
+  // add()
+  // add()
+  // add()
+  const a = sum()
+  const add = a()
+  add()
+  add()
+  a()
   add()
   add()
   add()
+
+
+
 </script>
