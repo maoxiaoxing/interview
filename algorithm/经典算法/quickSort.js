@@ -1,4 +1,4 @@
-const arr = [8, 19, 10, 2, 6, 12, 3, 4, 9, 5]
+const arr = [5,1,1,2,0,0]
 
 const quickSort = function(array) {
   if (array.length < 2) {
