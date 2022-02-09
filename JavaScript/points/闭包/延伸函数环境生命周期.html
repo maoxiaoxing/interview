@@ -1,0 +1,12 @@
+<script>
+  function sum () {
+    let i = 0
+    return function () {
+      console.log(i++)
+    }
+  }
+  const add = sum()
+  add()
+  add()
+  add()
+</script>
