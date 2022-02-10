@@ -2,4 +2,11 @@
   const f = new Function('x', 'y', 'return x + y')
   console.log(f(1,2))
   console.log(typeof f)
+
+  console.log(typeof new Boolean())
+  console.log(typeof new String())
+  console.log(typeof new Array())
+  console.log(typeof new Object())
+  console.log(typeof new Number())
+  console.log(typeof new function() {})
 </script>
