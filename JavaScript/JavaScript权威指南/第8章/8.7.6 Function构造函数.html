@@ -9,4 +9,14 @@
   console.log(typeof new Object())
   console.log(typeof new Number())
   console.log(typeof new function() {})
+  console.log(typeof new RegExp())
+
+  var scope = 'global'
+  function constructFunc () {
+    var scope = 'local'
+    console.log(scope)
+    return new Function('return scope')
+  }
+  // console.log(constructFunc())
+  console.log(constructFunc()())
 </script>
