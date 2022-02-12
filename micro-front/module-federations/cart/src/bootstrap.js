@@ -5,7 +5,7 @@ function mount(el) {
 }
 
 if (process.env.NODE_ENV === "development") {
-  const el = document.querySelector("#app-cart")
+  const el = document.querySelector("#app")
   if (el) mount(el)
 }
 
