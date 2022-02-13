@@ -7,14 +7,14 @@ module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    publicPath: "http://localhost:8084/",
+    publicPath: "http://localhost:8085/",
     filename: "[name].[contentHash].js"
   },
   resolve: {
     extensions: [".js", ".vue"]
   },
   devServer: {
-    port: 8084,
+    port: 8085,
     historyApiFallback: true,
     headers: {
       "Access-Control-Allow-Origin": "*"
@@ -53,11 +53,10 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "test",
+      name: "common",
       filename: "remoteEntry.js",
-      remotes: {
-        common: "common@http://localhost:8085/remoteEntry.js",
-        marketing: "marketing@http://localhost:8081/remoteEntry.js",
+      exposes: {
+        "./Index": "./src/bootstrap"
       },
       shared: packageJson.dependencies
     }),

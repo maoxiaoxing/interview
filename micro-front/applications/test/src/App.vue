@@ -7,6 +7,7 @@
 
 <script>
   // import { mount } from 'common/Index'
+  import { mount } from "marketing/MarketingApp"
 
   export default {
     components: {
@@ -18,7 +19,7 @@
       }
     },
     mounted() {
-      console.log(123)
+      console.log(mount)
     }
   }
 </script>

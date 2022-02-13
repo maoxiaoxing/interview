@@ -3,7 +3,8 @@ import App from './app.vue';
 import { mount as m } from "marketing/MarketingApp"
 import { mount as mo } from "common/Index"
 
-console.log(mo, 'mo')
+// console.log(mo, 'mo')
+console.log(m, 'm')
 
 function mount(el) {
   const app = new Vue({

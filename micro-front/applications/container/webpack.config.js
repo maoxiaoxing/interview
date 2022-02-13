@@ -28,6 +28,7 @@ module.exports = {
       name: "container",
       remotes: {
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
+        common: "common@http://localhost:8085/remoteEntry.js"
       },
       // filename: "remoteEntry.js",
       // exposes: {
