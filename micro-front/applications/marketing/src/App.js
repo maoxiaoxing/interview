@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Landing from "./components/Landing"
 import Pricing from "./components/Pricing"
 
-function App() {
+function App({ history }) {
   return (
-    <BrowserRouter>
+    <BrowserRouter history={history}>
       <Routes>
         <Route path="/pricing" element={<Pricing />}>
         </Route>

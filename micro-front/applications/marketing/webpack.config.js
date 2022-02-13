@@ -30,7 +30,7 @@ module.exports = {
       exposes: {
         "./MarketingApp": "./src/bootstrap.js"
       },
-      // shared: packageJSON.dependencies
+      shared: packageJSON.dependencies,
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html"

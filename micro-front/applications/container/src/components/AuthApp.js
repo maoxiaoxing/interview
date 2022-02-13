@@ -1,14 +1,13 @@
 import React, { useEffect, useRef } from "react"
-import { mount } from "marketing/MarketingApp"
-import { useNavigate } from "react-router-dom"
-import { createBrowserHistory } from 'history'
+import { mount } from "auth/AuthApp"
+import { useHistory, useNavigate } from "react-router-dom"
 
-export default function MarketingApp() {
+export default function AuthApp({ setStatus }) {
   const ref = useRef()
-  const history = createBrowserHistory()
+  const history = useNavigate()
   useEffect(() => {
-    console.log(history, 'kk')
-    mount(ref.current, {
+    const { onParentNavigate } = mount(ref.current, {
+      setStatus,
       initialPath: history.location.pathname,
       onNavgate({ pathname: nextPathname }) {
         const pathname = history.location.pathname
@@ -17,6 +16,8 @@ export default function MarketingApp() {
         }
       }
     })
+
+    if (onParentNavigate) history.listen(onParentNavigate)
   }, [])
   return <div ref={ref}></div>
 }

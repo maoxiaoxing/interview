@@ -28,12 +28,12 @@ module.exports = {
       name: "container",
       remotes: {
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
-      }
+      },
       // filename: "remoteEntry.js",
       // exposes: {
       //   "./MarketingApp": "./src/bootstrap.js"
       // },
-      // shared: packageJSON.dependencies
+      shared: packageJSON.dependencies,
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
