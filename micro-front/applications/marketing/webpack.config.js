@@ -24,14 +24,14 @@ module.exports = {
     ]
   },
   plugins: [
-    // new ModuleFederationPlugin({
-    //   name: "marketing",
-    //   filename: "remoteEntry.js",
-    //   exposes: {
-    //     "./MarketingApp": "./src/bootstrap.js"
-    //   },
-    //   shared: packageJSON.dependencies
-    // }),
+    new ModuleFederationPlugin({
+      name: "marketing",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./MarketingApp": "./src/bootstrap.js"
+      },
+      // shared: packageJSON.dependencies
+    }),
     new HtmlWebpackPlugin({
       template: "./public/index.html"
     })
