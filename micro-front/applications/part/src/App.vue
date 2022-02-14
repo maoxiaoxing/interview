@@ -1,5 +1,5 @@
 <template>
-  <div>common</div>
+  <div>part</div>
 </template>
 
 <script>

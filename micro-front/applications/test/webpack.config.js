@@ -57,6 +57,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         common: "common@http://localhost:8085/remoteEntry.js",
+        part: "common@http://localhost:8086/remoteEntry.js",
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
       },
       shared: packageJson.dependencies

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './app.vue';
 import { mount as m } from "marketing/MarketingApp"
-import { mount as mo } from "common/Index"
+import { mount as mo } from "part/Index"
 
 // console.log(mo, 'mo')
 console.log(m, 'm')

@@ -44,6 +44,13 @@
   }
 
   Set._v2s = function (val) {
+    function objectId (o) {
+      const prop = "|**objectid**|"
+      if (!o.hasOwnProperty(prop)) {
+        o[prop] = Set._v2s.next++
+      }
+      return o[prop]
+    }
     switch (val) {
       case undefined:
         return 'u'
@@ -62,14 +69,6 @@
           default:
             return '@' + objectId(val)
         }
-      
-      function onjectId (o) {
-        const prop = "|**objectid**|"
-        if (!o.hasOwnProperty(prop)) {
-          o[prop] = Set._v2s.next++
-        }
-        return o[prop]
-      }
     }
   }
   Set._v2s.next = 100

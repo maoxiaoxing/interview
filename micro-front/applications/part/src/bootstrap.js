@@ -10,7 +10,7 @@ function mount(el) {
 }
 
 if (process.env.NODE_ENV === "development") {
-  const el = document.querySelector("#common")
+  const el = document.querySelector("#part")
   if (el) mount(el)
 }
 
