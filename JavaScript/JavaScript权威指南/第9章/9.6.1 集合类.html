@@ -1,0 +1,19 @@
+<script>
+  function Set() {
+    this.values = {}
+    this.n = o
+    this.add.apply(this, arguments)
+  }
+
+  Set.prototype.add = function () {
+    for (let i = 0; i < arguments.length; i++) {
+      let val = arguments[i]
+      let str = Set._v2s(val)
+      if (!this.values.hasOwnProperty(str)) {
+        this.values[str] = val
+        this.n++
+      }
+    }
+    return this
+  }
+</script>
