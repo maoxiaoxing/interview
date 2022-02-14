@@ -1,13 +1,14 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const { VueLoaderPlugin } = require("vue-loader")
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin")
 const packageJson = require("./package.json")
+const path = require('path');
 
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
-    publicPath: "http://localhost:8084/",
+    // publicPath: "http://localhost:8084/",
     filename: "[name].[contentHash].js"
   },
   resolve: {
@@ -52,19 +53,20 @@ module.exports = {
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './public/index.html')
+    }),
     new ModuleFederationPlugin({
       name: "test",
       filename: "remoteEntry.js",
       remotes: {
         common: "common@http://localhost:8085/remoteEntry.js",
-        part: "common@http://localhost:8086/remoteEntry.js",
+        part: "part@http://localhost:8086/remoteEntry.js",
         marketing: "marketing@http://localhost:8081/remoteEntry.js",
+        app1: "app1@http://localhost:3000/remoteEntry.js",
       },
-      shared: packageJson.dependencies
+      // shared: packageJson.dependencies
     }),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html"
-    }),
-    new VueLoaderPlugin()
   ]
 }

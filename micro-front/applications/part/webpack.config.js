@@ -1,14 +1,15 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin")
-const { VueLoaderPlugin } = require("vue-loader")
+const VueLoaderPlugin = require("vue-loader/lib/plugin")
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin")
 const packageJson = require("./package.json")
+const path = require('path')
 
 module.exports = {
   mode: "development",
   entry: "./src/index.js",
   output: {
     // publicPath: "http://localhost:8086/",
-    publicPath: "auto",
+    // publicPath: "auto",
     filename: "[name].[contentHash].js"
   },
   resolve: {
@@ -16,6 +17,7 @@ module.exports = {
   },
   devServer: {
     port: 8086,
+    // contentBase: path.join(__dirname, "dist"),
     historyApiFallback: true,
     headers: {
       "Access-Control-Allow-Origin": "*"
@@ -53,21 +55,21 @@ module.exports = {
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, './public/index.html')
+    }),
     new ModuleFederationPlugin({
       name: "part",
       filename: "remoteEntry.js",
       library: {
-        type: 'window',
+        type: 'var',
         name: 'part'
       },
       exposes: {
-        "./Index": "./src/bootstrap"
+        "./PartApp": "./src/bootstrap"
       },
-      shared: packageJson.dependencies
+      // shared: packageJson.dependencies
     }),
-    new HtmlWebpackPlugin({
-      template: "./public/index.html"
-    }),
-    new VueLoaderPlugin()
   ]
 }
