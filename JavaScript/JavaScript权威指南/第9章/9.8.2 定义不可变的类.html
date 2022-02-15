@@ -1,0 +1,32 @@
+<script>
+  function freezeProps(o) {
+    const props = (arguments.length === 1)
+      ? Object.getOwnPropertyNames(o) 
+      : Array.prototype.splice.call(arguments, 1)
+    props.forEach((n) => {
+      if (!Object.getOwnPropertyDescriptor(o, n).configurable) return
+      Object.defineProperty(o, n, {
+        writable: false,
+        configurable: false,
+      })
+    })
+    return o
+  }
+
+  const jack = {
+    name: 'jack',
+    age: 18,
+    hobby: [
+      {a: 1, b: 2}
+    ],
+    a: {
+      b: {
+        c: 1
+      }
+    }
+  }
+
+  const newJack = freezeProps(jack)
+  newJack.a = 1
+  console.log(newJack)
+</script>
