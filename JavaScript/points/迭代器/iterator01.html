@@ -1,0 +1,7 @@
+<script>
+  const it = {a: 1, b: 2}
+
+  for(const [a, b = it[a]] in it) {
+    console.log(a, b)
+  }
+</script>
