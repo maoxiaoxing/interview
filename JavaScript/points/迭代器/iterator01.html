@@ -1,7 +1,46 @@
 <script>
-  const it = {a: 1, b: 2}
+  const obj = {a: 1, b: 2}
 
-  for(const [a, b = it[a]] in it) {
+  for(const [a, b = obj[a]] in obj) {
     console.log(a, b)
   }
+
+  const str = 'abc'
+  const strit = str[Symbol.iterator]()
+  console.log(strit)
+  
+  function makeIteror (o) {
+    if (typeof o !== 'object' || o === null) return false
+
+    const keys = Reflect.ownKeys(o)
+    let i = 0
+    o[Symbol.iterator] = function () {
+      return {
+        next() {
+          if (i < keys.length) {
+            const key = keys[i++]
+            return { value: [key, o[key]], done: false }
+          } else {
+            return { value: undefined, done: true }
+          }
+        }
+      }
+    }
+    return o
+  }
+
+  const objIt = makeIteror(Object.create(obj))
+  // 会遍历出继承属性
+  for (const o in Object.create(obj)) {
+    console.log(o)
+  }
+  // console.log(objIt[Symbol.iterator]().next())
+  // console.log(objIt[Symbol.iterator]().next())
+
+  // 不会遍历出继承属性
+  for (const [a, b] of objIt) {
+    console.log(a, b)
+  }
+
+  
 </script>
