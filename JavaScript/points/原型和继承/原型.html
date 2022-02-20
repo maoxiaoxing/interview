@@ -2,4 +2,13 @@
   const obj = {}
   console.log(obj.__proto__ === Object.prototype)
   console.log(obj.__proto__ === Object.getPrototypeOf(obj))
+
+  function Person (name) {
+    this.name = name
+  }
+  const p = new Person('mxx')
+  console.log(Person.prototype.constructor === Person)
+  const p1 = new Person.prototype.constructor('mxx')
+  console.log(p1.name)
+
 </script>
