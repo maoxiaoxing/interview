@@ -17,8 +17,21 @@ const proxyData = function (_data) {
 
 class Store {
   constructor(options) {
+    const store = this
     this.state = proxyData(options.state)
+    this.mutations = options.mutations
+    this.getters = options.getters
+    this.commit = function boundCommit(type, payload) {
+      return store.commit(store, type, payload)
+    }
+  }
 
+  commit (_type, _payload) {
+    _fromCommit = true
+    if (this.mutations.hasOwnProperty(type)) {
+      const entry = this.mutations[type]
+      entry.call(this, this.state, _payload)
+    }
   }
 }
 
