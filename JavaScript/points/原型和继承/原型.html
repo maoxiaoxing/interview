@@ -11,4 +11,22 @@
   const p1 = new Person.prototype.constructor('mxx')
   console.log(p1.name)
 
+  class Person1 {
+    constructor(name) {
+      this.name = name
+    }
+  }
+
+  const person = new Person1('毛小星')
+  console.log(person, 'per')
+
+  class Child extends Person1 {
+    constructor(name) {
+      super(name)
+    }
+  }
+
+  const child = new Child('mxx')
+  console.log(child, 'ch')
+
 </script>
