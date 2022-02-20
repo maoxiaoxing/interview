@@ -15,14 +15,25 @@ const proxyData = function (_data) {
   })
 }
 
+const initGetters = function(_state, _getters) {
+  Reflect.ownKeys(_getters)
+    .forEach((key) => {
+      Reflect.defineProperty(_getters, key, {
+        get: function () {
+          return _getters[key](_state)
+        }
+      })
+    })
+}
+
 class Store {
   constructor(options) {
     const store = this
     this.state = proxyData(options.state)
     this.mutations = options.mutations
-    this.getters = options.getters
+    this.getters = initGetters(options.getters)
     this.commit = function boundCommit(type, payload) {
-      return store.commit(store, type, payload)
+      return store.commit.call(store, type, payload)
     }
   }
 
@@ -33,5 +44,7 @@ class Store {
       entry.call(this, this.state, _payload)
     }
   }
+
+  
 }
 
