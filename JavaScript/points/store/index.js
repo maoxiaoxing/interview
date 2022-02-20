@@ -32,8 +32,12 @@ class Store {
     this.state = proxyData(options.state)
     this.mutations = options.mutations
     this.getters = initGetters(options.getters)
+    this.actions = options.actions
     this.commit = function boundCommit(type, payload) {
       return store.commit.call(store, type, payload)
+    }
+    this.dispatch = function boundDispatch(type, payload) {
+      return store.dispatch.call(store, type, payload)
     }
   }
 
@@ -45,6 +49,12 @@ class Store {
     }
   }
 
-  
+  dispatch (_type, _payload) {
+    const entry = this.actions[_type]
+    entry.call(this, {
+      commit: this.commit,
+      state: this.state,
+    }, _payload)
+  }
 }
 
