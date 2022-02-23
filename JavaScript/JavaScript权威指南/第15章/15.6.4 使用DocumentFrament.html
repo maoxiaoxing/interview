@@ -36,6 +36,21 @@
         }
         return frag
       }
+
+      const Insert = {
+        before: function(elt, html) {
+          elt.parentNode.insertBefore(fragment(html), elt)
+        },
+        after: function(elt, html) {
+          elt.parentNode.insertBefore(fragment(html), elt.nextSibling)
+        },
+        atStart: function(elt, html) {
+          elt.insertBefore(fragment(html), elt.firstChild)
+        },
+        atEnd: function(elt, html) {
+          elt.appendChild(fragment(html))
+        },
+      }
     }())
   </script>
 </body>
