@@ -51,6 +51,19 @@
           elt.appendChild(fragment(html))
         },
       }
+
+      Element.prototype.insertAdjacentHTML = function (pos, html) {
+        switch(pos.toLowerCase()) {
+          case 'beforebegin':
+            return Insert.before(this, html)
+          case 'afterend':
+            return Insert.after(this, html)
+          case 'afterbegin':
+            return Insert.atStart(this, html)
+          case 'beforeend':
+            return Insert.atEnd(this, html)
+        }
+      }
     }())
   </script>
 </body>
