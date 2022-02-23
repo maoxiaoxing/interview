@@ -27,15 +27,15 @@
         }
       }
 
-      // function fragment(html) {
-      //   const elt = document.createElement('div')
-      //   const frag = document.createDocumentFragment()
-      //   elt.innerHTML = html
-      //   while(elt.firstChild) {
-      //     frag.apendChild(elt.firstChild)
-      //   }
-      //   return frag
-      // }
+      function fragment(html) {
+        const elt = document.createElement('div')
+        const frag = document.createDocumentFragment()
+        elt.innerHTML = html
+        while(elt.firstChild) {
+          frag.apendChild(elt.firstChild)
+        }
+        return frag
+      }
     }())
   </script>
 </body>
