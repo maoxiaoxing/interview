@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const insert = (function() {
+      if (document.createElement('div').insertAdjacentHTML) {
+        return {
+          before: function(e, h) {
+            e.insertAdjacentHTML('beforebegin', h)
+          },
+          after: function(e, h) {
+            e.insertAdjacentHTML('beforeend', h)
+          },
+          atStart: function(e, h) {
+            e.insertAdjacentHTML('afterbegin', h)
+          },
+          atEnd: function(e, h) {
+            e.insertAdjacentHTML('beforeend', h)
+          },
+        }
+      }
+
+      // function fragment(html) {
+      //   const elt = document.createElement('div')
+      //   const frag = document.createDocumentFragment()
+      //   elt.innerHTML = html
+      //   while(elt.firstChild) {
+      //     frag.apendChild(elt.firstChild)
+      //   }
+      //   return frag
+      // }
+    }())
+  </script>
+</body>
+</html>
