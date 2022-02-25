@@ -1,0 +1,14 @@
+<script>
+  Object.prototype._isPrototypeOf = function (obj) {
+    if (obj == null) return false
+    _proto = obj.__proto__
+    while (_proto) {
+      if (_proto === this) return true
+      _proto = _proto.__proto__
+    }
+    return false
+  }
+
+  function O() {}
+  console.log(Object.prototype._isPrototypeOf(Function))
+</script>
