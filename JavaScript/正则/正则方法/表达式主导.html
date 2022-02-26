@@ -1,0 +1,14 @@
+<script>
+  const reg = /ni(ne|ght|ng)/g
+  const str = '...ning...'
+
+  console.log(str.match(reg))
+  console.log(reg.lastIndex)
+  console.log(reg.exec(str))
+  console.log(reg.lastIndex)
+
+  // while ((res = reg.exec(str))) {
+  //   console.log(res.lastIndex)
+  //   console.log(res)
+  // }
+</script>
