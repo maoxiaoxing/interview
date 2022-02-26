@@ -617,7 +617,17 @@ DFA 和 NFA 都有比较长的历史，NFA 的历史会更长一些。使用 NFA
 
 #### 8.1.2 JavaSript 使用的正则引擎是什么？
 
+在[精通正则表达式](https://book.douban.com/subject/2154713/)中给出了一种测试方法：
+> 看看忽略优先量词是否得到支持？如果是，基本就能确定这是传统型 NFA
 
+```js
+const reg = /nfa|nfa*not/g
+const str = 'nfa*not'
+
+console.log(str.match(reg)) // ['nfa']
+```
+
+可以看到确实只匹配到了 nfa，而且通过上面章节，我们知道 JavaScript 是支持或略优先量词，所以可以确定的说，**JavaScript的正则表达式使用的引擎是 NFA**
 
 
 
