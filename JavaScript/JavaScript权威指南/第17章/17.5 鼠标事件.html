@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 100px;
+      height: 100px;
+      border: 1px solid;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+  
+  <script>
+    function drag(elementToDrag, event) {
+      // const scroll = getScrollOffsets()
+      const startX = event.clientX
+      const startY = event.clientY
+
+      const origX = elementToDrag.offsetLeft
+      const origY = elementToDrag.offsetTop
+
+      const deltaX = startX - origX
+      const deltaY = startY - origY
+
+      if (document.addEventListener) {
+        document.addEventListener('mousemove', moveHandler, true)
+        document.addEventListener('mouseup', upHandler, true)
+      }
+
+      if (event.stopPropagation) {
+        event.stopPropagation()
+      }
+
+      if (event.preventDefault) {
+        event.preventDefault()
+      }
+
+      function moveHandler(e) {
+        if (!e) {
+          e = window.event
+        }
+
+        // const scroll = getScrollOffsets()
+        elementToDrag.style.left = (e.clientX - deltaX) + 'px'
+        elementToDrag.style.top = (e.clientY - deltaY) + 'px'
+        if (e.stopPropagation) {
+          e.stopPropagation()
+        }
+      }
+
+      function upHandler(e) {
+        if (!e) {
+          e = window.event
+        }
+        if (document.removeEventListener) {
+          document.removeEventListener('mouseup', upHandler, true)
+          document.removeEventListener('mosemove', moveHandler, true)
+        }
+        if (e.stopPropagation) {
+          e.stopPropagation()
+        }
+      }
+    
+    }
+
+    const box = document.querySelector('.box')
+    box.addEventListener('mousedown', function (e) {
+      drag(box, e)
+    })
+  </script>
+</body>
+</html>
