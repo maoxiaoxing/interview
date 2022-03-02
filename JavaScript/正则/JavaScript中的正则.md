@@ -620,14 +620,24 @@ const reg1 = /[0123456789]/
 我们尝试匹配 a-h 之间的字母
 
 ```js
- const code1 = 'g'
+const code1 = 'g'
 const code2 = 'i'
 const reg = /[a-h]/
 console.log(code1.match(reg)) // ['g']
 console.log(code2.match(reg)) // null
 ```
 
+- 字母和数字需要正序
 
+在原子表中，如果使用字母或者数字表示范围，那么需要正序，否则会报错
+
+```js
+const num = '1'
+console.log(num1.match(/[3-0]/)) // SyntaxError
+
+const code = 'i'
+console.log(code.match(/[h-a]/)) // SyntaxError
+```
 
 #### 6.1.2 排除选项
 
