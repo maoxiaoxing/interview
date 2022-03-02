@@ -617,6 +617,16 @@ const reg1 = /[0123456789]/
 
 - 匹配字母
 
+我们尝试匹配 a-h 之间的字母
+
+```js
+ const code1 = 'g'
+const code2 = 'i'
+const reg = /[a-h]/
+console.log(code1.match(reg)) // ['g']
+console.log(code2.match(reg)) // null
+```
+
 
 
 #### 6.1.2 排除选项
