@@ -1,7 +1,8 @@
 <script>
-  function add(a, b) {
+  function add(a, b, c) {
     console.log(arguments.callee)
-    console.log(arguments.callee.length)
+    console.log(arguments.callee.length, 'callee')
+    console.log(arguments.length, 'arguments')
     return a + b
   }
 
