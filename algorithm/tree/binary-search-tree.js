@@ -41,4 +41,12 @@ export default class BinarySearchTree {
       this.preOrderTraverseNode(node.right, callback)
     }
   }
+
+  inOrderTraverseNode(node, callback) {
+    if (node) {
+      this.inOrderTraverseNode(node.left, callback)
+      callback(node)
+      this.inOrderTraverseNode(node.right, callback)
+    }
+  }
 }
