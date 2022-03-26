@@ -71,4 +71,17 @@ export default class BinarySearchTree {
     }
     return node
   }
+
+  searchNode(node, key) {
+    if (!node) {
+      return false
+    }
+    if (node.key > key) {
+      this.searchNode(node.left, key)
+    }
+    if (node.key < key) {
+      this.searchNode(node.right, key)
+    }
+    return true
+  }
 }
