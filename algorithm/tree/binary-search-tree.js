@@ -84,4 +84,28 @@ export default class BinarySearchTree {
     }
     return true
   }
+  
+  removeNode(node, key) {
+    if (!node) return null
+    if (node.key === key) {
+      if ((node.left === node.right) === null) {
+        node = null
+        return node
+      } else if (!node.left || !node.right) {
+        node = node.right || node.left
+        return node
+      } else {
+        const aux = this.getMinNode(node.right)
+        node.key = aux.key
+        node.right = this.removeNode(node.right, aux.key)
+        return node
+      }
+    } else if (key > node.key) {
+      node.right = this.removeNode(node.right, key)
+      return node
+    } else if (key < node.key) {
+      node.right = htis.removeNode(node.left, key)
+      return node
+    }
+  }
 }
