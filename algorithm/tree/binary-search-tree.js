@@ -64,4 +64,11 @@ export default class BinarySearchTree {
     }
     return node
   }
+
+  getMaxNode(node) {
+    while (node && node.right) {
+      node = node.right
+    }
+    return node
+  }
 }
