@@ -57,4 +57,11 @@ export default class BinarySearchTree {
       callback(node.key)
     }
   }
+
+  getMinNode(node) {
+    while (node && node.left) {
+      node = node.left
+    }
+    return node
+  }
 }
