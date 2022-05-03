@@ -1,0 +1,13 @@
+<script>
+  const isRevervse = (str1, str2) => {
+    const normalize = (str) => 
+      str.toLowerCase()
+        .normalize('NFD')
+        .split('')
+        .reverse()
+        .join('')
+    return normalize(str1) === str2
+  }
+
+  console.log(isRevervse('car', 'rac'))
+</script>
