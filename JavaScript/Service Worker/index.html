@@ -5,14 +5,22 @@
       navigator.serviceWorker.register('./sw.js')
         .then((registration) => {
           console.log('service worker 注册成功')
+          let serviceWorker
           if (registration.installing) {
             console.log('installing')
+            serviceWorker = registration.installing
           } else if (registration.waiting) {
             console.log('waiting')
+            serviceWorker = registration.waiting
           } else if (registration.active) {
             console.log('active')
-          } else if () {
-            
+            serviceWorker = registration.active
+          }
+          if (serviceWorker) {
+            console.log(serviceWorker.state)
+            serviceWorker.addEventListener('statechange', function (e) {
+              console.log(e.target.state, '66')
+            })
           }
         }, (err) => {
           console.log('service worker 注册失败', err)
