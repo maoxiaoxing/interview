@@ -1,0 +1,22 @@
+<script>
+  console.log(self)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('./sw.js')
+        .then((registration) => {
+          console.log('service worker 注册成功')
+          if (registration.installing) {
+            console.log('installing')
+          } else if (registration.waiting) {
+            console.log('waiting')
+          } else if (registration.active) {
+            console.log('active')
+          } else if () {
+            
+          }
+        }, (err) => {
+          console.log('service worker 注册失败', err)
+        })
+    })
+  }
+</script>
