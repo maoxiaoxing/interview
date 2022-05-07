@@ -27,3 +27,17 @@ self.addEventListener('activate', function(event) {
     })
   );
 });
+
+// 捕获请求并返回缓存数据
+self.addEventListener('fetch', function(event) {
+  event.respondWith(caches.match(event.request).catch(function() {
+    return fetch(event.request);
+  }).then(function(response) {
+    caches.open(VERSION).then(function(cache) {
+      cache.put(event.request, response);
+    });
+    return response.clone();
+  }).catch(function() {
+    return caches.match('./static/mm1.jpg');
+  }));
+});
