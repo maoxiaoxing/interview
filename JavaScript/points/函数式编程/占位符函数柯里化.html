@@ -1,0 +1,35 @@
+<script>
+  const curry = function (fn, placeholder = '_') {
+    const argList = []
+
+    function generator(...args) {
+      let currentPlaceholderIndex = -1
+      args.forEach((arg) => {
+        let placeholderIndex = argList.findIndex((item) => item === placeholder)
+        if (placeholderIndex < 0) {
+          placeholderIndex = argList.push(arg) - 1
+        } else if (placeholderIndex !== currentPlaceholderIndex) {
+          argList[placeholderIndex] = arg
+        } else {
+          argList.push(arg)
+        }
+      })
+      const realArgList = argList.filter((arg) => arg !== placeholder)
+      if (realArgList.length === fn.length) {
+        return fn(...argList)
+      } else if (realArgList.length > fn.length) {
+        throw new Error('超出参数长度')
+      } else {
+        return generator
+      }
+    }
+
+    return generator
+  }
+
+  const add = (a, b, c) => {
+    return a + b + c
+  }
+  const curriedAdd = curry(add)
+  console.log(curriedAdd('_', 2)(1, '_', '_')(3))
+</script>
