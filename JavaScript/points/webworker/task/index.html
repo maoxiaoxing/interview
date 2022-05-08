@@ -19,6 +19,13 @@
         myWorker.terminate()
       }
       console.log(data)
-    }  </script>
+    }
+    
+    // 错误监听
+    myWorker.onerror = function (e) {
+      console.log(e)
+    }
+
+    </script>
 </body>
 </html>
