@@ -11,10 +11,14 @@
   <script>
     const myWorker = new Worker('./task.js')
 
+    // 收集数据
     myWorker.onmessage = function (e) {
       const data = e.data
+      if (data > 10) {
+        // 终止 worker
+        myWorker.terminate()
+      }
       console.log(data)
-    }
-  </script>
+    }  </script>
 </body>
 </html>
