@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .ao {
+      display: inline-block;
+      width: 0;
+      margin-right: 63px;
+    }
+    .ao::before {
+      content: 'love你love';
+      outline: 2px solid #cd0000;
+      color: #fff;
+    }
+    .tu {
+      display: inline-block;
+      width: 0;
+      transform: rotate(180deg);
+    }
+    .tu::before {
+      content: '我love你';
+      outline: 2px solid #cd0000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="ao"></div>
+  <div class="tu"></div>
+</body>
+</html>
