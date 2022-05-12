@@ -6,13 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .box {
-      width: 480px !important;
+    div {
       padding: 20px 0 0;
       border: 1px solid;
     }
+    .box {
+      width: 480px !important;
+    }
     .container {
       max-width: 256px;
+    }
+    .box1 {
+      min-width: 200px;
+      max-width: 100px;
     }
   </style>
 </head>
@@ -21,6 +27,8 @@
     max-width 比 width 小 max-width 会覆盖width 
   </div>
 
-  <div class="box1"></div>
+  <div class="box1">
+    min-width 覆盖 max-width
+  </div>
 </body>
 </html>
