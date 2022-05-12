@@ -1,0 +1,26 @@
+<script>
+  const testa = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('testa')
+      }, 2000)
+    })
+    .then(() => {
+      return 'a'
+    })
+  }
+  const testb = () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve('testb')
+      }, 1000)
+    })
+    .then(() => {
+      return 'b'
+    })
+  }
+  Promise.all([testa(), testb()])
+    .then((res) => {
+      console.log(res)
+    })
+</script>
