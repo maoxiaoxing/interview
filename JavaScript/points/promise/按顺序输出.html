@@ -31,17 +31,6 @@
             }
             console.log(p)
             return p
-            // return new Promise((resolve) => {
-            //   for(let i = 0; i< arr.length;i++){
-            //     arr[i]()
-            //       .then((res) => {
-            //         data[i] = res
-            //         if (data.length === arr.length) {
-            //           resolve(data)
-            //         }
-            //       })
-            //   }
-            // })
         }
 
         mergePromise([ajax1, ajax2, ajax3]).then(data => {

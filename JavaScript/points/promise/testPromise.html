@@ -69,12 +69,16 @@
   })
 
   const pp1 = new MyPromise((resolve) => {
-    resolve(1)
+    setTimeout(() => {
+      resolve('pp1')
+    }, 2000)
   })
   const pp2 = new MyPromise((resolve, reject) => {
-    reject(2)
+    setTimeout(() => {
+      resolve('pp2')
+    }, 1000)
   })
-  const pps = ['1', pp1, '2']
+  const pps = [pp1, pp2]
   MyPromise.all(pps).then((res) => {
     console.log(res, 'ppres')
   })
