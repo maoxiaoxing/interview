@@ -1,0 +1,17 @@
+<script>
+  setTimeout(() => {
+    console.log(888)
+  })
+  Promise.resolve()
+    .then(() => {
+      console.log('then1')
+    })
+  queueMicrotask(() => {
+    console.log(123)
+  })
+  Promise.resolve()
+    .then(() => {
+      console.log('then')
+    })
+  console.log(456)
+</script>
