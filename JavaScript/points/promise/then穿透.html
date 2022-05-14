@@ -1,0 +1,23 @@
+<script>
+  const p = new Promise((resolve) => {
+    resolve(1)
+  })
+  // p.then(2)
+  //   .then((res) => {
+  //     return res
+  //   })
+  //   .then((res) => {
+  //     console.log(res)
+  //   })
+
+  p.then((res) => {
+    return 2
+  })
+  .then((res) => {
+    return 3
+  })
+  .then(4)
+  .then((res) => {
+    console.log(res)
+  })
+</script>
