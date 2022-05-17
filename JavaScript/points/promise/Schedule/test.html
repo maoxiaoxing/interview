@@ -1,0 +1,21 @@
+<script src="./index.js"></script>
+<script>
+  const timeout = time => new Promise((resolve)=>{
+      setTimeout(resolve, time)
+  }) 
+
+  const schedule = new Schedule(2);
+
+  const addTask = (time, order)=>{
+      schedule.add(()=>timeout(time).then(()=>{
+          console.log(order);
+      }))
+  }
+
+  addTask(1000, 1)
+  addTask(500, 2)
+  addTask(300, 3)
+  addTask(400, 4)
+
+  schedule.start()
+</script>
