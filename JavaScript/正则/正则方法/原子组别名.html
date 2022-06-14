@@ -1,0 +1,6 @@
+<script>
+  const date = '2022-06-14'
+  const reg = /(?<year>\d+)([-/])(?<month>\d+)\2(?<day>\d+)/
+  const res = date.replace(reg, '$<year>.$<month>.$<day>')
+  console.log(res)
+</script>
