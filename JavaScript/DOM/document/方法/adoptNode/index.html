@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <iframe src="iframe.html"></iframe>
+  <button id="move">移动元素</button>
+  
+  <script>
+    function getEle() {
+        var iframe = document.getElementsByTagName("iframe")[0],
+        ele = iframe.contentWindow.document.body.firstElementChild
+        if(ele){
+            document.body.appendChild(document.adoptNode(ele))
+        }else{
+            alert("没有更多元素了")
+        }
+    }
+    document.getElementById("move").onclick = getEle
+  </script>
+</body>
+</html>
