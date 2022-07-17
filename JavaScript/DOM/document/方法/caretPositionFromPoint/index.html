@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p>点击一下</p>
+  
+  <script>
+    function insertBreakAtPoint(e) {
+      let range;
+      let textNode;
+      let offset;
+
+      if (document.caretRangeFromPoint) {
+        range = document.caretRangeFromPoint(e.clientX, e.clientY);
+        textNode = range.startContainer;
+        offset = range.startOffset;
+      } else if (document.caretPositionFromPoint) {
+        range = document.caretPositionFromPoint(e.clientX, e.clientY);
+        textNode = range.offsetNode;
+        offset = range.offset;
+      } else {
+        document.body.textContent = "[This browser supports neither"
+          + " document.caretRangeFromPoint"
+          + " nor document.caretPositionFromPoint.]";
+        return;
+      }
+      // Only split TEXT_NODEs
+      if (textNode && textNode.nodeType == 3) {
+        let replacement = textNode.splitText(offset);
+        let br = document.createElement('br');
+        textNode.parentNode.insertBefore(br, replacement);
+      }
+    }
+
+    let paragraphs = document.getElementsByTagName("p");
+    for (let i = 0; i < paragraphs.length; i++) {
+      paragraphs[i].addEventListener('click', insertBreakAtPoint, false);
+    }
+
+  </script>
+</body>
+</html>
