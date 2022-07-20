@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const html = `
+      <div>
+        我是一个div
+        <p>我是一个p元素</p>
+      </div>
+    `
+    const elements = document.createRange().createContextualFragment(html).children
+    console.log(elements[0], 'elements')
+    document.body.appendChild(elements[0])
+  </script>
+</body>
+</html>
