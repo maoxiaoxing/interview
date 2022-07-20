@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="container">
+    <li>列表</li>
+    <li>
+        LI 内嵌列表：
+        <ol>
+            <li>项目1</li>
+            <li>项目2</li>
+        </ol>
+    </li>
+  </ul>
+  
+  <script>
+    const nodeIterator = document.createNodeIterator(container, NodeFilter.SHOW_ELEMENT, { 
+      acceptNode: function(node) { 
+          return node.nodeName == 'LI' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; 
+      } 
+    })
+    const pars = []
+    let currentNode
+    while (currentNode = nodeIterator.nextNode()) {
+      pars.push(currentNode)
+    }
+    console.log(pars, 'pars')
+
+    const treeWalker = document.createTreeWalker(container, NodeFilter.SHOW_ELEMENT, { 
+      acceptNode: function(node) { 
+          return node.nodeName == 'LI' ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT; 
+      }
+    }, false);
+
+    const nodeList = [];
+    let currentNode2;
+
+    while (currentNode2 = treeWalker.nextNode()) {
+      nodeList.push(currentNode2);
+    }
+
+    console.log(nodeList, 'nodeList')
+  </script>
+</body>
+</html>
