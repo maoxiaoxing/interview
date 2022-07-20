@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const docu = new DOMParser().parseFromString('<xml></xml>',  "application/xml")
+
+    const pi = docu.createProcessingInstruction('xml-stylesheet', 'href="mycss.css" type="text/css"');
+
+    docu.insertBefore(pi, docu.firstChild);
+
+    alert(new XMLSerializer().serializeToString(docu))
+  </script>
+</body>
+</html>
