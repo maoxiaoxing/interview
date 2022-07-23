@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <template id="template">
+    <p>如果你看得见我和下面的图片，说明不支持template元素。</p>
+    <!-- <p><img src="//image.zhangxinxu.com/image/study/s/s256/mm1.jpg"></p> -->
+  </template>
+  
+  <script>
+    const template = document.getElementById('template')
+    const clone = document.importNode(template.content, true)
+    console.log(clone, 'clone')
+  </script>
+</body>
+</html>
