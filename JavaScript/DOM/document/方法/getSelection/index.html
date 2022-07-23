@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  尝试一下复制当前的文本
+
+  <textarea></textarea>
+  
+  <script>
+    document.addEventListener('copy', function (event) {
+      var clipboardData = event.clipboardData || window.clipboardData;
+      if (!clipboardData) { return; }
+      var text = window.getSelection().toString();
+      if (text) {
+          event.preventDefault();
+          clipboardData.setData('text/plain', text + '\n\n毛小星版权所有');
+      }
+    })
+  </script>
+</body>
+</html>
