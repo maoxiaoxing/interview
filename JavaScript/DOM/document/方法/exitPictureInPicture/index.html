@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <video id="video" src="https://image.zhangxinxu.com/video/blog/201812/fish-16166-s.mp4"></video>
+  
+  <script>
+    document.onclick = function (event) {
+      if (document.pictureInPictureElement) {
+        document.exitPictureInPicture()
+          .then(() => console.log("Document Exited from Picture-in-Picture mode"))
+          .catch((err) => console.error(err))
+      } else {
+        video.requestPictureInPicture();
+      }
+    }
+  </script>
+</body>
+</html>
