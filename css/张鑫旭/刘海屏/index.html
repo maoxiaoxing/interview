@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      max-width: 414px;
+      height: 480px;
+      border: solid #000;
+      margin: auto;
+      overflow: auto;
+    }
+    .shape {
+        float: left;
+        width: 30px; height: 340px;
+        shape-outside: polygon(0 0, 0 150px, 16px 154px, 30px 166px, 30px 314px, 16px 326px, 0 330px, 0 0);
+        transition: shape-outside .15s;
+    }
+    .liuhai {
+        width: 24px; height: 180px;
+        background: url(./liu.png) no-repeat left center;
+        position: absolute;
+        margin: 150px 0 0 -30px;
+    }
+    .content ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .content li {
+        border-bottom: 1px solid #eee;
+        padding: .5em;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box">
+    <i id="shape" class="shape"></i>
+    <i class="liuhai"></i>
+    <div class="content">
+        <ul>
+          <li>为了防止看花眼</li>
+          <li>我就手动敲下面的文字</li>
+          <li>原本我偷懒</li>
+          <li>直接就是列表1，列表2</li>
+          <li>后来测试发现不行</li>
+          <li>内容太接近</li>
+          <li>滚动时候</li>
+          <li>无法准确感受到靠近效果</li>
+          <li>这样是不行的</li>
+          <li>做东西就要精益求精</li>
+          <li>demo页面也应如此</li>
+          <li>然后这里的刘海形状只是近似</li>
+          <li>两个圆角要模拟</li>
+          <li>需要更细致的shape-outside设置</li>
+          <li>这里仅仅使用两个转角点表示</li>
+          <li>而且为了和后面的内容有间隙</li>
+          <li>shape区域右侧</li>
+          <li>刻意扩大了大约5像素</li>
+          <li>现在看到的刘海</li>
+          <li>是覆盖上面的一个图</li>
+          <li>实际生效的是后面浮动的shape</li>
+          <li>在iOS 10.2之前还需要webkit</li>
+          <li>私有前缀</li>
+          <li>因此，实际代码还需要webkit</li>
+          <li>Chrome可以不需要</li>
+          <li>然后此功能需要JS配合</li>
+          <li>只能对内联信息进行跟随控制</li>
+          <li>理论上还可以使用CSS region实现</li>
+          <li>但没有这个方法容易理解</li>
+        </ul>
+    </div>
+  </div>
+
+  <script>
+    const eleShape = document.getElementById('shape');
+    const eleBox = document.getElementById('box');
+    // 保证shape元素高度足够
+    eleShape.style.height = eleBox.scrollHeight + 'px';
+
+    const funShape = function () {
+        const scrollTop = eleBox.scrollTop;
+        // 滚动偏移应用在shape-outside上
+        const shapeOutside = 'polygon(0 0, 0 '+ (150 + scrollTop) +'px, 16px '+ (154 + scrollTop) +'px, 30px '+ (166 + scrollTop) +'px, 30px '+ (314 + scrollTop) +'px, 16px '+ (326 + scrollTop) +'px, 0 '+ (330 + scrollTop) +'px, 0 0)';
+        eleShape.style.shapeOutside = shapeOutside;
+    };
+    // 滚动时候实时改变shape形状
+    eleBox.addEventListener('scroll', funShape);
+    funShape();
+  </script>
+</body>
+</html>
