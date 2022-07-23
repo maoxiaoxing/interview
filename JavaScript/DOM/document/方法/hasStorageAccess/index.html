@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    document.hasStorageAccess().then(hasAccess => {
+    if (hasAccess) {
+      // storage access has been granted already.
+      console.log('有权限')
+    } else {
+      // storage access hasn't been granted already;
+      // you may want to call requestStorageAccess().
+      console.log('没有权限')
+    }
+  })
+  </script>
+</body>
+</html>
