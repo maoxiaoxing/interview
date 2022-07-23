@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type='text/css'>
+    #message { font-weight: bold; }
+  </style>
+
+<script type='text/javascript'>
+      setInterval("CheckPageFocus()", 200);
+
+      function CheckPageFocus() {
+            var info = document.getElementById("message");
+           if (document.hasFocus()) {
+             info.innerHTML = "该页面获得了焦点.";
+            }
+            else {
+             info.innerHTML = "该页面没有获得焦点.";
+           }
+      }
+
+    function OpenWindow() {
+           window.open ("http://developer.mozilla.org/", "mozdev",
+                     "width=640, height=300, left=150, top=260");
+    }
+</script>
+</head>
+
+<body>
+ document.hasFocus 演示<br /><br />
+<div id="message">等待用户操作</div><br />
+<button onclick="OpenWindow()">打开一个新窗口</button>
+</body>
+</html>
