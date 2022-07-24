@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="bar">bar</div>
+  <div id="baz">baz</div>
+  <div id="foo" name="foo">foo</div>
+  
+  <script>
+    const bar = document.querySelector('.bar')
+    console.log(bar, 'bar')
+    const baz = document.querySelector('#baz')
+    console.log(baz, 'baz')
+    const foo = document.querySelector('[name="foo"]')
+    console.log(foo, 'foo')
+  </script>
+</body>
+</html>
