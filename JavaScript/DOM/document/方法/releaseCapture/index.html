@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    #myButton {
+      border: solid black 1px;
+      color: black;
+      padding: 2px;
+      -moz-box-shadow:black 2px 2px;
+    }
+  </style>
+</head>
+<body onload="init()">
+  <p>这是一个关于如何在 Gecko 2.0 中针对元素使用鼠标捕捉的示例。</p>
+  <p><a id="myButton" href="javascript:buttonClicked()">点我并且按住鼠标滑动</a></p>
+  <div id="output">还没有任何事件哦！</div>
+  
+  <script>
+    function init() {
+      var btn = document.getElementById("myButton");
+      btn.addEventListener("mousedown", mouseDown, false);
+      btn.addEventListener("mouseup", mouseUp, false);
+    }
+
+    function mouseDown(e) {
+      console.log(myButton.setCapture, 'e')
+      e.target.setCapture();
+      e.target.addEventListener("mousemove", mouseMoved, false);
+    }
+
+    function mouseUp(e) {
+      e.target.removeEventListener("mousemove", mouseMoved, false);
+    }
+
+    function mouseMoved(e) {
+      var output = document.getElementById("output");
+      output.innerHTML = "鼠标的当前位置: " + e.clientX + ", " + e.clientY;
+    }
+  </script>
+</body>
+</html>
