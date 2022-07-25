@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    document.onfullscreenerror = function ( event ) {
+      console.log("FULL SCREEN DENIED")
+    };
+
+    // requestFullscreen() 将会失败，因为它在事件处理器之外
+    document.documentElement.requestFullscreen();
+  </script>
+</body>
+</html>
