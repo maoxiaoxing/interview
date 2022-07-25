@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    document.addEventListener("fullscreenchange", function( event ) {
+      console.log('fullscreenchange')
+
+    // The event object doesn't carry information about the fullscreen state of the browser,
+    // but it is possible to retrieve it through the fullscreen API
+    if ( document.fullscreenElement !== null ) {
+
+        // The target of the event is always the document,
+        // but it is possible to retrieve the fullscreen element through the API
+        document.fullscreenElement;
+    }
+
+    })
+  </script>
+</body>
+</html>
