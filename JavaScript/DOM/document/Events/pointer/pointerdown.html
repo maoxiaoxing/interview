@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="target"> Touch me ... </div>
+  
+  <script>
+    var targetBox = document.getElementById("target");
+
+    targetBox.onpointerdown = handleDown;
+
+    function handleDown(evt) {
+      var action;
+    
+      switch(evt.pointerType) {
+        case "mouse":
+          action = "clicking";
+          break;
+        case "pen":
+          action = "tapping";
+          break;
+        case "touch":
+          action = "touching";
+          break;
+        default:
+          action = "interacting with";
+          break;
+      }
+    
+      targetBox.innerHTML = "<strong>Thanks for " + action + " me!</strong>";
+      evt.preventDefault();
+    }
+  </script>
+</body>
+</html>
