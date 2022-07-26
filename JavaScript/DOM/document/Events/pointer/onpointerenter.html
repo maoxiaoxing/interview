@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="target1"> Touch me ... </div>
+  <div id="target2" onpointerenter="enterHandler(event)"> Touch me ... </div>
+
+  <script>
+    function enterHandler(ev) {
+      // Process the pointerenter event
+      console.log('onpointerenter')
+    }
+    function init() {
+      const el=document.getElementById("target1");
+      el.onpointerenter = enterHandler;
+    }
+    window.onload = function() {
+      init()
+    }
+  </script>
+</body>
+</html>
