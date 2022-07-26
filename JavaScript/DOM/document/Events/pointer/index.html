@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="target1"> Touch me ... </div>
+  <div id="target2" onpointercancel="cancelHandler(event)"> Touch me ... </div>
+  
+  <script>
+    function cancelHandler(ev) {
+      // Process the pointercancel event
+      console.log('pointercancel')
+    }
+    target2.addEventListener('pointerdown', () => {
+      console.log('onpointerdown ')
+    })
+    target2.addEventListener('pointerenter', () => {
+      console.log('onpointerenter')
+    })
+    target2.addEventListener('pointerleave', () => {
+      console.log('onpointerleave')
+    })
+    target2.addEventListener('pointermove', () => {
+      console.log('onpointermove')
+    })
+    target2.addEventListener('pointerout', () => {
+      console.log('onpointerout')
+    })
+    target2.addEventListener('pointerover', () => {
+      console.log('onpointerover')
+    })
+    target2.addEventListener('pointerup', () => {
+      console.log('onpointerup')
+    })
+    function init() {
+      const el = document.getElementById("target1");
+      el.onpointercancel = cancelHandler;
+    }
+    window.onload = function () {
+      init()
+    }
+  </script>
+</body>
+</html>
