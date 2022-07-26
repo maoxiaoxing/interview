@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="controls">
+    <button id="reload" type="button">Reload</button>
+  </div>
+  
+  <div class="event-log">
+    <label for="eventLog">Event log:</label>
+    <textarea readonly class="event-log-contents" rows="8" cols="30" id="eventLog"></textarea>
+  </div>
+
+  <script>
+    const log = document.querySelector('.event-log-contents');
+    const reload = document.querySelector('#reload');
+
+    reload.addEventListener('click', () => {
+      log.textContent ='';
+      window.setTimeout(() => {
+          window.location.reload(true);
+      }, 200);
+    });
+
+    window.addEventListener('load', (event) => {
+        log.textContent = `${log.textContent}load\n`;
+    });
+
+    document.addEventListener('readystatechange', (event) => {
+        log.textContent = `${log.textContent}readystate: ${document.readyState}\n`;
+    });
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+        log.textContent = `${log.textContent}DOMContentLoaded\n`;
+    });
+  </script>
+</body>
+</html>
