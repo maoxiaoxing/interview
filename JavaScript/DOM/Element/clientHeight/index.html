@@ -14,15 +14,24 @@
       margin-top: 10px;
       border: 10px solid;
       background-color: green;
+      overflow-x: auto;
+    }
+    .inner {
+      width: 160px;
     }
   </style>
 </head>
 <body>
-  <div class="box"></div>
+  <div class="box">
+    <div class="inner"></div>
+  </div>
   
   <script>
     const box = document.querySelector('.box')
+    // height + padding-height - scrollHieght
     console.log(box.clientHeight)
+    // height + padding-height + border-top
+    console.log(box.offsetHeight)
   </script>
 </body>
 </html>
