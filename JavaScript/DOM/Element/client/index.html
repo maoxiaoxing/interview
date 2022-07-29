@@ -11,7 +11,7 @@
       height: 100px;
       padding: 10px;
       /* box-sizing: border-box; */
-      margin-top: 10px;
+      margin-top: 20px;
       border: 10px solid;
       background-color: green;
       overflow-x: auto;
@@ -29,9 +29,12 @@
   <script>
     const box = document.querySelector('.box')
     // height + padding-height - scrollHieght
-    console.log(box.clientHeight)
+    console.log(box.clientHeight, 'clientHeight')
+    console.log(box.clientWidth, 'clientWidth')
+    console.log(box.clientLeft, 'clientLeft')
+    console.log(box.clientTop, 'clientTop')
     // height + padding-height + border-top
-    console.log(box.offsetHeight)
+    console.log(box.offsetHeight, 'offsetHeight')
   </script>
 </body>
 </html>
