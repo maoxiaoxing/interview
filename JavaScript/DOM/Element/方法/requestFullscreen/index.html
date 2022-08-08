@@ -19,7 +19,10 @@
 
   <script>
     fullScreen.onclick = function () {
-      box.requestFullscreen()
+      const promise = box.requestFullscreen()
+      promise.then(() => {
+        console.log('---')
+      })
     }
     box.addEventListener('fullscreenchange', () => {
       console.log('fullscreenchange')
