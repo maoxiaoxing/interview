@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    @keyframes drawerIn {
+      0% {
+        transform: translate(100%);
+      }
+
+      100% {
+        transform: translate(0);
+      }
+    }
+    .mask {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+    .drawer {
+      position: absolute;
+      right: 0;
+      width: 300px;
+      height: 100%;
+      background-color: #FFF;
+      animation: drawerIn 0.3s;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">点击</button>
+  <div class="mask" id="mask">
+    <div class="drawer" id="drawer"></div>
+  </div>
+
+  <script>
+    btn.onclick = function() {
+      console.log(123)
+    }
+    mask.onclick = function () {
+
+    }
+  </script>
+</body>
+</html>
