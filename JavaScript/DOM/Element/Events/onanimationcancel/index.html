@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      --boxwidth: 50px;
+    }
+    @keyframes slideBox {
+      from {
+        left:0;
+        top:0;
+      }
+      to {
+        left:calc(100% - var(--boxwidth));
+        top:calc(100% - var(--boxwidth))
+      }
+    }
+    #box {
+      width: var(--boxwidth);
+      height: var(--boxwidth);
+      left: 0;
+      top: 0;
+      border: 1px solid #7788FF;
+      margin: 0;
+      position: relative;
+      background-color: #2233FF;
+      display: flex;
+      justify-content: center;
+      animation: 5s ease-in-out 0s infinite alternate both slideBox;
+    }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <div id="box">
+      <div id="text" onanimationcancel="handleCancelEvent">Box</div>
+    </div>
+  </div>
+  
+  <div class="button" id="toggleBox" onclick="toggleBox">
+    Hide the Box
+  </div>
+  
+  <pre id="log"></pre>
+  
+  <script>
+    function log(msg, event) {
+      let logBox = document.getElementById("log");
+
+      logBox.innerHTML += msg;
+
+      if (event) {
+        logBox.innerHTML += " <code>"+ event.animationName +
+            "</code> at time " + event.elapsedTime.toFixed(2) +
+            " seconds.";
+      }
+
+      logBox.innerHTML += "\n";
+    }
+    function handleCancelEvent(event) {
+      console.log('handleCancelEvent')
+      log("Animation canceled", event);
+    }
+
+    const btn = document.querySelector('#toggleBox')
+    btn.addEventListener('click', toggleBox)
+    function toggleBox() {
+      if (box.style.display == "none") {
+        box.style.display = "flex";
+        document.getElementById("toggleBox").innerHTML = "Hide the box";
+      } else {
+        box.style.display = "none";
+        document.getElementById("toggleBox").innerHTML = "Show the box";
+      }
+    }
+  </script>
+</body>
+</html>
