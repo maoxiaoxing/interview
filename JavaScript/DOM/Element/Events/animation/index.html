@@ -15,6 +15,15 @@
         transform: translate(0);
       }
     }
+    @keyframes drawerOut {
+      0% {
+        transform: translate(0);
+      }
+
+      100% {
+        transform: translate(100%);
+      }
+    }
     .mask {
       position: fixed;
       top: 0;
@@ -29,14 +38,21 @@
       width: 300px;
       height: 100%;
       background-color: #FFF;
+      transform: translate(100%);
+    
+    }
+    .drawer-in {
       animation: drawerIn 0.3s;
+    }
+    .drawer-out {
+      animation: drawerOut 0.3s;
     }
   </style>
 </head>
 <body>
   <button id="btn">点击</button>
   <div class="mask" id="mask">
-    <div class="drawer" id="drawer"></div>
+    <div class="drawer drawer-in" id="drawer"></div>
   </div>
 
   <script>
@@ -46,6 +62,15 @@
     mask.onclick = function () {
 
     }
+    drawer.addEventListener('animationend', () => {
+      console.log('animationend')
+    })
+    drawer.addEventListener('animationstart', () => {
+      console.log('animationstart')
+    })
+    drawer.addEventListener('animationiteration', () => {
+      console.log('animationiteration')
+    })
   </script>
 </body>
 </html>
