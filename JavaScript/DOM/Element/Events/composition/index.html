@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="control">
+    <label for="name">On macOS, click in the textbox below,<br> then type <kbd>option</kbd> + <kbd>`</kbd>, then <kbd>a</kbd>:</label>
+    <input type="text" id="example" name="example">
+  </div>
+  
+  <div class="event-log">
+    <label>Event log:</label>
+    <textarea readonly class="event-log-contents" rows="8" cols="25"></textarea>
+    <button class="clear-log">Clear</button>
+  </div>
+  
+  <script>
+    const inputElement = document.querySelector('input[type="text"]');
+    const log = document.querySelector('.event-log-contents');
+    const clearLog = document.querySelector('.clear-log');
+
+    clearLog.addEventListener('click', () => {
+        log.textContent = '';
+    });
+
+    function handleEvent(event) {
+      console.log('---')
+        log.textContent = log.textContent + `${event.type}: ${event.data}\n`;
+    }
+
+    inputElement.addEventListener('compositionstart', handleEvent);
+    inputElement.addEventListener('compositionupdate', handleEvent);
+    inputElement.addEventListener('compositionend', handleEvent)
+  </script>
+</body>
+</html>
