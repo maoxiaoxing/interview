@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="controls">
+    <button id="img-error" type="button">生成图像 error</button>
+    <img class="bad-img" />
+  </div>
+  
+  <div class="event-log">
+    <label>Event log:</label>
+    <textarea readonly class="event-log-contents" rows="8" cols="30"></textarea>
+  </div>
+  
+  <script>
+    const log = document.querySelector('.event-log-contents');
+
+    const badImg = document.querySelector('.bad-img');
+    badImg.addEventListener('error', (event) => {
+        log.textContent = log.textContent + `${event.type}: Loading image\n`;
+        console.log(event)
+    });
+
+    const imgError = document.querySelector('#img-error');
+    imgError.addEventListener('click', () => {
+        badImg.setAttribute('src', 'i-dont-exist');
+    });
+  </script>
+</body>
+</html>
