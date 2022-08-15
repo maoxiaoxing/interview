@@ -16,6 +16,12 @@
 
     input.addEventListener('keydown', logKey);
 
+    input.addEventListener('keyup', logKeyup);
+
+    function logKeyup(e) {
+      console.log(e.code)
+    }
+
     function logKey(e) {
       log.textContent += ` ${e.code}`;
     }
