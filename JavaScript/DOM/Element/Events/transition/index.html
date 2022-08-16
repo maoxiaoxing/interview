@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .transition {
+      width: 100px;
+      height: 100px;
+      background: rgba(255,0,0,1);
+      transition-property: transform, background;
+      transition-duration: 2s;
+      transition-delay: 1s;
+    }
+
+    .transition:hover {
+      transform: rotate(90deg);
+      background: rgba(255,0,0,0);
+    }
+  </style>
+</head>
+<body>
+  <div class="transition">Hover over me</div>
+  <div class="message"></div>
+
+  <script>
+    const transition = document.querySelector('.transition');
+    const message = document.querySelector('.message');
+
+    transition.addEventListener('transitionrun', function() {
+      message.textContent = 'transitionrun 触发了';
+    });
+
+    transition.addEventListener('transitionstart', function() {
+      message.textContent = 'transitionstart 触发了';
+    });
+
+    transition.addEventListener('transitionend', function() {
+      message.textContent = 'transitionend 触发了';
+    });
+  </script>
+</body>
+</html>
