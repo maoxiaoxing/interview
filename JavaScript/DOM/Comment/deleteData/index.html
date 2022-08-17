@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- This is an HTML comment !-->
+  <output id="Result"></output>
+  
+  <script>
+    let comment = document.body.childNodes[1];
+    let output = document.getElementById("Result");
+    console.log(comment.data)
+    output.value = comment.data
+    comment.deleteData(1, 10)
+    console.log(comment)
+  </script>
+</body>
+</html>
