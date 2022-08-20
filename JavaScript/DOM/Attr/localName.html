@@ -12,8 +12,10 @@
   <script>
     const box = document.querySelector('.box')
     const attribute = box.attributes[0]
-    console.log(attribute.localName)
-    console.log(attribute.name)
+    console.log(attribute.localName, 'localName')
+    console.log(attribute.name, 'name')
+    console.log(attribute.namespaceURI, 'namespaceURI')
+    console.log(attribute.ownerElement, 'ownerElement')
   </script>
 </body>
 </html>
