@@ -27,7 +27,7 @@
       console.log(e.composed, 'body', 'composed')
       console.log(e.currentTarget, 'body', 'currentTarget')
       console.log(e.defaultPrevented, 'body', 'defaultPrevented')
-      // console.log(e.defaultPrevented, 'body', 'defaultPrevented')
+      console.log(e.eventPhase, 'body', 'eventPhase')
     }
     box.onclick = function(e) {
       console.log(e.bubbles, 'box', 'bubbles')
@@ -35,6 +35,7 @@
       console.log(e.composed, 'box', 'composed')
       console.log(e.currentTarget, 'box', 'currentTarget')
       console.log(e.defaultPrevented, 'box', 'defaultPrevented')
+      console.log(e.eventPhase, 'box', 'eventPhase')
     }
     btn.onclick = function(e) {
       console.log(e.bubbles, 'btn', 'bubbles')
@@ -42,6 +43,8 @@
       console.log(e.composed, 'btn', 'composed')
       console.log(e.currentTarget, 'btn', 'currentTarget')
       console.log(e.defaultPrevented, 'btn', 'defaultPrevented')
+      console.log(e.eventPhase, 'btn', 'eventPhase')
+
     }
   </script>
 </body>
