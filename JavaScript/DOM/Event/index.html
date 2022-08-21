@@ -30,7 +30,8 @@
       console.log(e.eventPhase, 'body', 'eventPhase')
       console.log(e.isTrusted, 'body', 'isTrusted')
       console.log(e.target, 'body', 'target')
-
+      console.log(e.timeStamp, 'body', 'timeStamp')
+      console.log(e.type, 'body', 'type')
     }
     box.onclick = function(e) {
       console.log(e.bubbles, 'box', 'bubbles')
@@ -41,6 +42,8 @@
       console.log(e.eventPhase, 'box', 'eventPhase')
       console.log(e.isTrusted, 'box', 'isTrusted')
       console.log(e.target, 'box', 'target')
+      console.log(e.timeStamp, 'box', 'timeStamp')
+      console.log(e.type, 'box', 'type')
 
     }
     btn.onclick = function(e) {
@@ -52,6 +55,8 @@
       console.log(e.eventPhase, 'btn', 'eventPhase')
       console.log(e.isTrusted, 'btn', 'isTrusted') // EventTarget.dispatchEvent() 派发的时候，这个属性的值为 false 。
       console.log(e.target, 'btn', 'target')
+      console.log(e.timeStamp, 'btn', 'timeStamp')
+      console.log(e.type, 'btn', 'type')
 
     }
   </script>
