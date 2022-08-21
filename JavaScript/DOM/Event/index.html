@@ -5,15 +5,39 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: green;
+    }
+  </style>
 </head>
 <body>
-  <button id="btn">--</button>
+  <div class="box">
+    <button id="btn">--</button>
+  </div>
   
   <script>
+    const box = document.querySelector('.box')
+    const body = document.body
+    body.onclick = function(e) {
+      console.log(e.bubbles, 'body', 'bubbles')
+      console.log(e.cancelable, 'body', 'cancelable')
+      console.log(e.composed, 'body', 'composed')
+      console.log(e.currentTarget, 'body', 'currentTarget')
+    }
+    box.onclick = function(e) {
+      console.log(e.bubbles, 'box', 'bubbles')
+      console.log(e.cancelable, 'box', 'cancelable')
+      console.log(e.composed, 'box', 'composed')
+      console.log(e.currentTarget, 'box', 'currentTarget')
+    }
     btn.onclick = function(e) {
-      console.log(e.bubbles, 'bubbles')
-      console.log(e.cancelable, 'cancelable')
-      console.log(e.composed, 'composed')
+      console.log(e.bubbles, 'btn', 'bubbles')
+      console.log(e.cancelable, 'btn', 'cancelable')
+      console.log(e.composed, 'btn', 'composed')
+      console.log(e.currentTarget, 'btn', 'currentTarget')
     }
   </script>
 </body>
