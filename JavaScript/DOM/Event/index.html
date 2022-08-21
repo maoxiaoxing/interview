@@ -26,18 +26,22 @@
       console.log(e.cancelable, 'body', 'cancelable')
       console.log(e.composed, 'body', 'composed')
       console.log(e.currentTarget, 'body', 'currentTarget')
+      console.log(e.defaultPrevented, 'body', 'defaultPrevented')
+      // console.log(e.defaultPrevented, 'body', 'defaultPrevented')
     }
     box.onclick = function(e) {
       console.log(e.bubbles, 'box', 'bubbles')
       console.log(e.cancelable, 'box', 'cancelable')
       console.log(e.composed, 'box', 'composed')
       console.log(e.currentTarget, 'box', 'currentTarget')
+      console.log(e.defaultPrevented, 'box', 'defaultPrevented')
     }
     btn.onclick = function(e) {
       console.log(e.bubbles, 'btn', 'bubbles')
       console.log(e.cancelable, 'btn', 'cancelable')
       console.log(e.composed, 'btn', 'composed')
       console.log(e.currentTarget, 'btn', 'currentTarget')
+      console.log(e.defaultPrevented, 'btn', 'defaultPrevented')
     }
   </script>
 </body>
