@@ -32,6 +32,7 @@
       console.log(e.target, 'body', 'target')
       console.log(e.timeStamp, 'body', 'timeStamp')
       console.log(e.type, 'body', 'type')
+      console.log(e.composedPath(), 'body', 'composedPath')
     }
     box.onclick = function(e) {
       console.log(e.bubbles, 'box', 'bubbles')
@@ -44,6 +45,7 @@
       console.log(e.target, 'box', 'target')
       console.log(e.timeStamp, 'box', 'timeStamp')
       console.log(e.type, 'box', 'type')
+      console.log(e.composedPath(), 'box', 'composedPath')
 
     }
     btn.onclick = function(e) {
@@ -57,7 +59,7 @@
       console.log(e.target, 'btn', 'target')
       console.log(e.timeStamp, 'btn', 'timeStamp')
       console.log(e.type, 'btn', 'type')
-
+      console.log(e.composedPath(), 'btn', 'composedPath')
     }
   </script>
 </body>
