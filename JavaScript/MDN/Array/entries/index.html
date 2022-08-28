@@ -14,6 +14,18 @@
     for (const item of iteror) {
       console.log(item)
     }
+
+    const arrLike = {
+      0: 'a',
+      1: 'b',
+      2: 'c',
+      length: 3,
+    }
+    const iteror1 = Array.prototype.entries.call(arrLike)
+    console.log(iteror1, 'iteror1')
+    for (const item of iteror1) {
+      console.log(item)
+    }
   </script>
 </body>
 </html>
