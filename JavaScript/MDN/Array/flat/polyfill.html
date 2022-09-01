@@ -19,6 +19,17 @@
     const flat2 = (_arr) => [].concat(..._arr)
     console.log('flat2', flat2(arr))
     console.log('flat2', flat2(arr1))
+
+    // 展开多层
+    const flatDeep = (_arr, deep = 1) =>
+      deep > 0 
+        ? _arr.reduce((pre, item) => pre.concat(Array.isArray(item)
+          ? flatDeep(item, deep-1)
+            : item), [])
+              : _arr.slice()
+    console.log('flatDeep', flatDeep(arr, 0))
+    console.log('flatDeep', flatDeep(arr))
+    console.log('flatDeep', flatDeep(arr1, 2))
   </script>
 </body>
 </html>
