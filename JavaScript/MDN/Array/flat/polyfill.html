@@ -15,6 +15,10 @@
     const flat1 = (_arr) => _arr.reduce((pre, item) => pre.concat(item), [])
     console.log('flat1', flat1(arr))
     console.log('flat1', flat1(arr1))
+
+    const flat2 = (_arr) => [].concat(..._arr)
+    console.log('flat2', flat2(arr))
+    console.log('flat2', flat2(arr1))
   </script>
 </body>
 </html>
