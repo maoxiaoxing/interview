@@ -30,6 +30,23 @@
     console.log('flatDeep', flatDeep(arr, 0))
     console.log('flatDeep', flatDeep(arr))
     console.log('flatDeep', flatDeep(arr1, 2))
+
+    // 
+    const flatten = (_arr) => {
+      const queue = [..._arr]
+      const res = []
+      while (queue.length) {
+        const item = queue.shift()
+        if (Array.isArray(item)) {
+          queue.push(...item)
+        } else {
+          res.push(item)
+        }
+      }
+      return res
+    }
+    console.log('flatten queue', flatten(arr))
+    console.log('flatten queue', flatten(arr1))
   </script>
 </body>
 </html>
