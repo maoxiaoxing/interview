@@ -31,8 +31,8 @@
     console.log('flatDeep', flatDeep(arr))
     console.log('flatDeep', flatDeep(arr1, 2))
 
-    // 
-    const flatten = (_arr) => {
+    // 队列
+    const flattenQueue = (_arr) => {
       const queue = [..._arr]
       const res = []
       while (queue.length) {
@@ -45,8 +45,8 @@
       }
       return res
     }
-    console.log('flatten queue', flatten(arr))
-    console.log('flatten queue', flatten(arr1))
+    console.log('flatten queue', flattenQueue(arr))
+    console.log('flatten queue', flattenQueue(arr1))
   </script>
 </body>
 </html>
