@@ -47,6 +47,23 @@
     }
     console.log('flatten queue', flattenQueue(arr))
     console.log('flatten queue', flattenQueue(arr1))
+
+    // 栈
+    const flattenStack = (_arr) => {
+      const stack = [..._arr]
+      const res = []
+      while (stack.length) {
+        const item = stack.pop()
+        if (Array.isArray(item)) {
+          stack.push(...item)
+        } else {
+          res.push(item)
+        }
+      }
+      return res.reverse()
+    }
+    console.log('flatten stack', flattenStack(arr))
+    console.log('flatten stack', flattenStack(arr1))
   </script>
 </body>
 </html>
