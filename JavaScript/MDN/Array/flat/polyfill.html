@@ -11,6 +11,11 @@
   <script>
     const arr = [1,2,[3,4]]
     const arr1 = [1,2,[3,4],[5,[6,7]]]
+
+    console.log('flat', arr.flat())
+    console.log('flat', arr1.flat(1))
+    console.log('flat', arr1.flat(2))
+
     // 展开 一层
     const flat1 = (_arr) => _arr.reduce((pre, item) => pre.concat(item), [])
     console.log('flat1', flat1(arr))
@@ -64,6 +69,23 @@
     }
     console.log('flatten stack', flattenStack(arr))
     console.log('flatten stack', flattenStack(arr1))
+
+    // 
+    const forFlat = (_arr, _deep = 1) => {
+      const flat = (__arr, __deep, res = []) => {
+        for (const item of __arr) {
+          if (Array.isArray(item) && __deep > 0) {
+            flat(item, __deep - 1, res)
+          } else {
+            res.push(item)
+          }
+        }
+        return res
+      }
+      return flat(_arr, _deep)
+    }
+    console.log('forFlat', forFlat(arr))
+    console.log('forFlat', forFlat(arr1, 2))
   </script>
 </body>
 </html>
