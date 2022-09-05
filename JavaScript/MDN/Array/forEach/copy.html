@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // 浅拷贝
+    function copy(obj) {
+      const copy = Object.create(Object.getPrototypeOf(obj));
+      const propNames = Object.getOwnPropertyNames(obj);
+
+      propNames.forEach(function(name) {
+        const desc = Object.getOwnPropertyDescriptor(obj, name);
+        Object.defineProperty(copy, name, desc);
+      });
+
+      return copy;
+    }
+
+    const obj = {
+      a: 1,
+      b: 2,
+      c: {
+        d: 3
+      }
+    }
+    const obj1 = copy(obj)
+    console.log(obj1)
+    obj.a = 2
+    obj.c.d = 4
+    console.log(obj)
+    console.log(obj1)
+  </script>
+</body>
+</html>
