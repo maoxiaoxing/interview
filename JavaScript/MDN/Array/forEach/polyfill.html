@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    const arr = [1,2,3]
+    Array.prototype._forEach = function(callback, thisArg) {
+      let T,K
+
+      if (this == null) {
+        throw new TypeError(`${this} is null or not defined`)
+      }
+
+      if (typeof callback !== 'function') {
+        throw new TypeError(`${callback} is not a function`)
+      }
+
+      let O = Object(this)
+      if (arguments.length > 1) {
+        T = thisArg
+      }
+
+      let len = O.length >>> 0
+      K = 0
+
+      while (K < len) {
+        if (K in O) {
+          const kValue = O[K]
+          callback.call(T, kValue, K, O)
+        }
+        K++
+      }
+    }
+
+    arr._forEach((item, index, o) => {
+      console.log(item, index, o)
+    })
+  </script>
+</body>
+</html>
