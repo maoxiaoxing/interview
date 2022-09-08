@@ -1,3 +1,9 @@
 <script>
-  console.log(Array.from('bar'))
+  console.log(Array.from('bar'), 'string')
+  console.log(Array.from(false), 'boolean')
+  console.log(Array.from(true), 'boolean')
+  console.log(Array.from(123), 'number')
+  // console.log(Array.from(null), 'null')
+  // console.log(Array.from(undefined), 'undefined')
+  console.log(Array.from(new Map([['name', 'jack'], ['bar', 'baz']])), 'Map')
 </script>
