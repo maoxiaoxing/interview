@@ -19,4 +19,8 @@
     return Array.from(arguments)
   }
   console.log(fn(1,2,3), 'function arguments')
+
+  const range = (start, stop, step) => Array.from({length: (stop - start)/step+1}, (_, i) => start+(i*step))
+  console.log(range(0,6,1), 'range')
+  console.log(range(0,6,2), 'range')
 </script>
