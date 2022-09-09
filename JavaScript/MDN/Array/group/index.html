@@ -1,0 +1,26 @@
+<script>
+  const arr = [
+    {
+      name: 'oriange',
+      tppe: 'fruit',
+    },
+    {
+      name: 'apple',
+      tppe: 'fruit',
+    },
+    {
+      name: 'tomoto',
+      tppe: 'vegetables',
+    },
+    {
+      name: 'fish',
+      tppe: 'meat',
+    },
+    {
+      name: 'pork',
+      tppe: 'meat',
+    },
+  ]
+  const result = arr.group((item) => item.type) // 提案阶段
+  console.log(result)
+</script>
