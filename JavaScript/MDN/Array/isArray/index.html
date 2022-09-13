@@ -1,8 +1,27 @@
-<script>
-  console.log(Array.isArray([]))
-  console.log(Array.isArray({1: 1, length: 1}))
-  console.log(Array.isArray(new Array()))
-  console.log(Array.isArray(Array.prototype))
-  console.log(Array.isArray(new Uint8Array(32)))
-  console.log(Array.isArray({ __proto__: Array.prototype }))
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    console.log(Array.isArray([]))
+    console.log(Array.isArray({1: 1, length: 1}))
+    console.log(Array.isArray(new Array()))
+    console.log(Array.isArray(Array.prototype))
+    console.log(Array.isArray(new Uint8Array(32)))
+    console.log(Array.isArray({ __proto__: Array.prototype }))
+
+    const iframe = document.createElement('iframe');
+    document.body.appendChild(iframe);
+    xArray = window.frames[window.frames.length-1].Array;
+    const arr = new xArray(1,2,3)
+    console.log(Array.isArray(arr))
+    console.log(arr instanceof Array)
+  </script>
+</body>
+</html>
