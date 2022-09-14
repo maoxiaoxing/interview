@@ -5,4 +5,10 @@
   for(const key of keys) {
     console.log(key)
   }
+
+  const arr1 = ["a", , "c"];
+  const sparseKeys = Object.keys(arr1);
+  const denseKeys = [...arr1.keys()];
+  console.log(sparseKeys); // ['0', '2']
+  console.log(denseKeys);  // [0, 1, 2]
 </script>
