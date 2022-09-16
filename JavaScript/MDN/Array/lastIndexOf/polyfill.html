@@ -1,0 +1,27 @@
+<script>
+  if (!Array.prototype._lastIndexOf) {
+    Array.prototype._lastIndexOf = function() {
+      if (this === void 0 || this === null) {
+        throw new TypeError()
+      }
+
+      let fromIndex,k
+      let t = Object(this)
+      let len = t.length >>> 0
+      if (len === 0) return -1
+      fromIndex = len - 1
+
+      if (arguments.length > 1) {
+        fromIndex = Number(arguments[1])
+        // 处理NaN的情况
+        if (fromIndex !== fromIndex) {
+          fromIndex = 0
+        } else if (fromIndex !== 0 && fromIndex !== (1/0) && fromIndex !== -(1/0)) {
+          fromIndex = (fromIndex > 0 || -1) * Math.floor(Math.abs(fromIndex))
+        }
+      }
+
+      
+    }
+  }
+</script>
