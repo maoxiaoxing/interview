@@ -21,7 +21,14 @@
         }
       }
 
-      
+      for (k = n >= 0
+            ? Math.min(fromIndex, len - 1)
+            : len - Math.abs(fromIndex); k >= 0; k--) {
+        if (k in t && t[k] === searchElement) {
+          return k;
+        }
+      }
+      return -1;
     }
   }
 </script>
