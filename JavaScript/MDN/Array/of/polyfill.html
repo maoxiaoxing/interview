@@ -1,0 +1,8 @@
+<script>
+  Array._of = function() {
+    return Array.prototype.slice.call(arguments)
+  }
+  const arr = Array._of(1,2,3)
+  console.log(arr)
+  console.log(Array._of(7), '_of')
+</script>
