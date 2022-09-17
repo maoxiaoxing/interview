@@ -2,4 +2,9 @@
   const arr = [1,2,3,4,5,6]
   const res = arr.map((item) => item*2)
   console.log(res)
+
+  const str = 'hello array'
+  const map = Array.prototype.map
+  const res1 = map.call(str, (item) => item)
+  console.log(res1)
 </script>
