@@ -2,4 +2,9 @@
   const arr = [1,2,3,4,5,6]
   arr.push(1)
   console.log(arr)
+  const obj = {}
+  const push = Array.prototype.push
+  push.call(obj, 'a')
+  push.call(obj, 'b')
+  console.log(obj)
 </script>
