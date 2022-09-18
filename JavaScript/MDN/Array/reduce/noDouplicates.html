@@ -1,0 +1,10 @@
+<script>
+  const arr = ['a', 'b', 'a', 'b', 'c', 'e', 'e', 'c', 'd', 'd', 'd', 'd']
+  const res = arr.reduce((prev, item) => {
+    if (!~prev.indexOf(item)) {
+      prev.push(item)
+    }
+    return prev
+  }, [])
+  console.log(res)
+</script>
