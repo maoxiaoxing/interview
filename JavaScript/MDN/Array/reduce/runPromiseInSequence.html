@@ -1,0 +1,43 @@
+<script>
+  const runPromiseInSequence = (arr, input) => {
+    return arr.reduce((prev, item) => {
+      return prev.then(item)
+    }, Promise.resolve(input))
+  }
+
+  function p1(a) {
+    return new Promise((resolve, reject) => {
+      const coefficient = 5
+      console.log(a, coefficient)
+      resolve(a * coefficient)
+    })
+  }
+
+  // promise function 2
+  function p2(a) {
+    return new Promise((resolve, reject) => {
+      const coefficient = 2
+      console.log(a, coefficient)
+      resolve(a * coefficient)
+    })
+  }
+
+  // function 3  - will be wrapped in a resolved promise by .then()
+  function p3(a) {
+    const coefficient = 3
+    console.log(a, coefficient)
+    return a * coefficient
+  }
+
+  // promise function 4
+  function p4(a) {
+    return new Promise((resolve, reject) => {
+      const coefficient = 4
+      console.log(a, coefficient)
+      resolve(a * coefficient)
+    })
+  }
+
+  runPromiseInSequence([p1,p2,p3,p4], 1)
+    .then(console.log)
+</script>
