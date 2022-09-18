@@ -1,0 +1,8 @@
+<script>
+  const arr = ['a', 'b', 'c', 'c', 'a', 'd', 'b']
+  const counts = arr.reduce((prev, item) => {
+    prev[item] = prev[item] ? ++prev[item] : 1
+    return prev
+  }, {})
+  console.log(counts)
+</script>
