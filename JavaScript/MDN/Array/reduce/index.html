@@ -2,4 +2,7 @@
   const arr = [1,2,3,4,5,6]
   const res = arr.reduce((prev, item) => prev+item, 0)
   console.log(res)
+
+  const flattened = [[1], [2,3], [3,4,5]].reduce((prev, item) => prev.concat(item), [])
+  console.log(flattened, 'flattened')
 </script>
