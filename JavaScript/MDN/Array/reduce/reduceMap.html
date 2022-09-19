@@ -1,0 +1,15 @@
+<script>
+  Array.prototype._map = function(callback, thisArg) {
+    return this.reduce((prev, item, index, array) => {
+      prev[index] = callback.call(thisArg, item, index, array)
+      return prev
+    }, [])
+  }
+
+  const arr = [1,2,3]
+  const res = arr._map((item, index, array) => {
+    console.log(item, index, array)
+    return item*2
+  })
+  console.log(res)
+</script>
