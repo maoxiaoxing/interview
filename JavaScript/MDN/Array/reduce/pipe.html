@@ -1,0 +1,10 @@
+<script>
+  const double = x => x + x
+  const triple = x => 3 * x
+  const quadruple = x => 4 * x
+
+  const pipe = (...fns) => (val) => fns.reduce((prev, fn) => fn(prev),val)
+
+  const multiply = pipe(double, triple)
+  console.log(multiply(2))
+</script>
