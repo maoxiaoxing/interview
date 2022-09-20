@@ -2,4 +2,11 @@
   const arr = ['a', 'b', 'c']
   const res = arr.reduceRight((prev, item) => prev+item)
   console.log(res)
+  
+  const arr1 = [1]
+  const res1 = arr1.reduceRight((prev, item) => {
+    console.log(prev, item)
+    return prev+item
+  })
+  console.log(res1, '--')
 </script>
