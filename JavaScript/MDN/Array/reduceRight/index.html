@@ -9,4 +9,7 @@
     return prev+item
   })
   console.log(res1, '--')
+
+  const flatten = [[1,2], [2,3], [3,4]].reduceRight((prev, item) => prev.concat(item), [])
+  console.log(flatten)
 </script>
