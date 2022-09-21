@@ -1,0 +1,27 @@
+<script>
+  const waterfall = (...functions) => (callback, ...args) =>
+    functions.reduceRight((compositon, fn) => (...results) => fn(compositon, ...results), callback)(...args)
+
+  const randInt = max => Math.floor(Math.random() * max)
+  const add5 = (callback, x) => {
+    setTimeout(callback, randInt(1000), x + 5);
+  };
+  const mult3 = (callback, x) => {
+    setTimeout(callback, randInt(1000), x * 3);
+  };
+  const sub2 = (callback, x) => {
+    setTimeout(callback, randInt(1000), x - 2);
+  };
+  const split = (callback, x) => {
+    setTimeout(callback, randInt(1000), x, x);
+  };
+  const add = (callback, x, y) => {
+    setTimeout(callback, randInt(1000), x + y);
+  };
+  const div4 = (callback, x) => {
+    setTimeout(callback, randInt(1000), x / 4);
+  }
+
+  const computation = waterfall(add5, mult3, sub2, split, add, div4);
+  computation(console.log, 5)
+</script>
