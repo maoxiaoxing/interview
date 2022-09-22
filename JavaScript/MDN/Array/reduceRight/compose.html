@@ -1,0 +1,11 @@
+<script>
+  const compose = (...fns) => (val) => fns.reduceRight((pre, fn) => fn(pre), val)
+
+  // Increament passed number
+  const inc = (n) => n + 1
+
+  // Doubles the passed value
+  const double = (n) => n * 2
+
+  console.log(compose(double, inc)(2))
+</script>
