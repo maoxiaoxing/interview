@@ -3,7 +3,7 @@
     if (this === null || typeof this === 'undefined') {
       throw new TypeError(`Array.prototype.reduceRight called on null or undefined`)
     }
-    if (typeof callback !== 'undefined') {
+    if (typeof callback === 'undefined') {
       throw new TypeError(`${callback} is not a function`)
     }
 
@@ -14,7 +14,7 @@
     if (arguments.length >= 2) {
       value = arguments[1]
     } else {
-      while (k >= 0 && k in t) {
+      while (k >= 0 && !(k in t)) {
         k--
       }
 
@@ -32,4 +32,8 @@
     }
     return value
   }
+
+  const arr = ['a', 'b', 'c']
+  const res = arr._reduceRight((prev, item) => prev+item)
+  console.log(res)
 </script>
