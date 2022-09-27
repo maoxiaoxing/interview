@@ -1,0 +1,19 @@
+<script>
+  const TRUTHY_VALUES = [true, 'true', 1]
+  const getBoolean = (value) => {
+    if (typeof value == 'string') {
+      value = value.toLowerCase().trim()
+    }
+
+    return TRUTHY_VALUES.some((item) => {
+      return item === value
+    })
+  }
+
+  console.log(getBoolean(false))
+  console.log(getBoolean(true))
+  console.log(getBoolean('true'))
+  console.log(getBoolean(1))
+  console.log(getBoolean(0))
+  console.log(getBoolean('abc'))
+</script>
