@@ -8,13 +8,13 @@
       throw new TypeError(`Array.prototype._some called on null or undefined`)
     }
 
-    let O = Object(this)
-    let len = O.length
+    let t = Object(this)
+    let len = t.length
 
     const thisOrg = arguments.length >= 2 ? arguments[1] : void 0
 
     for (let i = 0; i < len; i++) {
-      if (i in O && callback.call(thisOrg, O[i], i, O)) {
+      if (i in t && callback.call(thisOrg, t[i], i, t)) {
         return true
       }
     }
