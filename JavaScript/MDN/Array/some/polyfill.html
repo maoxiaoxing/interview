@@ -1,0 +1,27 @@
+<script>
+  Array.prototype._some = function(callback) {
+    if (typeof callback !== 'function') {
+      throw new TypeError(`${callback} is not a funciton`)
+    }
+
+    if (this == null) {
+      throw new TypeError(`Array.prototype._some called on null or undefined`)
+    }
+
+    let O = Object(this)
+    let len = O.length
+
+    const thisOrg = arguments.length >= 2 ? arguments[1] : void 0
+
+    for (let i = 0; i < len; i++) {
+      if (i in O && callback.call(thisOrg, O[i], i, O)) {
+        return true
+      }
+    }
+    return false
+  }
+
+  const arr = [1,2,3,4,5]
+  console.log(arr._some((item) => item === 1))
+  console.log([]._some(() => true))
+</script>
