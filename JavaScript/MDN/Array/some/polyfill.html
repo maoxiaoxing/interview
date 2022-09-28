@@ -9,7 +9,7 @@
     }
 
     let t = Object(this)
-    let len = t.length
+    let len = t.length >>> 0
 
     const thisOrg = arguments.length >= 2 ? arguments[1] : void 0
 
