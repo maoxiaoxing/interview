@@ -2,4 +2,9 @@
   const arr = [1,2,3]
   arr.join = 1
   console.log(arr.toString())
+
+  const obj = {
+    join: () => 1
+  }
+  console.log(Array.prototype.toString.call(obj))
 </script>
