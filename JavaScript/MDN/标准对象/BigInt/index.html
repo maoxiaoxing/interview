@@ -13,4 +13,8 @@
   console.log('小数被取整', 5n/2n)
   console.log('BigInt 和 Number 不是严格相等的', 0n === 0)
   console.log('BigInt 和 Number 是宽松相等的', 0n == 0)
+  console.log('Number 和 BigInt 可以进行比较, 1n < 2', 1n < 2)
+
+  console.log('BigInt 和 Number 可以混在一个数组内并排序', [4n, 6, -12n, 10, 4, 0, 0n].sort())
+
 </script>
