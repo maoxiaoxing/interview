@@ -11,4 +11,16 @@
 
   const obj = Object.assign({}, v1, null, v2, undefined, v3, v4)
   console.log(obj)
+
+  const obj1 = Object.create({foo: 1}, {
+    bar: {
+      value: 2
+    },
+    baz: {
+      value: 3,
+      enumerable: true
+    }
+  })
+  const copy = Object.assign({}, obj1)
+  console.log(copy)
 </script>
