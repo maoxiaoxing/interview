@@ -23,4 +23,11 @@
   })
   const copy = Object.assign({}, obj1)
   console.log(copy)
+
+  const target1 = Object.defineProperty({}, 'foo', {
+    vlaue: 1,
+    writable: false,
+  })
+  Object.assign(target1, {bar: 2}, {foo2: 1, foo: 2})
+  console.log(target1)
 </script>
