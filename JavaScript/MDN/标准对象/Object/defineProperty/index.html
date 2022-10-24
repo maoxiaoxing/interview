@@ -16,5 +16,30 @@
     .forEach((item) => {
       console.log('forEach', item)
     })
+  
+  const obj1 = {}
+  Object.defineProperty(obj1, 'prop', {
+    value: 'bar',
+    writable: true,
+    enumerable: true,
+  })
+  Object.defineProperty(obj1, 'prop1', {
+    // value: 'kk',
+    // writable: true,
+    // enumerable: true,
+    // configurable: true,
+    get() {
+      return 'foo'
+    },
+    set() {
+      this.value = 'kii'
+    }
+  })
+  console.log(obj1, 'obj1')
+  Object.keys(obj1)
+    .forEach((item) => {
+      console.log(item, '==')
+    })
+
 
 </script>
