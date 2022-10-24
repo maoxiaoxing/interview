@@ -1,0 +1,11 @@
+<script>
+  const obj = {}
+  Object.defineProperty(obj, 'prop', {
+    value: 'bar',
+    writable: true,
+  })
+  console.log(obj)
+  obj.prop = 'baz'
+  console.log(obj)
+
+</script>
