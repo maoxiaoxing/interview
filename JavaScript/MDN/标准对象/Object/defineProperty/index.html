@@ -12,5 +12,9 @@
   obj.prop = 'baz'
   obj.prop1 = 'foo1'
   console.log(obj)
+  Object.keys(obj)
+    .forEach((item) => {
+      console.log('forEach', item)
+    })
 
 </script>
