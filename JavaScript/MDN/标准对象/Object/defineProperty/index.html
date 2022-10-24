@@ -4,8 +4,13 @@
     value: 'bar',
     writable: true,
   })
+  Object.defineProperty(obj, 'prop1', {
+    value: 'foo',
+    writable: false,
+  })
   console.log(obj)
   obj.prop = 'baz'
+  obj.prop1 = 'foo1'
   console.log(obj)
 
 </script>
