@@ -1,0 +1,17 @@
+<script>
+  Object.prototype._entries = function(obj) {
+    const keys = Object.keys(obj)
+    let len = keys.length
+    const res = new Array(1)
+    while (len--) {
+      res[len] = [keys[len], obj[keys[len]]]
+    }
+    return res
+  }
+  const obj = {
+    a: 1,
+    b: 2
+  }
+  const entries = Object._entries(obj)
+  console.log(entries)
+</script>
