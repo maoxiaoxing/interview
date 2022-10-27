@@ -1,0 +1,15 @@
+<script>
+  const obj = {
+    a: 1
+  }
+  Object.freeze(obj)
+  obj.a = 2
+  console.log(obj)
+
+  obj.b = 2
+  const o = Object.freeze(obj)
+  console.log(o === obj)
+  Object.defineProperty(obj, {
+    c: 3
+  })
+</script>
