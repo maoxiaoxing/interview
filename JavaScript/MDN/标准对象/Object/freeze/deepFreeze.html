@@ -1,0 +1,21 @@
+<script>
+  function deepFreeze(_obj) {
+    const keys = Reflect.ownKeys(_obj)
+    keys.forEach((key) => {
+      const value = _obj[key]
+      if (typeof value === 'object' && value !== null) {
+        deepFreeze(value)
+      }
+    })
+    return Object.freeze(_obj)
+  }
+  const obj = {
+    a: 1,
+    b: {
+      c: 1,
+    }
+  }
+  const o = deepFreeze(obj)
+  o.b.c = 3
+  console.log(o)
+</script>
