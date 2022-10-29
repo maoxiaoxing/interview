@@ -1,0 +1,13 @@
+<script>
+  const obj = {
+    a: 1,
+    b: 2
+  }
+  console.log(Object.getOwnPropertyDescriptors(obj))
+
+  const obj1 = Object.create(
+    Object.getPrototypeOf(obj),
+    Object.getOwnPropertyDescriptors(obj)
+  )
+  console.log(obj1)
+</script>
