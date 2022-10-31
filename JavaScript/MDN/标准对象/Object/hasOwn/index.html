@@ -5,4 +5,12 @@
   obj.b = 2
   console.log(Object.hasOwn(obj, 'a'))
   console.log(Object.hasOwn(obj, 'b'))
+
+  console.log(Object.hasOwn(obj, 'toString'), 'toString')
+  console.log(Object.hasOwn(obj, 'hasOwnProperty'), 'hasOwnProperty')
+
+  console.log('a' in obj, 'a in obj')
+  console.log('b' in obj, 'b in obj')
+  console.log('toString' in obj, 'toString in obj')
+  console.log('hasOwnProperty' in obj, 'hasOwnProperty in obj')
 </script>
