@@ -14,17 +14,12 @@
     }
   }
 
-  var buz = {
-  fog: 'stack'
-};
-
-for (var name in buz) {
-  if (buz.hasOwnProperty(name)) {
-    console.log('this is fog (' +
-      name + ') for sure. Value: ' + buz[name]);
+  const foo = {
+    hasOwnProperty: function() {
+      return false;
+    },
+    bar: 'Here be dragons'
   }
-  else {
-    console.log(name); // toString or something else
-  }
-}
+  console.log(foo.hasOwnProperty('bar'))
+  console.log(Object.prototype.hasOwnProperty.call(foo, 'bar'))
 </script>
