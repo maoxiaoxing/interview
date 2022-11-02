@@ -1,0 +1,12 @@
+<script>
+  console.log('Object.is(5, 5)', Object.is(5, 5))
+  console.log('Object.is(null, null)', Object.is(null, null))
+  console.log('Object.is(undefined, undefined)', Object.is(undefined, undefined))
+  console.log('Object.is(window, window)', Object.is(window, window))
+  const obj = {a:1}
+  const foo = {a:1}
+  console.log('Object.is(obj, obj)', Object.is(obj, obj))
+  console.log('Object.is(obj, foo)', Object.is(obj, foo))
+  console.log('Object.is(0, -0)', Object.is(0, -0))
+  console.log('Object.is(NaN, NaN)', Object.is(NaN, NaN))
+</script>
