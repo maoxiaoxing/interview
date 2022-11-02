@@ -1,0 +1,20 @@
+<script>
+  Object._is = function(x, y) {
+    if (x === y) {
+      return x !== 0 || 1/x === 1/y
+    } else {
+      return x !== x && y !== y
+    }
+  }
+
+  console.log('Object._is(5, 5)', Object._is(5, 5))
+  console.log('Object._is(null, null)', Object._is(null, null))
+  console.log('Object._is(undefined, undefined)', Object._is(undefined, undefined))
+  console.log('Object._is(window, window)', Object._is(window, window))
+  const obj = {a:1}
+  const foo = {a:1}
+  console.log('Object._is(obj, obj)', Object._is(obj, obj))
+  console.log('Object._is(obj, foo)', Object._is(obj, foo))
+  console.log('Object._is(0, -0)', Object._is(0, -0))
+  console.log('Object._is(NaN, NaN)', Object._is(NaN, NaN))
+</script>
