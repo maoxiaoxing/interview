@@ -2,4 +2,9 @@
   const obj = {}
   console.log(Object.isExtensible(obj))
   
+  const sealed = Object.seal({})
+  console.log(Object.isExtensible(sealed))
+
+  const frozen = Object.freeze({})
+  console.log(Object.isExtensible(frozen))
 </script>
