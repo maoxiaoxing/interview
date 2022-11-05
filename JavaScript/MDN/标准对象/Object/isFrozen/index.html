@@ -1,3 +1,5 @@
 <script>
   console.log(Object.isFrozen({}))
+  const vacouslyFrozen = Object.preventExtensions({}) // 不可扩展的空对象
+  console.log(Object.isFrozen(vacouslyFrozen))
 </script>
