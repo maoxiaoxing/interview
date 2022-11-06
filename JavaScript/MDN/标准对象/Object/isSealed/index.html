@@ -4,4 +4,8 @@
 
   Object.preventExtensions(obj)
   console.log(Object.isSealed(obj))
+
+  const sealed = {}
+  Object.seal(sealed)
+  console.log(Object.isSealed(sealed))
 </script>
