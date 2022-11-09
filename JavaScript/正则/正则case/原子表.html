@@ -7,4 +7,13 @@
   const str2 = 'xiaoxing'
   console.log(str1.match(reg))
   console.log(str2.match(reg))
+
+  const date = `
+    2022-11-09
+    2022/11/09
+    2022.11.09
+  `
+  const dateReg = /\d{4}[-/\.]\d{2}[-/\.]\d{2}/g
+  console.log(date.match(dateReg))
+
 </script>

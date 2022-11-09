@@ -622,6 +622,18 @@ console.log(str1.match(reg)) // ['m']
 console.log(str2.match(reg)) // ['x', 'x']
 ```
 
+匹配日期
+
+```js
+const date = `
+  2022-11-09
+  2022/11/09
+  2022.11.09
+`
+const dateReg = /\d{4}[-/\.]\d{2}[-/\.]\d{2}/g
+console.log(date.match(dateReg)) // ['2022-11-09', '2022/11/09', '2022.11.09']
+```
+
 #### 6.1.2 匹配数字
 
 在一组表达式中表示某个元字符，就叫做原子表，可以用 [...] 来表示
