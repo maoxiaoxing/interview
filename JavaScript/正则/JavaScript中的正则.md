@@ -608,9 +608,21 @@ console.log('mxxnmxxn'.match(/m.+?n/g)) // ['mxxn', 'mxxn']
 | [A-Z] | 匹配大写 A-Z 之间的任意一个字母 |
 | [^] | 匹配除了 [] 中的字符之外的字符 |
 
-#### 6.1.1 原子表基本使用
+#### 6.1.1 [] 匹配任意一个字符
 
-- 匹配数字
+[] 用来匹配 [] 中任意一个字符，例如 [mx] 匹配 m 或者 x ，而不是以 mx 为一个整体来匹配的
+
+```js
+const reg = /[mx]/g
+const str = 'maoxiaoxing'
+console.log(str.match(reg)) // ['m', 'x', 'x']
+const str1 = 'mao'
+const str2 = 'xiaoxing'
+console.log(str1.match(reg)) // ['m']
+console.log(str2.match(reg)) // ['x', 'x']
+```
+
+#### 6.1.2 匹配数字
 
 在一组表达式中表示某个元字符，就叫做原子表，可以用 [...] 来表示
 原子表中的字符集你可以理解为一个范围集合
