@@ -622,7 +622,7 @@ console.log(str1.match(reg)) // ['m']
 console.log(str2.match(reg)) // ['x', 'x']
 ```
 
-匹配日期
+日期往往有不同的连接符，我们可以使用 [] 的特性匹配多个连接符的日期
 
 ```js
 const date = `
