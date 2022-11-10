@@ -660,7 +660,7 @@ const reg = /abcdefghijklmnopqrstuvwxyz/
 const reg1 = /a-z/
 ```
 
-我们尝试匹配 a-h 之间的字母
+我们尝试匹配 a-h 之间的字母，匹配 a-h 之间的字符能匹配到，匹配 a-h 之外的字符，就会返回 null
 
 ```js
 const code1 = 'g'
