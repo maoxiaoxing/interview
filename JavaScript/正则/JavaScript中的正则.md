@@ -655,9 +655,9 @@ const reg1 = /[0-9]/
 匹配小写字母使用 `[a-z]`
 
 ```js
-const reg = /abcdefghijklmnopqrstuvwxyz/
+const reg = /[abcdefghijklmnopqrstuvwxyz]/
 // 等价于
-const reg1 = /a-z/
+const reg1 = /[a-z]/
 ```
 
 我们尝试匹配 a-h 之间的字母，匹配 a-h 之间的字符能匹配到，匹配 a-h 之外的字符，就会返回 null
@@ -668,6 +668,16 @@ const code2 = 'i'
 const reg = /[a-h]/
 console.log(code1.match(reg)) // ['g']
 console.log(code2.match(reg)) // null
+```
+
+- 匹配大写字母
+
+同小写字母，匹配大写字母使用 `[A-Z]`
+
+```js
+const reg = /[ABCDEFGHIJKLMNUPQRSTUVWXYZ]/
+// 等价于
+const reg1 = /[A-Z]/
 ```
 
 - 字母和数字需要正序
