@@ -1,0 +1,12 @@
+<script>
+  function Person () {
+    this.name = 'jack'
+  }
+  Person.prototype.foo = 'bar'
+  const obj = {
+    age: 18
+  }
+  Object.setPrototypeOf(obj, Person.prototype)
+  console.log(obj)
+  console.log(obj.foo)
+</script>
