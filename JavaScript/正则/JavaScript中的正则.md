@@ -430,7 +430,7 @@ console.log(str.match(/\Ban\B/g)) // ['an']
 
 ```js
 const str = `maoxiaoxing is a handsome-guy`
-const reg = /^maoxiaoxing/g
+const reg = /^maoxiaoxing/
 console.log(reg.test(str)) // true
 ```
 
