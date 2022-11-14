@@ -4,4 +4,14 @@
   const reg1 = /(19|20)\d{2}/
   console.log(str.match(reg))
   console.log(str.match(reg1))
+
+  const reg2 = /red|green/
+  const str1 = 'red pen'
+  const str2 = 'green pen'
+  console.log(str1.match(reg2))
+  console.log(str2.match(reg2))
+
+  const reg3 = /m|x/g
+  const str3 = 'maoxiaoxing'
+  console.log(str3.match(reg3))
 </script>

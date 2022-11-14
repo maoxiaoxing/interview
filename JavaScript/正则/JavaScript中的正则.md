@@ -598,8 +598,6 @@ console.log('mxxnmxxn'.match(/m.+?n/g)) // ['mxxn', 'mxxn']
 
 ## 6 原子表和原子组（组和范围）
 
-### 6.1 |
-
 ### 6.1 原子表
 
 | 用例 | 说明 |
@@ -725,7 +723,23 @@ console.log(str.match(/\p{sc=Han}+/gu)) // ['张三', '李四']
 
 原子组也叫捕获组，原子组能够匹配多个字符
 
+### 6.3 |
 
+`|` 表示 `或`，例如：`a|b` 表示匹配 a 或者 b 中的任意一个字符
+
+```js
+const reg = /m|x/g
+const str = 'maoxiaoxing'
+console.log(str.match(reg)) // ['m', 'x', 'x']
+```
+
+```js
+const reg = /red|green/
+const str = 'red pen'
+const str1 = 'red pen'
+console.log(reg.test(str)) // true
+console.log(reg.test(str1)) // true
+```
 
 
 
