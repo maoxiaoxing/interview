@@ -596,7 +596,9 @@ console.log('mxxnmxxn'.match(/m.+?/g)) // ['mx', 'mx']
 console.log('mxxnmxxn'.match(/m.+?n/g)) // ['mxxn', 'mxxn']
 ```
 
-## 6 原子表和原子组
+## 6 原子表和原子组（组和范围）
+
+### 6.1 |
 
 ### 6.1 原子表
 
