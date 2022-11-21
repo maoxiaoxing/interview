@@ -2,4 +2,8 @@
   const str = 'a1b2ccc'
   const reg = /([a-z]\d)+/
   console.log(str.match(reg))
+
+  const url = '欢迎来到https://www.baidu.com网站'
+  const reg1 = /(https?):\/\/(\w+\.\w+\.(com|cn))/
+  console.log(url.match(reg1))
 </script>

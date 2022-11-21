@@ -740,7 +740,25 @@ console.log(reg.test(str1)) // true
 ### 6.3 原子组
 
 原子组也叫捕获组，原子组能够匹配多个字符
-使用 `()` 会将多个字符归为一组，比如 (foo)
+使用 `()` 会将多个字符归为一组，比如 (foo)，那么原子组有什么用呢？
+我们尝试去匹配一个url
+
+```js
+const url = '欢迎来到https://www.baidu.com网站'
+const reg1 = /(https?):\/\/(\w+\.\w+\.(com|cn))/
+console.log(url.match(reg1)) // ['https://www.baidu.com', 'https', 'www.baidu.com', 'com', index: 4, input: '欢迎来到https://www.baidu.com网站', groups: undefined]
+```
+
+我们使用 `match` 方法去匹配正则的时候，会返回一个数组，这个数组会包含如下内容
+
+| 属性 | 描述 |
+|-- | -- |
+| 0 | 匹配的内容 |
+| 1~n | 匹配到的原子组的内容 |
+| index | 第一个匹配到的字符的索引 |
+| input | 原字符串 |
+| groups | 具名捕获组 |
+
 
 #### 6.3.1 修改优先级
 
