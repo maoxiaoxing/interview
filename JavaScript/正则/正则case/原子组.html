@@ -6,4 +6,14 @@
   const url = '欢迎来到https://www.baidu.com网站'
   const reg1 = /(https?):\/\/(\w+\.\w+\.(com|cn))/
   console.log(url.match(reg1))
+
+  const dom = `
+    <h1>标题</h1>
+    <span>其他内容</span>
+    <h2>正文</h2>
+  `
+  const reg2 = /<h[1-6]>[\s\S]*<\/h[1-6]>/g
+  const reg3 = /<(h[1-6])>[\s\S]*<\/\1>/g
+  console.log(dom.match(reg2))
+  console.log(dom.match(reg3))
 </script>
