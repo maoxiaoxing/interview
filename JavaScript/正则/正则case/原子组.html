@@ -16,4 +16,7 @@
   const reg3 = /<(h[1-6])>[\s\S]*<\/\1>/g
   console.log(dom.match(reg2))
   console.log(dom.match(reg3))
+
+  const reg4 = /(?:https:\/\/)www.baidu.com/
+  console.log(url.replace(reg4, '-'))
 </script>
