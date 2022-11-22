@@ -831,6 +831,21 @@ console.log(url.match(reg)) // ['https://www.baidu.com', 'www.baidu.com', index:
 
 可以看到 `https://` 虽然匹配了，但是没有被记录下来，我们只需要取第一个索引就是我们想要的结果了
 
+### 6.3.4 具名捕获组 (?<Name>x)
+
+可以将 x 匹配的内容存储在结果数组的 groups 属性中，`<>` 中的内容是捕获组的名称
+我们可以用这个特性获取正则匹配中的某几个字段
+
+```js
+const date = '2022-11-22'
+const reg6 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
+const res = date.match(reg6)
+const { groups } = res
+console.log(groups.year) // 2022
+console.log(groups.month) // 11
+console.log(groups.day) // 22
+```
+
 
 
 

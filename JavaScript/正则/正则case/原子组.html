@@ -22,4 +22,10 @@
   console.log(url.match(reg4))
   console.log(url.match(reg5))
 
+  const date = '2022-11-22'
+  const reg6 = /(?<year>\d{4})-(?<month>\d{2})-(?<day>\d{2})/
+  const res = date.match(reg6)
+  const { groups } = res
+  console.log(res, groups)
+
 </script>
