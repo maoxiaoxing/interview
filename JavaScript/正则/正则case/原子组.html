@@ -17,6 +17,9 @@
   console.log(dom.match(reg2))
   console.log(dom.match(reg3))
 
-  const reg4 = /(?:https:\/\/)www.baidu.com/
-  console.log(url.replace(reg4, '-'))
+  const reg4 = /(?:https:\/\/)(www.baidu.com)/
+  const reg5 = /(https:\/\/)(www.baidu.com)/
+  console.log(url.match(reg4))
+  console.log(url.match(reg5))
+
 </script>

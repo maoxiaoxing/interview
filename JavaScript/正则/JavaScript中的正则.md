@@ -813,6 +813,25 @@ console.log(dom.match(reg)) // ['<h1>标题</h1>', '<h2>正文</h2>']
 
 ### 6.3.3 非捕获组 (?:x)
 
+`(?:x)` 表示匹配但是不记录匹配的内容
+
+举个例子，如果我们想匹配 url 中的 host
+
+```js
+const reg = /(https:\/\/)(www.baidu.com)/
+console.log(url.match(reg)) // ['https://www.baidu.com', 'https://', 'www.baidu.com', index: 4, input: '欢迎来到https://www.baidu.com网站', groups: undefined]
+```
+
+可以看到匹配到的结果数组，第二个索引才是我们想要的结果，这时可以使用非捕获组过滤掉 `https://`
+
+```js
+const reg = /(?:https:\/\/)(www.baidu.com)/
+console.log(url.match(reg)) // ['https://www.baidu.com', 'www.baidu.com', index: 4, input: '欢迎来到https://www.baidu.com网站', groups: undefined]
+```
+
+可以看到 `https://` 虽然匹配了，但是没有被记录下来，我们只需要取第一个索引就是我们想要的结果了
+
+
 
 
 
