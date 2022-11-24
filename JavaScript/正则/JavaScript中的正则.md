@@ -853,7 +853,19 @@ console.log(groups.day) // 22
 
 ### 7.1 先行断言 x(?=y)
 
+`x(?=y)` 是先行断言，也叫向前查找，只有 x 后面跟着 y 时，x 才会被匹配
 
+可以利用先行断言
+```html
+<div class="box">
+  毛小星在学习正则，毛小星爱写博客
+</div>
+<script>
+  const reg = /毛小星(?=爱写博客)/g
+  const main = document.querySelector('.box')
+  main.innerHTML = main.innerHTML.replace(reg, (p1) => `<a href="https://www.cnblogs.com/">${p1}</a>`)
+</script>
+```
 
 ## 8 正则基本原理
 
