@@ -1,5 +1,15 @@
 <script>
   Number._isSafeInteger = function (value) {
-    return Number.isInteger(value) && Math.abs(value) < Number.MAX_SAFE_INTEGER
+    return Number.isInteger(value) && Math.abs(value) <= Number.MAX_SAFE_INTEGER
   }
+
+  console.log(Number._isSafeInteger(3))
+  console.log(Number._isSafeInteger(Number.NaN))
+  console.log(Number._isSafeInteger(NaN))
+  console.log(Number._isSafeInteger(Number.MAX_SAFE_INTEGER))
+  console.log(Number._isSafeInteger(Number.MAX_VALUE))
+  console.log(Number._isSafeInteger(Infinity))
+  console.log(Number._isSafeInteger('123'))
+  console.log(Number._isSafeInteger(3.1415))
+  console.log(Number._isSafeInteger(3.0))
 </script>
