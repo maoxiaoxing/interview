@@ -867,6 +867,15 @@ console.log(groups.day) // 22
 </script>
 ```
 
+也可以利用先行断言来匹配 url 的协议
+
+```js
+const url = 'https://www.baidu.com'
+const reg1 = /[a-z]+(?=:\/\/)/
+console.log(url.match(reg1)) // ['https', index: 0, input: 'https://www.baidu.com', groups: undefined]
+```
+
+
 ## 8 正则基本原理
 
 ### 8.1 正则引擎的基本介绍
