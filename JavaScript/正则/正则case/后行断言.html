@@ -12,4 +12,11 @@
   console.log(str.match(reg1))
   const reg2 = /(?<=\$)[0-9\.]+/g
   console.log(str.match(reg2))
+
+  const str1 = `
+    abc123
+    ui34
+  `
+  const reg3 = /(?<=[a-z]+)[0-9]+/g
+  console.log(str1.match(reg3))
 </script>

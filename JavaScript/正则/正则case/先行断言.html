@@ -9,4 +9,11 @@
   const url = 'https://www.baidu.com'
   const reg1 = /[a-z]+(?=:\/\/)/
   console.log(url.match(reg1))
+
+  const str = `
+    abc123
+    ui34
+  `
+  const reg2 = /[a-z]+(?=[0-9]+)/g
+  console.log(str.match(reg2))
 </script>
