@@ -875,6 +875,24 @@ const reg1 = /[a-z]+(?=:\/\/)/
 console.log(url.match(reg1)) // ['https', index: 0, input: 'https://www.baidu.com', groups: undefined]
 ```
 
+### 后行断言 (?<=y)x
+
+`(?<=y)x` 是后行断言，也叫向后查找，匹配前面为 y 的内容，也就是 x 前面为 y 时，x 才会被匹配
+
+举个例子，我们想从一段数据中提取出水果的价格来
+
+```js
+const str = `
+  apple: $2.1
+  apple23: $3.1
+  banana: $3.6
+  orange: $8.9
+  orange33: $6.9
+`
+const reg = /\$[0-9\.]+/g
+console.log(str.match(reg)) // ['$2.1', '$3.1', '$3.6', '$8.9', '$6.9']
+```
+
 
 
 

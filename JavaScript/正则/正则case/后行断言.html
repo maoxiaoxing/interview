@@ -1,0 +1,15 @@
+<script>
+  const str = `
+    apple: $2.1
+    apple23: $3.1
+    banana: $3.6
+    orange: $8.9
+    orange33: $6.9
+  `
+  const reg = /\$[0-9\.]+/g
+  console.log(str.match(reg))
+  const reg1 = /[0-9\.]+/g
+  console.log(str.match(reg1))
+  const reg2 = /(?<=\$)[0-9\.]+/g
+  console.log(str.match(reg2))
+</script>
