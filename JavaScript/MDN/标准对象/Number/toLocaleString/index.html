@@ -1,4 +1,13 @@
 <script>
   const num = 1
+  const nan = NaN
+  const number = 123456.789
   console.log(num.toLocaleString())
+  console.log(num.toLocaleString('ar-EG'))
+  console.log(nan.toLocaleString('ar-EG'))
+  console.log(number.toLocaleString('de-DE'))
+  console.log(number.toLocaleString('ar-EG'))
+  console.log(number.toLocaleString('en-IN'))
+  console.log(number.toLocaleString('zh-Hans-CN-u-nu-hanidec'))
+  console.log(number.toLocaleString(['ban', 'id']))
 </script>
