@@ -10,4 +10,8 @@
   console.log(number.toLocaleString('en-IN'))
   console.log(number.toLocaleString('zh-Hans-CN-u-nu-hanidec'))
   console.log(number.toLocaleString(['ban', 'id']))
+  console.log(number.toLocaleString('de-DE', { style: 'currency', currency: 'EUR' }))
+  console.log(number.toLocaleString('ja-JP', { style: 'currency', currency: 'JPY' }))
+  console.log(number.toLocaleString('en-IN', { maximumSignificantDigits: 3 }))
+  console.log(num.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2}))
 </script>
