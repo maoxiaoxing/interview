@@ -877,7 +877,15 @@ console.log(url.match(reg1)) // ['https', index: 0, input: 'https://www.baidu.co
 
 ### 先行否定断言 x(?!y)
 
+`x(?!y)` 是先行否定断言，会匹配后面不是 y 的 x
 
+如果我们想匹配数字中的小数位
+
+```js
+const num = `3.1415`
+const reg = /\d+(?!\.)/
+console.log(num.match(reg))
+```
 
 ### 后行断言 (?<=y)x
 
