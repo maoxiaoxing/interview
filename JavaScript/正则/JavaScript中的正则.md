@@ -377,7 +377,7 @@ console.log(reg6.test(' ')) // false
 
 ### 4.1 \b 和 \B
 
-在讲 \b 之前我们先来看看一个例子，我们需要匹配字符串中的 cap 单词
+在讲 \b 之前我们先来看看一个例子，我们需要匹配字符串中的 cap 单词                            
 
 ```js
 const str = `The captain wore his cap and cape proudly as he sat listening to the recap of how his crew saved the men from a capsized vessel.`
@@ -939,8 +939,21 @@ console.log(str.match(reg)) // ['2.1', '3.1', '3.6', '8.9', '6.9']
 
 `(?<!y)x` 是后行否定断言，匹配前端不是 y 的 x
 
+如果我们想匹配买的水果的数量，可以使用后行否定断言匹配不包含 $ 的数字
 ```js
+const str = `I spent $20 on 5 apples, $30 on 2 grapefruit, and 20 oranges`
 
+const reg = /(?<!\$)\b\d+/g
+console.log(str.match(reg)) // ['5', '2', '20']
+```
+
+这里使用 `\b` 的原因是因为我们需要把数量作为一个整体，否则会出现匹配单个数字的情况
+
+```js
+const str = `I spent $20 on 5 apples, $30 on 2 grapefruit, and 20 oranges`
+
+const reg = /(?<!\$)\d+/g
+console.log(str.match(reg)) // ['0', '5', '0', '2', '20']
 ```
 
 ## 8 正则基本原理

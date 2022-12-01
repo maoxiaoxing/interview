@@ -1,3 +1,9 @@
 <script>
-  const str = ``
+  const str = `I spent $20 on 5 apples, $30 on 2 grapefruit, and 20 oranges`
+
+  const reg = /(?<!\$)\b\d+/g
+  console.log(str.match(reg))
+
+  const reg1 = /(?<!\$)\d+/g
+  console.log(str.match(reg1))
 </script>
