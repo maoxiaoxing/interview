@@ -6,4 +6,16 @@
   console.log(typeof numObj)
   const num1 = numObj.valueOf()
   console.log(typeof num1)
+
+  const numObject = {
+    valueOf() {
+      return 1
+    },
+    toString() {
+      return 'a'
+    }
+  }
+  console.log(1+numObject)
+  console.log('b'+numObject)
+  console.log('b'+String(numObject))
 </script>
