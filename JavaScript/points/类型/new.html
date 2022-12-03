@@ -1,0 +1,8 @@
+<script>
+  function _new (Super, ...args) {
+    const obj = Object.create(null)
+    obj.__proto__ = Super.prototype
+    const res = Super.call(obj, ...arg)
+    return typeof res === 'object' ? res : obj
+  }
+</script>
