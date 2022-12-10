@@ -1,0 +1,15 @@
+<script>
+  String.prototype._endsWith = function (search, len) {
+    if (len === undefined || len > this.length) {
+      len = this.length
+    }
+    return this.substring(len - search.length, len) === search
+  }
+
+  const str = 'maoxiaoxing'
+  console.log(str._endsWith('g'))
+  console.log(str._endsWith('ing'))
+  console.log(str._endsWith('g', 3))
+  console.log(str._endsWith('o', 3))
+  console.log(str._endsWith('g', 100))
+</script>
