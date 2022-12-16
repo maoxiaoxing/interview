@@ -13,4 +13,9 @@
     // expected output: "Found football start=6 end=14."
     // expected output: "Found foosball start=16 end=24."
   }
+
+  const matches = str1.matchAll(regexp)
+  for (const match of matches) {
+    console.log(`Found ${match[0]} start=${match.index} end=${match.index + match[0].length}.`)
+  }
 </script>
