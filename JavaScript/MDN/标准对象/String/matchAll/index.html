@@ -2,4 +2,15 @@
   const str = 'test1test2'
   const reg = /t(e)(st(\d?))/g
   console.log(...str.matchAll(reg))
+
+  const regexp = RegExp('foo[a-z]*','g')
+  const str1 = 'table football, foosball'
+
+  let match
+
+  while ((match = regexp.exec(str1)) !== null) {
+    console.log(`Found ${match[0]} start=${match.index} end=${regexp.lastIndex}.`)
+    // expected output: "Found football start=6 end=14."
+    // expected output: "Found foosball start=16 end=24."
+  }
 </script>
