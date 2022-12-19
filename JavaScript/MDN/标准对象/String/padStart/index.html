@@ -1,4 +1,10 @@
 <script>
   const str = 'maoxiaoxing'
   console.log(str.padStart(15, '-'))
+
+  function leftFillNum (num, targetLength) {
+    return num.toString().padStart(targetLength, 0)
+  }
+
+  console.log(leftFillNum(5, 3))
 </script>
