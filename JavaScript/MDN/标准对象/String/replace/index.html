@@ -2,4 +2,10 @@
   const str = 'maoxiaoxing'
   console.log(str.replace('mao', 'Mr.'))
   console.log(str)
+
+  const str1 = 'test01=%$'
+  const reg = /([^\d]+)(\d+)([^\w]+)/
+  str1.replace(reg, (match, p1, p2, p3, offset, string) => {
+    console.log(match, p1, p2, p3, offset, string)
+  })
 </script>
