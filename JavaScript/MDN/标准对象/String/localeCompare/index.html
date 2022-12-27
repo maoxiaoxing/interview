@@ -6,4 +6,8 @@
   console.log(a.localeCompare('A'))
   console.log(d.localeCompare('a'))
   console.log(d.localeCompare('a', 'de', {useage: 'search', sensitivity: 'base'}))
+
+  const arr = ['爱国', '奉献', '奋斗']
+  console.log(arr.sort())
+  console.log(arr.sort((a, b) => a.localeCompare(b)))
 </script>
