@@ -1,0 +1,20 @@
+<script>
+  class Person {
+    constructor (name) {
+      this.name = name
+    }
+  }
+
+  class Other {
+    construct () {
+      this.name = 'other'
+    }
+  }
+
+  const obj = Reflect.construct(Person, ['maoxiaoxing'])
+  const obj1 = Reflect.construct(Person, ['maoxiaoxing'], Other)
+
+  console.log(obj)
+  console.log(obj1)
+
+</script>
