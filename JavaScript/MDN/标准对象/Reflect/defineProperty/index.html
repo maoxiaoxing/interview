@@ -1,0 +1,19 @@
+<script>
+  const obj = {
+    name: 'maoxiaoxing'
+  }
+  const name = obj.name
+
+  const bool = Reflect.defineProperty(obj, 'name', {
+    get() {
+      return name
+    },
+    set(value) {
+      console.log(value, 'value')
+      return value
+    }
+  })
+
+  obj.name = 'jack'
+  console.log(obj.name)
+</script>
