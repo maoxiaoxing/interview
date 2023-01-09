@@ -14,6 +14,12 @@
     }
   })
 
+  Reflect.defineProperty(obj, 'foo', {
+    value: 'bar'
+  })
+
   obj.name = 'jack'
   console.log(obj.name)
+  console.log(bool)
+  console.log(obj.foo)
 </script>
