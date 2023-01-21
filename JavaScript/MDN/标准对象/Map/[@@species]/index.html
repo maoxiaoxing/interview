@@ -1,0 +1,12 @@
+<script>
+  class MyMap extends Map {
+    // 重写覆盖 MyMap species to the parent Map constructor
+    static get [Symbol.species]() { return Map; }
+  }
+
+  const map = new MyMap([
+    ['a', 1],
+    ['b', 2],
+  ])
+  console.log(map)
+</script>
