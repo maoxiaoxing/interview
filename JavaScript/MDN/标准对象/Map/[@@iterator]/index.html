@@ -4,5 +4,11 @@
     ['b', 2],
   ])
   console.log(map)
-  console.log(map[Symbol.iterator]())
+
+  const iterator = map[Symbol.iterator]()
+  console.log(iterator)
+
+  console.log(iterator.next())
+  console.log(iterator.next())
+  console.log(iterator.next())
 </script>
