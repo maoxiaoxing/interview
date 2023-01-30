@@ -1,0 +1,12 @@
+<script>
+  class MySet extends Set {
+    static get [Symbol.species]() {
+      return Set
+    }
+  }
+
+  const myset = new MySet([1,2,3])
+  console.log(myset)
+  console.log(myset.has(1))
+
+</script>
