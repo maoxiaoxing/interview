@@ -1,6 +1,8 @@
 <script>
   const map = new WeakMap()
+  const obj = {a: 1}
   map.set(window, 'foo')
+  map.set(obj, 'bar')
   console.log(map)
   console.log(map.delete(window))
   console.log(map)
