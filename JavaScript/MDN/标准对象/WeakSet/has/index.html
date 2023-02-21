@@ -1,0 +1,8 @@
+<script>
+  const ws = new WeakSet()
+  const obj = {a: 1}
+  ws.add(obj)
+  ws.add({})
+  console.log(ws.has(obj))
+  console.log(ws.has({}))
+</script>
