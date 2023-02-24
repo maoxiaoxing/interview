@@ -9,4 +9,16 @@
     console.log(res.next())
     console.log(res.next())
     console.log(res.next())
+
+    const bar = function*() {
+        yield 'a'
+        yield 'b'
+        yield 'c'
+    }
+
+    const baz = bar()
+
+    for (const item of baz) {
+        console.log(item)
+    }
 </script>
