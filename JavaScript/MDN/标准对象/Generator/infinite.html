@@ -1,0 +1,13 @@
+<script>
+    function *infinite() {
+        let index = 0
+        while (true) {
+            yield index++
+        }
+    }
+
+    const res = infinite()
+    for (let i = 0; i < 10; i++) {
+        console.log(res.next())
+    }
+</script>
