@@ -1,0 +1,12 @@
+<script>
+    const foo = function*() {
+        yield 'a'
+        yield 'b'
+        yield 'c'
+    }
+    const res = foo()
+    console.log(res.next())
+    console.log(res.next())
+    console.log(res.next())
+    console.log(res.next())
+</script>
