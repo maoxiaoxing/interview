@@ -1,0 +1,14 @@
+<script>
+    function* gen() {
+        while(true) {
+            try {
+            yield 42
+            } catch(e) {
+            console.log("Error caught!")
+            }
+        }
+    }
+    const g = gen()
+    console.log(g.next())
+    g.throw(new Error("Something went wrong"))
+</script>
