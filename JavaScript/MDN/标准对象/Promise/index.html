@@ -1,0 +1,11 @@
+<script>
+    const promise = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve('hello')
+        }, 400)
+    })
+
+    promise.then((res) => {
+        console.log(res)
+    })
+</script>
