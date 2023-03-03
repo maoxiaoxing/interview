@@ -1,0 +1,80 @@
+<script>
+    async function fetchFn() {
+        return await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    name: 'maoxiaoxing',
+                    age: 18,
+                })
+            }, 2000)
+        })
+    }
+
+    const PENDING = 'pending'
+    const FULFILLED = 'fulfilled'
+    const REJECTED = 'rejected'
+    function run(func) {
+        const cache = []
+        let i = 0
+        const originFetchFn = fetchFn
+        window.fetchFn = function (...args) {
+            if (cache[i]) {
+                if (cache[i].status === FULFILLED) {
+                    return cache[i].data
+                } else if (cache[i].status === REJECTED) {
+                    return cache[i].err
+                }
+            }
+            const result = {
+                status: PENDING,
+                data: null,
+                err: null,
+            }
+            cache[i++] = result
+            const prom = originFetchFn().then((res) => {
+                result.status = FULFILLED
+                result.data = res
+            }, (err) => {
+                result.status = REJECTED
+                result.err = err
+            })
+
+            throw prom
+        }
+        try {
+            func()
+        } catch (err) {
+            if (err instanceof Promise) {
+                const reFunc = function () {
+                    i = 0
+                    func()
+                }
+                err.then(reFunc, reFunc)
+            }
+        }
+    }
+
+    function getUser() {
+        return fetchFn()
+    }
+
+    function m1() {
+        return getUser()
+    }
+
+    function m2() {
+        return m1()
+    }
+
+    function m3() {
+        return m2()
+    }
+
+    function main() {
+        const user = m3()
+        console.log(user)
+    }
+
+    run(main)
+
+</script>
