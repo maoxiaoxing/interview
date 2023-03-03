@@ -1,5 +1,5 @@
 <script>
-    async function getUser() {
+    async function fetchFn() {
         return await new Promise((resolve) => {
             setTimeout(() => {
                 resolve({
@@ -8,6 +8,9 @@
                 })
             }, 2000)
         })
+    }
+    async function getUser() {
+        return await fetchFn()
     }
 
     async function m1() {
