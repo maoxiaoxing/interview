@@ -1,0 +1,32 @@
+<script>
+    async function getUser() {
+        return await new Promise((resolve) => {
+            setTimeout(() => {
+                resolve({
+                    name: 'maoxiaoxing',
+                    age: 18,
+                })
+            }, 2000)
+        })
+    }
+
+    async function m1() {
+        return await getUser()
+    }
+
+    async function m2() {
+        return await m1()
+    }
+
+    async function m3() {
+        return await m2()
+    }
+
+    async function main() {
+        const user = await m3()
+        console.log(user)
+    }
+
+    main()
+
+</script>
