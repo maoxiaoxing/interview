@@ -1,0 +1,10 @@
+<script>
+    class MyPromise extends Promise {
+        someValue = 1
+        static get [Symbol.species]() {
+            return Promise
+        }
+    }
+
+    console.log(MyPromise.resolve(1).then(() => {}).someValue)
+</script>
