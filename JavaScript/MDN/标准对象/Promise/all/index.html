@@ -5,7 +5,15 @@
         setTimeout(resolve, 100, 'foo');
     });
 
+    const promise4 = new Promise((resolve, reject) => {
+        setTimeout(reject, 100, 'bar')
+    })
+
     Promise.all([promise1, promise2, promise3]).then((values) => {
         console.log(values);
-    });
+    })
+
+    Promise.all([promise1, promise2, promise4]).then((values) => {
+        console.log(values)
+    })
 </script>
