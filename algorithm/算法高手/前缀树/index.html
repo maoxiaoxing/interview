@@ -1,0 +1,37 @@
+<script>
+    class Trie {
+        constructor() {
+            this.children = {}
+        }
+
+        insert(str) {
+            let node = this.children
+            for (const c of str) {
+                if (!node[c]) {
+                    node[c] = {}
+                }
+                node = node[c]
+            }
+            node.isEnd = true
+        }
+
+        search(str) {
+            let node = this.children
+            for (const c of str) {
+                if (!node[c]) {
+                    return false
+                }
+                node = node[c]
+            }
+            return !!node && !!node.isEnd
+        }
+    }
+
+    const trie = new Trie()
+    trie.insert('apple')
+    console.log(trie)
+    console.log(trie.search('apple'), 'search')
+    console.log(trie.search('app'), 'search')
+    trie.insert('app')
+    console.log(trie.search('app'), 'search')
+</script>
