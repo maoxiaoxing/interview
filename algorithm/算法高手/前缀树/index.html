@@ -16,6 +16,11 @@
         }
 
         search(str) {
+            const res = this.searchPro(str)
+            return !!res && !!res.isEnd
+        }
+
+        searchPro(str) {
             let node = this.children
             for (const c of str) {
                 if (!node[c]) {
@@ -23,7 +28,11 @@
                 }
                 node = node[c]
             }
-            return !!node && !!node.isEnd
+            return node
+        }
+
+        startsWith(prefix) {
+            return !!this.searchPro(prefix)
         }
     }
 
@@ -31,6 +40,9 @@
     trie.insert('apple')
     console.log(trie)
     console.log(trie.search('apple'), 'search')
+    console.log(trie.startsWith('app'), 'startsWith')
+    console.log(trie.startsWith('appp'), 'startsWith')
+    console.log(trie.startsWith('applea'), 'startsWith')
     console.log(trie.search('app'), 'search')
     trie.insert('app')
     console.log(trie.search('app'), 'search')
