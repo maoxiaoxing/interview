@@ -6,4 +6,10 @@
     promise.catch((err) => {
         console.log(err)
     })
+
+    const promise1 = new Promise((resolve, reject) => {
+        throw new Error('is error')
+    })
+
+    promise1.catch(console.log)
 </script>
