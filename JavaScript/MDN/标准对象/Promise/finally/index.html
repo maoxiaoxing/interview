@@ -14,21 +14,21 @@
     }
 
     foo(TYPE.REJECTED)
-    .catch((err) => {
-        console.log(err)
-    })
-    .finally(() => {
-        console.log('finally reject')
-    })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            console.log('finally reject')
+        })
 
     foo(TYPE.FUFILLED)
-    .then((res) => {
-        console.log(res)
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-    .finally(() => {
-        console.log('finally resolve')
-    })
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+        .finally(() => {
+            console.log('finally resolve')
+        })
 </script>
