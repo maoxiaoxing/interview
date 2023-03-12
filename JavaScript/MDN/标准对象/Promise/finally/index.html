@@ -1,0 +1,25 @@
+<script>
+    const TYPE = {
+        REJECTED: 'rejected',
+        FUFILLED: 'fufilled',
+    }
+    function foo (type) {
+        return new Promise((resolve, reject) => {
+            if (type === TYPE.FUFILLED) {
+                resolve('foo')
+            } else {
+                reject('err')
+            }
+        })
+    }
+
+    foo(TYPE.REJECTED)
+    .catch((err) => {
+        console.log(err)
+    })
+    .finally(() => {
+        console.log('finally')
+    })
+
+    
+</script>
