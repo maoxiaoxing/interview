@@ -4,4 +4,16 @@
     })
 
     promise.catch(console.log)
+
+    const promise1 = Promise.reject('bar')
+
+    promise1.then((res) => {
+        console.log(res)
+    }, (err) => {
+        console.log(err)
+    })
+
+    promise1.catch(console.log)
+
+
 </script>
