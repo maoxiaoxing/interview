@@ -7,4 +7,19 @@
 
     const promise1 = Promise.resolve('bar')
     promise1.then(console.log)
+
+    const promise2 = Promise.resolve({
+        then: function (fufilled, rejected) {
+            fufilled('success')
+        }
+    })
+
+    promise2.then(console.log)
+
+    const thenable = {
+        then: function(fufilled, rejected) {
+            fufilled('baz')
+            throw new Error()
+        }
+    }
 </script>
