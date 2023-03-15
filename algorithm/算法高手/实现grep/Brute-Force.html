@@ -1,0 +1,22 @@
+<script>
+    // Brute-Force 暴力解法
+
+    const s = 'aaaaabaaaaaba'
+    const p = 'aaab'
+
+    function match(_s, _p) {
+        const sLen = _s.length
+        const pLen = _p.length
+        const res = []
+        let i,j
+        for (i = 0; i < sLen; i++) {
+            for (j = 0; j < pLen; j++) {
+                if (_s[i+j] !== _p[j]) break
+            }
+            if (j === pLen) res.push(i)
+        }
+        return res
+    }
+
+    console.log(match(s, p))
+</script>
