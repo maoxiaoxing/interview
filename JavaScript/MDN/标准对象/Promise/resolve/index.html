@@ -19,7 +19,20 @@
     const thenable = {
         then: function(fufilled, rejected) {
             fufilled('baz')
-            throw new Error()
+            throw new Error('err')
         }
     }
+
+    const thenable1 = {
+        then: function(fufilled, rejected) {
+            throw new Error('err')
+            fufilled('baz')
+        }
+    }
+
+    const promise3 = Promise.resolve(thenable)
+    promise3.then((res) => console.log(res), (err) => console.error(err))
+
+    const promise4 = Promise.resolve(thenable1)
+    promise4.then((res) => console.log(res), (err) => console.error(err))
 </script>
