@@ -4,4 +4,16 @@
     })
 
     promise.then(console.log)
+
+    const promise1 = new Promise((resolve, reject) => {
+        resolve('bar')
+    })
+    promise1
+        .then((res) => {
+            console.log(res)
+            return 'baz'
+        })
+        .then((res) => {
+            console.log(res)
+        })
 </script>
