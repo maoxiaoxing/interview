@@ -1,0 +1,18 @@
+<script>
+  Promise
+    .resolve('foo')
+    .then((res) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          res += 'bar'
+          resolve(res)
+        })
+      })
+    })
+    .then((res) => {
+      setTimeout(() => {
+        res += 'baz'
+        console.log(res)
+      })
+    })
+</script>
