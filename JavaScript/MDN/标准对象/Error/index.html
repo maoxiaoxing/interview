@@ -4,4 +4,19 @@
     } catch (err) {
         console.log(err)
     }
+
+    try {
+        foo()
+    } catch (e) {
+        if (e instanceof EvalError) {
+            console.error(e.name + ': ' + e.message)
+        } else if (e instanceof RangeError) {
+            console.error(e.name + ': ' + e.message)
+        }
+        // ... etc
+
+        else {
+            throw e;
+        }
+    }
 </script>
