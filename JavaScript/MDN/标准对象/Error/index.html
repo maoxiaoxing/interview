@@ -5,18 +5,44 @@
         console.log(err)
     }
 
-    try {
-        foo()
-    } catch (e) {
-        if (e instanceof EvalError) {
-            console.error(e.name + ': ' + e.message)
-        } else if (e instanceof RangeError) {
-            console.error(e.name + ': ' + e.message)
-        }
-        // ... etc
+    // try {
+    //     foo()
+    // } catch (e) {
+    //     if (e instanceof EvalError) {
+    //         console.error(e.name + ': ' + e.message)
+    //     } else if (e instanceof RangeError) {
+    //         console.error(e.name + ': ' + e.message)
+    //     }
+    //     // ... etc
 
-        else {
-            throw e;
+    //     else {
+    //         throw e;
+    //     }
+    // }
+
+    function doWork() {
+        try {
+            doFailSomeWay();
+        } catch (err) {
+            throw new Error('Failed in some way', { cause: err });
+        }
+        try {
+            doFailAnotherWay();
+        } catch (err) {
+            throw new Error('Failed in another way', { cause: err });
+        }
+    }
+
+    try {
+        doWork();
+    } catch (err) {
+        switch(err.message) {
+            case 'Failed in some way':
+            handleFailSomeWay(err.cause);
+            break;
+            case 'Failed in another way':
+            handleFailAnotherWay(err.cause);
+            break;
         }
     }
 </script>
