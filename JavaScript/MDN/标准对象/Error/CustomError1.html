@@ -1,0 +1,26 @@
+<script>
+    function CustomError(foo, message, fileName, lineNumber) {
+        var instance = new Error(message, fileName, lineNumber);
+        instance.foo = foo;
+        Object.setPrototypeOf(instance, CustomError.prototype);
+        if (Error.captureStackTrace) {
+            Error.captureStackTrace(instance, CustomError);
+        }
+        return instance;
+    }
+
+    Object.setPrototypeOf(CustomError.prototype, Error.prototype);
+
+    Object.setPrototypeOf(CustomError, Error);
+
+    CustomError.prototype.name = 'CustomError';
+
+    try {
+        throw new CustomError('baz', 'bazMessage');
+    } catch(e) {
+        console.error(e.name); // CustomError
+        console.error(e.foo); // baz
+        console.error(e.message); // bazMessage
+    }
+
+</script>
