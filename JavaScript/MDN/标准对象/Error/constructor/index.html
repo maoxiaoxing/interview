@@ -2,4 +2,12 @@
     const err = new Error('foo')
     console.log(err)
 
+    const err1 = new Error('foo', {
+        details: 'info',
+        cause: 'cause'
+    })
+    console.log(err1)
+    console.log(err1.details)
+    console.log(err1.cause)
+
 </script>
