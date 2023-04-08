@@ -13,4 +13,15 @@
     const a = function() {};
     a.displayName = 'My Function'
     console.log(a)
+
+
+    var object = {
+    // anonymous
+    someMethod: function(value) {
+        arguments.callee.displayName = 'someMethod (' + value + ')'
+    }
+    }
+    console.log(object.someMethod.displayName)
+    object.someMethod('123')
+    console.log(object.someMethod.displayName)
 </script>
