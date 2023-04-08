@@ -1,4 +1,8 @@
 <script>
     function fn() {}
     console.log(fn.displayName)
+
+    fn.displayName = 'my fn'
+    console.log(fn.displayName)
+    console.log(fn)
 </script>
