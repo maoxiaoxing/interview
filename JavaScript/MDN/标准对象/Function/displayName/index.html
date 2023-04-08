@@ -6,7 +6,11 @@
     console.log(fn.displayName)
     console.log(fn)
 
-    var popup = function(content) { console.log(content); }
+    const popup = function(content) { console.log(content); }
     popup.displayName = 'Show Popup'
     console.log(popup.displayName)
+
+    const a = function() {};
+    a.displayName = 'My Function'
+    console.log(a)
 </script>
