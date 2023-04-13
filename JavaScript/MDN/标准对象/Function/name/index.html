@@ -4,10 +4,15 @@
 
     console.log((new Function).name)
 
-    var object = {
+    const object = {
         someMethod: function object_someMethod() {}
     };
 
     console.log(object.someMethod.name)
     console.log(foo.bind().name)
+
+    function Foo() {}  // ES2015 Syntax: class Foo {}
+
+    const fooInstance = new Foo();
+    console.log(fooInstance.constructor.name)
 </script>
