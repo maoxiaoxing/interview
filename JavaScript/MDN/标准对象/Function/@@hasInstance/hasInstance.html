@@ -1,0 +1,11 @@
+<script>
+  class Foo {
+    static [Symbol.hasInstance](value) {
+      // A custom implementation
+      return false;
+    }
+  }
+  const foo = new Foo()
+  console.log(foo instanceof Foo)
+  console.log(Function.prototype[Symbol.hasInstance].call(Foo, foo))
+</script>
